@@ -498,7 +498,7 @@ public extension UIButton
         }
     }
 
-    func UnderlineTextButton(title: String?, forState state: UIControl.State)
+    func bs_UnderlineTextButton(title: String?, forState state: UIControl.State)
         {
             self.setTitle(title, for: .normal)
             self.setAttributedTitle(self.attributedString(), for: .normal)
@@ -689,7 +689,7 @@ public extension UIViewController {
         }
         UIApplication.shared.bs_rootViewController?.present(self, animated: true, completion: nil);
     }
-    static func generalPush(){
+    static func bs_generalPush(){
         if  let name:String = String(describing: self), let vc:UIViewController = UIStoryboard.bs_main?.instantiateViewController(withIdentifier:name) as? UIViewController{
             UIApplication.shared.bs_rootNavigationController?.pushViewController(vc, animated: true);
         }
@@ -760,7 +760,7 @@ public extension UILabel {
         guard let attributedText = attributedText else {
             return 0
         }
-        return attributedText.height(withWidth: width)
+        return attributedText.bs_height(withWidth: width)
     }
     func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
         var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text?.last ?? " ")
@@ -966,7 +966,7 @@ public extension TimeInterval {
 /*    **NSNumber**   */
 
 public extension NSNumber {
-    static func isNumber(object:Any)->Bool{
+    static func bs_isNumber(object:Any)->Bool{
         switch object {
         case is CGFloat: return true
         case is Float: return true
@@ -1181,11 +1181,11 @@ public extension CMTime {
 /*    **AVPlayer**   */
 
 public extension AVPlayer{
-     var isPlaying: Bool {
+     var bs_isPlaying: Bool {
         return rate != 0 && error == nil
     }
-     var durationCMTime: CMTime? { return self.currentItem?.asset.duration}
-     var duration: TimeInterval { return TimeInterval(self.currentItem?.asset.duration.seconds ?? 0)}
+     var bs_durationCMTime: CMTime? { return self.currentItem?.asset.duration}
+     var bs_duration: TimeInterval { return TimeInterval(self.currentItem?.asset.duration.seconds ?? 0)}
 
 }
 
@@ -1448,7 +1448,7 @@ public extension UIColor {
 /*    **URLComponents**   */
 
 public extension URLComponents {
-    func parameter(paramKey: String) -> String? {
+    func bs_parameter(paramKey: String) -> String? {
         return self.queryItems?.first(where: { $0.name == paramKey })?.value
     }
 }
@@ -1582,7 +1582,7 @@ public extension Data {
 /*    **NSAttributedString**   */
 
 public extension NSAttributedString {
-     func height(withWidth width: CGFloat) -> CGFloat {
+     func bs_height(withWidth width: CGFloat) -> CGFloat {
         let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let actualSize = boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
         return actualSize.height
@@ -1831,7 +1831,7 @@ public extension PHAsset {
 }
 
 public extension PHFetchResult where ObjectType == PHAsset {
-    open var objects: [ObjectType] {
+    open var bs_objects: [ObjectType] {
         var _objects: [ObjectType] = []
         enumerateObjects { (object, _, _) in
             _objects.append(object)
@@ -1840,7 +1840,7 @@ public extension PHFetchResult where ObjectType == PHAsset {
     }
 }
 public extension PHFetchResult where ObjectType == PHCollection {
-    open var objects: [ObjectType] {
+    open var bs_objects: [ObjectType] {
         var _objects: [ObjectType] = []
         enumerateObjects { (object, _, _) in
             _objects.append(object)
@@ -1849,7 +1849,7 @@ public extension PHFetchResult where ObjectType == PHCollection {
     }
 }
 public extension PHFetchResult where ObjectType == PHAssetCollection {
-    open var objects: [ObjectType] {
+    open var bs_objects: [ObjectType] {
         var _objects: [ObjectType] = []
         enumerateObjects { (object, _, _) in
             _objects.append(object)
@@ -2004,7 +2004,7 @@ public extension UNNotificationSoundName{
 /*    **NSObject**   */
 
 public extension NSObject{
-  func AudioServicesPlaySystemSound(fileName:String,fileType:String)->SystemSoundID? {
+  func bs_AudioServicesPlaySystemSound(fileName:String,fileType:String)->SystemSoundID? {
         var soundID: SystemSoundID = 0
         if  let filePath:String = Bundle.main.path(forResource: fileName, ofType:fileType),
             let url:NSURL = NSURL(fileURLWithPath: filePath) {
