@@ -14,8 +14,8 @@
 /* Begin PBXFileReference section */
 		4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SalahUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E34D74D2448F7F000FCCC1A /* SalahUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalahUtility.h; sourceTree = "<group>"; };
-		4E34D74E2448F7F000FCCC1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
+		4E910AE3245E2AB7005C2976 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			children = (
 				4E34D74D2448F7F000FCCC1A /* SalahUtility.h */,
 				4E34D7552448F81700FCCC1A /* BaseExtension.swift */,
-				4E34D74E2448F7F000FCCC1A /* Info.plist */,
+				4E910AE3245E2AB7005C2976 /* Info.plist */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
