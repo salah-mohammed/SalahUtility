@@ -50,17 +50,17 @@
 			children = (
 				4E34D74D2448F7F000FCCC1A /* SalahUtility.h */,
 				4E34D7552448F81700FCCC1A /* BaseExtension.swift */,
-				4E910AE5245E2F95005C2976 /* assets */,
+				4E910AE5245E2F95005C2976 /* Resources */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
 		};
-		4E910AE5245E2F95005C2976 /* assets */ = {
+		4E910AE5245E2F95005C2976 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				4E910AE6245E2F95005C2976 /* Info.plist */,
 			);
-			path = assets;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +281,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SalahUtility/assets/Info.plist;
+				INFOPLIST_FILE = SalahUtility/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -308,7 +308,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SalahUtility/assets/Info.plist;
+				INFOPLIST_FILE = SalahUtility/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
