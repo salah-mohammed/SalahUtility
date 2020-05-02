@@ -15,7 +15,7 @@
 		4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SalahUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E34D74D2448F7F000FCCC1A /* SalahUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalahUtility.h; sourceTree = "<group>"; };
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
-		4E910AE3245E2AB7005C2976 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +50,17 @@
 			children = (
 				4E34D74D2448F7F000FCCC1A /* SalahUtility.h */,
 				4E34D7552448F81700FCCC1A /* BaseExtension.swift */,
-				4E910AE3245E2AB7005C2976 /* Info.plist */,
+				4E910AE5245E2F95005C2976 /* assets */,
 			);
 			path = SalahUtility;
+			sourceTree = "<group>";
+		};
+		4E910AE5245E2F95005C2976 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				4E910AE6245E2F95005C2976 /* Info.plist */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +273,7 @@
 		4E34D7532448F7F000FCCC1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -272,7 +281,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SalahUtility/Info.plist;
+				INFOPLIST_FILE = SalahUtility/assets/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -291,6 +300,7 @@
 		4E34D7542448F7F000FCCC1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -298,7 +308,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SalahUtility/Info.plist;
+				INFOPLIST_FILE = SalahUtility/assets/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
