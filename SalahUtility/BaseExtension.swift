@@ -698,17 +698,17 @@ public extension UIViewController {
 
 /*    **UIView**   */
 
-public extension UIView{
-     var bs_cornnerRaduisAspectRatio: CGFloat {
+  extension UIView{
+     open var bs_cornnerRaduisAspectRatio: CGFloat {
         set{
             self.layer.cornerRadius = (self.frame.height/2)*newValue
         }
         get{return -1;}
     }
-    var bs_screenShot:UIImage?{
+    open var bs_screenShot:UIImage?{
         return self.bs_screenShot(self.bounds.size);
     }
-     func bs_screenShot(_ size:CGSize)->UIImage?{
+     open func bs_screenShot(_ size:CGSize)->UIImage?{
         // Begin context
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         // Draw view in that context
@@ -723,7 +723,7 @@ public extension UIView{
 /*    **NSLocale**   */
 
 public extension NSLocale{
-    static func bs_currentLangString(_ defaultEnString:String,_ arString:String)->String{
+     static func bs_currentLangString(_ defaultEnString:String,_ arString:String)->String{
         let preferredLanguage = NSLocale.preferredLanguages[0]
         if preferredLanguage == "ar"{
             return arString;
