@@ -698,17 +698,17 @@ public extension UIViewController {
 
 /*    **UIView**   */
 
-  extension UIView{
-     open var bs_cornnerRaduisAspectRatio: CGFloat {
+ extension UIView{
+     public var bs_cornnerRaduisAspectRatio: CGFloat {
         set{
             self.layer.cornerRadius = (self.frame.height/2)*newValue
         }
         get{return -1;}
     }
-    open var bs_screenShot:UIImage?{
+    public var bs_screenShot:UIImage?{
         return self.bs_screenShot(self.bounds.size);
     }
-     open func bs_screenShot(_ size:CGSize)->UIImage?{
+     public func bs_screenShot(_ size:CGSize)->UIImage?{
         // Begin context
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         // Draw view in that context
