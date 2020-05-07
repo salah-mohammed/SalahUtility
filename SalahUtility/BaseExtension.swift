@@ -19,9 +19,9 @@ import UserNotifications
 
 /*    **Array**   */
 
-public extension Array{
+ extension Array{
     
-      func bs_isContainObject(classType:AnyClass)->AnyObject?{
+      public func bs_isContainObject(classType:AnyClass)->AnyObject?{
         for object in self {
             if  ((object as? AnyObject)?.isKind(of:classType))!
             {
@@ -31,7 +31,7 @@ public extension Array{
         }
         return nil;
     }
-     func bs_index(_ indexs:[Int])->[Any]
+     public func bs_index(_ indexs:[Int])->[Any]
     {
         var objects:Array = Array.init();
         for var index:Int in indexs
@@ -40,25 +40,25 @@ public extension Array{
         }
         return objects;
     }
-     var bs_second:Any?{
+     public var bs_second:Any?{
         if self.count >= 2 {
             return self[1] as? Any;
         }
       return nil
     }
-     var bs_thired:Any?{
+     public var bs_thired:Any?{
         if self.count >= 3 {
             return self[2] as? Any;
         }
       return nil
     }
-     var bs_beforeLast:Any?{
+     public var bs_beforeLast:Any?{
         if self.count >= 2 {
             return self[self.count-2] as? Any;
         }
       return nil
     }
-     func bs_indexOfObject(object : AnyObject) -> NSInteger {
+     public func bs_indexOfObject(object : AnyObject) -> NSInteger {
          return (self as NSArray).index(of: object)
      }
      mutating func bs_removeObject<T>(obj: T) where T : Equatable {
@@ -67,8 +67,8 @@ public extension Array{
 }
 /*    **Dictionary**   */
 
-public extension Dictionary where Key: ExpressibleByStringLiteral{
-     func bs_getStringValueWithNewLine()->String
+ extension Dictionary where Key: ExpressibleByStringLiteral{
+    public func bs_getStringValueWithNewLine()->String
     {
         
         var temp:String=""
@@ -79,52 +79,52 @@ public extension Dictionary where Key: ExpressibleByStringLiteral{
         return temp;
     }
     
-    func bs_allValues()->Array<Any>{
+    public func bs_allValues()->Array<Any>{
         return Array(self.values.map{ $0 });
     }
     
 }
-public extension Dictionary where Value: Equatable {
-     func bs_KeyForValue(_ val: Value) -> Key? {
+ extension Dictionary where Value: Equatable {
+    public func bs_KeyForValue(_ val: Value) -> Key? {
         return first(where: { $1 == val })?.0
     }
   
 }
 /*    **MKMapItem**   */
 
-public extension MKMapItem
+ extension MKMapItem
 {
-      convenience init(latitude:Double,longitude:Double) {
+      public convenience init(latitude:Double,longitude:Double) {
         let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
         self.init(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
     }
 }
 /*    **String**   */
 
-public extension String{
-    var bs_float:Float?{
+ extension String{
+    public var bs_float:Float?{
         return Float(self);
     }
-    var respectLanguage:String{
+    public var respectLanguage:String{
     if UIView.userInterfaceLayoutDirection(for:UIApplication.shared.bs_rootViewController!.view.semanticContentAttribute) == .rightToLeft {
         return String(self.reversed());
         }else{
             return self;
         }
     }
-    var bs_worlds:[String]{
+    public var bs_worlds:[String]{
         let wordList =  self.components(separatedBy: .punctuationCharacters).joined().components(separatedBy: " ").filter{!$0.isEmpty}
         return wordList;
     }
-    var bs_worldsCount:Int{
+    public var bs_worldsCount:Int{
         return self.bs_worlds.count;
     }
 
-    var bs_removeSpaces : String{
+    public var bs_removeSpaces : String{
         return self.replacingOccurrences(of: " ", with: "");
     }
 
-    static func  bs_groupingSeparator (value:Int,seprator:String) -> String?{
+    public static func  bs_groupingSeparator (value:Int,seprator:String) -> String?{
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         numberFormatter.groupingSeparator = seprator
@@ -132,7 +132,7 @@ public extension String{
         return formattedNumber
     }
     
-    static func bs_duration(_ totalSeconds:Double)->String{
+    public static func bs_duration(_ totalSeconds:Double)->String{
         let h : Int = Int(totalSeconds / 3600)
         let m : Int = Int((totalSeconds - Double(h) * 3600) / 60)
         let s : Int = Int(totalSeconds - 3600 * Double(h)) - m * 60
@@ -143,11 +143,11 @@ public extension String{
         }
     }
 
-    func bs_htmlText(fontName:String,fontSize:String,alignment:String) -> String{
+    public func bs_htmlText(fontName:String,fontSize:String,alignment:String) -> String{
         //<font face='\(fontName)'>
         return "<!DOCTYPE html><html><head><title></title> <style> body{ font-family:\"\(fontName)\";font-size:\(fontSize)px;}</style> </head> <body align=\"\(alignment)\">\(self) </body> </html>";
     }
-    func bs_htmlTextWithRespectLanguage(fontName:String,fontSize:String) -> String{
+    public func bs_htmlTextWithRespectLanguage(fontName:String,fontSize:String) -> String{
         var alignment = "";
         if #available(iOS 9.0, *) {
             if UIView.userInterfaceLayoutDirection(
@@ -169,11 +169,11 @@ public extension String{
         }
         return self.bs_htmlText(fontName:fontName, fontSize: fontSize, alignment:alignment)
     }
-    func bs_replace(target: String, withString: String) -> String {
+    public func bs_replace(target: String, withString: String) -> String {
         
         return self.replacingOccurrences(of: target, with:withString, options: .literal, range: nil)
     }
-    func bs_subtract(_ start:Int,_ last:Int)->String{
+    public func bs_subtract(_ start:Int,_ last:Int)->String{
         let firstIndex = self.index(self.startIndex, offsetBy:start, limitedBy: self.endIndex)!;
         
         let lastIndex = self.index(self.startIndex, offsetBy: last, limitedBy: self.endIndex)!;
@@ -181,7 +181,7 @@ public extension String{
         return String(self[tempObject])
     }
 
-    func bs_arNumberToEn()-> String {
+    public func bs_arNumberToEn()-> String {
         let numbersDictionary : Dictionary = ["٠" : "0","١" : "1", "٢" : "2", "٣" : "3", "٤" : "4", "٥" : "5", "٦" : "6", "٧" : "7", "٨" : "8", "٩" : "9"]
         var str : String = self
         
@@ -205,61 +205,61 @@ public extension String{
     //        }
     //    }
     
-    func bs_cgFloat() -> CGFloat? {
+    public func bs_cgFloat() -> CGFloat? {
         let myFloat:Float = (self as NSString).floatValue
         return CGFloat(myFloat);
     }
-    var bs_locationDegree:CLLocationDegrees{
+    public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self.bs_cgFloat()!);
     }
-    func bs_widthOfString(usingFont font: UIFont) -> CGFloat {
+    public func bs_widthOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSAttributedString.Key.font: font]
         let size = self.size(withAttributes: fontAttributes)
         return size.width
     }
-    func bs_heightOfString(usingFont font: UIFont) -> CGFloat {
+    public func bs_heightOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSAttributedString.Key.font: font]
         let size = self.size(withAttributes: fontAttributes)
         return size.height
     }
-     var bs_html2AttributedString: NSAttributedString? {
+    public var bs_html2AttributedString: NSAttributedString? {
         return Data(utf8).bs_html2AttributedString
     }
-    var bs_html2String: String {
+    public var bs_html2String: String {
         return bs_html2AttributedString?.string ?? ""
     }
-    func bs_height(withWidth width: CGFloat, font: UIFont) -> CGFloat {
+    public func bs_height(withWidth width: CGFloat, font: UIFont) -> CGFloat {
         let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil)
         return actualSize.height
     }
-     static func bs_numberClass(numberValue:Int,classNumber:Int)->String{
+    public static func bs_numberClass(numberValue:Int,classNumber:Int)->String{
         var stringFormate="%0\(classNumber)d";
         var value =  String(format:stringFormate,numberValue);
         return value
     }
-     static func bs_secondsToHoursMinutesSeconds(_ seconds:Double) -> (Double, Double, Double) {
+    public static func bs_secondsToHoursMinutesSeconds(_ seconds:Double) -> (Double, Double, Double) {
         var tempSeconds = seconds;
         let (hr,  minf) = modf (tempSeconds / 3600)
         let (min, secf) = modf (60 * minf)
         return (hr, min, 60 * secf)
     }
-     func bs_appendingPathComponent(_ path: String) -> String {
+     public func bs_appendingPathComponent(_ path: String) -> String {
         let nsSt = self as NSString
         return nsSt.appendingPathComponent(path)
     }
-     var localize_:String {
+    public var localize_:String {
     return NSLocalizedString(self, comment:"")
     }
-    var bs_double:Double?{
+    public var bs_double:Double?{
         return Double.init(self)
     }
-    func bs_localized(_ language:String) ->String {
+    public func bs_localized(_ language:String) ->String {
         if let path:String = Bundle.main.path(forResource: language, ofType: "lproj") , let bundle:Bundle = Bundle(path: path) {
         return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
         }else{return ""};
     }
-    func bs_toDic()->[String:String]{
+    public func bs_toDic()->[String:String]{
         var  dic:[String:String]=[String:String]();
         for object in self.components(separatedBy:",") {
             let components = object.components(separatedBy:"=")
@@ -271,7 +271,7 @@ public extension String{
         }
         return dic;
     }
-     func bs_matches(pattern: String) -> Bool {
+    public func bs_matches(pattern: String) -> Bool {
            let regex = try! NSRegularExpression(
                pattern: pattern,
                options: [.caseInsensitive])
@@ -280,7 +280,7 @@ public extension String{
                options: [],
                range: NSRange(location: 0, length: utf16.count)) != nil
     }
-     func bs_isValidURL() -> Bool {
+    public func bs_isValidURL() -> Bool {
         guard let url = URL(string: self) else { return false }
         if !UIApplication.shared.canOpenURL(url) {
             return false
@@ -289,19 +289,20 @@ public extension String{
         let urlPattern = "^(http|https|ftp)\\://([a-zA-Z0-9\\.\\-]+(\\:[a-zA-Z0-9\\.&amp;%\\$\\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\\-]+\\.)*[a-zA-Z0-9\\-]+\\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\\:[0-9]+)*(/($|[a-zA-Z0-9\\.\\,\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$"
         return self.bs_matches(pattern: urlPattern)
     }
-     func bs_isValidEmail() -> Bool {
+    public func bs_isValidEmail() -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
-     mutating func bs_stripHTML() -> String {
-        self = self.replacingOccurrences(of: "&ndash;", with: "-")
-        self = self.replacingOccurrences(of: "&nbsp;", with: " ")
-        return self.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
+    public func bs_stripHTML() -> String {
+        var tempString = self;
+        tempString = tempString.replacingOccurrences(of: "&ndash;", with: "-")
+        tempString = tempString.replacingOccurrences(of: "&nbsp;", with: " ")
+        return tempString.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
     }
-     func bs_matchingStrings(regex: String) -> [[String]] {
+     public func bs_matchingStrings(regex: String) -> [[String]] {
         guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }
         let nsString = self as NSString
         let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
@@ -321,20 +322,20 @@ public extension String{
 //            return true
 //        }
 //    }
-     var bs_locationDegrees:CLLocationDegrees?{
+     public var bs_locationDegrees:CLLocationDegrees?{
         if let itemString:String = self,
             let  item:CLLocationDegrees = CLLocationDegrees.init(itemString){
             return item;
         }
         return nil;
     }
-     var bs_nsNumber:NSNumber?{
+     public var bs_nsNumber:NSNumber?{
         if let doubleValue = Double.init(self) {
             return NSNumber(value:doubleValue);
         }
         return nil;
     }
-     var bs_isRemoteFile:Bool{ if self.contains("http"){
+     public var bs_isRemoteFile:Bool{ if self.contains("http"){
         return true
         }
         return false
@@ -343,12 +344,12 @@ public extension String{
 
 /*    **UIImage**   */
 
-public extension UIImage {
-     func bs_flippedImage() -> UIImage {
+ extension UIImage {
+    public func bs_flippedImage() -> UIImage {
         let image = self.withHorizontallyFlippedOrientation();
         return image
     }
-     func bs_resizeImageWith(newSize: CGSize) -> UIImage {
+    public func bs_resizeImageWith(newSize: CGSize) -> UIImage {
         
         let horizontalRatio = newSize.width / size.width
         let verticalRatio = newSize.height / size.height
@@ -361,7 +362,7 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return newImage!
     }
-     func bs_resized(withPercentage percentage: CGFloat) -> UIImage? {
+    public func bs_resized(withPercentage percentage: CGFloat) -> UIImage? {
         let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
         UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
         defer { UIGraphicsEndImageContext() }
@@ -372,19 +373,19 @@ public extension UIImage {
 
 /*    **UIImageView**   */
 
-public extension UIImageView
+ extension UIImageView
 {
     
-     func bs_renderMode(_ renderingMode:UIImage.RenderingMode){
+    public func bs_renderMode(_ renderingMode:UIImage.RenderingMode){
         let image: UIImage? = self.image?.withRenderingMode(renderingMode)
         self.image = image;
     }
 
-     func bs_flipImage(){
+    public func bs_flipImage(){
         
         self.image = self.image?.imageFlippedForRightToLeftLayoutDirection();
     }
-     func bs_flipImageViewWhenLang(direction:NSLocale.LanguageDirection){
+    public func bs_flipImageViewWhenLang(direction:NSLocale.LanguageDirection){
         
         let langDirection:NSLocale.LanguageDirection = NSLocale.characterDirection(forLanguage:NSLocale.autoupdatingCurrent.languageCode!)
         
@@ -393,12 +394,12 @@ public extension UIImageView
         }
         
     }
-     func bs_imageRespectLanguage(){
+    public func bs_imageRespectLanguage(){
         if (UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft){
             self.bs_flipImage();
         }
     }
-     func bs_loadGifImage(url:URL,successHandler:((Data)->Void)?,errorHandler:((Error?)->Void)?){
+    public func bs_loadGifImage(url:URL,successHandler:((Data)->Void)?,errorHandler:((Error?)->Void)?){
         let fileName = url.lastPathComponent;
         var docURL = FileManager.default.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).last as? NSURL
         let diskPath = docURL?.appendingPathComponent(fileName)
@@ -427,7 +428,7 @@ public extension UIImageView
             successHandler?(localData!);
         }
     }
-     func bs_loadGifImage(url:URL?,imageHandler: ((Data)->Void)?, placeHolderHandler:(()->Void)?){
+    public func bs_loadGifImage(url:URL?,imageHandler: ((Data)->Void)?, placeHolderHandler:(()->Void)?){
         placeHolderHandler?();
         if url != nil {
         self.bs_loadGifImage(url: url!, successHandler: { (data:Data) in
@@ -442,29 +443,29 @@ public extension UIImageView
 /*    **UITextField**   */
 
 @IBDesignable
-public extension UITextField {
+ extension UITextField {
     
-    @IBInspectable var bs_paddingLeft: CGFloat {
-        get {
-            return leftView!.frame.size.width
-        }
-        set {
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
-            leftView = paddingView
-            leftViewMode = .always
-        }
-    }
-    @IBInspectable var bs_paddingRight: CGFloat {
-        get {
-            return rightView!.frame.size.width
-        }
-        set {
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
-            rightView = paddingView
-            rightViewMode = .always
-        }
-    }
-func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
+//    @IBInspectable var bs_paddingLeft: CGFloat {
+//        get {
+//            return leftView!.frame.size.width
+//        }
+//        set {
+//            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
+//            leftView = paddingView
+//            leftViewMode = .always
+//        }
+//    }
+//    @IBInspectable var bs_paddingRight: CGFloat {
+//        get {
+//            return rightView!.frame.size.width
+//        }
+//        set {
+//            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: newValue, height: frame.size.height))
+//            rightView = paddingView
+//            rightViewMode = .always
+//        }
+//    }
+public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
     var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text?.last ?? " ")
     if newFont != nil {
         self.font = newFont!;
@@ -474,31 +475,31 @@ func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFont
 
 /*    **UIButton**   */
 
-public extension UIButton
+ extension UIButton
 {
 
-    func bs_renderModeForImage(_ renderingMode:UIImage.RenderingMode,_ controlState:UIControl.State){
+   public func bs_renderModeForImage(_ renderingMode:UIImage.RenderingMode,_ controlState:UIControl.State){
         let image = self.image(for: controlState)
         let renderImage: UIImage? = image?.withRenderingMode(renderingMode)
         self.setImage(renderImage, for: controlState);
     }
-    func bs_renderModeForBackgroundImage(_ renderingMode:UIImage.RenderingMode,_ controlState:UIControl.State){
+   public func bs_renderModeForBackgroundImage(_ renderingMode:UIImage.RenderingMode,_ controlState:UIControl.State){
         let image = self.backgroundImage(for: controlState);
         let renderImage: UIImage? = image?.withRenderingMode(renderingMode)
         self.setImage(renderImage, for: controlState);
         self.setBackgroundImage(renderImage, for: controlState)
     }
-    func bs_flipImageView(state:UIControl.State){
+   public func bs_flipImageView(state:UIControl.State){
         self.setImage(self.imageView?.image?.imageFlippedForRightToLeftLayoutDirection(), for: state);
     }
-    func bs_flipImageViewWhenLang(direction:NSLocale.LanguageDirection,state:UIControl.State){
+   public func bs_flipImageViewWhenLang(direction:NSLocale.LanguageDirection,state:UIControl.State){
         let langDirection:NSLocale.LanguageDirection = NSLocale.characterDirection(forLanguage:NSLocale.autoupdatingCurrent.languageCode!)
         if langDirection == direction {
             self.setImage(self.imageView?.image?.imageFlippedForRightToLeftLayoutDirection(), for: state);
         }
     }
 
-    func bs_UnderlineTextButton(title: String?, forState state: UIControl.State)
+   public func bs_UnderlineTextButton(title: String?, forState state: UIControl.State)
         {
             self.setTitle(title, for: .normal)
             self.setAttributedTitle(self.attributedString(), for: .normal)
@@ -513,13 +514,13 @@ public extension UIButton
             let attributedString = NSAttributedString(string: self.currentTitle!, attributes: attributes)
             return attributedString
     }
-    func bs_respectLanguageImage(_ controlState:UIControl.State){
+   public func bs_respectLanguageImage(_ controlState:UIControl.State){
         if (UIView.userInterfaceLayoutDirection(
             for: UIView.appearance().semanticContentAttribute) == .rightToLeft)  {
             self.setImage(self.image(for: controlState)!.bs_flippedImage(), for: controlState);
         }
     }
-    func bs_respectLanguage(){
+   public func bs_respectLanguage(){
         if ( (UIView.userInterfaceLayoutDirection(
             for: UIView.appearance().semanticContentAttribute) == .rightToLeft) &&
             ( self.titleEdgeInsets.right > 0 || self.titleEdgeInsets.left > 0 ||
@@ -541,15 +542,15 @@ public extension UIButton
 
 /*    **UIFont**   */
 
-public extension UIFont
+ extension UIFont
 {
-  class func bs_printFontFamilyNames(){
+  public class func bs_printFontFamilyNames(){
         UIFont.familyNames.sorted().forEach({ (familyName) in
             debugPrint(UIFont.fontNames(forFamilyName: familyName))
         })
     }
 
-    static func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,numberOfWorlds:Float,currentFont:UIFont,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float,lastCharacter:Character)->UIFont?{
+   public static func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,numberOfWorlds:Float,currentFont:UIFont,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float,lastCharacter:Character)->UIFont?{
                         if numberOfWorlds >= subtractFontValueEveryWorlds {
                             let currentFontSize:Float = currentFont.pointSize.bs_float ?? 0;
         
@@ -574,38 +575,38 @@ public extension UIFont
 
 /*    **UITableView**   */
 
-public extension UITableView
+ extension UITableView
 {
-    func bs_registerNib(NibName: String) {
+   public func bs_registerNib(NibName: String) {
         self.register(UINib(nibName: NibName, bundle: nil), forCellReuseIdentifier: NibName)
     }
     
-    func bs_reloadRows(indexPaths:[IndexPath])
+   public func bs_reloadRows(indexPaths:[IndexPath])
     {
         self.performBatchUpdates({
             self.reloadRows(at: indexPaths, with: UITableView.RowAnimation.none);
         }, completion: nil);
     }
     
-    func bs_deleteRows(indexPaths:[IndexPath])
+   public func bs_deleteRows(indexPaths:[IndexPath])
     {
         self.performBatchUpdates({
         self.deleteRows(at: indexPaths, with:UITableView.RowAnimation.none);
         }, completion: nil);
     }
-    func bs_deleteRow(indexPath:IndexPath){
+   public func bs_deleteRow(indexPath:IndexPath){
         self.performBatchUpdates({
         self.deleteRows(at:[indexPath], with: UITableView.RowAnimation.none);
         }, completion: nil);
     }
-    func bs_reloadRow(index:Int)
+   public func bs_reloadRow(index:Int)
     {
         self.performBatchUpdates({
             self.reloadRows(at:[IndexPath.init(row: index, section: 0)], with: UITableView.RowAnimation.none);
         }, completion: nil);
     }
 
-    func bs_reCaluclateHeaderViewHeight(){
+   public func bs_reCaluclateHeaderViewHeight(){
         if let headerView = self.tableHeaderView {
             let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             var headerFrame = headerView.frame
@@ -623,8 +624,8 @@ public extension UITableView
 
 /*    **UIViewController**   */
 
-public extension UIViewController {
-     func bs_share(text:String?,_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
+ extension UIViewController {
+    public func bs_share(text:String?,_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
          // text to share
          // set up activity view controller
          let textToShare = [ text ]
@@ -637,7 +638,7 @@ public extension UIViewController {
          activityViewController.completionWithItemsHandler = completionWithItemsHandler;
     
      }
-    func bs_presentRightToLeft(_ viewControllerToPresent: UIViewController) {
+   public func bs_presentRightToLeft(_ viewControllerToPresent: UIViewController) {
         let transition = CATransition()
         transition.duration = 0.25
         transition.type = CATransitionType.push
@@ -647,7 +648,7 @@ public extension UIViewController {
         present(viewControllerToPresent, animated: false)
     }
     
-    func bs_dismissRightToLeft() {
+   public func bs_dismissRightToLeft() {
         let transition = CATransition()
         transition.duration = 0.25
         transition.type = CATransitionType.push
@@ -656,28 +657,28 @@ public extension UIViewController {
         
         dismiss(animated: false)
     }
-    func bs_showMessageWithTitle(title:String,message:String?)
+   public func bs_showMessageWithTitle(title:String,message:String?)
     {
         let alert = UIAlertController(title:title, message:message, preferredStyle:UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "تم", style:UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    @IBAction func bs_popViewController(_ sender: Any) {
+    @IBAction public func bs_popViewController(_ sender: Any) {
         self.navigationController?.popViewController(animated: false);
     }
     
-    @IBAction func bs_popViewControllerAnimated(_ sender: Any) {
+     @IBAction public func bs_popViewControllerAnimated(_ sender: Any) {
         self.navigationController?.popViewController(animated: true);
     }
     
-    @IBAction func bs_dismissViewController(_ sender: Any) {
+     @IBAction public func bs_dismissViewController(_ sender: Any) {
         self.dismiss(animated: false, completion: nil);
         
     }
-    @IBAction func bs_dismissViewControllerAnimated(_ sender: Any) {
+    @IBAction public func bs_dismissViewControllerAnimated(_ sender: Any) {
         self.dismiss(animated: true, completion: nil);
     }
-    func bs_presentPopUp(_ view:UIView,_ direction:UIPopoverArrowDirection? = nil,_ size:CGSize) {
+   public func bs_presentPopUp(_ view:UIView,_ direction:UIPopoverArrowDirection? = nil,_ size:CGSize) {
         self.modalPresentationStyle = UIModalPresentationStyle.popover
         // set up the popover presentation controller
         self.popoverPresentationController?.permittedArrowDirections =  direction ?? UIPopoverArrowDirection.up
@@ -689,7 +690,7 @@ public extension UIViewController {
         }
         UIApplication.shared.bs_rootViewController?.present(self, animated: true, completion: nil);
     }
-    static func bs_generalPush(){
+   public static func bs_generalPush(){
         if  let name:String = String(describing: self), let vc:UIViewController = UIStoryboard.bs_main?.instantiateViewController(withIdentifier:name) as? UIViewController{
             UIApplication.shared.bs_rootNavigationController?.pushViewController(vc, animated: true);
         }
@@ -723,7 +724,7 @@ public extension UIViewController {
 /*    **NSLocale**   */
 
 public extension NSLocale{
-     static func bs_currentLangString(_ defaultEnString:String,_ arString:String)->String{
+    public static func bs_currentLangString(_ defaultEnString:String,_ arString:String)->String{
         let preferredLanguage = NSLocale.preferredLanguages[0]
         if preferredLanguage == "ar"{
             return arString;
@@ -736,9 +737,9 @@ public extension NSLocale{
 
 /*    **UILabel**   */
 
-public extension UILabel {
+ extension UILabel {
 // depend on language
-    func bs_autoTextAliment(){
+   public func bs_autoTextAliment(){
         let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") //add whatever characters you find English
         var amountOfEnglishChars = 0
         var amountOfNonEnglishChars = 0
@@ -763,19 +764,19 @@ public extension UILabel {
 //
 //        }
 //    }
-    func bs_textHeight(withWidth width: CGFloat) -> CGFloat {
+    public func bs_textHeight(withWidth width: CGFloat) -> CGFloat {
         guard let text = text else {
             return 0
         }
         return text.bs_height(withWidth: width, font: font)
     }
-    func bs_attributedTextHeight(withWidth width: CGFloat) -> CGFloat {
+    public func bs_attributedTextHeight(withWidth width: CGFloat) -> CGFloat {
         guard let attributedText = attributedText else {
             return 0
         }
         return attributedText.bs_height(withWidth: width)
     }
-    func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
+    public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
         var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text?.last ?? " ")
         if newFont != nil {
             self.font = newFont!;
@@ -785,8 +786,8 @@ public extension UILabel {
 
 /*    **SystemSoundID**   */
 
-public extension SystemSoundID {
-    static func bs_playFileNamed(fileName: String, withExtenstion fileExtension: String) {
+ extension SystemSoundID {
+   public static func bs_playFileNamed(fileName: String, withExtenstion fileExtension: String) {
         var sound: SystemSoundID = 0
         if let soundURL = Bundle.main.url(forResource: fileName, withExtension: fileExtension) {
             AudioServicesCreateSystemSoundID(soundURL as CFURL, &sound)
@@ -797,8 +798,8 @@ public extension SystemSoundID {
 
 /*    **Int**   */
 
-public extension Int {
-    var bs_isOdd:Bool{
+ extension Int {
+    public var bs_isOdd:Bool{
         if ( self % 2 == 0) {
             return false;
             // remainder 0
@@ -807,76 +808,76 @@ public extension Int {
             return  true;
         }
     }
-    var bs_int:Int{
+   public var bs_int:Int{
         return Int.init(self);
     }
-    var bs_float:Float{
+   public var bs_float:Float{
         return  Float.init(self)
     }
-    var bs_cgFloat:CGFloat{
+   public var bs_cgFloat:CGFloat{
         return  CGFloat.init(self)
     }
-    var bs_double:Double{
+   public var bs_double:Double{
         return  Double.init(self)
     }
-    var bs_int8:Int8{
+   public var bs_int8:Int8{
         return  Int8.init(self);
     }
-    var bs_int16:Int16{
+   public var bs_int16:Int16{
         return  Int16.init(self);
     }
-    var bs_int64:Int64{
+   public var bs_int64:Int64{
         return  Int64.init(self);
     }
-    var bs_int32:Int32{
+   public var bs_int32:Int32{
         return  Int32.init(self);
     }
-    var bs_number:NSNumber{
+   public var bs_number:NSNumber{
         return  NSNumber.init(value: self);
     }
-    var bs_cmTime:CMTime{
+   public var bs_cmTime:CMTime{
         return  CMTimeMakeWithSeconds(Double(self), preferredTimescale: 1)
     }
-    var bs_inHundred:String{
+   public var bs_inHundred:String{
         return String.bs_numberClass(numberValue: self, classNumber: 2);
     }
-    var bs_inThousands:String{
+   public var bs_inThousands:String{
         return String.bs_numberClass(numberValue: self, classNumber: 3);
     }
 }
 
 /*    **Int16**   */
 
-public extension Int16
+ extension Int16
 {
-    var bs_int:Int
+    public var bs_int:Int
     {
         return Int.init(self);
     }
-    var bs_float:Float{
+    public var bs_float:Float{
         return  Float.init(self)
     }
     
-    var bs_cgFloat:CGFloat{
+    public var bs_cgFloat:CGFloat{
         return  CGFloat.init(self)
     }
     
-    var bs_double:Double{
+    public var bs_double:Double{
         return  Double.init(self)
     }
-    var bs_int8:Int8{
+    public var bs_int8:Int8{
         return  Int8.init(self);
     }
-    var bs_int32:Int32{
+    public var bs_int32:Int32{
         return  Int32.init(self);
     }
-    var bs_int64:Int64{
+    public var bs_int64:Int64{
         return  Int64.init(self);
     }
-    var bs_locationDegree:CLLocationDegrees{
+    public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self);
     }
-    var bs_string:String {
+    public var bs_string:String {
         return "\(self)"
     }
 }
@@ -884,90 +885,90 @@ public extension Int16
 /*    **Int32**   */
 
 public extension Int32{
-    var bs_int:Int{
+    public var bs_int:Int{
         return Int.init(self);
     }
-    var bs_float:Float{
+    public var bs_float:Float{
         return  Float.init(self)
     }
-    var bs_cgFloat:CGFloat{
+    public var bs_cgFloat:CGFloat{
         return  CGFloat.init(self)
     }
-    var bs_double:Double{
+    public var bs_double:Double{
         return  Double.init(self)
     }
-    var bs_int8:Int8{
+    public var bs_int8:Int8{
         return  Int8.init(self);
     }
-    var bs_int16:Int16{
+    public var bs_int16:Int16{
         return  Int16.init(self);
     }
-    var bs_int64:Int64{
+    public var bs_int64:Int64{
         return  Int64.init(self);
     }
-    var bs_locationDegree:CLLocationDegrees{
+    public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self);
     }
-    var bs_string:String {
+    public var bs_string:String {
         return "\(self)"
     }
 }
 
 /*    **Int64**   */
 
-public extension Int64 {
-    var bs_int:Int
+ extension Int64 {
+    public var bs_int:Int
     {
         return Int.init(self);
     }
-    var bs_float:Float{
+    public var bs_float:Float{
         return  Float.init(self)
     }
     
-    var bs_cgFloat:CGFloat{
+    public var bs_cgFloat:CGFloat{
         return  CGFloat.init(self)
     }
     
-    var bs_double:Double{
+    public var bs_double:Double{
         return  Double.init(self)
     }
-    var bs_int8:Int8{
+    public var bs_int8:Int8{
         return  Int8.init(self);
     }
-    var bs_int16:Int16{
+    public var bs_int16:Int16{
         return  Int16.init(self);
     }
-    var bs_int32:Int32{
+    public var bs_int32:Int32{
         return  Int32.init(self);
     }
-    var bs_number:NSNumber{
+    public var bs_number:NSNumber{
         return  NSNumber.init(value: self);
     }
-    var bs_string:String {
+    public var bs_string:String {
         return "\(self)"
     }
 }
 
 /*    **CGFloat**   */
 
-public extension CGFloat
+ extension CGFloat
 {
-    var bs_float:Float?{
+    public var bs_float:Float?{
         return Float.init(self);
     }
     public func bs_int() ->Int{
         return Int(self)
     }
-    var bs_locationDegree:CLLocationDegrees{
+    public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self);
     }
 }
 
 /*    **TimeInterval**   */
 
-public extension TimeInterval {
+ extension TimeInterval {
     
-    func bs_stringFromTimeInterval() -> String {
+    public func bs_stringFromTimeInterval() -> String {
         let interval = Int(self)
         let seconds = interval % 60
         let minutes = (interval / 60) % 60
@@ -978,8 +979,8 @@ public extension TimeInterval {
 
 /*    **NSNumber**   */
 
-public extension NSNumber {
-    static func bs_isNumber(object:Any)->Bool{
+ extension NSNumber {
+   public static func bs_isNumber(object:Any)->Bool{
         switch object {
         case is CGFloat: return true
         case is Float: return true
@@ -994,46 +995,46 @@ public extension NSNumber {
 
 /*    **Double**   */
 
-public extension Double{
-    var bs_int:Int?{
+ extension Double{
+    public var bs_int:Int?{
         return Int.init(self);
     }
-    var bs_inHundred:String{
+    public var bs_inHundred:String{
         return String.bs_numberClass(numberValue: self.bs_int ?? 0, classNumber: 2);
     }
-    var bs_inThousands:String{
+    public var bs_inThousands:String{
         return String.bs_numberClass(numberValue: self.bs_int ?? 0, classNumber: 3);
     }
-    func bs_secondsToHoursMinutesSeconds() -> (Double, Double, Double) {
+    public func bs_secondsToHoursMinutesSeconds() -> (Double, Double, Double) {
         return String.bs_secondsToHoursMinutesSeconds(self);
     }
-    var bs_locationDegree:CLLocationDegrees{
+    public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self);
     }
-    var bs_duration:String {
+    public var bs_duration:String {
         return String.bs_duration(self);
     }
-    var bs_cmTime:CMTime {
+    public var bs_cmTime:CMTime {
         return  CMTimeMakeWithSeconds(self, preferredTimescale: 1)
     }
 }
 
 /*    **Float**   */
 
-public extension Float{
-     var bs_locationDegree:CLLocationDegrees{
+ extension Float{
+     public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self);
     }
-     var bs_cmTime:CMTime {
+     public var bs_cmTime:CMTime {
         return  CMTimeMakeWithSeconds(Double(self), preferredTimescale: 1)
     }
-     var bs_double:Double {
+     public var bs_double:Double {
         return Double(self)
     }
-     var bs_int:Int {
+     public var bs_int:Int {
         return Int.init(self);
     }
-     static func  bs_isMultiple(number:Float,multiplicityValue:Float)->Bool{
+     public static func  bs_isMultiple(number:Float,multiplicityValue:Float)->Bool{
         if number == 0 || multiplicityValue == 0 {
             return false;
         }
@@ -1042,14 +1043,14 @@ public extension Float{
         }
         return false;
     }
-    func bs_isItMultipleOf(multiplicityValue:Float)->Bool{
+    public func bs_isItMultipleOf(multiplicityValue:Float)->Bool{
         return Float.bs_isMultiple(number:self,multiplicityValue:multiplicityValue);
     }
 }
 /*    **Array**   */
 
-public extension Array where Element == String {
-     func bs_withSeperator(seperator:String) -> String{
+ extension Array where Element == String {
+     public func bs_withSeperator(seperator:String) -> String{
         var tempText = "";
         for object in self {
             tempText = tempText+object+seperator;
@@ -1061,7 +1062,7 @@ public extension Array where Element == String {
     }
 }
 
-public extension Array where Element == Int {
+ extension Array where Element == Int {
     public func bs_sum() -> Int{
         var total = 0;
         for object in self {
@@ -1074,8 +1075,8 @@ public extension Array where Element == Int {
 
 /*    **UserDefaults**   */
 
-public extension UserDefaults{
-     var bs_appleLanguages:[String]{
+ extension UserDefaults{
+     public var bs_appleLanguages:[String]{
         set{
             UserDefaults.standard.set(newValue, forKey: "AppleLanguages");
             UserDefaults.standard.synchronize();
@@ -1086,7 +1087,7 @@ public extension UserDefaults{
             return temp;
         }
     }
-     var bs_appleLanguage:String{
+     public var bs_appleLanguage:String{
         set {
             UserDefaults.standard.set([newValue], forKey: "AppleLanguages");
             UserDefaults.standard.synchronize();
@@ -1103,17 +1104,17 @@ public extension UserDefaults{
 /*    **CAShapeLayer**   */
 
 
-public extension CAShapeLayer {
-       @discardableResult func bs_path(_ path:UIBezierPath) -> Self{
+ extension CAShapeLayer {
+       @discardableResult public func bs_path(_ path:UIBezierPath) -> Self{
         self.path = path.cgPath
             return self;
         }
-       @discardableResult func bs_fillColor(_ fillColor:UIColor) -> Self{
+       @discardableResult public func bs_fillColor(_ fillColor:UIColor) -> Self{
             self.fillColor = fillColor.cgColor;
             return self;
         }
 
-    @discardableResult func bs_shadowPath() -> Self{
+    @discardableResult public func bs_shadowPath() -> Self{
         self.shadowPath = self.path
         return self;
     }
@@ -1121,7 +1122,7 @@ public extension CAShapeLayer {
 
 /*    **CALayer**   */
 
-public extension CALayer {
+ extension CALayer {
    public var borderColor_: UIColor {
         get {
             return self.borderColor_
@@ -1130,43 +1131,43 @@ public extension CALayer {
             self.borderColor = newValue.cgColor
         }
     }
-   @discardableResult  func bs_shadowColor(_ shadowColor:UIColor) -> Self{
+   @discardableResult public func bs_shadowColor(_ shadowColor:UIColor) -> Self{
         self.shadowColor = shadowColor.cgColor;
         return self;
     }
-   @discardableResult  func bs_shadowPath(_ shadowPath:UIBezierPath) -> Self{
+   @discardableResult public func bs_shadowPath(_ shadowPath:UIBezierPath) -> Self{
         self.shadowPath = shadowPath as! CGPath
         return self;
     }
-    @discardableResult  func bs_shadowOffset(_ shadowOffset:CGSize) -> Self{
+    @discardableResult public func bs_shadowOffset(_ shadowOffset:CGSize) -> Self{
         self.shadowOffset = shadowOffset
         return self;
     }
-    @discardableResult  func bs_shadowOpacity(_ shadowOpacity:Float) -> Self{
+    @discardableResult public func bs_shadowOpacity(_ shadowOpacity:Float) -> Self{
         self.shadowOpacity = shadowOpacity
         return self;
     }
-    @discardableResult  func bs_shadowRadius(_ shadowRadius:CGFloat) -> Self{
+    @discardableResult public func bs_shadowRadius(_ shadowRadius:CGFloat) -> Self{
         self.shadowRadius = shadowRadius
         return self;
     }
-    @discardableResult  func bs_shouldRasterize(_ shouldRasterize:Bool) -> Self{
+    @discardableResult public func bs_shouldRasterize(_ shouldRasterize:Bool) -> Self{
         self.shouldRasterize = shouldRasterize
         return self;
     }
-    @discardableResult  func bs_masksToBounds(_ masksToBounds:Bool) -> Self{
+    @discardableResult public func bs_masksToBounds(_ masksToBounds:Bool) -> Self{
         self.masksToBounds = masksToBounds
         return self;
     }
-    @discardableResult  func bs_cornerRadius(_ cornerRadius:CGFloat) -> Self{
+    @discardableResult public func bs_cornerRadius(_ cornerRadius:CGFloat) -> Self{
         self.cornerRadius = cornerRadius
         return self;
     }
-    @discardableResult  func bs_borderWidth(_ borderWidth:CGFloat) -> Self{
+    @discardableResult public func bs_borderWidth(_ borderWidth:CGFloat) -> Self{
         self.borderWidth = borderWidth
         return self;
     }
-    @discardableResult  func bs_borderColor(_ borderColor:UIColor) -> Self{
+    @discardableResult public func bs_borderColor(_ borderColor:UIColor) -> Self{
         self.borderColor_ = borderColor
         return self;
     }
@@ -1175,17 +1176,17 @@ public extension CALayer {
 
 /*    **CMTime**   */
 
-public extension CMTime {
-     var bs_duration:String {
+ extension CMTime {
+     public var bs_duration:String {
         return String.bs_duration(self.seconds);
     }
-     var bs_timeInterval:TimeInterval{
+     public var bs_timeInterval:TimeInterval{
         return TimeInterval.init(self.seconds)
     }
-     var bs_Int:Int?{
+     public var bs_Int:Int?{
         return self.seconds.bs_int
     }
-     var bs_Float:Float {
+     public var bs_Float:Float {
         
         return Float.init(self.value)
     }
@@ -1193,26 +1194,26 @@ public extension CMTime {
 
 /*    **AVPlayer**   */
 
-public extension AVPlayer{
-     var bs_isPlaying: Bool {
+ extension AVPlayer{
+     public var bs_isPlaying: Bool {
         return rate != 0 && error == nil
     }
-     var bs_durationCMTime: CMTime? { return self.currentItem?.asset.duration}
-     var bs_duration: TimeInterval { return TimeInterval(self.currentItem?.asset.duration.seconds ?? 0)}
+     public var bs_durationCMTime: CMTime? { return self.currentItem?.asset.duration}
+     public var bs_duration: TimeInterval { return TimeInterval(self.currentItem?.asset.duration.seconds ?? 0)}
 
 }
 
 /*    **UIApplication**   */
 
-public extension UIApplication {
-    func bs_openSetting(){
+ extension UIApplication {
+   public func bs_openSetting(){
         let settingsUrl = URL(string: UIApplication.openSettingsURLString)
         if settingsUrl != nil {
         UIApplication.shared.open(settingsUrl!)
         }
     }
 
-   func bs_openYoutubeLink(_ stringUrl:String?){
+   public func bs_openYoutubeLink(_ stringUrl:String?){
         var schemaUrl = URL.init(string:"youtube://\(stringUrl ?? "")");
         if schemaUrl != nil {
             UIApplication.shared.open(schemaUrl!, options:[:]) { (value) in
@@ -1233,7 +1234,7 @@ public extension UIApplication {
             }
         }
     }
-    func bs_openSocialMediaAccounts(url:URL?){
+   public func bs_openSocialMediaAccounts(url:URL?){
         guard let urlSocialMedia = url else {
             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
             return
@@ -1256,7 +1257,7 @@ public extension UIApplication {
         
     }
     
-    func bs_openFacebook(id:String?){
+   public func bs_openFacebook(id:String?){
         guard let facebookUID = id else {
             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
             return
@@ -1272,7 +1273,7 @@ public extension UIApplication {
             UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
         }
     }
-    func bs_openLinkedIn(id:String?){
+    public func bs_openLinkedIn(id:String?){
         //https://www.linkedin.com/in/sari-kamail-eljamal-a866b2121/
         guard let linkedinUID = id else {
             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
@@ -1289,7 +1290,7 @@ public extension UIApplication {
             UIApplication.shared.open(linkedInURLWeb, options: [:], completionHandler: nil)
         }
     }
-    func bs_openTwitter(name:String?){
+   public func bs_openTwitter(name:String?){
         //https://twitter.com/orta
         guard let twitterName = name else {
             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
@@ -1307,7 +1308,7 @@ public extension UIApplication {
         }
     }
     
-    func bs_openGooglePlus(path:String?){
+   public func bs_openGooglePlus(path:String?){
         // https://plus.google.com/u/0/100711776131865357077
         // gplus://plus.google.com/u/0/100711776131865357077
         guard let pathString = path else {
@@ -1325,7 +1326,7 @@ public extension UIApplication {
             UIApplication.shared.open(googlePlusURLWeb, options: [:], completionHandler: nil)
         }
     }
-    func bs_openInstegram(path:String?){
+   public func bs_openInstegram(path:String?){
         //https://www.instagram.com/shehabagency/?utm_source=ig_profile_share&igshid=3xmdz5ko8anq
         guard let pathString = path else {
             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
@@ -1343,7 +1344,7 @@ public extension UIApplication {
         }
     }
 
-    func bs_openHttpLink(_ url:URL?){
+   public func bs_openHttpLink(_ url:URL?){
         if let tempUrl:URL = url as? URL{
             self.bs_openHttpLink(url?.absoluteString) ;
         }else{
@@ -1351,7 +1352,7 @@ public extension UIApplication {
         }
     }
     
-    func bs_openHttpLink(_ stringUrl:String?){
+    public func bs_openHttpLink(_ stringUrl:String?){
         if stringUrl != nil {
             var tempStringURL:String = stringUrl!;
             if stringUrl!.lowercased().hasPrefix("http") ||  stringUrl!.lowercased().hasPrefix("https") {
@@ -1374,7 +1375,7 @@ public extension UIApplication {
         
     }
     
-    func bs_open(_ stringUrl:String?){
+    public func bs_open(_ stringUrl:String?){
         if let tempStringUrl:String = stringUrl as? String {
             if let url:URL = URL.init(string:tempStringUrl) {
                 self.bs_open(url);
@@ -1386,7 +1387,7 @@ public extension UIApplication {
         
     }
 
-    func bs_open(_ url:URL?){
+    public func bs_open(_ url:URL?){
         if url != nil {
             if UIApplication.shared.canOpenURL(url!) {
                 if #available(iOS 10.0, *) {
@@ -1400,8 +1401,8 @@ public extension UIApplication {
 
 /*    **UITabBarController**   */
 
-public extension UITabBarController{
-    func bs_setViewController(vc: UIViewController,_ image: UIImage,_ selectedImage:UIImage) {
+ extension UITabBarController{
+    public func bs_setViewController(vc: UIViewController,_ image: UIImage,_ selectedImage:UIImage) {
 
         vc.tabBarItem = UITabBarItem.init(title:nil, image: image, selectedImage: selectedImage);
         vc.title="";
@@ -1428,8 +1429,8 @@ public extension UITabBarController{
 
 /*    **UINavigationController**   */
 
-public extension  UINavigationController {
-    func bs_popViewControllerTo(vc:UIViewController.Type){
+ extension  UINavigationController {
+    public func bs_popViewControllerTo(vc:UIViewController.Type){
         for controller in self.viewControllers {
             if controller.isKind(of: vc) {
                 self.popToViewController(controller, animated: true)
@@ -1441,8 +1442,8 @@ public extension  UINavigationController {
 
 /*    **UIColor**   */
 
-public extension UIColor {
-    class var bs_random: UIColor {
+ extension UIColor {
+    public var bs_random: UIColor {
         let red:CGFloat = CGFloat(drand48())
         let green:CGFloat = CGFloat(drand48())
         let blue:CGFloat = CGFloat(drand48())
@@ -1450,7 +1451,7 @@ public extension UIColor {
         return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
         
     }
-    var bs_isLight: Bool {
+   public var bs_isLight: Bool {
         guard let components = cgColor.components, components.count > 2 else {return false}
         let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000
         return (brightness > 0.5)
@@ -1460,17 +1461,17 @@ public extension UIColor {
 
 /*    **URLComponents**   */
 
-public extension URLComponents {
-    func bs_parameter(paramKey: String) -> String? {
+ extension URLComponents {
+    public func bs_parameter(paramKey: String) -> String? {
         return self.queryItems?.first(where: { $0.name == paramKey })?.value
     }
 }
 
 /*    **MPNowPlayingInfoCenter**   */
 
-public extension MPNowPlayingInfoCenter
+ extension MPNowPlayingInfoCenter
 {
-       var bs_propertyTitleRemoteControl:String?{
+       public var bs_propertyTitleRemoteControl:String?{
         set{
             self.nowPlayingInfo![MPMediaItemPropertyTitle] = newValue as Any
         }
@@ -1489,7 +1490,7 @@ public extension MPNowPlayingInfoCenter
         }
     }
     
-     var bs_propertyArtWorkRemoteControl:UIImage?{
+     public var bs_propertyArtWorkRemoteControl:UIImage?{
         set{
             var art = MPMediaItemArtwork(image: newValue as! UIImage)
             if #available(iOS 10.0, *) {
@@ -1511,7 +1512,7 @@ public extension MPNowPlayingInfoCenter
             return (self.nowPlayingInfo![MPMediaItemPropertyArtwork] as! MPMediaItemArtwork).image(at:  CGSize(width: 200, height: 200))
         }
     }
-      var bs_propertyPlaybackDurationRemoteControl:TimeInterval?{
+     public var bs_propertyPlaybackDurationRemoteControl:TimeInterval?{
         set{
             self.nowPlayingInfo![MPMediaItemPropertyPlaybackDuration] = newValue as Any
         }
@@ -1519,7 +1520,7 @@ public extension MPNowPlayingInfoCenter
             return ((self.nowPlayingInfo != nil)&&(self.nowPlayingInfo![MPMediaItemPropertyPlaybackDuration] != nil)   ? self.nowPlayingInfo![MPMediaItemPropertyPlaybackDuration] as? TimeInterval  : nil)
         }
     }
-      var bs_propertyElapsedPlaybackTimeRemoteControl:TimeInterval?{
+      public var bs_propertyElapsedPlaybackTimeRemoteControl:TimeInterval?{
         set{
             self.nowPlayingInfo![MPNowPlayingInfoPropertyElapsedPlaybackTime] = newValue as Any
         }
@@ -1532,34 +1533,34 @@ public extension MPNowPlayingInfoCenter
 
 /*    **FloatingPoint**   */
 
-public extension FloatingPoint{
-    func bs_fixedFraction(digits: Int) -> String {
+ extension FloatingPoint{
+    public func bs_fixedFraction(digits: Int) -> String {
         return String(format: "%.\(digits)f", self as! CVarArg)
     }
 }
 
-public extension Hashable where Self: AnyObject {
-     var bs_isDictionary:Bool {
+ extension Hashable where Self: AnyObject {
+     public var bs_isDictionary:Bool {
         if self is Dictionary<AnyHashable,Any> {
             return true
         }
         return false
     }
-     var bs_isArray:Bool {
+     public var bs_isArray:Bool {
         if self is Dictionary<AnyHashable,Any> {
             return true
         }
         return false
     }
 }
-public extension Hashable where Self: Any {
-    var bs_isDictionary:Bool {
+ extension Hashable where Self: Any {
+    public var bs_isDictionary:Bool {
         if self is Dictionary<AnyHashable,Any> {
             return true
         }
         return false
     }
-    var bs_isArray:Bool {
+    public var bs_isArray:Bool {
         if self is Dictionary<AnyHashable,Any> {
             return true
         }
@@ -1569,8 +1570,8 @@ public extension Hashable where Self: Any {
 
 /*    **Data**   */
 
-public extension Data {
-     var bs_html2AttributedString: NSAttributedString? {
+ extension Data {
+     public var bs_html2AttributedString: NSAttributedString? {
         do {
             return try NSAttributedString(data: self, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
         } catch {
@@ -1578,11 +1579,11 @@ public extension Data {
             return  nil
         }
     }
-    var bs_html2String: String {
+    public var bs_html2String: String {
         return bs_html2AttributedString?.string ?? ""
     }
     // used to convert device token from data to base 64 string
-    var bs_64String:String{
+    public var bs_64String:String{
         var token:String = "";
         for i in 0..<self.count {
             token = token + String(format: "%02.2hhx", arguments: [self[i]])
@@ -1594,8 +1595,8 @@ public extension Data {
 
 /*    **NSAttributedString**   */
 
-public extension NSAttributedString {
-     func bs_height(withWidth width: CGFloat) -> CGFloat {
+ extension NSAttributedString {
+     public func bs_height(withWidth width: CGFloat) -> CGFloat {
         let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let actualSize = boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
         return actualSize.height
@@ -1604,8 +1605,8 @@ public extension NSAttributedString {
 
 /*    **UITextView**   */
 
-public extension UITextView {
-     func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
+ extension UITextView {
+     public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
         var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float ?? 0, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text.last ?? " ")
         if newFont != nil {
             self.font = newFont!;
@@ -1873,9 +1874,9 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
 
 /*    **PHPhotoLibrary**   */
 
-public extension PHPhotoLibrary {
+ extension PHPhotoLibrary {
 
-     class func bs_creationRequestForAssetFromVideo(atFileURL:URL,completionHandler:@escaping (Bool,AVURLAsset?,Error?)->Void){
+    public class func bs_creationRequestForAssetFromVideo(atFileURL:URL,completionHandler:@escaping (Bool,AVURLAsset?,Error?)->Void){
         
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL:atFileURL);
@@ -1895,7 +1896,7 @@ public extension PHPhotoLibrary {
         }
     }
 
-     class func bs_creationRequestForAssetFromVideo(data:Data,completionHandler:@escaping (Bool,AVURLAsset?,Error?)->Void){
+    public class func bs_creationRequestForAssetFromVideo(data:Data,completionHandler:@escaping (Bool,AVURLAsset?,Error?)->Void){
         FileManager.default.bs_writeToFile(fileName:"test.mp4", fileData: data) { (atFileURL:URL?) in
             if atFileURL != nil {
                 PHPhotoLibrary.bs_creationRequestForAssetFromVideo(atFileURL: atFileURL!, completionHandler: { (saved:Bool,avurlasset:AVURLAsset?, error:Error?) in
@@ -1907,7 +1908,7 @@ public extension PHPhotoLibrary {
         }
     }
 
-    class func bs_checkPhotoLibraryAuthorization(authorized:(()->Void)?,unAuthorized:(()->Void)?){
+   public class func bs_checkPhotoLibraryAuthorization(authorized:(()->Void)?,unAuthorized:(()->Void)?){
         let status = PHPhotoLibrary.authorizationStatus()
         
         if (status == PHAuthorizationStatus.authorized) {
@@ -1930,8 +1931,8 @@ public extension PHPhotoLibrary {
 
 /*    **UIAlertController**   */
 
-public extension UIAlertController {
-    class func bs_showActionSheet(viewController: UIViewController, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void) {
+ extension UIAlertController {
+   public class func bs_showActionSheet(viewController: UIViewController, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         for (index, (title, style)) in actions.enumerated() {
             let alertAction = UIAlertAction(title: title, style: style) { (_) in
@@ -1941,7 +1942,7 @@ public extension UIAlertController {
         }
         viewController.present(alertViewController, animated: true, completion: nil)
     }
-    class func bs_showActionSheet(viewController:UIViewController?=UIApplication.shared.bs_rootViewController,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?){
+   public class func bs_showActionSheet(viewController:UIViewController?=UIApplication.shared.bs_rootViewController,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?){
         var actions: [(String, UIAlertAction.Style)] = []
         for object in objects ?? [] {
             actions.append((converter(object), UIAlertAction.Style.default))
