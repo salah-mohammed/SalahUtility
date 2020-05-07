@@ -699,11 +699,24 @@ public extension UIViewController {
 /*    **UIView**   */
 
 public extension UIView{
-    var bs_cornnerRaduisAspectRatio: CGFloat {
+     var bs_cornnerRaduisAspectRatio: CGFloat {
         set{
             self.layer.cornerRadius = (self.frame.height/2)*newValue
         }
         get{return -1;}
+    }
+    var bs_screenShot:UIImage?{
+        return self.bs_screenShot(self.bounds.size);
+    }
+     func bs_screenShot(_ size:CGSize)->UIImage?{
+        // Begin context
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        // Draw view in that context
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        // And finally, get image
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image;
     }
 }
 
