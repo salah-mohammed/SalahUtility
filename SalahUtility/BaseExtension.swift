@@ -1944,8 +1944,8 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
 /*    **UIAlertController**   */
 
  extension UIAlertController {
-   public class func bs_showActionSheet(viewController: UIViewController, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void) {
-        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+    public class func bs_showActionSheet(viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:preferredStyle)
         for (index, (title, style)) in actions.enumerated() {
             let alertAction = UIAlertAction(title: title, style: style) { (_) in
                 completion(index)
@@ -1954,13 +1954,13 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
         }
         viewController.present(alertViewController, animated: true, completion: nil)
     }
-   public class func bs_showActionSheet(viewController:UIViewController?=UIApplication.shared.bs_rootViewController,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?){
+   public class func bs_showActionSheet(viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?){
         var actions: [(String, UIAlertAction.Style)] = []
         for object in objects ?? [] {
             actions.append((converter(object), UIAlertAction.Style.default))
         }
         actions.append((cancel, UIAlertAction.Style.cancel))
-        UIAlertController.bs_showActionSheet(viewController:viewController!, title:title, message:message, actions: actions) { (index) in
+        UIAlertController.bs_showActionSheet(viewController:viewController!,preferredStyle, title:title, message:message, actions: actions) { (index) in
             if index == objects?.count ?? 0 {
                 // click cancel button
                 canceldHandler?()
