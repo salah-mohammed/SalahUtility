@@ -719,7 +719,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         UIGraphicsEndImageContext()
         return image;
     }
-    func bs_rotate(degrees: CGFloat) {
+    public func bs_rotate(degrees: CGFloat) {
         let degreesToRadians: (CGFloat) -> CGFloat = { (degrees: CGFloat) in
             return degrees / 180.0 * CGFloat.pi
         }
