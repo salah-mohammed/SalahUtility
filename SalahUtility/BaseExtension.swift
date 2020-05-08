@@ -1017,6 +1017,9 @@ public extension Int32{
     public var bs_cmTime:CMTime {
         return  CMTimeMakeWithSeconds(self, preferredTimescale: 1)
     }
+    public var bs_cgFloat:CGFloat?{
+        return CGFloat(self);
+    }
 }
 
 /*    **Float**   */
@@ -1045,6 +1048,9 @@ public extension Int32{
     }
     public func bs_isItMultipleOf(multiplicityValue:Float)->Bool{
         return Float.bs_isMultiple(number:self,multiplicityValue:multiplicityValue);
+    }
+    public var bs_cgFloat:CGFloat?{
+        return CGFloat(self);
     }
 }
 /*    **Array**   */
