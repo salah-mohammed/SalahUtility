@@ -1089,7 +1089,7 @@ public extension Int32{
 
  extension UserDefaults{
     private var SelectedDarMode:String{ return "SelectedDarMode"};
-         var bs_selectedDarkMode:UIUserInterfaceStyle?{
+        public var bs_selectedDarkMode:UIUserInterfaceStyle?{
             set{
                 if  let newValue:UIUserInterfaceStyle = newValue , let intNewValue:Int=newValue.rawValue as? Int{
                     UserDefaults.standard.set(intNewValue, forKey:SelectedDarMode)
