@@ -1095,7 +1095,11 @@ public extension Int32{
                     UserDefaults.standard.set(intNewValue, forKey:SelectedDarMode)
                     UserDefaults.standard.synchronize();
                     UIApplication.shared.windows.forEach { window in
-                    window.overrideUserInterfaceStyle = newValue;
+                        if #available(iOS 13.0, *) {
+                            window.overrideUserInterfaceStyle = newValue
+                        } else {
+                            // Fallback on earlier versions
+                        };
                     }
                 }
             }
