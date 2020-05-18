@@ -1088,6 +1088,24 @@ public extension Int32{
 /*    **UserDefaults**   */
 
  extension UserDefaults{
+    private var SelectedDarMode:String{ return "SelectedDarMode"};
+         var selectedDarkMode:UIUserInterfaceStyle?{
+            set{
+                if  let newValue:UIUserInterfaceStyle = newValue , let intNewValue:Int=newValue.rawValue as? Int{
+                    UserDefaults.standard.set(intNewValue, forKey:SelectedDarMode)
+                    UserDefaults.standard.synchronize();
+                    UIApplication.shared.windows.forEach { window in
+                    window.overrideUserInterfaceStyle = newValue;
+                    }
+                }
+            }
+            get{
+                if let rawValue:Int = UserDefaults.standard.integer(forKey:SelectedDarMode) {
+                    return UIUserInterfaceStyle.init(rawValue:rawValue);
+                }
+            return nil;
+            }
+    }
      public var bs_appleLanguages:[String]{
         set{
             UserDefaults.standard.set(newValue, forKey: "AppleLanguages");
@@ -1218,6 +1236,12 @@ public extension Int32{
 /*    **UIApplication**   */
 
  extension UIApplication {
+    public func bs_openFilesApp(){
+        var fileStringUrl = "shareddocuments://"
+        if let fileUrl:URL = try? URL(string:fileStringUrl){
+            UIApplication.shared.open(fileUrl)
+        }
+     }
    public func bs_openSetting(){
         let settingsUrl = URL(string: UIApplication.openSettingsURLString)
         if settingsUrl != nil {
@@ -1689,6 +1713,23 @@ public extension UICollectionView{
 /*    **FileManager**   */
 
 public extension FileManager {
+    func bs_saveToAppFiles(tempFileUrl:URL,remoteUrl:String?,success:()->(Void),fail:(Error)->(Void)){
+        if  let urlString:String = remoteUrl, let fileURL:URL = URL(string:urlString){
+            if let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as? URL{
+            let destinationFileUrl = documentsUrl.appendingPathComponent(fileURL.lastPathComponent)
+
+                do {
+                             if FileManager.default.fileExists(atPath: destinationFileUrl.path){
+                                 try FileManager.default.removeItem(at: destinationFileUrl);
+                             }
+                             try FileManager.default.copyItem(at: tempFileUrl, to: destinationFileUrl)
+                    success();
+                         } catch (let writeError) {
+                            fail(writeError);
+                         }
+        }
+    }
+    }
      func bs_writeToFile(_ searchPathDirectory:SearchPathDirectory = .documentDirectory,fileName:String,fileData:Data,completionHandler:(URL?)->Void){
         do {
             let fm = FileManager.default
@@ -1975,6 +2016,17 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
 /*    **Date**   */
 
 public extension Date {
+    func bs_compareDateIsSameDay(date:Date) -> Bool {
+        // check if same year and same month and same day
+        let order = Calendar.current.compare(self, to: date,
+                                             toGranularity: .day)
+        switch order {
+        case .orderedSame:
+            return true
+        default:
+            return false
+        }
+    }
     func bs_startOfMonth() -> Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
     }
