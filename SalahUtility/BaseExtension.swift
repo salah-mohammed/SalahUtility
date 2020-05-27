@@ -1058,6 +1058,9 @@ public extension Int32{
     public var bs_cgFloat:CGFloat?{
         return CGFloat(self);
     }
+    public var bs_duration:String {
+        return String.bs_duration(Double.init(self));
+    }
 }
 /*    **Array**   */
 
