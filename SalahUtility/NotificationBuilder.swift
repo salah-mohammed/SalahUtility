@@ -87,7 +87,7 @@ public class NotificationBuilder:NSObject {
 
         return self;
     }
-    func execute(_ handler:((Error?,UNNotificationRequest?)->Void)?=nil){
+    public func execute(_ handler:((Error?,UNNotificationRequest?)->Void)?=nil){
         if let request:UNNotificationRequest = self.request {
         UNUserNotificationCenter.current().add(request) { (error:Error?) in
             print(error);
