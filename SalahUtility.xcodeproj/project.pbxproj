@@ -13,6 +13,11 @@
 		4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D7552448F81700FCCC1A /* BaseExtension.swift */; };
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
+		4E79C08524868D340086EF0F /* TestAccountListDevelopment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E79C08024868D340086EF0F /* TestAccountListDevelopment.plist */; };
+		4E79C08624868D340086EF0F /* TestAccountListProducation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E79C08124868D340086EF0F /* TestAccountListProducation.plist */; };
+		4E79C08724868D340086EF0F /* TestAccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79C08224868D340086EF0F /* TestAccountList.swift */; };
+		4E79C08824868D340086EF0F /* TestAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79C08324868D340086EF0F /* TestAccountManager.swift */; };
+		4E79C08924868D340086EF0F /* TestAccountObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79C08424868D340086EF0F /* TestAccountObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
 		4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenManager.swift; sourceTree = "<group>"; };
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
+		4E79C08024868D340086EF0F /* TestAccountListDevelopment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestAccountListDevelopment.plist; sourceTree = "<group>"; };
+		4E79C08124868D340086EF0F /* TestAccountListProducation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestAccountListProducation.plist; sourceTree = "<group>"; };
+		4E79C08224868D340086EF0F /* TestAccountList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAccountList.swift; sourceTree = "<group>"; };
+		4E79C08324868D340086EF0F /* TestAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAccountManager.swift; sourceTree = "<group>"; };
+		4E79C08424868D340086EF0F /* TestAccountObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAccountObject.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,9 +72,30 @@
 				4E331C442460C25800E5562C /* BaseInheritance.swift */,
 				4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */,
 				4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */,
+				4E79C07E24868D330086EF0F /* TestAccount */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 			);
 			path = SalahUtility;
+			sourceTree = "<group>";
+		};
+		4E79C07E24868D330086EF0F /* TestAccount */ = {
+			isa = PBXGroup;
+			children = (
+				4E79C07F24868D340086EF0F /* Plist */,
+				4E79C08224868D340086EF0F /* TestAccountList.swift */,
+				4E79C08324868D340086EF0F /* TestAccountManager.swift */,
+				4E79C08424868D340086EF0F /* TestAccountObject.swift */,
+			);
+			path = TestAccount;
+			sourceTree = "<group>";
+		};
+		4E79C07F24868D340086EF0F /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				4E79C08024868D340086EF0F /* TestAccountListDevelopment.plist */,
+				4E79C08124868D340086EF0F /* TestAccountListProducation.plist */,
+			);
+			path = Plist;
 			sourceTree = "<group>";
 		};
 		4E910AE5245E2F95005C2976 /* Resources */ = {
@@ -145,6 +176,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E79C08624868D340086EF0F /* TestAccountListProducation.plist in Resources */,
+				4E79C08524868D340086EF0F /* TestAccountListDevelopment.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,9 +189,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */,
+				4E79C08724868D340086EF0F /* TestAccountList.swift in Sources */,
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
+				4E79C08824868D340086EF0F /* TestAccountManager.swift in Sources */,
 				4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */,
 				4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */,
+				4E79C08924868D340086EF0F /* TestAccountObject.swift in Sources */,
 				4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

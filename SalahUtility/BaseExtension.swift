@@ -1633,7 +1633,9 @@ public extension Int32{
         }
         return token;
     }
- 
+    public var utf8String:String?{
+        return String.init(data:self, encoding:.utf8);
+    }
 }
 
 /*    **NSAttributedString**   */
