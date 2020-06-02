@@ -102,6 +102,12 @@ import UserNotifications
 /*    **String**   */
 
  extension String{
+    public static func bs_contentsOf(_ stringUrl:String)->String?{
+        if let url:URL = URL.init(fileURLWithPath:stringUrl){
+        return try? String.init(contentsOf: url);
+        }
+        return nil;
+    }
     public var bs_float:Float?{
         return Float(self);
     }
