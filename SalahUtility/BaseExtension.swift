@@ -811,15 +811,6 @@ public extension NSLocale{
 /*    **Int**   */
 
  extension Int {
-    public var bs_isOdd:Bool{
-        if ( self % 2 == 0) {
-            return false;
-            // remainder 0
-        } else
-        {
-            return  true;
-        }
-    }
    public var bs_int:Int{
         return Int.init(self);
     }
@@ -856,6 +847,32 @@ public extension NSLocale{
    public var bs_inThousands:String{
         return String.bs_numberClass(numberValue: self, classNumber: 3);
     }
+    public init(random range: ClosedRange<Int>) {
+         let min = range.lowerBound
+         let max = range.upperBound
+         self = Int(arc4random_uniform(UInt32(1 + max - min))) + min
+     }
+    public static func bs_evenRandomNumber(range:ClosedRange<Int>)->Int{
+         var variable = Int.init(random: range);
+         repeat {
+             if (variable - 1 >= range.lowerBound) && (variable-1 != 0) {
+                 variable = variable - 1
+                 return variable
+             }else{
+                 break
+             }
+             
+         }  while variable.bs_isOdd
+         
+         variable = self.bs_evenRandomNumber(range: range);
+         return variable;
+     }
+     public var bs_isEven:Bool{
+         return self % 2 == 0
+     }
+     public var bs_isOdd:Bool{
+         return self % 2 != 0
+     }
 }
 
 /*    **Int16**   */
@@ -2214,6 +2231,7 @@ public extension UIResponder {
 public extension UIStoryboard {
  static let bs_main : UIStoryboard? = UIStoryboard(name: "HisnMuslim", bundle: nil);
 }
+
 
 
 
