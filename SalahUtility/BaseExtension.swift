@@ -350,7 +350,13 @@ import UserNotifications
 
 /*    **UIImage**   */
 
- extension UIImage {
+ public extension UIImage {
+    public static func bs_initate(cotnent:String)->UIImage?{
+        var image:UIImage? = UIImage.init(named:"\(cotnent).png");
+        if image == nil {image = UIImage.init(named:"\(cotnent).jpg")}
+        if image == nil {image = UIImage.init(named:"\(cotnent).jpeg")}
+        return image;
+    }
     public func bs_flippedImage() -> UIImage {
         let image = self.withHorizontallyFlippedOrientation();
         return image
