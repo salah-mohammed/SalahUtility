@@ -130,10 +130,13 @@ open class CounterModel: NSObject {
         self.value=initialValue;
     }
     open func autoIncrement(every timeInterval:TimeInterval){
-        self.timer?.invalidate();
-        self.timer=nil;
+        self.invalidate();
         self.timer = Timer.scheduledTimer(withTimeInterval:timeInterval, repeats: true) { (timer) in
             self.increment();
         }
+    }
+    open func invalidate(){
+        self.timer?.invalidate();
+        self.timer=nil;
     }
 }
