@@ -128,6 +128,7 @@ open class CounterModel: NSObject {
         case .none:
             break;
         }
+        self.value=initialValue;
     }
     open func autoIncrement(every timeInterval:TimeInterval){
         self.timer?.invalidate();
