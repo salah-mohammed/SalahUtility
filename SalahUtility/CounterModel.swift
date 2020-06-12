@@ -68,6 +68,7 @@ open class CounterModel: NSObject {
          counterHandlerUpValue:CounterHandler?,_ enableRepeat:Bool=false
         ) {
         super.init();
+        self.initialType=initialType;
         self.genrateInitialValue();
         self.counterHandlerChangeValue = counterHandlerChangeValue;
         self.stepValue=stepValue;
