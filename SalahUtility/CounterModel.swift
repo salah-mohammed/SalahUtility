@@ -9,6 +9,10 @@
 import UIKit
 
 open class CounterModel: NSObject {
+    public enum InitialValue{
+     case random
+     case cutom(Int)
+    }
     public typealias CounterHandler = (Int) -> Swift.Void
     public typealias CompletionHandler = ()->Void
     
@@ -24,6 +28,9 @@ open class CounterModel: NSObject {
     open var counterHandlerUpValue:CounterHandler?
     
     open var valuekeyName:String!
+    open var enableRepeat:Bool=false;
+    open var initialType:InitialValue?
+    var timer:Timer?;
     open var isValueEqualsMin:Bool{
         if (self.value==self.minimumValue){
             return true;}
@@ -54,45 +61,41 @@ open class CounterModel: NSObject {
             return true;}
         return false;
     }
-    public init(initialValue:Int?,stepValue:Int , maximumValue:Int , minimumValue:Int,counterHandlerMin:CounterHandler?,
+    public init(initialType:InitialValue?,stepValue:Int , maximumValue:Int , minimumValue:Int,counterHandlerMin:CounterHandler?,
          counterHandlerMax:CounterHandler?,
          counterHandlerChangeValue:CounterHandler?,
          counterHandlerDownValue:CounterHandler?,
-         counterHandlerUpValue:CounterHandler?
+         counterHandlerUpValue:CounterHandler?,_ enableRepeat:Bool=false
         ) {
         super.init();
+        self.genrateInitialValue();
         self.counterHandlerChangeValue = counterHandlerChangeValue;
-        self.initialValue=initialValue;
         self.stepValue=stepValue;
         self.maximumValue=maximumValue;
         self.minimumValue=minimumValue;
         self.counterHandlerMin = counterHandlerMin;
         self.counterHandlerMax = counterHandlerMax;
-        self.value=initialValue;
+        self.value=self.initialValue;
         if self.counterHandlerChangeValue != nil {
             self.counterHandlerChangeValue!(self.value)
         }
         self.counterHandlerUpValue = counterHandlerUpValue;
         self.counterHandlerDownValue = counterHandlerDownValue;
-        
+        self.enableRepeat=enableRepeat;
     }
     open func  increment(_ completionHandler:CompletionHandler? = nil )->Int{
         if (value<=maximumValue&&(value+stepValue)<=maximumValue) {
             value=value+stepValue;
-            if self.counterHandlerUpValue != nil {
-                self.counterHandlerUpValue!(value);
+            self.counterHandlerUpValue?(value);
+            self.counterHandlerChangeValue?(self.value)
+            completionHandler?();
+            if(value==maximumValue){
+            self.counterHandlerMax?(self.value);
+            if self.enableRepeat{
+            self.genrateInitialValue();
+            self.counterHandlerDownValue?(value);
+            self.counterHandlerChangeValue?(self.value)
             }
-            if self.counterHandlerChangeValue != nil {
-                self.counterHandlerChangeValue!(self.value)
-            }
-            if completionHandler != nil {
-                completionHandler!();
-            }
-            if(value==maximumValue)
-            {
-                if self.counterHandlerMax != nil{
-                    self.counterHandlerMax!(self.value);
-                }
             }
         }
         return value;
@@ -100,21 +103,11 @@ open class CounterModel: NSObject {
     open func  decrement(_ completionHandler:CompletionHandler? = nil )->Int {
         if (value>=minimumValue&&(value-stepValue)>=minimumValue) {
             value=value-stepValue;
-            if self.counterHandlerDownValue != nil {
-                self.counterHandlerDownValue!(value);
-            }
-            if self.counterHandlerChangeValue != nil {
-                self.counterHandlerChangeValue!(self.value)
-            }
-            if completionHandler != nil {
-                completionHandler!();
-            }
-            if(value==minimumValue)
-            {
-                if self.counterHandlerMin != nil{
-                    self.counterHandlerMin!(self.value);
-                }
-                
+            self.counterHandlerDownValue?(value);
+            self.counterHandlerChangeValue?(self.value)
+            completionHandler?();
+            if(value==minimumValue){
+            self.counterHandlerMin?(self.value);
             }
         }
         return value;
@@ -124,5 +117,23 @@ open class CounterModel: NSObject {
         self.value=initialValue;
     }
     
-    
+    func genrateInitialValue(){
+        switch initialType{
+        case .random:
+            self.initialValue=Int.init(random:minimumValue...maximumValue);
+            break;
+        case .cutom(let initialValue):
+            self.initialValue=initialValue;
+            break;
+        case .none:
+            break;
+        }
+    }
+    open func autoIncrement(every timeInterval:TimeInterval){
+        self.timer?.invalidate();
+        self.timer=nil;
+        self.timer = Timer.scheduledTimer(withTimeInterval:timeInterval, repeats: true) { (timer) in
+            self.increment();
+        }
+    }
 }
