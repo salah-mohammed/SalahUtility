@@ -260,9 +260,9 @@ import UserNotifications
     public var bs_double:Double?{
         return Double.init(self)
     }
-    public func bs_localized(_ language:String) ->String {
+    public func bs_localized(_ language:String,_ tableName:String?=nil) ->String {
         if let path:String = Bundle.main.path(forResource: language, ofType: "lproj") , let bundle:Bundle = Bundle(path: path) {
-        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: "", comment: "")
         }else{return ""};
     }
     public func bs_toDic()->[String:String]{
