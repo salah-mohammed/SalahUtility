@@ -17,7 +17,7 @@ public class TestAccountList: NSObject {
     case customName(String)
     case stringURL(String)
 
-        var stringURL:String?{
+    var stringURL:String?{
             switch self {
             case .development:
                 return TestAccountList.toStringURL(plistName:"TestAccountListDevelopment");
