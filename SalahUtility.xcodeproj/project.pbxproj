@@ -11,6 +11,7 @@
 		4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E331C442460C25800E5562C /* BaseInheritance.swift */; };
 		4E34D74F2448F7F000FCCC1A /* SalahUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E34D74D2448F7F000FCCC1A /* SalahUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D7552448F81700FCCC1A /* BaseExtension.swift */; };
+		4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */; };
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
 		4E79C08524868D340086EF0F /* TestAccountListDevelopment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E79C08024868D340086EF0F /* TestAccountListDevelopment.plist */; };
@@ -26,6 +27,7 @@
 		4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SalahUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E34D74D2448F7F000FCCC1A /* SalahUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalahUtility.h; sourceTree = "<group>"; };
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
+		4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDocumentPickerViewControllerEx.swift; sourceTree = "<group>"; };
 		4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenManager.swift; sourceTree = "<group>"; };
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
 		4E79C08024868D340086EF0F /* TestAccountListDevelopment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestAccountListDevelopment.plist; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				4E331C442460C25800E5562C /* BaseInheritance.swift */,
 				4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */,
 				4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */,
+				4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */,
 				4E79C07E24868D330086EF0F /* TestAccount */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 			);
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */,
+				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
 				4E79C08724868D340086EF0F /* TestAccountList.swift in Sources */,
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
 				4E79C08824868D340086EF0F /* TestAccountManager.swift in Sources */,

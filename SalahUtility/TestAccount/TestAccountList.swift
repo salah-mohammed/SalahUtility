@@ -11,15 +11,34 @@ import UIKit
 
 
 public class TestAccountList: NSObject {
-    public enum AccountType:String{
-    case development="TestAccountListDevelopment"
-    case producation="TestAccountListProducation"
+    public enum AccountType{
+    case development
+    case producation
+    case customName(String)
+    case stringURL(String)
+
+        var stringURL:String?{
+            switch self {
+            case .development:
+                return TestAccountList.toStringURL(plistName:"TestAccountListDevelopment");
+            case .producation:
+                return TestAccountList.toStringURL(plistName:"TestAccountListProducation");
+            case .customName(let plistName):
+                return TestAccountList.toStringURL(plistName:plistName);
+            case .stringURL(let url):
+                return url;
+            }
+            return nil;
+        }
+    }
+    static func toStringURL(plistName:String)->String?{
+     return Bundle.main.path(forResource:plistName, ofType: "plist")
     }
     public var accountType:AccountType!
     func fetch()->[TestAccountObject]?{
         let propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml //Format of the Property List.
         let plistData: [String: AnyObject] = [:] //Our data
-        if let stringUrl:String = Bundle.main.path(forResource:accountType.rawValue, ofType: "plist") {
+        if let stringUrl:String = Bundle.main.path(forResource:accountType.stringURL, ofType: "plist") {
             var dicObjects=NSArray.init(contentsOfFile:stringUrl)
             if let  objects:[TestAccountObject]?=dicObjects?.map({ (any:Any) -> TestAccountObject in return TestAccountObject.init(dic: (any as! Dictionary)) }){
             return objects
