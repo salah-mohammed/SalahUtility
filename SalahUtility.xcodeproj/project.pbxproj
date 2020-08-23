@@ -12,6 +12,7 @@
 		4E34D74F2448F7F000FCCC1A /* SalahUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E34D74D2448F7F000FCCC1A /* SalahUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D7552448F81700FCCC1A /* BaseExtension.swift */; };
 		4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */; };
+		4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73424C24F25F3400969E79 /* LocalAuth.swift */; };
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		4E34D74D2448F7F000FCCC1A /* SalahUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalahUtility.h; sourceTree = "<group>"; };
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
 		4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDocumentPickerViewControllerEx.swift; sourceTree = "<group>"; };
+		4E73424C24F25F3400969E79 /* LocalAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuth.swift; sourceTree = "<group>"; };
 		4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenManager.swift; sourceTree = "<group>"; };
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */,
 				4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */,
 				4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */,
+				4E73424C24F25F3400969E79 /* LocalAuth.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 			);
 			path = SalahUtility;
@@ -160,6 +163,7 @@
 			files = (
 				4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
+				4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */,
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
 				4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */,
 				4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */,
