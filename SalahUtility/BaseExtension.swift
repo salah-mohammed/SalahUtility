@@ -346,11 +346,24 @@ import UserNotifications
         }
         return false
     }
+    func bs_fileName() -> String {
+        return URL(fileURLWithPath: self).bs_fileName()
+    }
+
+    func bs_fileExtension() -> String {
+        return URL(fileURLWithPath: self).bs_fileExtension();
+    }
 }
 
 /*    **UIImage**   */
 
  public extension UIImage {
+    public func bs_getSizeIn(_ type: Data.DataUnits)-> (Double?,String?) {
+        guard let data = self.pngData() else {
+            return (nil,nil)
+        }
+        return data.bs_getSizeIn(type)
+    }
     public static func bs_initate(cotnent:String)->UIImage?{
         var image:UIImage? = UIImage.init(named:"\(cotnent).png");
         if image == nil {image = UIImage.init(named:"\(cotnent).jpg")}
@@ -1538,6 +1551,17 @@ public extension Int32{
         return self.queryItems?.first(where: { $0.name == paramKey })?.value
     }
 }
+/*    **URL**   */
+
+extension URL {
+    func bs_fileName() -> String {
+        return self.deletingPathExtension().lastPathComponent
+    }
+
+    func bs_fileExtension() -> String {
+        return self.pathExtension
+    }
+}
 
 /*    **MPNowPlayingInfoCenter**   */
 
@@ -1643,6 +1667,25 @@ public extension Int32{
 /*    **Data**   */
 
  extension Data {
+        public enum DataUnits: String {
+            case byte, kilobyte, megabyte, gigabyte
+        }
+        
+        public func bs_getSizeIn(_ type: DataUnits)-> (Double?,String?) {
+            var size: Double = 0.0
+            switch type {
+            case .byte:
+                size = Double(self.count)
+            case .kilobyte:
+                size = Double(self.count) / 1024
+            case .megabyte:
+                size = Double(self.count) / 1024 / 1024
+            case .gigabyte:
+                size = Double(self.count) / 1024 / 1024 / 1024
+            }
+            return (size,String(format: "%.2f",size))
+        }
+    
      public var bs_html2AttributedString: NSAttributedString? {
         do {
             return try NSAttributedString(data: self, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
@@ -2182,6 +2225,17 @@ public extension Dictionary {
         }
         return nil
     }
+    
+    func bs_json()->String?{
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: self,
+            options: []) {
+            let theJSONText = String(data: theJSONData,
+                                       encoding: .ascii)
+            return theJSONText;
+        }
+        return nil;
+    }
 }
 
 public protocol Copying {
@@ -2238,9 +2292,41 @@ public extension UIStoryboard {
  static let bs_main : UIStoryboard? = UIStoryboard(name: "HisnMuslim", bundle: nil);
 }
 
+public extension Array where Element: Equatable {
+    public func bs_subtracting(_ array: Array<Element>) -> Array<Element> {
+        self.filter { !array.contains($0) }
+    }
+}
+extension Bundle {
+    var bs_releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var bs_buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
+    }
+}
 
-
-
-
-
-
+extension Array where Element == Dictionary<String, AnyObject> {
+    func bs_json()->String?{
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: self,
+            options: []) {
+            let theJSONText = String(data: theJSONData,
+                                       encoding: .ascii)
+            return theJSONText;
+        }
+        return nil;
+    }
+}
+extension Array where Element == Dictionary<String, Any> {
+    func bs_json()->String?{
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: self,
+            options: []) {
+            let theJSONText = String(data: theJSONData,
+                                       encoding: .ascii)
+            return theJSONText;
+        }
+        return nil;
+    }
+}
