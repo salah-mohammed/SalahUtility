@@ -103,7 +103,7 @@ import UserNotifications
 
  extension String{
     public static func bs_contentsOf(_ stringUrl:String)->String?{
-        let url:URL = URL.init(fileURLWithPath:stringUrl)
+         let url:URL = URL.init(fileURLWithPath:stringUrl)
         return try? String.init(contentsOf: url);
     }
     public var bs_float:Float?{
@@ -327,9 +327,11 @@ import UserNotifications
 //        }
 //    }
      public var bs_locationDegrees:CLLocationDegrees?{
-        let itemString:String = self
-        let  item:CLLocationDegrees? = CLLocationDegrees.init(itemString)
-        return item;
+        let itemString:String = self;
+        if let  item:CLLocationDegrees = CLLocationDegrees.init(itemString){
+            return item;
+        }
+        return nil;
     }
      public var bs_nsNumber:NSNumber?{
         if let doubleValue = Double.init(self) {
@@ -711,7 +713,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
     }
    public static func bs_generalPush(){
         let name:String = String(describing: self)
-        if   let vc:UIViewController = UIStoryboard.bs_main?.instantiateViewController(withIdentifier:name) as? UIViewController{
+        if  let vc:UIViewController = UIStoryboard.bs_main?.instantiateViewController(withIdentifier:name) as? UIViewController{
             UIApplication.shared.bs_rootNavigationController?.pushViewController(vc, animated: true);
         }
     }
@@ -1144,7 +1146,8 @@ public extension Int32{
                 }
             }
             get{
-                return UIUserInterfaceStyle.init(rawValue:UserDefaults.standard.integer(forKey:SelectedDarMode));
+            let rawValue:Int = UserDefaults.standard.integer(forKey:SelectedDarMode)
+            return UIUserInterfaceStyle.init(rawValue:rawValue);
             }
     }
      public var bs_appleLanguages:[String]{
