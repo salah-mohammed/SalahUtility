@@ -103,10 +103,8 @@ import UserNotifications
 
  extension String{
     public static func bs_contentsOf(_ stringUrl:String)->String?{
-        if let url:URL = URL.init(fileURLWithPath:stringUrl){
+        let url:URL = URL.init(fileURLWithPath:stringUrl)
         return try? String.init(contentsOf: url);
-        }
-        return nil;
     }
     public var bs_float:Float?{
         return Float(self);
@@ -329,11 +327,9 @@ import UserNotifications
 //        }
 //    }
      public var bs_locationDegrees:CLLocationDegrees?{
-        if let itemString:String = self,
-            let  item:CLLocationDegrees = CLLocationDegrees.init(itemString){
-            return item;
-        }
-        return nil;
+        let itemString:String = self
+        let  item:CLLocationDegrees? = CLLocationDegrees.init(itemString)
+        return item;
     }
      public var bs_nsNumber:NSNumber?{
         if let doubleValue = Double.init(self) {
@@ -710,13 +706,12 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         self.popoverPresentationController?.delegate = self as! UIPopoverPresentationControllerDelegate
         self.popoverPresentationController?.sourceView = view  // button
         self.popoverPresentationController?.sourceRect = view.bounds
-        if let size:CGSize=size {
         self.preferredContentSize = size
-        }
         UIApplication.shared.bs_rootViewController?.present(self, animated: true, completion: nil);
     }
    public static func bs_generalPush(){
-        if  let name:String = String(describing: self), let vc:UIViewController = UIStoryboard.bs_main?.instantiateViewController(withIdentifier:name) as? UIViewController{
+        let name:String = String(describing: self)
+        if   let vc:UIViewController = UIStoryboard.bs_main?.instantiateViewController(withIdentifier:name) as? UIViewController{
             UIApplication.shared.bs_rootNavigationController?.pushViewController(vc, animated: true);
         }
     }
@@ -1149,10 +1144,7 @@ public extension Int32{
                 }
             }
             get{
-                if let rawValue:Int = UserDefaults.standard.integer(forKey:SelectedDarMode) {
-                    return UIUserInterfaceStyle.init(rawValue:rawValue);
-                }
-            return nil;
+                return UIUserInterfaceStyle.init(rawValue:UserDefaults.standard.integer(forKey:SelectedDarMode));
             }
     }
      public var bs_appleLanguages:[String]{
@@ -2165,8 +2157,8 @@ public extension UNNotificationSoundName{
 public extension NSObject{
   func bs_AudioServicesPlaySystemSound(fileName:String,fileType:String)->SystemSoundID? {
         var soundID: SystemSoundID = 0
-        if  let filePath:String = Bundle.main.path(forResource: fileName, ofType:fileType),
-            let url:NSURL = NSURL(fileURLWithPath: filePath) {
+        if  let filePath:String = Bundle.main.path(forResource: fileName, ofType:fileType){
+            let url:NSURL = NSURL(fileURLWithPath: filePath)
             AudioServicesCreateSystemSoundID(url, &soundID)
             AudioToolbox.AudioServicesPlaySystemSound(soundID)
         }else{
