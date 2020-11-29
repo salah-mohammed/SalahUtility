@@ -26,6 +26,8 @@ class DateViewController: UIViewController,UITableViewDataSource,UITableViewDele
         objects.append("24 sytem : \(date.bs_customFormatter(formate:first, nil))");
         objects.append("12 sytem : \(date.bs_customFormatter(formate:second, nil))");
         objects.append("12 sytem : \(date.bs_customFormatter(formate:thired, nil))");
+        objects.append("islamic 24 sytem : \(date.bs_islamicFormatter(formate:first))");
+        objects.append("islamic 12 sytem : \(date.bs_islamicFormatter(formate:second))");
 
         tableView.reloadData();
         // Do any additional setup after loading the view.
