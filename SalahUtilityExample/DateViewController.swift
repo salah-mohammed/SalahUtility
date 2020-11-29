@@ -23,9 +23,9 @@ class DateViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         let thired = "\(DateFormatter.Symbols.year)-\(DateFormatter.Symbols.month)-\(DateFormatter.Symbols.day) \(DateFormatter.Symbols.hour12System):\(DateFormatter.Symbols.minute):\(DateFormatter.Symbols.second) \(DateFormatter.Symbols.clock12)"
 
-        objects.append("24 sytem : \(date.bs_customFormatter(formate:first))");
-        objects.append("12 sytem : \(date.bs_customFormatter(formate:second))");
-        objects.append("12 sytem : \(date.bs_customFormatter(formate:thired))");
+        objects.append("24 sytem : \(date.bs_formatter(first))");
+        objects.append("12 sytem : \(date.bs_formatter(second))");
+        objects.append("12 sytem : \(date.bs_formatter(thired))");
         objects.append("islamic 24 sytem : \(date.bs_islamicFormatter(formate:first))");
         objects.append("islamic 12 sytem : \(date.bs_islamicFormatter(formate:second))");
 

@@ -2145,14 +2145,14 @@ public extension Date {
     var bs_isLastDayOfMonth: Bool {
         return bs_dayAfter.bs_month != bs_month
     }
-    func bs_formatter(_ formate:String,calendar:Calendar=Calendar.init(identifier: Calendar.Identifier.gregorian), _ locale:Locale?=nil)->String{
+    func bs_formatter(_ formate:String,calendar:Calendar=Calendar.init(identifier: Calendar.Identifier.gregorian), _ locale:Locale=NSLocale.system)->String{
         let dateFor = DateFormatter()
          dateFor.locale = locale // or "en" as you want to show numbers
          dateFor.calendar = calendar
          dateFor.dateFormat = formate
         return dateFor.string(from: self);
     }
-    func bs_islamicFormatter(formate:String, _ locale:Locale?=nil)->String{
+    func bs_islamicFormatter(formate:String, _ locale:Locale=NSLocale.system)->String{
         return self.bs_formatter(formate, calendar: Calendar.init(identifier: Calendar.Identifier.islamicCivil));
     }
 }
