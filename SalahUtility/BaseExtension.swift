@@ -2145,6 +2145,16 @@ public extension Date {
     var bs_isLastDayOfMonth: Bool {
         return bs_dayAfter.bs_month != bs_month
     }
+    func bs_customFormatter(formate:String,calendar:Calendar=Calendar.init(identifier: Calendar.Identifier.gregorian), _ locale:Locale?)->String{
+        let dateFor = DateFormatter()
+         dateFor.locale = locale // or "en" as you want to show numbers
+         dateFor.calendar = calendar
+         dateFor.dateFormat = formate
+        return dateFor.string(from: self);
+    }
+    func bs_islamicFormatter(formate:String, _ locale:Locale?=nil)->String{
+        return self.bs_customFormatter(formate:formate, calendar: Calendar.init(identifier: Calendar.Identifier.islamicCivil),locale);
+    }
 }
 
 /*    **UNNotificationSoundName**   */
@@ -2240,6 +2250,11 @@ public protocol Copying {
 public extension Copying {
    public func copy() -> Self {
         return Self.init(original: self)
+    }
+}
+public extension Collection {
+    func bs_get(_ index: Self.Index)->Iterator.Element?{
+        return self.indices.contains(index) ? self[index] : nil;
     }
 }
 public extension Array where Element: Copying {
