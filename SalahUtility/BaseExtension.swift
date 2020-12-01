@@ -2153,7 +2153,7 @@ public extension Date {
         return dateFor.string(from: self);
     }
     func bs_islamicFormatter(formate:String, _ locale:Locale=NSLocale.system)->String{
-        return self.bs_formatter(formate, calendar: Calendar.init(identifier: Calendar.Identifier.islamicCivil));
+        return self.bs_formatter(formate, calendar: Calendar.init(identifier: Calendar.Identifier.islamicUmmAlQura),locale);
     }
 }
 
