@@ -18,7 +18,9 @@ class LocalNotificationViewController: UIViewController {
     }
     
     @IBAction func btnTest(_ sender: Any) {
-        NotificationBuilder.init().title("Test".bs_localized("ar")+"5").subTitle("Test".bs_localized("ar")+"5").body("Test".bs_localized("ar")+"5").trigger(NotificationBuilder.Trigger.timeInterval(value: 3)).identifier("ad").repeats(false).sound(UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "localNotificationAudio.m4a"))).build().execute();
+//        NotificationBuilder.init().title("Test".bs_localized("ar")+"5").subTitle("Test".bs_localized("ar")+"5").body("Test".bs_localized("ar")+"5").trigger(NotificationBuilder.Trigger.timeInterval(value: 3)).identifier("ad").repeats(false).sound(UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "localNotificationAudio.m4a"))).build().execute();
+        NotificationBuilder.init().title("غدا هو ").subTitle("Test".bs_localized("ar")+"5").body("Test".bs_localized("ar")+"5").trigger(NotificationBuilder.Trigger.timeInterval(value: 3)).identifier("ad").repeats(false).sound(UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "localNotificationAudio.m4a"))).build().execute();
+
     }
     
     /*

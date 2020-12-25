@@ -392,6 +392,25 @@ import UserNotifications
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+    class func bs_ratioSize(viewWidth:CGFloat,image:UIImage)->CGSize{
+            let myImageWidth = image.size.width
+            let myImageHeight = image.size.height
+            let myViewWidth = viewWidth
+            let ratio = myViewWidth/myImageWidth
+            let scaledHeight = myImageHeight * ratio
+            return CGSize(width: myViewWidth, height: scaledHeight)
+        
+    }
+    class func bs_ratioSize(viewWidth:CGFloat,imageWidth:CGFloat,imageHeight:CGFloat)->CGSize{
+        let myImageWidth = imageWidth
+        let myImageHeight = imageHeight
+        let myViewWidth = viewWidth
+        let ratio = myViewWidth/myImageWidth
+        let scaledHeight = myImageHeight * ratio
+        return CGSize(width: myViewWidth, height: scaledHeight)
+        
+    }
+    
 }
 
 /*    **UIImageView**   */
@@ -461,7 +480,18 @@ import UserNotifications
         })
     }
    }
-}
+    var bs_ratioSize: CGSize {
+       if let myImage = self.image {
+           let myImageWidth = myImage.size.width
+           let myImageHeight = myImage.size.height
+           let myViewWidth = self.frame.size.width
+           let ratio = myViewWidth/myImageWidth
+           let scaledHeight = myImageHeight * ratio
+           return CGSize(width: myViewWidth, height: scaledHeight)
+       }
+       return CGSize(width: -1.0, height: -1.0)
+   }
+ }
 
 /*    **UITextField**   */
 
@@ -1523,7 +1553,7 @@ public extension Int32{
 /*    **UIColor**   */
 
  extension UIColor {
-    public var bs_random: UIColor {
+    public class var bs_random: UIColor {
         let red:CGFloat = CGFloat(drand48())
         let green:CGFloat = CGFloat(drand48())
         let blue:CGFloat = CGFloat(drand48())
