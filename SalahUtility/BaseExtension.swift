@@ -392,7 +392,7 @@ import UserNotifications
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-    class func bs_ratioSize(viewWidth:CGFloat,image:UIImage)->CGSize{
+    public class func bs_ratioSize(viewWidth:CGFloat,image:UIImage)->CGSize{
             let myImageWidth = image.size.width
             let myImageHeight = image.size.height
             let myViewWidth = viewWidth
@@ -401,7 +401,7 @@ import UserNotifications
             return CGSize(width: myViewWidth, height: scaledHeight)
         
     }
-    class func bs_ratioSize(viewWidth:CGFloat,imageWidth:CGFloat,imageHeight:CGFloat)->CGSize{
+    public class func bs_ratioSize(viewWidth:CGFloat,imageWidth:CGFloat,imageHeight:CGFloat)->CGSize{
         let myImageWidth = imageWidth
         let myImageHeight = imageHeight
         let myViewWidth = viewWidth
@@ -480,7 +480,7 @@ import UserNotifications
         })
     }
    }
-    var bs_ratioSize: CGSize {
+    public var bs_ratioSize: CGSize {
        if let myImage = self.image {
            let myImageWidth = myImage.size.width
            let myImageHeight = myImage.size.height
