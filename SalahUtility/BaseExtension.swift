@@ -1564,7 +1564,7 @@ public extension Int32{
     public var bs_isLight: Bool? {
     return self.isLight();
     }
-    func isLight(threshold: Float = 0.5) -> Bool? {
+    public func isLight(threshold: Float = 0.5) -> Bool? {
             let originalCGColor = self.cgColor
 
             // Now we need to convert it to the RGB colorspace. UIColor.white / UIColor.black are greyscale and not RGB.
