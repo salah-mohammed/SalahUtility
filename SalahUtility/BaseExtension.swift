@@ -1561,12 +1561,25 @@ public extension Int32{
         return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
         
     }
-   public var bs_isLight: Bool {
-        guard let components = cgColor.components, components.count > 2 else {return false}
-        let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000
-        return (brightness > 0.5)
-        
+    public var bs_isLight: Bool? {
+    return self.isLight();
     }
+    func isLight(threshold: Float = 0.5) -> Bool? {
+            let originalCGColor = self.cgColor
+
+            // Now we need to convert it to the RGB colorspace. UIColor.white / UIColor.black are greyscale and not RGB.
+            // If you don't do this then you will crash when accessing components index 2 below when evaluating greyscale colors.
+            let RGBCGColor = originalCGColor.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil)
+            guard let components = RGBCGColor?.components else {
+                return nil
+            }
+            guard components.count >= 3 else {
+                return nil
+            }
+
+            let brightness = Float(((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000)
+            return (brightness > threshold)
+        }
 }
 
 /*    **URLComponents**   */
