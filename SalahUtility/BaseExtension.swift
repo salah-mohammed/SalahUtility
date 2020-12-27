@@ -2299,6 +2299,15 @@ public extension Collection {
     func bs_get(_ index: Self.Index)->Iterator.Element?{
         return self.indices.contains(index) ? self[index] : nil;
     }
+    func bs_get(_ indexs: [Self.Index])->Array<Iterator.Element>{
+        var items = Array<Iterator.Element>();
+        for  index in indexs{
+        if let item = self.bs_get(index){
+        items.append(item);
+        }
+        }
+        return items;
+    }
 }
 public extension Array where Element: Copying {
     func clone() -> Array {
