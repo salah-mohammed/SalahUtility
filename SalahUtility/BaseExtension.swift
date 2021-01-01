@@ -678,9 +678,18 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIViewController**   */
 
  extension UIViewController {
+    public func bs_share(_ items:[Any],_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
+        // text to share
+        // set up activity view controller
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+        
+        activityViewController.completionWithItemsHandler = completionWithItemsHandler;
+    }
     public func bs_share(image:UIImage?,text:String?,_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
-         // text to share
-         // set up activity view controller
         var items = [Any]();
         if let image:UIImage=image{
         items.append(image)
@@ -688,15 +697,8 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         if let text:String=text{
         items.append(text)
         }
-         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-         
-         // present the view controller
-         self.present(activityViewController, animated: true, completion: nil)
-         
-         activityViewController.completionWithItemsHandler = completionWithItemsHandler;
-    
-     }
+        self.bs_share(items,completionWithItemsHandler);
+    }
    public func bs_presentRightToLeft(_ viewControllerToPresent: UIViewController) {
         let transition = CATransition()
         transition.duration = 0.25
