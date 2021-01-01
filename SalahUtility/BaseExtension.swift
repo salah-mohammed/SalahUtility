@@ -678,11 +678,17 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIViewController**   */
 
  extension UIViewController {
-    public func bs_share(text:String?,_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
+    public func bs_share(image:UIImage?,text:String?,_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
          // text to share
          // set up activity view controller
-         let textToShare = [ text ]
-         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        var items = [Any]();
+        if let image:UIImage=image{
+        items.append(image)
+        }
+        if let text:String=text{
+        items.append(text)
+        }
+         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
          activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
          
          // present the view controller
