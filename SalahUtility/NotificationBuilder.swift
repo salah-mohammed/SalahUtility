@@ -34,7 +34,7 @@ public extension DateComponents {
 public class NotificationBuilder:NSObject {
     public enum Trigger {
         case timeInterval(value:TimeInterval)
-        case date(date:Date,dateType:DateComponents.DateType)
+        case date(date:Date,dateType:DateComponents.DateType,calendar:Calendar?)
         case dateComponents(date:DateComponents)
 
     }
@@ -71,8 +71,8 @@ public class NotificationBuilder:NSObject {
         case .timeInterval(let value)?:
              trigger = UNTimeIntervalNotificationTrigger.init(timeInterval:value, repeats: self.repeats);
             break
-        case .date(let date,let dateType)?:
-            let dateComponents =  Calendar.current.dateComponents(dateType.components, from:date);
+        case .date(let date,let dateType,let calendar)?:
+            let dateComponents = (calendar ?? Calendar.current).dateComponents(dateType.components, from:date);
             trigger = UNCalendarNotificationTrigger.init(dateMatching: dateComponents, repeats: self.repeats)
             break
             
