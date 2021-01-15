@@ -77,7 +77,9 @@ open class CounterModel: NSObject {
         self.counterHandlerMin = counterHandlerMin;
         self.counterHandlerMax = counterHandlerMax;
         self.value=self.initialValue;
-        self.counterHandlerChangeValue?(self.value)
+        if let value:Int = self.value{
+        self.counterHandlerChangeValue?(value)
+        }
         self.counterHandlerUpValue = counterHandlerUpValue;
         self.counterHandlerDownValue = counterHandlerDownValue;
         self.enableRepeat=enableRepeat;

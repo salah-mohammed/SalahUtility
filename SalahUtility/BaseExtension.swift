@@ -2214,6 +2214,47 @@ public extension Date {
     func bs_islamicFormatter(formate:String, _ locale:Locale=NSLocale.system)->String{
         return self.bs_formatter(formate, calendar: Calendar.init(identifier: Calendar.Identifier.islamicUmmAlQura),locale);
     }
+    
+    static func bs_init(dateString: String, format: String, timeZone: TimeZone?, calendar:Calendar?,locale:Locale=NSLocale.system)->Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = locale;
+        dateFormatter.dateStyle = .none;
+        dateFormatter.timeStyle = .none;
+        if let timeZone:TimeZone=timeZone{
+        dateFormatter.timeZone = timeZone;
+        }
+        dateFormatter.dateFormat = format;
+        if let calendar:Calendar=calendar{
+        dateFormatter.calendar = calendar;
+        }
+        guard let date = dateFormatter.date(from: dateString) else {
+            return  Date()
+        }
+        return date;
+    }
+    
+    enum Day:Int{
+    case sunday=1
+    case monday=2
+    case tuesda=3
+    case wednesday=4
+    case thursday=5
+    case friday=6
+    case saturday=7
+    }
+    func isDay(_ day:Day)->Bool{
+        let today = self
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar.dateComponents([.weekday], from: today)
+
+        if components.weekday == day.rawValue {
+            print("Hello Monday")
+            return true;
+        } else {
+            print("It's not Monday")
+            return false;
+        }
+    }
 }
 
 /*    **UNNotificationSoundName**   */
@@ -2346,6 +2387,8 @@ public extension UIApplication{
     }
 }
 
+/*    **UILabel**   */
+
 public extension UILabel {
     var bs_numberOfVisibleLines: Int {
         let textSize = CGSize(width: CGFloat(self.frame.size.width), height: CGFloat(MAXFLOAT))
@@ -2354,6 +2397,9 @@ public extension UILabel {
         return rHeight / charSize
     }
 }
+
+/*    **UIResponder**   */
+
 public extension UIResponder {
     func bs_getParentViewController() -> UIViewController? {
         if self.next is UIViewController {
@@ -2366,9 +2412,14 @@ public extension UIResponder {
         }
     }
 }
+
+/*    **UIStoryboard**   */
+
 public extension UIStoryboard {
- static let bs_main : UIStoryboard? = UIStoryboard(name: "HisnMuslim", bundle: nil);
+ static let bs_main : UIStoryboard? = UIStoryboard(name: "Main", bundle: nil);
 }
+
+/*    **Array**   */
 
 public extension Array where Element: Equatable {
     public func bs_subtracting(_ array: Array<Element>) -> Array<Element> {
@@ -2414,4 +2465,17 @@ public var bs_hasTopNotch: Bool {
    }else{
     return UIApplication.shared.delegate?.window??.safeAreaInsets.top ?? 0 > 20
    }
+}
+
+/*    **UITabBar**   */
+
+extension UITabBar {
+    func bs_setTitleTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, for state: UIControl.State){
+        if let items = self.items {
+               // Setting the title text color of all tab bar items:
+               for item in items {
+                item.setTitleTextAttributes(attributes, for: state)
+               }
+        }
+    }
 }

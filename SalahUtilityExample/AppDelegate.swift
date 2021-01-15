@@ -9,6 +9,7 @@
 import UIKit
 import BackgroundTasks
 import SalahUtility
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
