@@ -13,10 +13,12 @@
 		4E34D74F2448F7F000FCCC1A /* SalahUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E34D74D2448F7F000FCCC1A /* SalahUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D7552448F81700FCCC1A /* BaseExtension.swift */; };
 		4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */; };
+		4E4D4D1325BDD75C00E676FB /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D4D1225BDD75C00E676FB /* Property List.plist */; };
 		4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73424C24F25F3400969E79 /* LocalAuth.swift */; };
 		4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73E6D625AE38F60027C69B /* LocaleViewController.swift */; };
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
+		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
 		4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17412562C55A0050BB01 /* SceneDelegate.swift */; };
 		4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17432562C55A0050BB01 /* TestViewController.swift */; };
@@ -77,11 +79,13 @@
 		4E34D74D2448F7F000FCCC1A /* SalahUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalahUtility.h; sourceTree = "<group>"; };
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
 		4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDocumentPickerViewControllerEx.swift; sourceTree = "<group>"; };
+		4E4D4D1225BDD75C00E676FB /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		4E73424C24F25F3400969E79 /* LocalAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuth.swift; sourceTree = "<group>"; };
 		4E73E6D625AE38F60027C69B /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
 		4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenManager.swift; sourceTree = "<group>"; };
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
 		4EFC173D2562C55A0050BB01 /* SalahUtilityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahUtilityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFC173F2562C55A0050BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EFC17412562C55A0050BB01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,12 +195,14 @@
 				4E30D27225732FB4005B63EA /* DateViewController.swift */,
 				4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */,
 				4E73E6D625AE38F60027C69B /* LocaleViewController.swift */,
+				4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */,
 				4EFC17452562C55A0050BB01 /* Main.storyboard */,
 				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
 				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
 				4EFC174A2562C55E0050BB01 /* LaunchScreen.storyboard */,
 				4EFC174D2562C55E0050BB01 /* Info.plist */,
 				4EFC17832562C6780050BB01 /* Localizable.strings */,
+				4E4D4D1225BDD75C00E676FB /* Property List.plist */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				4EFC174C2562C55E0050BB01 /* LaunchScreen.storyboard in Resources */,
 				4EFC17812562C6780050BB01 /* Localizable.strings in Resources */,
 				4EFC17492562C55E0050BB01 /* Assets.xcassets in Resources */,
+				4E4D4D1325BDD75C00E676FB /* Property List.plist in Resources */,
 				4EFC17472562C55A0050BB01 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +427,7 @@
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
 				4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */,
+				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
 			);
