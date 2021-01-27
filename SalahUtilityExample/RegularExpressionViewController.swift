@@ -9,14 +9,15 @@
 import UIKit
 import SalahUtility
 class RegularExpressionViewController: UIViewController {
+    static let chatEmailRegix = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}";
     var emailRegix = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}";
-    var phoneNumberRegix = "[+]+[0-9]{1,}|[00]+[0-9]{1,}|[0-9]{9,}";
+    var phoneNumberRegix = "[+]+[0-9 ]{1,}|[00]+[0-9 ]{1,}|[0-9 ]{9,}";
     // explain '|' OR
     // explain '[0-9]{9,}' OR 9 or more digits
     // explain '[+]' string has prefix +
     // explain '[00]+[0-9]{1,}' any number start with prefx 00 and contains one or more digits
     // explain ']+['  + here used for build block
-
+    // [0-9 ] // white space for ignor white speace between numbers
     @IBOutlet weak var btnTest: UIButton!
     
     @IBOutlet weak var lblCotnent: UILabel!
