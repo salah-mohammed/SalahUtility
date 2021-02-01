@@ -2425,6 +2425,21 @@ public extension Array where Element: Equatable {
     public func bs_subtracting(_ array: Array<Element>) -> Array<Element> {
         self.filter { !array.contains($0) }
     }
+
+    public func bs_filterDuplicates(includeElement: (_ lhs:Element,_ rhs:Element) -> Bool) -> [Element]{
+            var results = [Element]()
+
+            forEach { (element) in
+                let existingElements = results.filter {
+                    return includeElement(element,$0)
+                }
+                if existingElements.count == 0 {
+                    results.append(element)
+                }
+            }
+
+            return results
+    }
 }
 extension Bundle {
     var bs_releaseVersionNumber: String? {

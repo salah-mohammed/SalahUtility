@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */; };
+		4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20826D25C167E000F92E23 /* TestCollectionViewCell.swift */; };
 		4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E30D27225732FB4005B63EA /* DateViewController.swift */; };
 		4E331C432460C17700E5562C /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E331C422460C17700E5562C /* CounterModel.swift */; };
 		4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E331C442460C25800E5562C /* BaseInheritance.swift */; };
@@ -18,6 +20,7 @@
 		4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73E6D625AE38F60027C69B /* LocaleViewController.swift */; };
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
+		4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */; };
 		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
 		4ED30C2325C023E100313983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C2225C023E100313983 /* Regex.swift */; };
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
@@ -73,6 +76,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewViewController.swift; sourceTree = "<group>"; };
+		4E20826D25C167E000F92E23 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E30D27225732FB4005B63EA /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		4E331C422460C17700E5562C /* CounterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
 		4E331C442460C25800E5562C /* BaseInheritance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInheritance.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 		4E73E6D625AE38F60027C69B /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
 		4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenManager.swift; sourceTree = "<group>"; };
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
+		4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaynamicScrollViewViewController.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
 		4ED30C2225C023E100313983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
@@ -141,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E20827225C167E800F92E23 /* TestCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */,
+				4E20826D25C167E000F92E23 /* TestCollectionViewCell.swift */,
+			);
+			path = TestCollection;
+			sourceTree = "<group>";
+		};
 		4E34D7402448F7EF00FCCC1A = {
 			isa = PBXGroup;
 			children = (
@@ -199,8 +214,10 @@
 				4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */,
 				4E73E6D625AE38F60027C69B /* LocaleViewController.swift */,
 				4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */,
+				4E20827225C167E800F92E23 /* TestCollection */,
 				4EFC17452562C55A0050BB01 /* Main.storyboard */,
 				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
+				4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */,
 				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
 				4EFC174A2562C55E0050BB01 /* LaunchScreen.storyboard */,
 				4EFC174D2562C55E0050BB01 /* Info.plist */,
@@ -430,10 +447,13 @@
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
+				4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */,
+				4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */,
 				4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */,
 				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
+				4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
