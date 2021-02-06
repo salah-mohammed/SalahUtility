@@ -15,6 +15,8 @@ import MediaPlayer
 import AVFoundation
 import Photos
 import UserNotifications
+import MediaPlayer
+
 //import CommonCrypto
 
 /*    **Array**   */
@@ -2484,7 +2486,7 @@ public var bs_hasTopNotch: Bool {
 
 /*    **UITabBar**   */
 
-extension UITabBar {
+public extension UITabBar {
     func bs_setTitleTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, for state: UIControl.State){
         if let items = self.items {
                // Setting the title text color of all tab bar items:
@@ -2492,5 +2494,20 @@ extension UITabBar {
                 item.setTitleTextAttributes(attributes, for: state)
                }
         }
+    }
+}
+
+/*    **MPMediaItem**   */
+public extension MPMediaItem{
+    class func findSong(_ persistentIDString: String) -> MPMediaItem? {
+        let predicate = MPMediaPropertyPredicate(value: persistentIDString, forProperty: MPMediaItemPropertyPersistentID)
+        let songQuery = MPMediaQuery()
+        songQuery.addFilterPredicate(predicate)
+
+        var song: MPMediaItem?
+        if let items = songQuery.items, items.count > 0 {
+             song = items[0]
+        }
+        return song
     }
 }
