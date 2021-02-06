@@ -2499,7 +2499,7 @@ public extension UITabBar {
 
 /*    **MPMediaItem**   */
 public extension MPMediaItem{
-    class func findSong(_ persistentIDString: String) -> MPMediaItem? {
+    class func bs_findSong(_ persistentIDString: String) -> MPMediaItem? {
         let predicate = MPMediaPropertyPredicate(value: persistentIDString, forProperty: MPMediaItemPropertyPersistentID)
         let songQuery = MPMediaQuery()
         songQuery.addFilterPredicate(predicate)
@@ -2509,5 +2509,8 @@ public extension MPMediaItem{
              song = items[0]
         }
         return song
+    }
+    var bs_persistentIDString:NSNumber?{
+        return self.value(forProperty: MPMediaItemPropertyPersistentID) as? NSNumber
     }
 }
