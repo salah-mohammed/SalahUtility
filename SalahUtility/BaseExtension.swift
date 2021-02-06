@@ -2510,7 +2510,7 @@ public extension MPMediaItem{
         }
         return song
     }
-    var bs_persistentIDString:NSNumber?{
+    var bs_persistentID:NSNumber?{
         return self.value(forProperty: MPMediaItemPropertyPersistentID) as? NSNumber
     }
 }
