@@ -22,6 +22,8 @@
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
 		4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */; };
+		4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */; };
+		4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */; };
 		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
 		4ED30C2325C023E100313983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C2225C023E100313983 /* Regex.swift */; };
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
@@ -94,6 +96,8 @@
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
 		4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaynamicScrollViewViewController.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowExampleViewController.swift; sourceTree = "<group>"; };
+		4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExampleViewController.swift; sourceTree = "<group>"; };
 		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
 		4ED30C2225C023E100313983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		4EFC173D2562C55A0050BB01 /* SalahUtilityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahUtilityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +202,78 @@
 			path = SalahUtility;
 			sourceTree = "<group>";
 		};
+		4E4FCFCE25EBA528007926BD /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				4E30D27225732FB4005B63EA /* DateViewController.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		4E4FCFD225EBA53B007926BD /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */,
+			);
+			path = LocalNotification;
+			sourceTree = "<group>";
+		};
+		4E4FCFD325EBA54D007926BD /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				4E73E6D625AE38F60027C69B /* LocaleViewController.swift */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
+		4E4FCFD725EBA55B007926BD /* RegularExpression */ = {
+			isa = PBXGroup;
+			children = (
+				4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */,
+			);
+			path = RegularExpression;
+			sourceTree = "<group>";
+		};
+		4E4FCFDB25EBA56F007926BD /* DaynamicScroll */ = {
+			isa = PBXGroup;
+			children = (
+				4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */,
+			);
+			path = DaynamicScroll;
+			sourceTree = "<group>";
+		};
+		4E4FCFDF25EBA581007926BD /* NavigationHeight */ = {
+			isa = PBXGroup;
+			children = (
+				4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */,
+			);
+			path = NavigationHeight;
+			sourceTree = "<group>";
+		};
+		4E4FCFE025EBA595007926BD /* Constraint */ = {
+			isa = PBXGroup;
+			children = (
+				4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */,
+			);
+			path = Constraint;
+			sourceTree = "<group>";
+		};
+		4E4FCFE425EBA5A4007926BD /* Shadow */ = {
+			isa = PBXGroup;
+			children = (
+				4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */,
+			);
+			path = Shadow;
+			sourceTree = "<group>";
+		};
+		4E4FCFE525EBA5B2007926BD /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC17432562C55A0050BB01 /* TestViewController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		4E910AE5245E2F95005C2976 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,16 +287,18 @@
 			children = (
 				4EFC173F2562C55A0050BB01 /* AppDelegate.swift */,
 				4EFC17412562C55A0050BB01 /* SceneDelegate.swift */,
-				4EFC17432562C55A0050BB01 /* TestViewController.swift */,
-				4E30D27225732FB4005B63EA /* DateViewController.swift */,
-				4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */,
-				4E73E6D625AE38F60027C69B /* LocaleViewController.swift */,
-				4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */,
+				4E4FCFE525EBA5B2007926BD /* Test */,
+				4E4FCFCE25EBA528007926BD /* Date */,
+				4E4FCFD225EBA53B007926BD /* LocalNotification */,
+				4E4FCFD325EBA54D007926BD /* Locale */,
+				4E4FCFD725EBA55B007926BD /* RegularExpression */,
 				4E20827225C167E800F92E23 /* TestCollection */,
+				4E4FCFDB25EBA56F007926BD /* DaynamicScroll */,
+				4E4FCFDF25EBA581007926BD /* NavigationHeight */,
+				4E4FCFE025EBA595007926BD /* Constraint */,
+				4E4FCFE425EBA5A4007926BD /* Shadow */,
 				4EFC17452562C55A0050BB01 /* Main.storyboard */,
 				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
-				4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */,
-				4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */,
 				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
 				4EFC174A2562C55E0050BB01 /* LaunchScreen.storyboard */,
 				4EFC174D2562C55E0050BB01 /* Info.plist */,
@@ -449,11 +527,13 @@
 			files = (
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
+				4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
 				4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */,
 				4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */,
 				4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */,
 				4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */,
+				4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */,
 				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
