@@ -19,7 +19,7 @@ class ConstraintExampleViewController: UIViewController {
 //        // Do any additional setup after loading the view.
         
         /*
-        // used when space from traling and from leading and from top and from bottom
+        // for view in viweController used when space from traling and from leading and from top and from bottom
         var newView1 = UIView.init();
         newView1.translatesAutoresizingMaskIntoConstraints = false
         newView1.backgroundColor=UIColor.red;
@@ -58,6 +58,19 @@ class ConstraintExampleViewController: UIViewController {
             customeSuperView.trailingAnchor.constraint(equalTo: newView3.trailingAnchor,constant:100)
         ])
        */
+        
+        
+        // for view in viweController used when space from traling and from leading and from top and from bottom
+        var newView4 = UIView.init();
+        newView4.translatesAutoresizingMaskIntoConstraints = false
+        newView4.backgroundColor=UIColor.red;
+        customeSuperView.addSubview(newView4);
+
+        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .trailing, relatedBy: .equal, toItem: customeSuperView, attribute: .trailing, multiplier: 1, constant:-10))
+        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .leading, relatedBy: .equal, toItem: customeSuperView, attribute: .leading, multiplier: 1, constant:10))
+        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .top, relatedBy: .equal, toItem:customeSuperView, attribute: .top, multiplier: 1, constant:255))
+        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,multiplier: 1, constant: 131))
+      
     }
     
     @IBAction func btnAdd(_ sender: Any) {
