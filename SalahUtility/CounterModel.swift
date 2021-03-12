@@ -90,7 +90,8 @@ open class CounterModel: NSObject {
             self.counterHandlerUpValue?(value);
             self.counterHandlerChangeValue?(self.value)
             completionHandler?();
-            if(value==maximumValue){
+        }else
+        if(value==maximumValue){
             self.counterHandlerMax?(self.value);
             if self.enableRepeat{
             self.genrateInitialValue();
@@ -98,7 +99,6 @@ open class CounterModel: NSObject {
             self.counterHandlerChangeValue?(self.value)
             }
             }
-        }
         return value;
     }
     open func  decrement(_ completionHandler:CompletionHandler? = nil )->Int {
@@ -107,9 +107,8 @@ open class CounterModel: NSObject {
             self.counterHandlerDownValue?(value);
             self.counterHandlerChangeValue?(self.value)
             completionHandler?();
-            if(value==minimumValue){
-            self.counterHandlerMin?(self.value);
-            }
+        }else if(value==minimumValue){
+        self.counterHandlerMin?(self.value);
         }
         return value;
     }

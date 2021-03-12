@@ -2164,6 +2164,17 @@ public extension Date {
             return false
         }
     }
+    func bs_compareDateIsPreviousDay(_ date:Date) -> Bool {
+        // check if  year and  month and  day previous or not
+        let order = Calendar.current.compare(self, to: date,
+                                             toGranularity: .day)
+        switch order {
+        case .orderedAscending:
+            return true
+        default:
+            return false
+        }
+    }
     func bs_startOfMonth() -> Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
     }
