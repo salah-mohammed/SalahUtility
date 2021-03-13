@@ -751,10 +751,10 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         self.preferredContentSize = size
         UIApplication.shared.bs_rootViewController?.present(self, animated: true, completion: nil);
     }
-   public static func bs_generalPush(){
+    public static func bs_generalPush(_ storyboard:UIStoryboard?=UIStoryboard.bs_main,navigationController:UINavigationController?){
         let name:String = String(describing: self)
-        if  let vc:UIViewController = UIStoryboard.bs_main?.instantiateViewController(withIdentifier:name) as? UIViewController{
-            UIApplication.shared.bs_rootNavigationController?.pushViewController(vc, animated: true);
+        if  let vc:UIViewController = storyboard?.instantiateViewController(withIdentifier:name) as? UIViewController{
+        (navigationController ?? UIApplication.shared.bs_rootNavigationController)?.pushViewController(vc, animated: true);
         }
     }
 }
