@@ -1868,6 +1868,9 @@ public extension UICollectionView{
 /*    **FileManager**   */
 
 public extension FileManager {
+    public static let bs_documentsPath: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+
+    public static let bs_documentsURL: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     func bs_saveToAppFiles(tempFileUrl:URL,remoteUrl:String?,success:()->(Void),fail:(Error)->(Void)){
         if  let urlString:String = remoteUrl, let fileURL:URL = URL(string:urlString){
             if let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as? URL{
