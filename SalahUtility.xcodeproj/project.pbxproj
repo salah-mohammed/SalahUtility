@@ -17,6 +17,7 @@
 		4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D7552448F81700FCCC1A /* BaseExtension.swift */; };
 		4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */; };
 		4E4D4D1325BDD75C00E676FB /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D4D1225BDD75C00E676FB /* Property List.plist */; };
+		4E5B4C4525FF818500A58C70 /* GenericExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B4C4425FF818500A58C70 /* GenericExampleViewController.swift */; };
 		4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */; };
 		4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73424C24F25F3400969E79 /* LocalAuth.swift */; };
 		4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73E6D625AE38F60027C69B /* LocaleViewController.swift */; };
@@ -93,6 +94,7 @@
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
 		4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDocumentPickerViewControllerEx.swift; sourceTree = "<group>"; };
 		4E4D4D1225BDD75C00E676FB /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		4E5B4C4425FF818500A58C70 /* GenericExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericExampleViewController.swift; sourceTree = "<group>"; };
 		4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeightExampleViewController.swift; sourceTree = "<group>"; };
 		4E73424C24F25F3400969E79 /* LocalAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuth.swift; sourceTree = "<group>"; };
 		4E73E6D625AE38F60027C69B /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +283,14 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		4E5B4C4C25FF819C00A58C70 /* GenericExample */ = {
+			isa = PBXGroup;
+			children = (
+				4E5B4C4425FF818500A58C70 /* GenericExampleViewController.swift */,
+			);
+			path = GenericExample;
+			sourceTree = "<group>";
+		};
 		4E910AE5245E2F95005C2976 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +314,7 @@
 				4E4FCFDF25EBA581007926BD /* NavigationHeight */,
 				4E4FCFE025EBA595007926BD /* Constraint */,
 				4E4FCFE425EBA5A4007926BD /* Shadow */,
+				4E5B4C4C25FF819C00A58C70 /* GenericExample */,
 				4EFC17452562C55A0050BB01 /* Main.storyboard */,
 				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
 				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
@@ -537,6 +548,7 @@
 			files = (
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
+				4E5B4C4525FF818500A58C70 /* GenericExampleViewController.swift in Sources */,
 				4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
 				4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */,

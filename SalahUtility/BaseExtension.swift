@@ -21,6 +21,14 @@ import MediaPlayer
 
 /*    **Array**   */
 
+public var bs_hasTopNotch: Bool {
+   if #available(iOS 13.0,  *) {
+       return UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0 > 20
+   }else{
+    return UIApplication.shared.delegate?.window??.safeAreaInsets.top ?? 0 > 20
+   }
+}
+
  extension Array{
     
       public func bs_isContainObject(classType:AnyClass)->AnyObject?{
@@ -352,6 +360,16 @@ import MediaPlayer
 
     func bs_fileExtension() -> String {
         return URL(fileURLWithPath: self).bs_fileExtension();
+    }
+    func bs_writeToDocumentDirectory(_ fileName:String="file",_ fileType:String="json"){
+        if var desktopPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            desktopPath.appendPathComponent("\(fileName).\(fileType)")
+            do {
+                try self.write(to: desktopPath, atomically: false, encoding: .utf8);
+            }catch{
+                print("error");
+            }
+        }
     }
 }
 
@@ -1178,11 +1196,11 @@ public extension Int32{
 /*    **UserDefaults**   */
 
  extension UserDefaults{
-    private var SelectedDarMode:String{ return "SelectedDarMode"};
-        public var bs_selectedDarkMode:UIUserInterfaceStyle?{
+    private var SelectedAppearance:String{ return "SelectedAppearance"};
+        public var bs_selectedAppearance:UIUserInterfaceStyle?{
             set{
                 if  let newValue:UIUserInterfaceStyle = newValue , let intNewValue:Int=newValue.rawValue as? Int{
-                    UserDefaults.standard.set(intNewValue, forKey:SelectedDarMode)
+                    UserDefaults.standard.set(intNewValue, forKey:SelectedAppearance)
                     UserDefaults.standard.synchronize();
                     UIApplication.shared.windows.forEach { window in
                         if #available(iOS 13.0, *) {
@@ -1194,7 +1212,7 @@ public extension Int32{
                 }
             }
             get{
-            let rawValue:Int = UserDefaults.standard.integer(forKey:SelectedDarMode)
+            let rawValue:Int = UserDefaults.standard.integer(forKey:SelectedAppearance)
             return UIUserInterfaceStyle.init(rawValue:rawValue);
             }
     }
@@ -2486,13 +2504,6 @@ extension Array where Element == Dictionary<String, Any> {
         }
         return nil;
     }
-}
-public var bs_hasTopNotch: Bool {
-   if #available(iOS 13.0,  *) {
-       return UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0 > 20
-   }else{
-    return UIApplication.shared.delegate?.window??.safeAreaInsets.top ?? 0 > 20
-   }
 }
 
 /*    **UITabBar**   */
