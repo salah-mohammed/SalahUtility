@@ -24,6 +24,7 @@
 		4E77AB9D25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */; };
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
+		4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */; };
 		4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */; };
 		4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */; };
 		4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */; };
@@ -101,6 +102,7 @@
 		4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDatePickerExampleViewController.swift; sourceTree = "<group>"; };
 		4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenManager.swift; sourceTree = "<group>"; };
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
+		4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaynamicScrollViewViewController.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowExampleViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,14 @@
 			path = GenericExample;
 			sourceTree = "<group>";
 		};
+		4E7CFBFC2604EE07000DB1A9 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */,
+			);
+			path = Numbers;
+			sourceTree = "<group>";
+		};
 		4E910AE5245E2F95005C2976 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +325,7 @@
 				4E4FCFE025EBA595007926BD /* Constraint */,
 				4E4FCFE425EBA5A4007926BD /* Shadow */,
 				4E5B4C4C25FF819C00A58C70 /* GenericExample */,
+				4E7CFBFC2604EE07000DB1A9 /* Numbers */,
 				4EFC17452562C55A0050BB01 /* Main.storyboard */,
 				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
 				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
@@ -556,6 +567,7 @@
 				4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */,
 				4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */,
 				4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */,
+				4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */,
 				4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */,
 				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,

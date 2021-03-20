@@ -430,6 +430,43 @@ public var bs_hasTopNotch: Bool {
         return CGSize(width: myViewWidth, height: scaledHeight)
         
     }
+     static let iphone8:CGFloat=375/667;
+     static let iphone8plus:CGFloat=414/736;
+     static let iphoneXR:CGFloat=414/896;
+     static let iphoneXs:CGFloat=375/812;
+     static let iphoneXsMax:CGFloat=414/896;
+     static let ipadMini:CGFloat=768/1024;
+     static let ipadAir:CGFloat=768/1024;
+     static let ipadPro:CGFloat=834/1112;
+
+    public static func bs_requeireBackgroundRation()->CGSize{
+        let deviceRatio = UIScreen.main.bounds.size.width/UIScreen.main.bounds.size.height
+        if deviceRatio == iphone8 || deviceRatio == iphone8plus{
+        return CGSize.init(width: 9, height: 16)
+        }else
+       if deviceRatio == iphoneXR || deviceRatio == iphoneXs || deviceRatio == iphoneXsMax{
+        return CGSize.init(width: 9, height: 19.5)
+       }else
+       if deviceRatio == ipadMini || deviceRatio == ipadAir  || deviceRatio == ipadPro{
+        return CGSize.init(width: 3, height: 4)
+       }else if  UIDevice.current.userInterfaceIdiom == .pad{
+        return CGSize.init(width: 3, height: 4)
+       }else if  UIDevice.current.userInterfaceIdiom == .phone{
+        return CGSize.init(width: 9, height:16)
+    }
+        return CGSize.zero;
+    }
+    public func bs_isNeedToCropToBeBackgroundImage()->Bool{
+      let imageWidth=self.size.width
+      let imageHeight=self.size.height
+      let imageRation = imageWidth/imageHeight;
+        let deviceRatio = UIScreen.main.bounds.size.width/UIScreen.main.bounds.size.height
+        if (imageRation == UIImage.iphone8)||(imageRation == UIImage.iphone8plus)||(imageRation == UIImage.iphoneXR)||(imageRation == UIImage.iphoneXs)||(imageRation == UIImage.iphoneXsMax)||(imageRation == UIImage.ipadMini)||(imageRation == UIImage.ipadAir)||(imageRation == UIImage.ipadPro)&&imageRation == deviceRatio{
+            return false;
+        }
+        return true
+     }
+
     
 }
 
@@ -1073,6 +1110,11 @@ public extension Int32{
     public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self);
     }
+    public func bs_removeDecemal(var classNumber:Int=1)->Double?{
+        var stringValue = String(format: "%.0\(classNumber)f", self)
+        var doubleValue = Double.init(stringValue);
+        return doubleValue;
+    }
 }
 
 /*    **TimeInterval**   */
@@ -1107,6 +1149,11 @@ public extension Int32{
 /*    **Double**   */
 
  extension Double{
+    public func bs_removeDecemal(var classNumber:Int=1)->Double?{
+        var stringValue = String(format: "%.0\(classNumber)f", self)
+        var doubleValue = Double.init(stringValue);
+        return doubleValue;
+    }
     public var bs_int:Int?{
         return Int.init(self);
     }
@@ -1706,6 +1753,9 @@ extension URL {
  extension FloatingPoint{
     public func bs_fixedFraction(digits: Int) -> String {
         return String(format: "%.\(digits)f", self as! CVarArg)
+    }
+    public var bs_isFraction: Bool {
+        return !(floor(self) == self)
     }
 }
 
@@ -2539,3 +2589,4 @@ public extension MPMediaItem{
         return self.value(forProperty: MPMediaItemPropertyPersistentID) as? NSNumber
     }
 }
+

@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        
         BGTaskScheduler.shared.cancelAllTaskRequests()
 
         NotificationCenter.default.addObserver(forName:UIApplication.didEnterBackgroundNotification, object: nil, queue: nil) { (_) in
@@ -93,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             task.setTaskCompleted(success: true)
 
         }
-        
+
         return true
     }
 
