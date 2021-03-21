@@ -376,6 +376,7 @@ public var bs_hasTopNotch: Bool {
 /*    **UIImage**   */
 
  public extension UIImage {
+    
     public func bs_getSizeIn(_ type: Data.DataUnits)-> (Double?,String?) {
         guard let data = self.pngData() else {
             return (nil,nil)
@@ -466,8 +467,18 @@ public var bs_hasTopNotch: Bool {
         }
         return true
      }
+    public func bs_fixOrientation() -> UIImage? {
+    if (self.imageOrientation == UIImage.Orientation.up) {
+          return self;
+    }
+      UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale);
+      let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        self.draw(in: rect)
 
-    
+        let normalizedImage : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext();
+      return normalizedImage;
+    }
 }
 
 /*    **UIImageView**   */
@@ -842,6 +853,35 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         }
         self.transform =  CGAffineTransform(rotationAngle: degreesToRadians(degrees))
     }
+    public func bs_roundCorners(_ corners: UIRectCorner,_ radius: CGFloat) {
+         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+         let mask = CAShapeLayer()
+         mask.path = path.cgPath
+         layer.mask = mask
+     }
+    public func bs_roundCornersRespectLanauge(_ corners: UIRectCorner,_ radius: CGFloat) {
+        var internalCorners=corners
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        }else{
+            if internalCorners.contains(.topRight){
+                internalCorners.remove(.topRight)
+                internalCorners.insert(.topLeft)
+            }else
+            if internalCorners.contains(.topLeft){
+            internalCorners.remove(.topLeft)
+            internalCorners.insert(.topRight)
+            }else
+            if  internalCorners.contains(.bottomRight){
+                internalCorners.remove(.bottomRight)
+                internalCorners.insert(.bottomLeft)
+            }else
+            if  internalCorners.contains(.bottomLeft){
+                internalCorners.remove(.bottomLeft)
+                internalCorners.insert(.bottomRight)
+            }
+        }
+        self.bs_roundCorners(internalCorners, radius);
+     }
 }
 
 /*    **NSLocale**   */
