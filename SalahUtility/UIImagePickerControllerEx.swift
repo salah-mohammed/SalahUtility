@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    typealias bs_FinishHandler = ([UIImagePickerController.InfoKey : Any]) -> Void
-    typealias bs_CancelHandler = () -> Void
+    public typealias bs_FinishHandler = ([UIImagePickerController.InfoKey : Any]) -> Void
+    public typealias bs_CancelHandler = () -> Void
 
-    private struct PrivateProperties {
+     struct PrivateProperties {
         static var FinishHandler = "bs_FinishHandler"
         static var CancelHandler = "bs_CancelHandler"
     }
-     var bs_finishHandlerAction:bs_FinishHandler?
+     public var bs_finishHandlerAction:bs_FinishHandler?
     {
         set
         {
@@ -61,11 +61,11 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
         presenter.present(self, animated: true, completion: nil);
         return self;
     }
-    @discardableResult func bs_setFinishHandler(_ bs_finishHandler:@escaping UIImagePickerController.bs_FinishHandler)->Self {
+    @discardableResult public func bs_setFinishHandler(_ bs_finishHandler:@escaping UIImagePickerController.bs_FinishHandler)->Self {
         self.bs_finishHandlerAction = bs_finishHandler;
         return self;
     }
-    @discardableResult func bs_setCancelHandler(_ bs_cancelHandler:@escaping UIImagePickerController.bs_CancelHandler)->Self {
+    @discardableResult public func bs_setCancelHandler(_ bs_cancelHandler:@escaping UIImagePickerController.bs_CancelHandler)->Self {
         self.bs_cancelHandler = bs_cancelHandler;
         return self;
     }
