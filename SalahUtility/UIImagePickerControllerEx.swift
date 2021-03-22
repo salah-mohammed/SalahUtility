@@ -8,32 +8,53 @@
 
 import Foundation
 import UIKit
+import MobileCoreServices
 extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    public typealias bs_FinishHandler = ([UIImagePickerController.InfoKey : Any]) -> Void
+    public typealias bs_ImageFinishHandler = (UIImage,[UIImagePickerController.InfoKey : Any]) -> Void
+    public typealias bs_VideoFinishHandler = (URL,[UIImagePickerController.InfoKey : Any]) -> Void
     public typealias bs_CancelHandler = () -> Void
 
      struct PrivateProperties {
-        static var FinishHandler = "bs_FinishHandler"
+        static var ImageFinishHandler = "bs_ImageFinishHandler"
+        static var ImageVideoHandler = "bs_VideoFinishHandler"
         static var CancelHandler = "bs_CancelHandler"
     }
-     public var bs_finishHandlerAction:bs_FinishHandler?
+     public var bs_finishImageHandlerAction:bs_ImageFinishHandler?
     {
         set
         {
             objc_setAssociatedObject(
                 self,
-                &PrivateProperties.FinishHandler,
-                newValue as bs_FinishHandler?,
+                &PrivateProperties.ImageFinishHandler,
+                newValue as bs_ImageFinishHandler?,
                 objc_AssociationPolicy(rawValue: objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC.rawValue)!)
 
         }
         get{
-            let  tempObject:bs_FinishHandler = objc_getAssociatedObject(self, &PrivateProperties.FinishHandler) as! bs_FinishHandler
+            let  tempObject:bs_ImageFinishHandler = objc_getAssociatedObject(self, &PrivateProperties.ImageFinishHandler) as! bs_ImageFinishHandler
 
 
             return tempObject;
         }
     }
+    public var bs_finishVideoHandlerAction:bs_VideoFinishHandler?
+   {
+       set
+       {
+           objc_setAssociatedObject(
+               self,
+            &PrivateProperties.ImageVideoHandler,
+               newValue as bs_VideoFinishHandler?,
+               objc_AssociationPolicy(rawValue: objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC.rawValue)!)
+
+       }
+       get{
+        let  tempObject:bs_VideoFinishHandler = objc_getAssociatedObject(self, &PrivateProperties.ImageVideoHandler) as! bs_VideoFinishHandler
+
+
+           return tempObject;
+       }
+   }
     var bs_cancelHandler:bs_CancelHandler?
    {
        set
@@ -61,8 +82,12 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
         presenter.present(self, animated: true, completion: nil);
         return self;
     }
-    @discardableResult public func bs_setFinishHandler(_ bs_finishHandler:@escaping UIImagePickerController.bs_FinishHandler)->Self {
-        self.bs_finishHandlerAction = bs_finishHandler;
+    @discardableResult public func bs_setImageFinishHandler(_ bs_finishHandler:@escaping UIImagePickerController.bs_ImageFinishHandler)->Self {
+        self.bs_finishImageHandlerAction = bs_finishHandler;
+        return self;
+    }
+    @discardableResult public func bs_setVideoFinishHandler(_ bs_finishHandler:@escaping UIImagePickerController.bs_VideoFinishHandler)->Self {
+        self.bs_finishVideoHandlerAction = bs_finishHandler;
         return self;
     }
     @discardableResult public func bs_setCancelHandler(_ bs_cancelHandler:@escaping UIImagePickerController.bs_CancelHandler)->Self {
@@ -73,6 +98,27 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
         self.bs_cancelHandler?();
     }
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        bs_finishHandlerAction?(info)
+        self.dismiss(animated: true) {
+            let mediaType: String = info[UIImagePickerController.InfoKey.mediaType] as! String
+            if mediaType == kUTTypeImage as String {
+                var imageToSave: UIImage
+                if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                    imageToSave = editedImage
+                } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                    imageToSave = originalImage
+                }else{
+                    self.bs_cancelHandler?();
+                    return;
+                }
+                self.bs_finishImageHandlerAction?(imageToSave,info)
+            }else if mediaType == kUTTypeMovie as String,
+                     let url:URL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+                    self.bs_finishVideoHandlerAction?(url, info)
+                }else{
+                    self.bs_cancelHandler?();
+                    return;
+                }
+        }
+
     }
 }
