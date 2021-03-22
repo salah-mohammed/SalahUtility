@@ -23,6 +23,8 @@ class TestViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+    @IBAction func btnTest(_ sender:UIButton){
+        UIImagePickerController().bs_setup()
 
+    }
 }
-

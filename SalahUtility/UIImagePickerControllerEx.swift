@@ -57,6 +57,18 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
         self.modalPresentationStyle = .formSheet
         return self;
     }
+    public func bs_present(_ presenter:UIViewController)->Self{
+        presenter.present(self, animated: true, completion: nil);
+        return self;
+    }
+    @discardableResult func bs_setFinishHandler(_ bs_finishHandler:@escaping UIImagePickerController.bs_FinishHandler)->Self {
+        self.bs_finishHandlerAction = bs_finishHandler;
+        return self;
+    }
+    @discardableResult func bs_setCancelHandler(_ bs_cancelHandler:@escaping UIImagePickerController.bs_CancelHandler)->Self {
+        self.bs_cancelHandler = bs_cancelHandler;
+        return self;
+    }
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.bs_cancelHandler?();
     }
