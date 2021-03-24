@@ -12,7 +12,7 @@ import MobileCoreServices
 extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     public typealias bs_ImageFinishHandler = (UIImage,[UIImagePickerController.InfoKey : Any]) -> Void
     public typealias bs_VideoFinishHandler = (URL,[UIImagePickerController.InfoKey : Any]) -> Void
-    public typealias bs_CancelHandler = () -> Void
+    public typealias bs_CancelHandler = (UIImagePickerController) -> Void
 
      struct PrivateProperties {
         static var ImageFinishHandler = "bs_ImageFinishHandler"
@@ -95,7 +95,7 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
         return self;
     }
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.bs_cancelHandler?();
+        self.bs_cancelHandler?(self);
     }
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true) {
@@ -107,7 +107,7 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
                 } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                     imageToSave = originalImage
                 }else{
-                    self.bs_cancelHandler?();
+                    self.bs_cancelHandler?(self);
                     return;
                 }
                 self.bs_finishImageHandlerAction?(imageToSave,info)
@@ -115,7 +115,7 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
                      let url:URL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
                     self.bs_finishVideoHandlerAction?(url, info)
                 }else{
-                    self.bs_cancelHandler?();
+                    self.bs_cancelHandler?(self);
                     return;
                 }
         }

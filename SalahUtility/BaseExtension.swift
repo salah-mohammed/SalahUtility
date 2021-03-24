@@ -371,6 +371,11 @@ public var bs_hasTopNotch: Bool {
             }
         }
     }
+    public var bs_isDigit:Bool{
+        let formate = NumberFormatter.init();
+        let isDecimal = formate.number(from: self) != nil;
+        return isDecimal;
+    }
 }
 
 /*    **UIImage**   */
@@ -1427,7 +1432,17 @@ public extension Int32{
     }
      public var bs_durationCMTime: CMTime? { return self.currentItem?.asset.duration}
      public var bs_duration: TimeInterval { return TimeInterval(self.currentItem?.asset.duration.seconds ?? 0)}
-
+    
+     public var bs_itemTitle:String?{
+        if let commonMetadata:[AVMetadataItem] = self.currentItem?.asset.commonMetadata{
+        if let itemTitle = AVMetadataItem.metadataItems(from:commonMetadata, withKey: AVMetadataKey.commonKeyTitle, keySpace: AVMetadataKeySpace.common).first?.value as? String{
+            return itemTitle;
+        }
+        return nil;
+        }
+    return nil;
+    }
+   
 }
 
 /*    **UIApplication**   */
