@@ -1482,29 +1482,69 @@ public extension Int32{
             }
         }
     }
-   public func bs_openSocialMediaAccounts(url:URL?){
-        guard let urlSocialMedia = url else {
+//   public func bs_openSocialMediaAccounts(url:URL?){
+//        guard let urlSocialMedia = url else {
+//            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+//            return
+//        }
+//        if url?.absoluteString.lowercased().contains("whatsapp") ?? false {
+//        self.bs_openWhatsUp(phoneNumber: url!.lastPathComponent);
+//        }else
+//        if url?.absoluteString.lowercased().contains("facebook.com") ?? false {
+//            self.bs_openFacebook(id: url!.lastPathComponent);
+//        }else
+//        if url?.absoluteString.lowercased().contains("linkedin.com") ?? false {
+//            self.bs_openLinkedIn(id:url!.lastPathComponent);
+//        }else
+//        if url?.absoluteString.lowercased().contains("twitter.com") ?? false {
+//            self.bs_openTwitter(name: url!.lastPathComponent);
+//        }else
+//        if url?.absoluteString.lowercased().contains("instagram.com") ?? false {
+//            self.bs_openInstegram(path: url!.path + "?" + url!.query!);
+//        }else{
+//            self.bs_openHttpLink(url);
+//        }
+//
+//    }
+    public func bs_openSocialMediaAccounts(url:URL?){
+        if let url:URL=url{
+            if url.absoluteString.lowercased().contains("whatsapp") {
+                self.bs_openWhatsUp(phoneNumber: url.lastPathComponent);
+            }else
+                if url.absoluteString.lowercased().contains("facebook.com") {
+                    self.bs_openFacebook(id: url.paramater("id") ?? url.lastPathComponent);
+                }else
+                    if url.absoluteString.lowercased().contains("linkedin.com") {
+                        self.bs_openLinkedIn(id:url.lastPathComponent);
+                    }else
+                        if url.absoluteString.lowercased().contains("twitter.com") {
+                            self.bs_openTwitter(name: url.lastPathComponent);
+                        }else
+                            if url.absoluteString.lowercased().contains("instagram.com") {
+                                self.bs_openInstegram(path: url.path + "?" + (url.query ?? ""));
+                            }else{
+                                self.open(url, options: [:], completionHandler: nil)
+            }
+        }else{
+            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+        }
+    }
+    public func bs_openWhatsUp(phoneNumber:String?){
+        guard let phoneNumber = phoneNumber else {
             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
             return
         }
-        if url?.absoluteString.lowercased().contains("facebook.com") ?? false {
-            self.bs_openFacebook(id: url!.lastPathComponent);
-        }else
-        if url?.absoluteString.lowercased().contains("linkedin.com") ?? false {
-            self.bs_openLinkedIn(id:url!.lastPathComponent);
-        }else
-        if url?.absoluteString.lowercased().contains("twitter.com") ?? false {
-            self.bs_openTwitter(name: url!.lastPathComponent);
-        }else
-        if url?.absoluteString.lowercased().contains("instagram.com") ?? false {
-            self.bs_openInstegram(path: url!.path + "?" + url!.query!);
-        }else{
-            self.bs_openHttpLink(url);
-
-        }
+        let fbURLWeb: URL = URL(string:"https://web.whatsapp.com/\(phoneNumber)")!
+        let fbURLID: URL = URL(string:"whatsapp://send?phone=\(phoneNumber)")!
         
+        if(UIApplication.shared.canOpenURL(fbURLID)){
+            // FB installed
+            UIApplication.shared.open(fbURLID, options: [:], completionHandler: nil)
+        } else {
+            // FB is not installed, open in safari
+            UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
+        }
     }
-    
    public func bs_openFacebook(id:String?){
         guard let facebookUID = id else {
             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
@@ -1737,6 +1777,10 @@ extension URL {
     func bs_fileExtension() -> String {
         return self.pathExtension
     }
+    func paramater(_ paramaterName: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == paramaterName })?.value
+    }
 }
 
 /*    **MPNowPlayingInfoCenter**   */
@@ -1886,6 +1930,14 @@ extension URL {
     }
     public var utf8String:String?{
         return String.init(data:self, encoding:.utf8);
+    }
+    func bs_toDictionary() -> [String: Any]? {
+            do {
+                return try JSONSerialization.jsonObject(with: self, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        return nil
     }
 }
 
@@ -2248,7 +2300,7 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
 /*    **UIAlertController**   */
 
  extension UIAlertController {
-    public class func bs_showActionSheet(viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void) {
+    public class func bs_showActionSheet(sender:UIView,viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle:preferredStyle)
         for (index, (title, style)) in actions.enumerated() {
             let alertAction = UIAlertAction(title: title, style: style) { (_) in
@@ -2256,15 +2308,17 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
             }
             alertViewController.addAction(alertAction)
         }
+        alertViewController.popoverPresentationController?.delegate = (viewController as? UIPopoverPresentationControllerDelegate)
+        alertViewController.popoverPresentationController?.sourceView = sender
         viewController.present(alertViewController, animated: true, completion: nil)
     }
-   public class func bs_showActionSheet(viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?){
+   public class func bs_showActionSheet(sender:UIView,viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?){
         var actions: [(String, UIAlertAction.Style)] = []
         for object in objects ?? [] {
             actions.append((converter(object), UIAlertAction.Style.default))
         }
         actions.append((cancel, UIAlertAction.Style.cancel))
-        UIAlertController.bs_showActionSheet(viewController:viewController!,preferredStyle, title:title, message:message, actions: actions) { (index) in
+    UIAlertController.bs_showActionSheet(sender:sender,viewController:viewController!,preferredStyle, title:title, message:message, actions: actions) { (index) in
             if index == objects?.count ?? 0 {
                 // click cancel button
                 canceldHandler?()
