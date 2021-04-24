@@ -2549,6 +2549,12 @@ public extension Collection {
     func bs_get(_ index: Self.Index)->Iterator.Element?{
         return self.indices.contains(index) ? self[index] : nil;
     }
+    func bs_getOptional(_ index: Self.Index?)->Iterator.Element?{
+        if let index:Self.Index=index{
+            return bs_get(index)
+        }
+        return nil;
+    }
     func bs_get(_ indexs: [Self.Index])->Array<Iterator.Element>{
         var items = Array<Iterator.Element>();
         for  index in indexs{
@@ -2568,7 +2574,18 @@ public extension Array where Element: Copying {
         return copiedArray
     }
 }
-
+public extension Array{
+    func bs_enumeratedTowObject(_ handler:((Iterator.Element?,Iterator.Element?)->Void)?){
+        var lastIndex:Int = -1;
+        for index in 0...((self.count/2)-1){
+            lastIndex=lastIndex+1
+            let firstPage = self.bs_getOptional(lastIndex)
+            lastIndex=lastIndex+1
+            let secondPage = self.bs_getOptional(lastIndex)
+            handler?(firstPage,secondPage);
+        }
+    }
+}
 /*    **UIApplication**   */
 
 public extension UIApplication{
@@ -2634,7 +2651,7 @@ public extension Array where Element: Equatable {
             return results
     }
 }
-extension Bundle {
+public extension Bundle {
     var bs_releaseVersionNumber: String? {
         return infoDictionary?["CFBundleShortVersionString"] as? String
     }
@@ -2643,7 +2660,7 @@ extension Bundle {
     }
 }
 
-extension Array where Element == Dictionary<String, AnyObject> {
+public extension Array where Element == Dictionary<String, AnyObject> {
     func bs_json()->String?{
         if let theJSONData = try? JSONSerialization.data(
             withJSONObject: self,
@@ -2655,7 +2672,7 @@ extension Array where Element == Dictionary<String, AnyObject> {
         return nil;
     }
 }
-extension Array where Element == Dictionary<String, Any> {
+public extension Array where Element == Dictionary<String, Any> {
     func bs_json()->String?{
         if let theJSONData = try? JSONSerialization.data(
             withJSONObject: self,
