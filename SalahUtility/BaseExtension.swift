@@ -2529,7 +2529,7 @@ public extension Dictionary {
             withJSONObject: self,
             options: []) {
             let theJSONText = String(data: theJSONData,
-                                       encoding: .ascii)
+                                       encoding:.utf8)
             return theJSONText;
         }
         return nil;
@@ -2666,7 +2666,7 @@ public extension Array where Element == Dictionary<String, AnyObject> {
             withJSONObject: self,
             options: []) {
             let theJSONText = String(data: theJSONData,
-                                       encoding: .ascii)
+                                     encoding: .utf8)
             return theJSONText;
         }
         return nil;
@@ -2678,7 +2678,7 @@ public extension Array where Element == Dictionary<String, Any> {
             withJSONObject: self,
             options: []) {
             let theJSONText = String(data: theJSONData,
-                                       encoding: .ascii)
+                                       encoding: .utf8)
             return theJSONText;
         }
         return nil;
