@@ -492,15 +492,15 @@ public var bs_hasTopNotch: Bool {
 {
     public func bs_calculateImageViewSizeInAspectFitSize()->CGSize{
         var aspect = ((self.image?.size.width ?? 0) / (self.image?.size.height ?? 0))
-        if ((self.size.width / aspect) <= self.size.height)
+        if ((self.frame.size.width / aspect) <= self.frame.size.height)
           {
-            return CGSize.init(width: self.size.width, height: self.size.width/aspect)
+            return CGSize.init(width: self.frame.size.width, height: self.frame.size.width/aspect)
           } else {
-            return CGSize.init(width: self.size.height * aspect, height: self.size.height)
+            return CGSize.init(width: self.frame.size.height * aspect, height: self.frame.size.height)
           }
      }
     public func bs_calculateImageViewRecInAspectFit()->CGRect{
-        let aspictRationSize = calculateImageViewSizeInAspectFitSize();
+        let aspictRationSize = bs_calculateImageViewSizeInAspectFitSize();
         // to get top space
         let x = ((self.frame.size.width-aspictRationSize.width)/2);
         let y = ((self.frame.size.height-aspictRationSize.height)/2);
