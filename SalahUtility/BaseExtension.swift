@@ -268,6 +268,13 @@ public var bs_hasTopNotch: Bool {
     public var bs_double:Double?{
         return Double.init(self)
     }
+    public func bs_localizedWith(variables: CVarArg...) -> String {
+        return String(format: self.localize_, arguments: variables)
+    }
+    public func bs_localizedWith(variables: CVarArg...,language:String?,tableName:String?) -> String {
+        var value = self.bs_localized(language:"", tableName:"");
+        return String(format:value, arguments: variables)
+    }
     public func bs_localized(language:String?,tableName:String?) ->String {
         let tempLanguage:String = language  ?? Locale.current.languageCode ?? "Base"
         if let path:String = Bundle.main.path(forResource: tempLanguage, ofType: "lproj") , let bundle:Bundle = Bundle(path: path) {
