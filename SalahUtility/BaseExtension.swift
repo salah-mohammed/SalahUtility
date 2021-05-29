@@ -268,12 +268,11 @@ public var bs_hasTopNotch: Bool {
     public var bs_double:Double?{
         return Double.init(self)
     }
-        var bundle:Bundle!
-        if let path:String = Bundle.main.path(forResource: language, ofType: "lproj") , let tempNundle:Bundle = Bundle(path: path) {
-            bundle = tempNundle
-        }else{
-        }
+    public func bs_localized(_ language:String?,_ tableName:String?=nil) ->String {
+        let tempLanguage:String = language  ?? Locale.preferredLanguages.first ?? "Base"
+        if let path:String = Bundle.main.path(forResource: language, ofType: "lproj") , let bundle:Bundle = Bundle(path: path) {
         return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: "", comment: "")
+        }else{return ""};
     }
     public func bs_toDic()->[String:String]{
         var  dic:[String:String]=[String:String]();
