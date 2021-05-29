@@ -268,12 +268,10 @@ public var bs_hasTopNotch: Bool {
     public var bs_double:Double?{
         return Double.init(self)
     }
-    public func bs_localized(_ language:String?,_ tableName:String?=nil) ->String {
         var bundle:Bundle!
         if let path:String = Bundle.main.path(forResource: language, ofType: "lproj") , let tempNundle:Bundle = Bundle(path: path) {
             bundle = tempNundle
         }else{
-            bundle = Bundle.main
         }
         return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: "", comment: "")
     }
