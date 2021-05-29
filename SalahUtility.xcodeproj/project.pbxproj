@@ -31,6 +31,7 @@
 		4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */; };
 		4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */; };
 		4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */; };
+		4ED03944265FCB3A00E173EA /* ImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */; };
 		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
 		4ED30C2325C023E100313983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C2225C023E100313983 /* Regex.swift */; };
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
@@ -112,6 +113,7 @@
 		4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExampleViewController.swift; sourceTree = "<group>"; };
 		4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionExampleViewController.swift; sourceTree = "<group>"; };
 		4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkBenchTimer.swift; sourceTree = "<group>"; };
+		4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizeViewController.swift; sourceTree = "<group>"; };
 		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
 		4ED30C2225C023E100313983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		4EFC173D2562C55A0050BB01 /* SalahUtilityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahUtilityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,6 +343,7 @@
 				4E4D4D1225BDD75C00E676FB /* Property List.plist */,
 				4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */,
 				4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */,
+				4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
 				4E77AB9D25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift in Sources */,
 				4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */,
+				4ED03944265FCB3A00E173EA /* ImageSizeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
