@@ -271,11 +271,11 @@ public var bs_hasTopNotch: Bool {
     public func bs_localizedWith(variables: CVarArg...) -> String {
         return String(format: self.localize_, arguments: variables)
     }
-    public func bs_localizedWith(variables: CVarArg...,language:String?,tableName:String?) -> String {
-        var value = self.bs_localized(language:"", tableName:"");
+    public func bs_localizedd(_ language:String?=nil,tableName:String?=nil,variables: CVarArg...) -> String {
+        var value = self.bs_localized(language,tableName);
         return String(format:value, arguments: variables)
     }
-    public func bs_localized(language:String?,tableName:String?) ->String {
+    public func bs_localized(_ language:String?=nil,_ tableName:String?=nil) ->String {
         let tempLanguage:String = language  ?? Locale.current.languageCode ?? "Base"
         if let path:String = Bundle.main.path(forResource: tempLanguage, ofType: "lproj") , let bundle:Bundle = Bundle(path: path) {
         return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: "", comment: "")

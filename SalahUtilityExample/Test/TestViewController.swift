@@ -24,7 +24,7 @@ class TestViewController: UIViewController {
         
     }
     @IBAction func btnTest(_ sender:UIButton){
-        UIImagePickerController().bs_setup()
+//        UIImagePickerController().bs_setup()
 
     }
 }
