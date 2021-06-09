@@ -798,8 +798,15 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 
  extension UIViewController {
     var bs_topbarHeight: CGFloat {
-          return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) +
-              (self.navigationController?.navigationBar.frame.height ?? 0.0)
+        var heightOfStatusBar:CGFloat=0.0;
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            heightOfStatusBar = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            heightOfStatusBar = UIApplication.shared.statusBarFrame.height
+        }
+      return heightOfStatusBar +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
     
     public func bs_share(_ items:[Any],_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
