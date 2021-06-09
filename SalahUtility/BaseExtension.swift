@@ -22,11 +22,17 @@ import MediaPlayer
 /*    **Array**   */
 
 public var bs_hasTopNotch: Bool {
+    var edge:UIEdgeInsets?
    if #available(iOS 13.0,  *) {
-       return UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0 > 20
+    edge = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets
    }else{
-    return UIApplication.shared.delegate?.window??.safeAreaInsets.top ?? 0 > 20
+    edge = UIApplication.shared.delegate?.window??.safeAreaInsets
    }
+    if UIDevice.current.orientation.isLandscape {
+        return (edge?.left ?? 0) > 20 ||  (edge?.right ?? 0) > 20
+    }else{
+        return   (edge?.top ?? 0) > 20
+    }
 }
 
  extension Array{

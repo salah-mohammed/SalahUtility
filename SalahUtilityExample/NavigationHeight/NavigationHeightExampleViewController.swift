@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SalahUtility
 class NavigationHeightExampleViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -19,7 +19,8 @@ class NavigationHeightExampleViewController: UIViewController {
             print(topPadding)
             print("\n")
             print(bottomPadding)
-
+            let hasTopNotch = bs_hasTopNotch
+            print(bs_hasTopNotch);
         }
         
         // Do any additional setup after loading the view.
