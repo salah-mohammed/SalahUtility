@@ -30,5 +30,7 @@ public class IndexingStorageManager :NSObject {
         UserDefaults.standard.synchronize();
         self.pull();
     }
-
+    public func isExist(index:Int)->Bool{
+    return self.objects.contains(index);
+    }
 }
