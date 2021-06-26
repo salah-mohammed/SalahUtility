@@ -229,6 +229,9 @@ public var bs_hasTopNotch: Bool {
         let myFloat:Float = (self as NSString).floatValue
         return CGFloat(myFloat);
     }
+    public var bs_int:Int?{
+        return Int.init(self);
+    }
     public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self.bs_cgFloat()!);
     }

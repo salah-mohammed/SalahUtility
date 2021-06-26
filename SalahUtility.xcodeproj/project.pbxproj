@@ -31,6 +31,10 @@
 		4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */; };
 		4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */; };
 		4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */; };
+		4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9BF26760C35003D90D3 /* TestTabBarController.swift */; };
+		4EC8D9C826760C65003D90D3 /* FirstTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9C726760C65003D90D3 /* FirstTabBarController.swift */; };
+		4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9CC26760CAD003D90D3 /* SecondTabBarController.swift */; };
+		4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */; };
 		4ED03944265FCB3A00E173EA /* ImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */; };
 		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
 		4ED30C2325C023E100313983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C2225C023E100313983 /* Regex.swift */; };
@@ -113,6 +117,10 @@
 		4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExampleViewController.swift; sourceTree = "<group>"; };
 		4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionExampleViewController.swift; sourceTree = "<group>"; };
 		4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkBenchTimer.swift; sourceTree = "<group>"; };
+		4EC8D9BF26760C35003D90D3 /* TestTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarController.swift; sourceTree = "<group>"; };
+		4EC8D9C726760C65003D90D3 /* FirstTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabBarController.swift; sourceTree = "<group>"; };
+		4EC8D9CC26760CAD003D90D3 /* SecondTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabBarController.swift; sourceTree = "<group>"; };
+		4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexingStorageManager.swift; sourceTree = "<group>"; };
 		4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizeViewController.swift; sourceTree = "<group>"; };
 		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
 		4ED30C2225C023E100313983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 				4E27B5F52608F96100497E98 /* UIImagePickerControllerEx.swift */,
 				4E73424C24F25F3400969E79 /* LocalAuth.swift */,
 				4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */,
+				4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 				4ED30C2225C023E100313983 /* Regex.swift */,
 				4E1EA39825F6B03D005D703E /* Debuger.swift */,
@@ -317,6 +326,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		4EC8D9B326760BE1003D90D3 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				4EC8D9BF26760C35003D90D3 /* TestTabBarController.swift */,
+				4EC8D9C726760C65003D90D3 /* FirstTabBarController.swift */,
+				4EC8D9CC26760CAD003D90D3 /* SecondTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		4EFC173E2562C55A0050BB01 /* SalahUtilityExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +353,7 @@
 				4E4FCFE425EBA5A4007926BD /* Shadow */,
 				4E5B4C4C25FF819C00A58C70 /* GenericExample */,
 				4E7CFBFC2604EE07000DB1A9 /* Numbers */,
+				4EC8D9B326760BE1003D90D3 /* TabBarController */,
 				4EFC17452562C55A0050BB01 /* Main.storyboard */,
 				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
 				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
@@ -551,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */,
+				4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */,
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
 				4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */,
@@ -571,12 +592,15 @@
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
 				4E5B4C4525FF818500A58C70 /* GenericExampleViewController.swift in Sources */,
+				4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */,
 				4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
+				4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */,
 				4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */,
 				4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */,
 				4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */,
 				4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */,
+				4EC8D9C826760C65003D90D3 /* FirstTabBarController.swift in Sources */,
 				4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */,
 				4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */,
 				4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */,
