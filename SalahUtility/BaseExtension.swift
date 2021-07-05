@@ -2756,13 +2756,17 @@ public extension Array where Element == Dictionary<String, Any> {
 /*    **UITabBar**   */
 
 public extension UITabBar {
-    func bs_setTitleTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, for state: UIControl.State){
+     func bs_setTitleTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, for state: UIControl.State){
         if let items = self.items {
                // Setting the title text color of all tab bar items:
                for item in items {
                 item.setTitleTextAttributes(attributes, for: state)
                }
         }
+    }
+    public func bs_removeBarLine(){
+        self.shadowImage = UIImage()
+        self.backgroundImage = UIImage()
     }
 }
 
