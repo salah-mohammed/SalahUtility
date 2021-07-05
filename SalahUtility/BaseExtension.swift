@@ -2793,3 +2793,9 @@ extension AVPlayer{
         return self.currentItem?.asset.duration.seconds == self.currentItem?.currentTime().seconds ?? 0
     }
 }
+extension UINavigationBar{
+    public func bs_removeBarLine(){
+        self.setBackgroundImage(UIImage(), for: .default)
+        self.shadowImage = UIImage()
+    }
+}
