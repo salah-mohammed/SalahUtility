@@ -25,6 +25,6 @@ class TestViewController: UIViewController {
     }
     @IBAction func btnTest(_ sender:UIButton){
 //        UIImagePickerController().bs_setup()
-
+        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
     }
 }

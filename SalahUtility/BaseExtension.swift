@@ -851,12 +851,24 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         
         dismiss(animated: false)
     }
-   public func bs_showMessageWithTitle(title:String,message:String?)
-    {
+    public func bs_showMessageWithTitle(title:String,message:String?,_ okHandler:(()->Void)? = nil,okTitle:String?="Done".internalLocalize_){
         let alert = UIAlertController(title:title, message:message, preferredStyle:UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "تم", style:UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title:okTitle, style:UIAlertAction.Style.default, handler: { (_) in
+            okHandler?();
+        }))
         self.present(alert, animated: true, completion: nil)
     }
+    public func bs_showMessageWithTitle(title:String,message:String?, okHandler:(()->Void)? = nil, cancelHandler:(()->Void)? = nil,okTitle:String?="Yes".internalLocalize_,cancelTitle:String?="No".internalLocalize_){
+        let alert = UIAlertController(title:title, message:message, preferredStyle:UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title:okTitle, style:UIAlertAction.Style.default, handler: { (_) in
+            okHandler?();
+        }))
+        alert.addAction(UIAlertAction(title:cancelTitle, style:UIAlertAction.Style.default, handler: { (_) in
+            cancelHandler?();
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     @IBAction public func bs_popViewController(_ sender: Any) {
         self.navigationController?.popViewController(animated: false);
     }
@@ -2797,5 +2809,16 @@ extension UINavigationBar{
     public func bs_removeBarLine(){
         self.setBackgroundImage(UIImage(), for: .default)
         self.shadowImage = UIImage()
+    }
+}
+extension Locale{
+    public static var bs_currentLanguageName:String?{
+        let langCode = Bundle.main.preferredLocalizations[0]
+        let currentLanguage = ((UserDefaults.standard.value(forKey: "AppleLanguages") as? Array<String>)?.first)
+        let locale = Locale(identifier:currentLanguage ?? "")
+        if let languageName = locale.localizedString(forLanguageCode: langCode) {
+          return languageName
+        }
+        return nil;
     }
 }

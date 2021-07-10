@@ -27,6 +27,8 @@
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
 		4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */; };
 		4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */; };
+		4E9A3A8826999790009360F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E9A3A8A26999790009360F3 /* Localizable.strings */; };
+		4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A3A8F269997DF009360F3 /* SalahUtilityEx.swift */; };
 		4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */; };
 		4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */; };
 		4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */; };
@@ -114,6 +116,9 @@
 		4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaynamicScrollViewViewController.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E9A3A8926999790009360F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E9A3A8E26999795009360F3 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E9A3A8F269997DF009360F3 /* SalahUtilityEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahUtilityEx.swift; sourceTree = "<group>"; };
 		4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowExampleViewController.swift; sourceTree = "<group>"; };
 		4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExampleViewController.swift; sourceTree = "<group>"; };
 		4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionExampleViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +233,7 @@
 				4E910AE5245E2F95005C2976 /* Resources */,
 				4ED30C2225C023E100313983 /* Regex.swift */,
 				4E1EA39825F6B03D005D703E /* Debuger.swift */,
+				4E9A3A8F269997DF009360F3 /* SalahUtilityEx.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				4E910AE6245E2F95005C2976 /* Info.plist */,
+				4E9A3A8A26999790009360F3 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -561,6 +568,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9A3A8826999790009360F3 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +608,7 @@
 				4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */,
 				4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */,
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
+				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
 				4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */,
 				4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */,
@@ -678,6 +687,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4E9A3A8A26999790009360F3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E9A3A8926999790009360F3 /* en */,
+				4E9A3A8E26999795009360F3 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4EFC17452562C55A0050BB01 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
