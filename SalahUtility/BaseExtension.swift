@@ -851,19 +851,19 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         
         dismiss(animated: false)
     }
-    public func bs_showMessageWithTitle(title:String,message:String?,_ okHandler:(()->Void)? = nil,okTitle:String?="Done".internalLocalize_){
-        let alert = UIAlertController(title:title, message:message, preferredStyle:UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title:okTitle, style:UIAlertAction.Style.default, handler: { (_) in
+    public func bs_showMessageWithTitle(title:String,message:String?,_ okHandler:(()->Void)? = nil,_ okTitle:String?=nil){
+        let alert = UIAlertController(title:title, message:message ?? "", preferredStyle:UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title:okTitle ?? "Done".internalLocalize_, style:UIAlertAction.Style.default, handler: { (_) in
             okHandler?();
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    public func bs_showMessageWithTitle(title:String,message:String?, okHandler:(()->Void)? = nil, cancelHandler:(()->Void)? = nil,okTitle:String?="Yes".internalLocalize_,cancelTitle:String?="No".internalLocalize_){
-        let alert = UIAlertController(title:title, message:message, preferredStyle:UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title:okTitle, style:UIAlertAction.Style.default, handler: { (_) in
+    public func bs_showMessageWithTitle(title:String,message:String?, okHandler:(()->Void)? = nil, cancelHandler:(()->Void)? = nil,okTitle:String?,cancelTitle:String?){
+        let alert = UIAlertController(title:title, message:message ?? "", preferredStyle:UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title:okTitle ?? "Yes".internalLocalize_, style:UIAlertAction.Style.default, handler: { (_) in
             okHandler?();
         }))
-        alert.addAction(UIAlertAction(title:cancelTitle, style:UIAlertAction.Style.default, handler: { (_) in
+        alert.addAction(UIAlertAction(title:cancelTitle ?? "No".internalLocalize_, style:UIAlertAction.Style.default, handler: { (_) in
             cancelHandler?();
         }))
         self.present(alert, animated: true, completion: nil)
