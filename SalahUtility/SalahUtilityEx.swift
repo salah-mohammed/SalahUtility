@@ -15,6 +15,12 @@ extension String{
 extension Bundle{
     class var framwWorkBundle:Bundle?{
         let podBundle = Bundle(for: LocalAuth.self)
+        if FileManager.default.fileExists(atPath: podBundle.bundlePath){
+            return podBundle;
+        }else
+        if let bundleURL:URL = podBundle.url(forResource: "SalahUtility", withExtension: "bundle"){
+        return Bundle(url: bundleURL)
+        }
         return podBundle;
     }
 }
