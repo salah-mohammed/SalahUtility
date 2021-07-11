@@ -106,15 +106,7 @@ public var bs_hasTopNotch: Bool {
     }
   
 }
-/*    **MKMapItem**   */
 
- extension MKMapItem
-{
-      public convenience init(latitude:Double,longitude:Double) {
-        let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
-        self.init(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
-    }
-}
 /*    **String**   */
 
  extension String{
@@ -392,6 +384,513 @@ public var bs_hasTopNotch: Bool {
         let formate = NumberFormatter.init();
         let isDecimal = formate.number(from: self) != nil;
         return isDecimal;
+    }
+}
+
+/*    **Int**   */
+
+ extension Int {
+   public var bs_int:Int{
+        return Int.init(self);
+    }
+   public var bs_float:Float{
+        return  Float.init(self)
+    }
+   public var bs_cgFloat:CGFloat{
+        return  CGFloat.init(self)
+    }
+   public var bs_double:Double{
+        return  Double.init(self)
+    }
+   public var bs_int8:Int8{
+        return  Int8.init(self);
+    }
+   public var bs_int16:Int16{
+        return  Int16.init(self);
+    }
+   public var bs_int64:Int64{
+        return  Int64.init(self);
+    }
+   public var bs_int32:Int32{
+        return  Int32.init(self);
+    }
+   public var bs_number:NSNumber{
+        return  NSNumber.init(value: self);
+    }
+   public var bs_cmTime:CMTime{
+        return  CMTimeMakeWithSeconds(Double(self), preferredTimescale: 1)
+    }
+   public var bs_inHundred:String{
+        return String.bs_numberClass(numberValue: self, classNumber: 2);
+    }
+   public var bs_inThousands:String{
+        return String.bs_numberClass(numberValue: self, classNumber: 3);
+    }
+    public init(random range: ClosedRange<Int>) {
+         let min = range.lowerBound
+         let max = range.upperBound
+         self = Int(arc4random_uniform(UInt32(1 + max - min))) + min
+     }
+    public static func bs_evenRandomNumber(range:ClosedRange<Int>)->Int{
+         var variable = Int.init(random: range);
+         repeat {
+             if (variable - 1 >= range.lowerBound) && (variable-1 != 0) {
+                 variable = variable - 1
+                 return variable
+             }else{
+                 break
+             }
+             
+         }  while variable.bs_isOdd
+         
+         variable = self.bs_evenRandomNumber(range: range);
+         return variable;
+     }
+     public var bs_isEven:Bool{
+         return self % 2 == 0
+     }
+     public var bs_isOdd:Bool{
+         return self % 2 != 0
+     }
+}
+
+/*    **Int16**   */
+
+ extension Int16
+{
+    public var bs_int:Int
+    {
+        return Int.init(self);
+    }
+    public var bs_float:Float{
+        return  Float.init(self)
+    }
+    
+    public var bs_cgFloat:CGFloat{
+        return  CGFloat.init(self)
+    }
+    
+    public var bs_double:Double{
+        return  Double.init(self)
+    }
+    public var bs_int8:Int8{
+        return  Int8.init(self);
+    }
+    public var bs_int32:Int32{
+        return  Int32.init(self);
+    }
+    public var bs_int64:Int64{
+        return  Int64.init(self);
+    }
+    public var bs_locationDegree:CLLocationDegrees{
+        return  CLLocationDegrees.init(self);
+    }
+    public var bs_string:String {
+        return "\(self)"
+    }
+}
+
+/*    **Int32**   */
+
+public extension Int32{
+    public var bs_int:Int{
+        return Int.init(self);
+    }
+    public var bs_float:Float{
+        return  Float.init(self)
+    }
+    public var bs_cgFloat:CGFloat{
+        return  CGFloat.init(self)
+    }
+    public var bs_double:Double{
+        return  Double.init(self)
+    }
+    public var bs_int8:Int8{
+        return  Int8.init(self);
+    }
+    public var bs_int16:Int16{
+        return  Int16.init(self);
+    }
+    public var bs_int64:Int64{
+        return  Int64.init(self);
+    }
+    public var bs_locationDegree:CLLocationDegrees{
+        return  CLLocationDegrees.init(self);
+    }
+    public var bs_string:String {
+        return "\(self)"
+    }
+}
+
+/*    **Int64**   */
+
+ extension Int64 {
+    public var bs_int:Int
+    {
+        return Int.init(self);
+    }
+    public var bs_float:Float{
+        return  Float.init(self)
+    }
+    
+    public var bs_cgFloat:CGFloat{
+        return  CGFloat.init(self)
+    }
+    
+    public var bs_double:Double{
+        return  Double.init(self)
+    }
+    public var bs_int8:Int8{
+        return  Int8.init(self);
+    }
+    public var bs_int16:Int16{
+        return  Int16.init(self);
+    }
+    public var bs_int32:Int32{
+        return  Int32.init(self);
+    }
+    public var bs_number:NSNumber{
+        return  NSNumber.init(value: self);
+    }
+    public var bs_string:String {
+        return "\(self)"
+    }
+}
+
+/*    **CGFloat**   */
+
+ extension CGFloat
+{
+    public var bs_float:Float?{
+        return Float.init(self);
+    }
+    public func bs_int() ->Int{
+        return Int(self)
+    }
+    public var bs_locationDegree:CLLocationDegrees{
+        return  CLLocationDegrees.init(self);
+    }
+    public func bs_removeDecemal(var classNumber:Int=1)->Double?{
+        var stringValue = String(format: "%.0\(classNumber)f", self)
+        var doubleValue = Double.init(stringValue);
+        return doubleValue;
+    }
+}
+
+/*    **TimeInterval**   */
+
+ extension TimeInterval {
+    
+    public func bs_stringFromTimeInterval() -> String {
+        let interval = Int(self)
+        let seconds = interval % 60
+        let minutes = (interval / 60) % 60
+        let hours = (interval / 3600)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+}
+
+/*    **NSNumber**   */
+
+ extension NSNumber {
+   public static func bs_isNumber(object:Any)->Bool{
+        switch object {
+        case is CGFloat: return true
+        case is Float: return true
+        case is Double: return true
+        case is Int: return true
+        case is UInt: return true
+            
+        default: return false;
+        }
+    }
+}
+
+/*    **Double**   */
+
+ extension Double{
+    public func bs_removeDecemal(var classNumber:Int=1)->Double?{
+        var stringValue = String(format: "%.0\(classNumber)f", self)
+        var doubleValue = Double.init(stringValue);
+        return doubleValue;
+    }
+    public var bs_int:Int?{
+        return Int.init(self);
+    }
+    public var bs_inHundred:String{
+        return String.bs_numberClass(numberValue: self.bs_int ?? 0, classNumber: 2);
+    }
+    public var bs_inThousands:String{
+        return String.bs_numberClass(numberValue: self.bs_int ?? 0, classNumber: 3);
+    }
+    public func bs_secondsToHoursMinutesSeconds() -> (Double, Double, Double) {
+        return String.bs_secondsToHoursMinutesSeconds(self);
+    }
+    public var bs_locationDegree:CLLocationDegrees{
+        return  CLLocationDegrees.init(self);
+    }
+    public var bs_duration:String {
+        return String.bs_duration(self);
+    }
+    public var bs_cmTime:CMTime {
+        return  CMTimeMakeWithSeconds(self, preferredTimescale: 1)
+    }
+    public var bs_cgFloat:CGFloat?{
+        return CGFloat(self);
+    }
+}
+
+/*    **Float**   */
+
+ extension Float{
+     public var bs_locationDegree:CLLocationDegrees{
+        return  CLLocationDegrees.init(self);
+    }
+     public var bs_cmTime:CMTime {
+        return  CMTimeMakeWithSeconds(Double(self), preferredTimescale: 1)
+    }
+     public var bs_double:Double {
+        return Double(self)
+    }
+     public var bs_int:Int {
+        return Int.init(self);
+    }
+     public static func  bs_isMultiple(number:Float,multiplicityValue:Float)->Bool{
+        if number == 0 || multiplicityValue == 0 {
+            return false;
+        }
+        if number.remainder(dividingBy: multiplicityValue) == 0 {
+            return true;
+        }
+        return false;
+    }
+    public func bs_isItMultipleOf(multiplicityValue:Float)->Bool{
+        return Float.bs_isMultiple(number:self,multiplicityValue:multiplicityValue);
+    }
+    public var bs_cgFloat:CGFloat?{
+        return CGFloat(self);
+    }
+    public var bs_duration:String {
+        return String.bs_duration(Double.init(self));
+    }
+}
+/*    **Array**   */
+
+ extension Array where Element == String {
+     public func bs_withSeperator(seperator:String) -> String{
+        var tempText = "";
+        for object in self {
+            tempText = tempText+object+seperator;
+        }
+        if tempText.count > 1 {
+            tempText.removeLast();
+        }
+        return tempText;
+    }
+}
+
+ extension Array where Element == Int {
+    public func bs_sum() -> Int{
+        var total = 0;
+        for object in self {
+            total = total+object;
+        }
+  
+        return total;
+    }
+}
+
+/*    **Array**   */
+
+public extension Array where Element: Equatable {
+    public func bs_subtracting(_ array: Array<Element>) -> Array<Element> {
+        self.filter { !array.contains($0) }
+    }
+
+    public func bs_filterDuplicates(includeElement: (_ lhs:Element,_ rhs:Element) -> Bool) -> [Element]{
+            var results = [Element]()
+
+            forEach { (element) in
+                let existingElements = results.filter {
+                    return includeElement(element,$0)
+                }
+                if existingElements.count == 0 {
+                    results.append(element)
+                }
+            }
+
+            return results
+    }
+}
+public extension Bundle {
+    var bs_releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var bs_buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
+    }
+}
+
+public extension Array where Element == Dictionary<String, AnyObject> {
+    func bs_json()->String?{
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: self,
+            options: []) {
+            let theJSONText = String(data: theJSONData,
+                                     encoding: .utf8)
+            return theJSONText;
+        }
+        return nil;
+    }
+}
+public extension Array where Element == Dictionary<String, Any> {
+    func bs_json()->String?{
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: self,
+            options: []) {
+            let theJSONText = String(data: theJSONData,
+                                       encoding: .utf8)
+            return theJSONText;
+        }
+        return nil;
+    }
+}
+
+/*    **NSObject**   */
+
+public extension NSObject{
+  func bs_AudioServicesPlaySystemSound(fileName:String,fileType:String)->SystemSoundID? {
+        var soundID: SystemSoundID = 0
+        if  let filePath:String = Bundle.main.path(forResource: fileName, ofType:fileType){
+            let url:NSURL = NSURL(fileURLWithPath: filePath)
+            AudioServicesCreateSystemSoundID(url, &soundID)
+            AudioToolbox.AudioServicesPlaySystemSound(soundID)
+        }else{
+        print("AudioServicesPlaySystemSound can't play")}
+        
+        return soundID;
+    }
+ var bs_NSNumber:NSNumber?{
+        if let item:NSNumber = self as? NSNumber{
+            return item;
+        }
+        return nil;
+    }
+  var bs_Int:Int?{
+        if let item:Int = self.bs_NSNumber?.intValue{
+            return item;
+        }
+        return nil;
+    }
+  var bs_Double:Double?{
+        if let item:Double = self.bs_NSNumber?.doubleValue{
+            return item;
+        }
+        return nil;
+    }
+  var bs_Float:Float?{
+        if let item:Float = self.bs_NSNumber?.floatValue{
+            return item;
+        }
+        return nil;
+    }
+  var bs_String:String?{
+        if let item:String = self as? String{
+            return item;
+        }
+        return nil;
+    }
+}
+
+/*    **Dictionary**   */
+
+public extension Dictionary {
+    mutating func bs_merge(dict: [Key: Value]){
+        for (k, v) in dict {
+            updateValue(v, forKey: k)
+        }
+    }
+    static func bs_initDicFromJson(text: String) -> [String:String]? {
+        if let data:Data = text.data(using: String.Encoding.utf8) {
+            do {
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String:String]
+            return json
+            } catch{
+                return nil;
+            }
+        }
+        return nil
+    }
+    
+    func bs_json()->String?{
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: self,
+            options: []) {
+            let theJSONText = String(data: theJSONData,
+                                       encoding:.utf8)
+            return theJSONText;
+        }
+        return nil;
+    }
+}
+
+public protocol Copying {
+    init(original: Self)
+}
+
+public extension Copying {
+   public func copy() -> Self {
+        return Self.init(original: self)
+    }
+}
+public extension Collection {
+    func bs_get(_ index: Self.Index)->Iterator.Element?{
+        return self.indices.contains(index) ? self[index] : nil;
+    }
+    func bs_getOptional(_ index: Self.Index?)->Iterator.Element?{
+        if let index:Self.Index=index{
+            return bs_get(index)
+        }
+        return nil;
+    }
+    func bs_get(_ indexs: [Self.Index])->Array<Iterator.Element>{
+        var items = Array<Iterator.Element>();
+        for  index in indexs{
+        if let item = self.bs_get(index){
+        items.append(item);
+        }
+        }
+        return items;
+    }
+}
+public extension Array where Element: Copying {
+    func clone() -> Array {
+        var copiedArray = Array<Element>()
+        for element in self {
+            copiedArray.append(element.copy())
+        }
+        return copiedArray
+    }
+}
+public extension Array{
+    func bs_enumeratedTowObject(_ handler:((Iterator.Element?,Iterator.Element?)->Void)?){
+        var lastIndex:Int = -1;
+        for index in 0...((self.count/2)-1){
+            lastIndex=lastIndex+1
+            let firstPage = self.bs_getOptional(lastIndex)
+            lastIndex=lastIndex+1
+            let secondPage = self.bs_getOptional(lastIndex)
+            handler?(firstPage,secondPage);
+        }
+    }
+}
+/*    **MKMapItem**   */
+
+ extension MKMapItem
+{
+      public convenience init(latitude:Double,longitude:Double) {
+        let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
+        self.init(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
     }
 }
 
@@ -1044,318 +1543,6 @@ public extension NSLocale{
     }
 }
 
-/*    **Int**   */
-
- extension Int {
-   public var bs_int:Int{
-        return Int.init(self);
-    }
-   public var bs_float:Float{
-        return  Float.init(self)
-    }
-   public var bs_cgFloat:CGFloat{
-        return  CGFloat.init(self)
-    }
-   public var bs_double:Double{
-        return  Double.init(self)
-    }
-   public var bs_int8:Int8{
-        return  Int8.init(self);
-    }
-   public var bs_int16:Int16{
-        return  Int16.init(self);
-    }
-   public var bs_int64:Int64{
-        return  Int64.init(self);
-    }
-   public var bs_int32:Int32{
-        return  Int32.init(self);
-    }
-   public var bs_number:NSNumber{
-        return  NSNumber.init(value: self);
-    }
-   public var bs_cmTime:CMTime{
-        return  CMTimeMakeWithSeconds(Double(self), preferredTimescale: 1)
-    }
-   public var bs_inHundred:String{
-        return String.bs_numberClass(numberValue: self, classNumber: 2);
-    }
-   public var bs_inThousands:String{
-        return String.bs_numberClass(numberValue: self, classNumber: 3);
-    }
-    public init(random range: ClosedRange<Int>) {
-         let min = range.lowerBound
-         let max = range.upperBound
-         self = Int(arc4random_uniform(UInt32(1 + max - min))) + min
-     }
-    public static func bs_evenRandomNumber(range:ClosedRange<Int>)->Int{
-         var variable = Int.init(random: range);
-         repeat {
-             if (variable - 1 >= range.lowerBound) && (variable-1 != 0) {
-                 variable = variable - 1
-                 return variable
-             }else{
-                 break
-             }
-             
-         }  while variable.bs_isOdd
-         
-         variable = self.bs_evenRandomNumber(range: range);
-         return variable;
-     }
-     public var bs_isEven:Bool{
-         return self % 2 == 0
-     }
-     public var bs_isOdd:Bool{
-         return self % 2 != 0
-     }
-}
-
-/*    **Int16**   */
-
- extension Int16
-{
-    public var bs_int:Int
-    {
-        return Int.init(self);
-    }
-    public var bs_float:Float{
-        return  Float.init(self)
-    }
-    
-    public var bs_cgFloat:CGFloat{
-        return  CGFloat.init(self)
-    }
-    
-    public var bs_double:Double{
-        return  Double.init(self)
-    }
-    public var bs_int8:Int8{
-        return  Int8.init(self);
-    }
-    public var bs_int32:Int32{
-        return  Int32.init(self);
-    }
-    public var bs_int64:Int64{
-        return  Int64.init(self);
-    }
-    public var bs_locationDegree:CLLocationDegrees{
-        return  CLLocationDegrees.init(self);
-    }
-    public var bs_string:String {
-        return "\(self)"
-    }
-}
-
-/*    **Int32**   */
-
-public extension Int32{
-    public var bs_int:Int{
-        return Int.init(self);
-    }
-    public var bs_float:Float{
-        return  Float.init(self)
-    }
-    public var bs_cgFloat:CGFloat{
-        return  CGFloat.init(self)
-    }
-    public var bs_double:Double{
-        return  Double.init(self)
-    }
-    public var bs_int8:Int8{
-        return  Int8.init(self);
-    }
-    public var bs_int16:Int16{
-        return  Int16.init(self);
-    }
-    public var bs_int64:Int64{
-        return  Int64.init(self);
-    }
-    public var bs_locationDegree:CLLocationDegrees{
-        return  CLLocationDegrees.init(self);
-    }
-    public var bs_string:String {
-        return "\(self)"
-    }
-}
-
-/*    **Int64**   */
-
- extension Int64 {
-    public var bs_int:Int
-    {
-        return Int.init(self);
-    }
-    public var bs_float:Float{
-        return  Float.init(self)
-    }
-    
-    public var bs_cgFloat:CGFloat{
-        return  CGFloat.init(self)
-    }
-    
-    public var bs_double:Double{
-        return  Double.init(self)
-    }
-    public var bs_int8:Int8{
-        return  Int8.init(self);
-    }
-    public var bs_int16:Int16{
-        return  Int16.init(self);
-    }
-    public var bs_int32:Int32{
-        return  Int32.init(self);
-    }
-    public var bs_number:NSNumber{
-        return  NSNumber.init(value: self);
-    }
-    public var bs_string:String {
-        return "\(self)"
-    }
-}
-
-/*    **CGFloat**   */
-
- extension CGFloat
-{
-    public var bs_float:Float?{
-        return Float.init(self);
-    }
-    public func bs_int() ->Int{
-        return Int(self)
-    }
-    public var bs_locationDegree:CLLocationDegrees{
-        return  CLLocationDegrees.init(self);
-    }
-    public func bs_removeDecemal(var classNumber:Int=1)->Double?{
-        var stringValue = String(format: "%.0\(classNumber)f", self)
-        var doubleValue = Double.init(stringValue);
-        return doubleValue;
-    }
-}
-
-/*    **TimeInterval**   */
-
- extension TimeInterval {
-    
-    public func bs_stringFromTimeInterval() -> String {
-        let interval = Int(self)
-        let seconds = interval % 60
-        let minutes = (interval / 60) % 60
-        let hours = (interval / 3600)
-        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-    }
-}
-
-/*    **NSNumber**   */
-
- extension NSNumber {
-   public static func bs_isNumber(object:Any)->Bool{
-        switch object {
-        case is CGFloat: return true
-        case is Float: return true
-        case is Double: return true
-        case is Int: return true
-        case is UInt: return true
-            
-        default: return false;
-        }
-    }
-}
-
-/*    **Double**   */
-
- extension Double{
-    public func bs_removeDecemal(var classNumber:Int=1)->Double?{
-        var stringValue = String(format: "%.0\(classNumber)f", self)
-        var doubleValue = Double.init(stringValue);
-        return doubleValue;
-    }
-    public var bs_int:Int?{
-        return Int.init(self);
-    }
-    public var bs_inHundred:String{
-        return String.bs_numberClass(numberValue: self.bs_int ?? 0, classNumber: 2);
-    }
-    public var bs_inThousands:String{
-        return String.bs_numberClass(numberValue: self.bs_int ?? 0, classNumber: 3);
-    }
-    public func bs_secondsToHoursMinutesSeconds() -> (Double, Double, Double) {
-        return String.bs_secondsToHoursMinutesSeconds(self);
-    }
-    public var bs_locationDegree:CLLocationDegrees{
-        return  CLLocationDegrees.init(self);
-    }
-    public var bs_duration:String {
-        return String.bs_duration(self);
-    }
-    public var bs_cmTime:CMTime {
-        return  CMTimeMakeWithSeconds(self, preferredTimescale: 1)
-    }
-    public var bs_cgFloat:CGFloat?{
-        return CGFloat(self);
-    }
-}
-
-/*    **Float**   */
-
- extension Float{
-     public var bs_locationDegree:CLLocationDegrees{
-        return  CLLocationDegrees.init(self);
-    }
-     public var bs_cmTime:CMTime {
-        return  CMTimeMakeWithSeconds(Double(self), preferredTimescale: 1)
-    }
-     public var bs_double:Double {
-        return Double(self)
-    }
-     public var bs_int:Int {
-        return Int.init(self);
-    }
-     public static func  bs_isMultiple(number:Float,multiplicityValue:Float)->Bool{
-        if number == 0 || multiplicityValue == 0 {
-            return false;
-        }
-        if number.remainder(dividingBy: multiplicityValue) == 0 {
-            return true;
-        }
-        return false;
-    }
-    public func bs_isItMultipleOf(multiplicityValue:Float)->Bool{
-        return Float.bs_isMultiple(number:self,multiplicityValue:multiplicityValue);
-    }
-    public var bs_cgFloat:CGFloat?{
-        return CGFloat(self);
-    }
-    public var bs_duration:String {
-        return String.bs_duration(Double.init(self));
-    }
-}
-/*    **Array**   */
-
- extension Array where Element == String {
-     public func bs_withSeperator(seperator:String) -> String{
-        var tempText = "";
-        for object in self {
-            tempText = tempText+object+seperator;
-        }
-        if tempText.count > 1 {
-            tempText.removeLast();
-        }
-        return tempText;
-    }
-}
-
- extension Array where Element == Int {
-    public func bs_sum() -> Int{
-        var total = 0;
-        for object in self {
-            total = total+object;
-        }
-  
-        return total;
-    }
-}
 
 /*    **UserDefaults**   */
 
@@ -2538,134 +2725,6 @@ public extension UNNotificationSoundName{
     }
 }
 
-/*    **NSObject**   */
-
-public extension NSObject{
-  func bs_AudioServicesPlaySystemSound(fileName:String,fileType:String)->SystemSoundID? {
-        var soundID: SystemSoundID = 0
-        if  let filePath:String = Bundle.main.path(forResource: fileName, ofType:fileType){
-            let url:NSURL = NSURL(fileURLWithPath: filePath)
-            AudioServicesCreateSystemSoundID(url, &soundID)
-            AudioToolbox.AudioServicesPlaySystemSound(soundID)
-        }else{
-        print("AudioServicesPlaySystemSound can't play")}
-        
-        return soundID;
-    }
- var bs_NSNumber:NSNumber?{
-        if let item:NSNumber = self as? NSNumber{
-            return item;
-        }
-        return nil;
-    }
-  var bs_Int:Int?{
-        if let item:Int = self.bs_NSNumber?.intValue{
-            return item;
-        }
-        return nil;
-    }
-  var bs_Double:Double?{
-        if let item:Double = self.bs_NSNumber?.doubleValue{
-            return item;
-        }
-        return nil;
-    }
-  var bs_Float:Float?{
-        if let item:Float = self.bs_NSNumber?.floatValue{
-            return item;
-        }
-        return nil;
-    }
-  var bs_String:String?{
-        if let item:String = self as? String{
-            return item;
-        }
-        return nil;
-    }
-}
-
-/*    **Dictionary**   */
-
-public extension Dictionary {
-    mutating func bs_merge(dict: [Key: Value]){
-        for (k, v) in dict {
-            updateValue(v, forKey: k)
-        }
-    }
-    static func bs_initDicFromJson(text: String) -> [String:String]? {
-        if let data:Data = text.data(using: String.Encoding.utf8) {
-            do {
-            let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String:String]
-            return json
-            } catch{
-                return nil;
-            }
-        }
-        return nil
-    }
-    
-    func bs_json()->String?{
-        if let theJSONData = try? JSONSerialization.data(
-            withJSONObject: self,
-            options: []) {
-            let theJSONText = String(data: theJSONData,
-                                       encoding:.utf8)
-            return theJSONText;
-        }
-        return nil;
-    }
-}
-
-public protocol Copying {
-    init(original: Self)
-}
-
-public extension Copying {
-   public func copy() -> Self {
-        return Self.init(original: self)
-    }
-}
-public extension Collection {
-    func bs_get(_ index: Self.Index)->Iterator.Element?{
-        return self.indices.contains(index) ? self[index] : nil;
-    }
-    func bs_getOptional(_ index: Self.Index?)->Iterator.Element?{
-        if let index:Self.Index=index{
-            return bs_get(index)
-        }
-        return nil;
-    }
-    func bs_get(_ indexs: [Self.Index])->Array<Iterator.Element>{
-        var items = Array<Iterator.Element>();
-        for  index in indexs{
-        if let item = self.bs_get(index){
-        items.append(item);
-        }
-        }
-        return items;
-    }
-}
-public extension Array where Element: Copying {
-    func clone() -> Array {
-        var copiedArray = Array<Element>()
-        for element in self {
-            copiedArray.append(element.copy())
-        }
-        return copiedArray
-    }
-}
-public extension Array{
-    func bs_enumeratedTowObject(_ handler:((Iterator.Element?,Iterator.Element?)->Void)?){
-        var lastIndex:Int = -1;
-        for index in 0...((self.count/2)-1){
-            lastIndex=lastIndex+1
-            let firstPage = self.bs_getOptional(lastIndex)
-            lastIndex=lastIndex+1
-            let secondPage = self.bs_getOptional(lastIndex)
-            handler?(firstPage,secondPage);
-        }
-    }
-}
 /*    **UIApplication**   */
 
 public extension UIApplication{
@@ -2709,61 +2768,7 @@ public extension UIStoryboard {
  static let bs_main : UIStoryboard? = UIStoryboard(name: "Main", bundle: nil);
 }
 
-/*    **Array**   */
 
-public extension Array where Element: Equatable {
-    public func bs_subtracting(_ array: Array<Element>) -> Array<Element> {
-        self.filter { !array.contains($0) }
-    }
-
-    public func bs_filterDuplicates(includeElement: (_ lhs:Element,_ rhs:Element) -> Bool) -> [Element]{
-            var results = [Element]()
-
-            forEach { (element) in
-                let existingElements = results.filter {
-                    return includeElement(element,$0)
-                }
-                if existingElements.count == 0 {
-                    results.append(element)
-                }
-            }
-
-            return results
-    }
-}
-public extension Bundle {
-    var bs_releaseVersionNumber: String? {
-        return infoDictionary?["CFBundleShortVersionString"] as? String
-    }
-    var bs_buildVersionNumber: String? {
-        return infoDictionary?["CFBundleVersion"] as? String
-    }
-}
-
-public extension Array where Element == Dictionary<String, AnyObject> {
-    func bs_json()->String?{
-        if let theJSONData = try? JSONSerialization.data(
-            withJSONObject: self,
-            options: []) {
-            let theJSONText = String(data: theJSONData,
-                                     encoding: .utf8)
-            return theJSONText;
-        }
-        return nil;
-    }
-}
-public extension Array where Element == Dictionary<String, Any> {
-    func bs_json()->String?{
-        if let theJSONData = try? JSONSerialization.data(
-            withJSONObject: self,
-            options: []) {
-            let theJSONText = String(data: theJSONData,
-                                       encoding: .utf8)
-            return theJSONText;
-        }
-        return nil;
-    }
-}
 
 /*    **UITabBar**   */
 
