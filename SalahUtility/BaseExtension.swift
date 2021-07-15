@@ -1293,6 +1293,18 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
             }
         }
     }
+    public func bs_reCaluclateFooterViewHeight(){
+        if let footerView = self.tableFooterView {
+             let height = footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+             var footerFrame = footerView.frame
+             //Comparison necessary to avoid infinite loop
+             if height != footerFrame.size.height {
+                footerFrame.size.height = height
+                footerView.frame = footerFrame
+                 self.tableHeaderView = footerView
+             }
+         }
+     }
 }
 
 /*    **UIViewController**   */
