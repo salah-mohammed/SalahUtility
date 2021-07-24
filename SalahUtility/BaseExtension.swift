@@ -452,6 +452,9 @@ public var bs_hasTopNotch: Bool {
      public var bs_isOdd:Bool{
          return self % 2 != 0
      }
+    public var bs_string:String{
+        return String(self);
+    }
 }
 
 /*    **Int16**   */
