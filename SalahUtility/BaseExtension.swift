@@ -2845,3 +2845,20 @@ extension Locale{
         return nil;
     }
 }
+
+extension UIScrollView{
+    public func scrollToBottom(){
+        let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.height + self.contentInset.bottom)
+        self.setContentOffset(bottomOffset, animated: true)
+    }
+    public func isScrollable()->Bool{
+        let totalHeight = self.contentSize.height
+        if totalHeight > frame.size.height {
+            // can scroll more
+            return true;
+        } else {
+           // full content visible
+            return false;
+        }
+    }
+}
