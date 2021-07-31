@@ -2847,11 +2847,11 @@ extension Locale{
 }
 
 extension UIScrollView{
-    public func scrollToBottom(){
+    public func bs_scrollToBottom(){
         let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.height + self.contentInset.bottom)
         self.setContentOffset(bottomOffset, animated: true)
     }
-    public func isScrollable()->Bool{
+    public func bs_isScrollable()->Bool{
         let totalHeight = self.contentSize.height
         if totalHeight > frame.size.height {
             // can scroll more
