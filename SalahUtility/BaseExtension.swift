@@ -2851,6 +2851,10 @@ extension UIScrollView{
         let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.height + self.contentInset.bottom)
         self.setContentOffset(bottomOffset, animated: true)
     }
+    public func bs_scrollToTop(){
+        let bottomOffset = CGPoint(x:0, y:0)
+        self.setContentOffset(bottomOffset, animated: true)
+    }
     public func bs_isScrollable()->Bool{
         let totalHeight = self.contentSize.height
         if totalHeight > frame.size.height {
