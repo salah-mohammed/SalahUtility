@@ -2615,6 +2615,9 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
 /*    **Date**   */
 
 public extension Date {
+    public static func - (lhs: Date, rhs: Date) -> TimeInterval {
+           return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+       }
     func bs_compareDateIsSameDay(date:Date) -> Bool {
         // check if same year and same month and same day
         let order = Calendar.current.compare(self, to: date,
