@@ -1325,18 +1325,18 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
             (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
     
-    public func bs_share(_ items:[Any],_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
+    public func bs_share(_ sender:UIView?,_ items:[Any],_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
         // text to share
         // set up activity view controller
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        
+        activityViewController.popoverPresentationController?.sourceView = sender // so that iPads won't crash
+        activityViewController.popoverPresentationController?.sourceRect = sender?.frame ?? CGRect.zero
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
         
         activityViewController.completionWithItemsHandler = completionWithItemsHandler;
     }
-    public func bs_share(image:UIImage?,text:String?,_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
+    public func bs_share(_ sender:UIView?,image:UIImage?,text:String?,_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
         var items = [Any]();
         if let image:UIImage=image{
         items.append(image)
@@ -1344,7 +1344,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         if let text:String=text{
         items.append(text)
         }
-        self.bs_share(items,completionWithItemsHandler);
+        self.bs_share(sender,items,completionWithItemsHandler);
     }
    public func bs_presentRightToLeft(_ viewControllerToPresent: UIViewController) {
         let transition = CATransition()
