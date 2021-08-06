@@ -703,6 +703,16 @@ public extension Int32{
     }
 }
 
+extension Array where Element == Double {
+   public func bs_sum() -> Double{
+    var total:Double = 0;
+       for object in self {
+           total = total+object;
+       }
+       return total;
+   }
+}
+
 /*    **Array**   */
 
 public extension Array where Element: Equatable {
@@ -2615,6 +2625,33 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
 /*    **Date**   */
 
 public extension Date {
+//        static func bs_splitDatesBy(startDate:Date,endDate:Date,seconds:Int)->[(Date,Date)]{
+//            var dates:[(Date,Date)]=[(Date,Date)]();
+//            var lastDateAdded:Date=startDate
+//            var subtract = 0
+//            repeat{
+//                var newDate = lastDateAdded;
+//                newDate.add(.second, value:seconds)
+//                subtract = endDate.seconds(from: newDate);
+//                if subtract > seconds{
+//                dates.append((lastDateAdded,newDate))
+//                lastDateAdded = newDate
+//                }
+//                else
+//                if subtract == 0{
+//
+//                }
+//                else
+//                if subtract < seconds {
+//                    newDate = lastDateAdded
+//                    newDate.add(.second, value:subtract)
+//                    lastDateAdded = newDate
+//                    print(subtract);
+//                }
+//
+//            }while subtract > 0
+//            return dates;
+//        }
     public static func - (lhs: Date, rhs: Date) -> TimeInterval {
            return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
        }
