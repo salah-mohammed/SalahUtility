@@ -612,6 +612,9 @@ public extension Int32{
 /*    **Double**   */
 
  extension Double{
+    public var bs_error:Bool{
+         return (self.isNaN || self.isInfinite)
+     }
     public var bs_string:String?{
         return String(self);
     }
