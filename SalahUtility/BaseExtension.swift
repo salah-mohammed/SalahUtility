@@ -612,6 +612,9 @@ public extension Int32{
 /*    **Double**   */
 
  extension Double{
+    public var bs_string:String?{
+        return String(self);
+    }
     public func bs_removeDecemal(var classNumber:Int=1)->Double?{
         var stringValue = String(format: "%.0\(classNumber)f", self)
         var doubleValue = Double.init(stringValue);
