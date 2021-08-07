@@ -2909,3 +2909,19 @@ extension UIScrollView{
         }
     }
 }
+
+public extension UIUserInterfaceStyle {
+    public var bs_title:String{
+        switch self {
+        case .unspecified:
+            return "UIUserInterfaceStyle.unspecified.bs_title".internalLocalize_;
+        case .light:
+            return "UIUserInterfaceStyle.light.bs_title".internalLocalize_;
+        case .dark:
+            return "UIUserInterfaceStyle.dark.bs_title".internalLocalize_;
+        }
+    }
+    public static var all:[UIUserInterfaceStyle]{
+        return [.unspecified,.light,.dark]
+    }
+}
