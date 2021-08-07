@@ -2921,7 +2921,7 @@ public extension UIUserInterfaceStyle {
             return "UIUserInterfaceStyle.dark.bs_title".internalLocalize_;
         }
     }
-    public static var all:[UIUserInterfaceStyle]{
+    public static var bs_all:[UIUserInterfaceStyle]{
         return [.unspecified,.light,.dark]
     }
 }
