@@ -9,6 +9,6 @@
 "Done"="Done";
 "Yes"="Yes";
 "No"="No";
-"UIUserInterfaceStyle.unspecified.title"="system";
-"UIUserInterfaceStyle.light.title"="light";
-"UIUserInterfaceStyle.dark.title"="dark";
+"UIUserInterfaceStyle.unspecified.bs_title"="system";
+"UIUserInterfaceStyle.light.bs_title"="light";
+"UIUserInterfaceStyle.dark.bs_title"="dark";

@@ -9,6 +9,6 @@
 "Done"="تم";
 "Yes"="نعم";
 "No"="لا";
-"UIUserInterfaceStyle.unspecified.title"="نظام";
-"UIUserInterfaceStyle.light.title"="فاتح";
-"UIUserInterfaceStyle.dark.title"="غامق";
+"UIUserInterfaceStyle.unspecified.bs_title"="نظام";
+"UIUserInterfaceStyle.light.bs_title"="فاتح";
+"UIUserInterfaceStyle.dark.bs_title"="غامق";
