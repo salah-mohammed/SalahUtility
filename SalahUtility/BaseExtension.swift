@@ -611,7 +611,14 @@ public extension Int32{
 
 /*    **Double**   */
 
- extension Double{
+public extension Double{
+    public func bs_toStringWith(_ format:String)->String{
+        var beginStringValue="0";
+        if self.bs_error == false{
+            beginStringValue = String.init(format:format,self)
+        }
+        return beginStringValue;
+    }
     public var bs_error:Bool{
          return (self.isNaN || self.isInfinite)
      }
