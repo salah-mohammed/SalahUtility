@@ -18,9 +18,17 @@ import UserNotifications
 import MediaPlayer
 
 //import CommonCrypto
-
+//    #if os(iOS) || os(watchOS) || os(tvOS)
+//        let color = UIColor.red
+//    #elseif os(macOS)
+//        let color = NSColor.red
+//    #else
+//        println("OMG, it's that mythical new Apple product!!!")
+//    #endif
 /*    **Array**   */
 
+
+#if os(iOS)
 public var bs_hasTopNotch: Bool {
     var edge:UIEdgeInsets?
    if #available(iOS 13.0,  *) {
@@ -34,6 +42,7 @@ public var bs_hasTopNotch: Bool {
         return   (edge?.top ?? 0) > 20
     }
 }
+#endif
 
  extension Array{
     
@@ -117,6 +126,7 @@ public var bs_hasTopNotch: Bool {
     public var bs_float:Float?{
         return Float(self);
     }
+    #if os(iOS)
     public var respectLanguage:String{
     if UIView.userInterfaceLayoutDirection(for:UIApplication.shared.bs_rootViewController!.view.semanticContentAttribute) == .rightToLeft {
         return String(self.reversed());
@@ -124,6 +134,7 @@ public var bs_hasTopNotch: Bool {
             return self;
         }
     }
+    #endif
     public var bs_worlds:[String]{
         let wordList =  self.components(separatedBy: .punctuationCharacters).joined().components(separatedBy: " ").filter{!$0.isEmpty}
         return wordList;
@@ -159,6 +170,7 @@ public var bs_hasTopNotch: Bool {
         //<font face='\(fontName)'>
         return "<!DOCTYPE html><html><head><title></title> <style> body{ font-family:\"\(fontName)\";font-size:\(fontSize)px;}</style> </head> <body align=\"\(alignment)\">\(self) </body> </html>";
     }
+    #if os(iOS)
     public func bs_htmlTextWithRespectLanguage(fontName:String,fontSize:String) -> String{
         var alignment = "";
         if #available(iOS 9.0, *) {
@@ -181,6 +193,8 @@ public var bs_hasTopNotch: Bool {
         }
         return self.bs_htmlText(fontName:fontName, fontSize: fontSize, alignment:alignment)
     }
+    #endif
+
     public func bs_replace(target: String, withString: String) -> String {
         
         return self.replacingOccurrences(of: target, with:withString, options: .literal, range: nil)
@@ -303,6 +317,7 @@ public var bs_hasTopNotch: Bool {
                options: [],
                range: NSRange(location: 0, length: utf16.count)) != nil
     }
+    #if os(iOS)
     public func bs_isValidURL() -> Bool {
         guard let url = URL(string: self) else { return false }
         if !UIApplication.shared.canOpenURL(url) {
@@ -312,6 +327,7 @@ public var bs_hasTopNotch: Bool {
         let urlPattern = "^(http|https|ftp)\\://([a-zA-Z0-9\\.\\-]+(\\:[a-zA-Z0-9\\.&amp;%\\$\\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\\-]+\\.)*[a-zA-Z0-9\\-]+\\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\\:[0-9]+)*(/($|[a-zA-Z0-9\\.\\,\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$"
         return self.bs_matches(pattern: urlPattern)
     }
+    #endif
     public func bs_isValidEmail() -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
@@ -1083,11 +1099,13 @@ public extension Array{
         }
         
     }
+    #if os(iOS)
     public func bs_imageRespectLanguage(){
         if (UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft){
             self.bs_flipImage();
         }
     }
+    #endif
     public func bs_loadGifImage(url:URL,successHandler:((Data)->Void)?,errorHandler:((Error?)->Void)?){
         let fileName = url.lastPathComponent;
         var docURL = FileManager.default.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).last as? NSURL
@@ -1336,6 +1354,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIViewController**   */
 
  extension UIViewController {
+    #if os(iOS)
     public var bs_topbarHeight: CGFloat {
         var heightOfStatusBar:CGFloat=0.0;
         if #available(iOS 13.0, *) {
@@ -1347,7 +1366,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
       return heightOfStatusBar +
             (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
-    
+    #endif
     public func bs_share(_ sender:UIView?,_ items:[Any],_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
         // text to share
         // set up activity view controller
@@ -1421,6 +1440,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
     @IBAction public func bs_dismissViewControllerAnimated(_ sender: Any) {
         self.dismiss(animated: true, completion: nil);
     }
+    #if os(iOS)
    public func bs_presentPopUp(_ view:UIView,_ direction:UIPopoverArrowDirection? = nil,_ size:CGSize) {
         self.modalPresentationStyle = UIModalPresentationStyle.popover
         // set up the popover presentation controller
@@ -1437,6 +1457,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         (navigationController ?? UIApplication.shared.bs_rootNavigationController)?.pushViewController(vc, animated: true);
         }
     }
+    #endif
 }
 
 /*    **UIView**   */
@@ -1473,6 +1494,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          mask.path = path.cgPath
          layer.mask = mask
      }
+    #if os(iOS)
     public func bs_roundCornersRespectLanauge(_ corners: UIRectCorner,_ radius: CGFloat) {
         var internalCorners=corners
         if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
@@ -1496,6 +1518,8 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         }
         self.bs_roundCorners(internalCorners, radius);
      }
+    #endif
+
 }
 
 /*    **NSLocale**   */
@@ -1585,6 +1609,7 @@ public extension NSLocale{
 /*    **UserDefaults**   */
 
  extension UserDefaults{
+    #if os(iOS)
     private var SelectedAppearance:String{ return "SelectedAppearance"};
         public var bs_selectedAppearance:UIUserInterfaceStyle?{
             set{
@@ -1605,6 +1630,7 @@ public extension NSLocale{
             return UIUserInterfaceStyle.init(rawValue:rawValue);
             }
     }
+    #endif
      public var bs_appleLanguages:[String]{
         set{
             UserDefaults.standard.set(newValue, forKey: "AppleLanguages");
@@ -1743,7 +1769,7 @@ public extension NSLocale{
 }
 
 /*    **UIApplication**   */
-
+#if os(iOS)
  extension UIApplication {
     public func bs_openFilesApp(){
         var fileStringUrl = "shareddocuments://"
@@ -1983,6 +2009,7 @@ public extension NSLocale{
     }
 
 }
+#endif
 
 /*    **UITabBarController**   */
 
@@ -2794,7 +2821,7 @@ public extension UNNotificationSoundName{
 }
 
 /*    **UIApplication**   */
-
+#if os(iOS)
 public extension UIApplication{
     var bs_rootNavigationController:UINavigationController?{
       return UIApplication.shared.windows.first?.rootViewController as? UINavigationController;
@@ -2803,7 +2830,7 @@ public extension UIApplication{
       return UIApplication.shared.windows.first?.rootViewController as? UIViewController;
     }
 }
-
+#endif
 /*    **UILabel**   */
 
 public extension UILabel {
