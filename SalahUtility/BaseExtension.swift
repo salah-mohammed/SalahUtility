@@ -939,6 +939,9 @@ public extension Array{
 /*    **UIImage**   */
 
  public extension UIImage {
+    public var bs_isLight: Bool {
+        self.cgImage?.bs_isLight ?? false
+    }
     public enum JPEGQuality: CGFloat {
         case lowest  = 0
         case low     = 0.25
@@ -1063,6 +1066,7 @@ public extension Array{
 
  extension UIImageView
 {
+
     public func bs_calculateImageViewSizeInAspectFitSize()->CGSize{
         var aspect = ((self.image?.size.width ?? 0) / (self.image?.size.height ?? 0))
         if ((self.frame.size.width / aspect) <= self.frame.size.height)
@@ -2957,5 +2961,35 @@ public extension UIUserInterfaceStyle {
     }
     public static var bs_all:[UIUserInterfaceStyle]{
         return [.unspecified,.light,.dark]
+    }
+}
+
+extension CGImage {
+
+    private var bs_thresholdModifier: Double {
+        0.45
+    }
+
+    var bs_isLight: Bool {
+        guard let imageData = self.dataProvider?.data else { return false }
+        guard let ptr = CFDataGetBytePtr(imageData) else { return false }
+
+        let dataLength = CFDataGetLength(imageData)
+        let threshold = Int(Double(self.width * self.height) * bs_thresholdModifier)
+        var darkPixelsCount = 0
+
+        for i in stride(from: 0, to: dataLength, by: 4) {
+            let r = ptr[i]
+            let g = ptr[i + 1]
+            let b = ptr[i + 2]
+            let luminance = (0.299 * Double(r) + 0.587 * Double(g) + 0.114 * Double(b))
+
+            if luminance < 150 {
+                darkPixelsCount += 1
+
+                if darkPixelsCount > threshold { return false }
+            }
+        }
+        return true
     }
 }

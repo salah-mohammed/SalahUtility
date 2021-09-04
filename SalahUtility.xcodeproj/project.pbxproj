@@ -37,6 +37,7 @@
 		4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9BF26760C35003D90D3 /* TestTabBarController.swift */; };
 		4EC8D9C826760C65003D90D3 /* FirstTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9C726760C65003D90D3 /* FirstTabBarController.swift */; };
 		4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9CC26760CAD003D90D3 /* SecondTabBarController.swift */; };
+		4EC9B21F26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B21E26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift */; };
 		4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */; };
 		4ED03944265FCB3A00E173EA /* ImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */; };
 		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
@@ -127,6 +128,7 @@
 		4EC8D9BF26760C35003D90D3 /* TestTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarController.swift; sourceTree = "<group>"; };
 		4EC8D9C726760C65003D90D3 /* FirstTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabBarController.swift; sourceTree = "<group>"; };
 		4EC8D9CC26760CAD003D90D3 /* SecondTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabBarController.swift; sourceTree = "<group>"; };
+		4EC9B21E26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExampleViewController.swift; sourceTree = "<group>"; };
 		4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexingStorageManager.swift; sourceTree = "<group>"; };
 		4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizeViewController.swift; sourceTree = "<group>"; };
 		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				4EFC17832562C6780050BB01 /* Localizable.strings */,
 				4E4D4D1225BDD75C00E676FB /* Property List.plist */,
 				4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */,
+				4EC9B21E26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */,
 				4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */,
 				4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */,
+				4EC9B21F26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift in Sources */,
 				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
 				4EC27530268C89E60094C216 /* ScrollViewWithImageViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
