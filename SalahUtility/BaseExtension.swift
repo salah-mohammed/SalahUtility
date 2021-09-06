@@ -2421,6 +2421,16 @@ public extension FileManager {
             // Will only be called if document directory not found
             return nil
         }
+    func bs_contentsOfDirectory(path:String) ->[String] {
+        let docPath = Bundle.main.resourcePath! + "/" + path
+        let fileManager = FileManager.default
+        do {
+            let filesFromBundle:[String] = try fileManager.contentsOfDirectory(atPath: docPath)
+            return filesFromBundle;
+
+        } catch {}
+        return [];
+    }
 }
 
 public extension Array where Element == PHAsset {
