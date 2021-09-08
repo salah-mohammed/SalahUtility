@@ -2332,6 +2332,9 @@ public extension DateFormatter {
 /*    **UICollectionView**   */
 
 public extension UICollectionView{
+    func bs_reloadVisibleItems(){
+        self.bs_reloadItems(indexPaths: self.indexPathsForVisibleItems)
+    }
      func bs_reloadItems(indexPaths:[IndexPath]){
         self.performBatchUpdates({
             self.reloadItems(at: indexPaths)
