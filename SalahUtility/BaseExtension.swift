@@ -10,7 +10,9 @@ import Foundation
 #if os(iOS)
 import UIKit
 #endif
-
+#if os(OSX)
+import Cocoa
+#endif
 import MapKit
 import AudioToolbox
 import AVKit
@@ -405,6 +407,106 @@ public var bs_hasTopNotch: Bool {
         let formate = NumberFormatter.init();
         let isDecimal = formate.number(from: self) != nil;
         return isDecimal;
+    }
+    public func bs_slice(from: String, to: String) -> String? {
+
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                String(self[substringFrom..<substringTo])
+            }
+        }
+    }
+    ///*////
+    public func bs_search(searchedText:String)->Range<String.Index>?{
+        if let range = self.range(of:searchedText) {
+            return range
+        }
+        return nil;
+    }
+    private func index<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
+        range(of: string, options: options)?.lowerBound
+    }
+    private func endIndex<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
+        range(of: string, options: options)?.upperBound
+    }
+    private func indices<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Index] {
+        var indices: [Index] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...]
+                .range(of: string, options: options) {
+                indices.append(range.lowerBound)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return indices
+    }
+    private func ranges<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...]
+                .range(of: string, options: options) {
+                result.append(range)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
+    public mutating func bs_prefixClosed( around:String,searchedText:String)->Range<String.Index>?{
+        var text = self
+        var aroundRange = text.bs_search(searchedText:around);
+        let arroundLowerBound = self.distance(from: text.startIndex, to: aroundRange!.lowerBound)
+
+        
+        var itemRanges:[Range<String.Index>?]=text.ranges(of:searchedText)
+        
+        var lastClosedRange:(Range<String.Index>)?=itemRanges.first as! (Range<String.Index>);
+        
+
+        for itemRange in itemRanges {
+            let lastClosedLowerBound = self.distance(from: text.startIndex, to: lastClosedRange!.lowerBound)
+            let itemLowerBound = self.distance(from: text.startIndex, to: itemRange!.lowerBound)
+            
+                if (arroundLowerBound-itemLowerBound) > lastClosedLowerBound{
+                    lastClosedRange = itemRange;
+                }
+        
+        }
+        print(self.substring(with: lastClosedRange!));
+        let itemLowerBound = self.distance(from: text.startIndex, to: lastClosedRange!.lowerBound)
+        print(itemLowerBound);
+        return lastClosedRange;
+
+    }
+    public mutating func bs_suffixClosed( around:String,searchedText:String)->Range<String.Index>?{
+        var text = self
+        var aroundRange = text.bs_search(searchedText:around);
+        let arroundLowerBound = self.distance(from: text.startIndex, to: aroundRange!.lowerBound)
+
+        
+        var itemRanges:[Range<String.Index>]=text.ranges(of:searchedText)
+        itemRanges.removeAll { (item) -> Bool in
+        let itemLowerBound = self.distance(from: text.startIndex, to: item.lowerBound)
+        return itemLowerBound < arroundLowerBound
+        }
+        
+        var lastClosedRange:(Range<String.Index>)?=itemRanges.last as! (Range<String.Index>);
+        
+
+        for itemRange in itemRanges.reversed() ?? [] {
+            let lastClosedLowerBound = self.distance(from: text.startIndex, to: lastClosedRange!.lowerBound)
+            let itemLowerBound = self.distance(from: text.startIndex, to: itemRange.lowerBound)
+            
+                if  lastClosedLowerBound > (arroundLowerBound-itemLowerBound){
+                    lastClosedRange = itemRange;
+                }
+        
+        }
+        print(self.substring(with: lastClosedRange!));
+        let itemLowerBound = self.distance(from: text.startIndex, to: lastClosedRange!.lowerBound)
+        print(itemLowerBound);
+        return lastClosedRange;
     }
 }
 
@@ -3018,3 +3120,39 @@ extension CGImage {
         return true
     }
 }
+extension Sequence {
+ 
+    /// Return the sequence with all duplicates removed.
+    ///
+    /// Duplicate, in this case, is defined as returning `true` from `comparator`.
+    ///
+    /// - note: Taken from stackoverflow.com/a/46354989/3141234
+    public func bs_uniqued(comparator: @escaping (Element, Element) throws -> Bool) rethrows -> [Element] {
+        var buffer: [Element] = []
+
+        for element in self {
+            // If element is already in buffer, skip to the next element
+            if try buffer.contains(where: { try comparator(element, $0) }) {
+                continue
+            }
+
+            buffer.append(element)
+        }
+
+        return buffer
+    }
+}
+#if os(OSX)
+extension NSResponder {
+   public func bs_getParentViewController() -> NSViewController? {
+        if self.nextResponder is NSViewController {
+            return self.nextResponder as? NSViewController
+        } else {
+            if self.nextResponder != nil {
+                return (self.nextResponder!).bs_getParentViewController()
+            }
+            else {return nil}
+        }
+    }
+}
+#endif
