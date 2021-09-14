@@ -2602,6 +2602,8 @@ public extension FileManager {
 }
 
 public extension Array where Element == PHAsset {
+    
+     #if os(iOS)
      func bs_dataPhotos() -> [Data]{
         let manager = PHImageManager.default()
         let option = PHImageRequestOptions()
@@ -2645,6 +2647,8 @@ public extension Array where Element == PHAsset {
         
         return tempArray;
     }
+     #endif
+
 }
 
 /*    **PHAsset**   */
