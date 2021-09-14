@@ -2072,6 +2072,24 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
        return UIApplication.shared.windows.first?.rootViewController as? UIViewController;
      }
  }
+ 
+ /*    **MPMediaItem**   */
+ public extension MPMediaItem{
+     class func bs_findSong(_ persistentIDString: String) -> MPMediaItem? {
+         let predicate = MPMediaPropertyPredicate(value: persistentIDString, forProperty: MPMediaItemPropertyPersistentID)
+         let songQuery = MPMediaQuery()
+         songQuery.addFilterPredicate(predicate)
+
+         var song: MPMediaItem?
+         if let items = songQuery.items, items.count > 0 {
+              song = items[0]
+         }
+         return song
+     }
+     var bs_persistentID:NSNumber?{
+         return self.value(forProperty: MPMediaItemPropertyPersistentID) as? NSNumber
+     }
+ }
  #endif
 /*    **NSLocale**   */
 
@@ -2172,22 +2190,6 @@ public extension NSLocale{
 /*    **CALayer**   */
 
  extension CALayer {
-   public var borderColor_: UIColor {
-        get {
-            return self.borderColor_
-        }
-        set {
-            self.borderColor = newValue.cgColor
-        }
-    }
-   @discardableResult public func bs_shadowColor(_ shadowColor:UIColor) -> Self{
-        self.shadowColor = shadowColor.cgColor;
-        return self;
-    }
-   @discardableResult public func bs_shadowPath(_ shadowPath:UIBezierPath) -> Self{
-        self.shadowPath = shadowPath as! CGPath
-        return self;
-    }
     @discardableResult public func bs_shadowOffset(_ shadowOffset:CGSize) -> Self{
         self.shadowOffset = shadowOffset
         return self;
@@ -2216,10 +2218,28 @@ public extension NSLocale{
         self.borderWidth = borderWidth
         return self;
     }
+    #if os(iOS)
+    public var borderColor_: UIColor {
+         get {
+             return self.borderColor_
+         }
+         set {
+             self.borderColor = newValue.cgColor
+         }
+     }
+    @discardableResult public func bs_shadowColor(_ shadowColor:UIColor) -> Self{
+         self.shadowColor = shadowColor.cgColor;
+         return self;
+     }
+    @discardableResult public func bs_shadowPath(_ shadowPath:UIBezierPath) -> Self{
+         self.shadowPath = shadowPath as! CGPath
+         return self;
+     }
     @discardableResult public func bs_borderColor(_ borderColor:UIColor) -> Self{
         self.borderColor_ = borderColor
         return self;
     }
+    #endif
     //cornerRadius
 }
 
@@ -2308,7 +2328,7 @@ extension URL {
             
         }
     }
-    
+    #if os(iOS)
      public var bs_propertyArtWorkRemoteControl:UIImage?{
         set{
             var art = MPMediaItemArtwork(image: newValue as! UIImage)
@@ -2331,6 +2351,7 @@ extension URL {
             return (self.nowPlayingInfo![MPMediaItemPropertyArtwork] as! MPMediaItemArtwork).image(at:  CGSize(width: 200, height: 200))
         }
     }
+    #endif
      public var bs_propertyPlaybackDurationRemoteControl:TimeInterval?{
         set{
             self.nowPlayingInfo![MPMediaItemPropertyPlaybackDuration] = newValue as Any
@@ -2672,6 +2693,7 @@ public extension PHAsset {
 
         }
     }
+    #if os(iOS)
     func bs_openVideoData(presenter:UIViewController){
         guard (self.mediaType == .video) else {
             print("Not a valid video media type")
@@ -2692,6 +2714,7 @@ public extension PHAsset {
 
         }
     }
+    #endif
 }
 
 public extension PHFetchResult where ObjectType == PHAsset {
@@ -2938,24 +2961,6 @@ public extension UNNotificationSoundName{
     }
 }
 
-
-/*    **MPMediaItem**   */
-public extension MPMediaItem{
-    class func bs_findSong(_ persistentIDString: String) -> MPMediaItem? {
-        let predicate = MPMediaPropertyPredicate(value: persistentIDString, forProperty: MPMediaItemPropertyPersistentID)
-        let songQuery = MPMediaQuery()
-        songQuery.addFilterPredicate(predicate)
-
-        var song: MPMediaItem?
-        if let items = songQuery.items, items.count > 0 {
-             song = items[0]
-        }
-        return song
-    }
-    var bs_persistentID:NSNumber?{
-        return self.value(forProperty: MPMediaItemPropertyPersistentID) as? NSNumber
-    }
-}
 
 extension AVPlayer{
     public var bs_isFinish:Bool{
