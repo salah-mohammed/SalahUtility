@@ -244,6 +244,7 @@ public var bs_hasTopNotch: Bool {
     public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self.bs_cgFloat()!);
     }
+    #if os(iOS)
     public func bs_widthOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSAttributedString.Key.font: font]
         let size = self.size(withAttributes: fontAttributes)
@@ -254,6 +255,7 @@ public var bs_hasTopNotch: Bool {
         let size = self.size(withAttributes: fontAttributes)
         return size.height
     }
+    #endif
     public var bs_html2AttributedString: NSAttributedString? {
         return Data(utf8).bs_html2AttributedString
     }
@@ -2172,6 +2174,7 @@ public extension NSLocale{
 
 
  extension CAShapeLayer {
+       #if os(iOS)
        @discardableResult public func bs_path(_ path:UIBezierPath) -> Self{
         self.path = path.cgPath
             return self;
@@ -2180,7 +2183,7 @@ public extension NSLocale{
             self.fillColor = fillColor.cgColor;
             return self;
         }
-
+       #endif
     @discardableResult public func bs_shadowPath() -> Self{
         self.shadowPath = self.path
         return self;
@@ -2647,6 +2650,7 @@ public extension Array where Element == PHAsset {
 /*    **PHAsset**   */
 
 public extension PHAsset {
+    #if os(iOS)
     func bs_photo(photoHanlder:@escaping (UIImage?)->Void){
         
         let manager = PHImageManager.default()
@@ -2660,6 +2664,7 @@ public extension PHAsset {
             
         }
     }
+
     func bs_photoData(dataHandler:@escaping (Data?)->Void){
         let manager = PHImageManager.default()
         let option = PHImageRequestOptions()
@@ -2670,6 +2675,7 @@ public extension PHAsset {
             dataHandler(data)
         })
     }
+    #endif
     func bs_videoData(dataHandler:@escaping (Data?)->Void){
         guard (self.mediaType == .video) else {
             print("Not a valid video media type")
