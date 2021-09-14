@@ -45,7 +45,7 @@ class ConstraintExampleViewController: UIViewController {
         ])
  */
         
-        /*
+        
         // when add view equal another view with spacing
         var newView3 = UIView();
         newView3.translatesAutoresizingMaskIntoConstraints = false
@@ -57,19 +57,19 @@ class ConstraintExampleViewController: UIViewController {
             customeSuperView.leadingAnchor.constraint(equalTo: newView3.leadingAnchor,constant:-100),
             customeSuperView.trailingAnchor.constraint(equalTo: newView3.trailingAnchor,constant:100)
         ])
-       */
+       
         
         
-        // for view in viweController used when space from traling and from leading and from top and from bottom
-        var newView4 = UIView.init();
-        newView4.translatesAutoresizingMaskIntoConstraints = false
-        newView4.backgroundColor=UIColor.red;
-        customeSuperView.addSubview(newView4);
-
-        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .trailing, relatedBy: .equal, toItem: customeSuperView, attribute: .trailing, multiplier: 1, constant:-10))
-        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .leading, relatedBy: .equal, toItem: customeSuperView, attribute: .leading, multiplier: 1, constant:10))
-        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .top, relatedBy: .equal, toItem:customeSuperView, attribute: .top, multiplier: 1, constant:255))
-        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,multiplier: 1, constant: 131))
+//        // for view in viweController used when space from traling and from leading and from top and from bottom
+//        var newView4 = UIView.init();
+//        newView4.translatesAutoresizingMaskIntoConstraints = false
+//        newView4.backgroundColor=UIColor.red;
+//        customeSuperView.addSubview(newView4);
+//
+//        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .trailing, relatedBy: .equal, toItem: customeSuperView, attribute: .trailing, multiplier: 1, constant:-10))
+//        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .leading, relatedBy: .equal, toItem: customeSuperView, attribute: .leading, multiplier: 1, constant:10))
+//        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .top, relatedBy: .equal, toItem:customeSuperView, attribute: .top, multiplier: 1, constant:255))
+//        customeSuperView.addConstraint(NSLayoutConstraint(item: newView4, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,multiplier: 1, constant: 131))
       
     }
     

@@ -7,7 +7,10 @@
 //
 
 import Foundation
+#if os(iOS)
 import UIKit
+#endif
+
 import MapKit
 import AudioToolbox
 import AVKit
@@ -2978,7 +2981,6 @@ public extension UIUserInterfaceStyle {
 }
 
 extension CGImage {
-
     private var bs_thresholdModifier: Double {
         0.45
     }
