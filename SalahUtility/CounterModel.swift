@@ -6,8 +6,6 @@
 //  Copyright © 2018 Salah. All rights reserved.
 //
 
-import UIKit
-
 open class CounterModel: NSObject {
     public enum InitialValue{
      case random

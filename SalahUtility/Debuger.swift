@@ -6,8 +6,6 @@
 //  Copyright © 2021 Salah. All rights reserved.
 //
 
-import UIKit
-
 public class Debuger{
     public static let shared: Debuger = { Debuger()} ()
     

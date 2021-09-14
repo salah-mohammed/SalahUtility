@@ -6,8 +6,6 @@
 //  Copyright © 2019 Salah. All rights reserved.
 //
 
-import UIKit
-
 public class InformationScreenManager: NSObject {
     public   enum CommitType : Int {
         case manualCommit

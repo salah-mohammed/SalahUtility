@@ -940,7 +940,7 @@ public extension Array{
 }
 
 /*    **UIImage**   */
-
+ #if os(iOS)
  public extension UIImage {
     public var bs_isLight: Bool {
         self.cgImage?.bs_isLight ?? false
@@ -1106,13 +1106,11 @@ public extension Array{
         }
         
     }
-    #if os(iOS)
     public func bs_imageRespectLanguage(){
         if (UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft){
             self.bs_flipImage();
         }
     }
-    #endif
     public func bs_loadGifImage(url:URL,successHandler:((Data)->Void)?,errorHandler:((Error?)->Void)?){
         let fileName = url.lastPathComponent;
         var docURL = FileManager.default.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).last as? NSURL
@@ -1361,7 +1359,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIViewController**   */
 
  extension UIViewController {
-    #if os(iOS)
+   
     public var bs_topbarHeight: CGFloat {
         var heightOfStatusBar:CGFloat=0.0;
         if #available(iOS 13.0, *) {
@@ -1373,7 +1371,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
       return heightOfStatusBar +
             (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
-    #endif
+  
     public func bs_share(_ sender:UIView?,_ items:[Any],_ completionWithItemsHandler:UIActivityViewController.CompletionWithItemsHandler?){
         // text to share
         // set up activity view controller
@@ -1447,7 +1445,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
     @IBAction public func bs_dismissViewControllerAnimated(_ sender: Any) {
         self.dismiss(animated: true, completion: nil);
     }
-    #if os(iOS)
+  
    public func bs_presentPopUp(_ view:UIView,_ direction:UIPopoverArrowDirection? = nil,_ size:CGSize) {
         self.modalPresentationStyle = UIModalPresentationStyle.popover
         // set up the popover presentation controller
@@ -1464,7 +1462,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         (navigationController ?? UIApplication.shared.bs_rootNavigationController)?.pushViewController(vc, animated: true);
         }
     }
-    #endif
+  
 }
 
 /*    **UIView**   */
@@ -1501,7 +1499,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          mask.path = path.cgPath
          layer.mask = mask
      }
-    #if os(iOS)
+   
     public func bs_roundCornersRespectLanauge(_ corners: UIRectCorner,_ radius: CGFloat) {
         var internalCorners=corners
         if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
@@ -1525,10 +1523,556 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         }
         self.bs_roundCorners(internalCorners, radius);
      }
-    #endif
 
 }
+ /*    **UILabel**   */
+ public extension UILabel {
+     var bs_numberOfVisibleLines: Int {
+         let textSize = CGSize(width: CGFloat(self.frame.size.width), height: CGFloat(MAXFLOAT))
+         let rHeight: Int = lroundf(Float(self.sizeThatFits(textSize).height))
+         let charSize: Int = lroundf(Float(self.font.pointSize))
+         return rHeight / charSize
+     }
+ }
 
+ /*    **UIResponder**   */
+
+ public extension UIResponder {
+     func bs_getParentViewController() -> UIViewController? {
+         if self.next is UIViewController {
+             return self.next as? UIViewController
+         } else {
+             if self.next != nil {
+                 return (self.next!).bs_getParentViewController()
+             }
+             else {return nil}
+         }
+     }
+ }
+
+ /*    **UIStoryboard**   */
+
+ public extension UIStoryboard {
+  static let bs_main : UIStoryboard? = UIStoryboard(name: "Main", bundle: nil);
+ }
+
+
+
+ /*    **UITabBar**   */
+
+ public extension UITabBar {
+      func bs_setTitleTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, for state: UIControl.State){
+         if let items = self.items {
+                // Setting the title text color of all tab bar items:
+                for item in items {
+                 item.setTitleTextAttributes(attributes, for: state)
+                }
+         }
+     }
+     public func bs_removeBarLine(){
+         self.shadowImage = UIImage()
+         self.backgroundImage = UIImage()
+     }
+ }
+ 
+ /*    **UILabel**   */
+
+  extension UILabel {
+ // depend on language
+    public func bs_autoTextAliment(){
+         let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") //add whatever characters you find English
+         var amountOfEnglishChars = 0
+         var amountOfNonEnglishChars = 0
+         if   self.text != nil && self.text!.count > 0 {
+         for char in self.text!.unicodeScalars {
+             if characterset.contains(char) {
+                 amountOfEnglishChars += 1
+             }
+             else {
+                 amountOfNonEnglishChars += 1
+             }
+         }
+         }
+         self.textAlignment = amountOfEnglishChars > amountOfNonEnglishChars ? .left : .right
+     }
+ //    func bs_oppositeTextAlignment(){
+ //
+ //        if self.isRightToLeft {
+ //            self.textAlignment = .left
+ //        }else{
+ //            self.textAlignment = .right
+ //
+ //        }
+ //    }
+     public func bs_textHeight(withWidth width: CGFloat) -> CGFloat {
+         guard let text = text else {
+             return 0
+         }
+         return text.bs_height(withWidth: width, font: font)
+     }
+     public func bs_attributedTextHeight(withWidth width: CGFloat) -> CGFloat {
+         guard let attributedText = attributedText else {
+             return 0
+         }
+         return attributedText.bs_height(withWidth: width)
+     }
+     public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
+         var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text?.last ?? " ")
+         if newFont != nil {
+             self.font = newFont!;
+         }
+     }
+     public func bs_calculateMaxLines() -> Int {
+             let maxSize = CGSize(width: frame.size.width, height: CGFloat(Float.infinity))
+             let charSize = font.lineHeight
+             let text = (self.text ?? "") as NSString
+             let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+             let linesRoundedUp = Int(ceil(textSize.height/charSize))
+             return linesRoundedUp
+         }
+ }
+ /*    **UIApplication**   */
+  extension UIApplication {
+     public func bs_openFilesApp(){
+         var fileStringUrl = "shareddocuments://"
+         if let fileUrl:URL = try? URL(string:fileStringUrl){
+             UIApplication.shared.open(fileUrl)
+         }
+      }
+    public func bs_openSetting(){
+         let settingsUrl = URL(string: UIApplication.openSettingsURLString)
+         if settingsUrl != nil {
+         UIApplication.shared.open(settingsUrl!)
+         }
+     }
+
+    public func bs_openYoutubeLink(_ stringUrl:String?){
+         var schemaUrl = URL.init(string:"youtube://\(stringUrl ?? "")");
+         if schemaUrl != nil {
+             UIApplication.shared.open(schemaUrl!, options:[:]) { (value) in
+                 if value == false {
+                     var httpsUrl = URL.init(string:"https://\(stringUrl ?? "")");
+                     if httpsUrl != nil {
+                         UIApplication.shared.open(httpsUrl!, options:[:]) { (value) in
+                         }
+                     }
+                     
+                 }
+             }
+         }else{
+             var httpsUrl = URL.init(string:"https://\(stringUrl ?? "")");
+             if httpsUrl != nil {
+                 UIApplication.shared.open(httpsUrl!, options:[:]) { (value) in
+                 }
+             }
+         }
+     }
+ //   public func bs_openSocialMediaAccounts(url:URL?){
+ //        guard let urlSocialMedia = url else {
+ //            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+ //            return
+ //        }
+ //        if url?.absoluteString.lowercased().contains("whatsapp") ?? false {
+ //        self.bs_openWhatsUp(phoneNumber: url!.lastPathComponent);
+ //        }else
+ //        if url?.absoluteString.lowercased().contains("facebook.com") ?? false {
+ //            self.bs_openFacebook(id: url!.lastPathComponent);
+ //        }else
+ //        if url?.absoluteString.lowercased().contains("linkedin.com") ?? false {
+ //            self.bs_openLinkedIn(id:url!.lastPathComponent);
+ //        }else
+ //        if url?.absoluteString.lowercased().contains("twitter.com") ?? false {
+ //            self.bs_openTwitter(name: url!.lastPathComponent);
+ //        }else
+ //        if url?.absoluteString.lowercased().contains("instagram.com") ?? false {
+ //            self.bs_openInstegram(path: url!.path + "?" + url!.query!);
+ //        }else{
+ //            self.bs_openHttpLink(url);
+ //        }
+ //
+ //    }
+     public func bs_openSocialMediaAccounts(url:URL?){
+         if let url:URL=url{
+             if url.absoluteString.lowercased().contains("whatsapp") {
+                 self.bs_openWhatsUp(phoneNumber: url.lastPathComponent);
+             }else
+                 if url.absoluteString.lowercased().contains("facebook.com") {
+                     self.bs_openFacebook(id: url.paramater("id") ?? url.lastPathComponent);
+                 }else
+                     if url.absoluteString.lowercased().contains("linkedin.com") {
+                         self.bs_openLinkedIn(id:url.lastPathComponent);
+                     }else
+                         if url.absoluteString.lowercased().contains("twitter.com") {
+                             self.bs_openTwitter(name: url.lastPathComponent);
+                         }else
+                             if url.absoluteString.lowercased().contains("instagram.com") {
+                                 self.bs_openInstegram(path: url.path + "?" + (url.query ?? ""));
+                             }else{
+                                 self.open(url, options: [:], completionHandler: nil)
+             }
+         }else{
+             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+         }
+     }
+     public func bs_openWhatsUp(phoneNumber:String?){
+         guard let phoneNumber = phoneNumber else {
+             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+             return
+         }
+         let fbURLWeb: URL = URL(string:"https://web.whatsapp.com/\(phoneNumber)")!
+         let fbURLID: URL = URL(string:"whatsapp://send?phone=\(phoneNumber)")!
+         
+         if(UIApplication.shared.canOpenURL(fbURLID)){
+             // FB installed
+             UIApplication.shared.open(fbURLID, options: [:], completionHandler: nil)
+         } else {
+             // FB is not installed, open in safari
+             UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
+         }
+     }
+    public func bs_openFacebook(id:String?){
+         guard let facebookUID = id else {
+             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+             return
+         }
+         let fbURLWeb: URL = URL(string: "https://www.facebook.com/\(facebookUID)")!
+         let fbURLID: URL = URL(string: "fb://profile/\(facebookUID)")!
+         
+         if(UIApplication.shared.canOpenURL(fbURLID)){
+             // FB installed
+             UIApplication.shared.open(fbURLID, options: [:], completionHandler: nil)
+         } else {
+             // FB is not installed, open in safari
+             UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
+         }
+     }
+     public func bs_openLinkedIn(id:String?){
+         //https://www.linkedin.com/in/sari-kamail-eljamal-a866b2121/
+         guard let linkedinUID = id else {
+             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+             return
+         }
+         let linkedInURLWeb: URL = URL(string: "https://www.linkedin.com/in/\(linkedinUID)")!
+         let linkedInURLID: URL = URL(string: "linkedin://profile/\(linkedinUID)")!
+         
+         if(UIApplication.shared.canOpenURL(linkedInURLID)){
+             // FB installed
+             UIApplication.shared.open(linkedInURLID, options: [:], completionHandler: nil)
+         } else {
+             // FB is not installed, open in safari
+             UIApplication.shared.open(linkedInURLWeb, options: [:], completionHandler: nil)
+         }
+     }
+    public func bs_openTwitter(name:String?){
+         //https://twitter.com/orta
+         guard let twitterName = name else {
+             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+             return
+         }
+         let twitterURLWeb: URL = URL(string: "https://twitter.com/\(twitterName)")!
+         let twitterURLID: URL = URL(string: "twitter://profile/\(twitterName)")!
+         
+         if(UIApplication.shared.canOpenURL(twitterURLID)){
+             // FB installed
+             UIApplication.shared.open(twitterURLID, options: [:], completionHandler: nil)
+         } else {
+             // FB is not installed, open in safari
+             UIApplication.shared.open(twitterURLWeb, options: [:], completionHandler: nil)
+         }
+     }
+     
+    public func bs_openGooglePlus(path:String?){
+         // https://plus.google.com/u/0/100711776131865357077
+         // gplus://plus.google.com/u/0/100711776131865357077
+         guard let pathString = path else {
+             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+             return
+         }
+         let googlePlusURLWeb: URL = URL(string: "https://plus.google.com/u/0/\(pathString)")!
+         let googlePlusURLID: URL = URL(string: "gplus:plus.google.com/u/0/\(pathString)")!
+         
+         if(UIApplication.shared.canOpenURL(googlePlusURLID)){
+             // FB installed
+             UIApplication.shared.open(googlePlusURLID, options: [:], completionHandler: nil)
+         } else {
+             // FB is not installed, open in safari
+             UIApplication.shared.open(googlePlusURLWeb, options: [:], completionHandler: nil)
+         }
+     }
+    public func bs_openInstegram(path:String?){
+         //https://www.instagram.com/shehabagency/?utm_source=ig_profile_share&igshid=3xmdz5ko8anq
+         guard let pathString = path else {
+             UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
+             return
+         }
+         let instagramURLWeb: URL = URL(string: "https://www.instagram.com/\(pathString)")!
+         let instagramURLID: URL = URL(string: "instagram://www.instagram.com/\(pathString)")!
+         
+         if(UIApplication.shared.canOpenURL(instagramURLID)){
+             // FB installed
+             UIApplication.shared.open(instagramURLID, options: [:], completionHandler: nil)
+         } else {
+             // FB is not installed, open in safari
+             UIApplication.shared.open(instagramURLWeb, options: [:], completionHandler: nil)
+         }
+     }
+
+    public func bs_openHttpLink(_ url:URL?){
+         if let tempUrl:URL = url as? URL{
+             self.bs_openHttpLink(url?.absoluteString) ;
+         }else{
+             
+         }
+     }
+     
+     public func bs_openHttpLink(_ stringUrl:String?){
+         if stringUrl != nil {
+             var tempStringURL:String = stringUrl!;
+             if stringUrl!.lowercased().hasPrefix("http") ||  stringUrl!.lowercased().hasPrefix("https") {
+                 
+             }else{
+                 tempStringURL = "http://\(tempStringURL)"
+             }
+             
+             guard let url = URL(string:tempStringURL) else {
+                 return //be safe
+             }
+             if UIApplication.shared.canOpenURL(url) {
+                 if #available(iOS 10.0, *) {
+                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                 }
+             }else{
+                 UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message:"Common.OpenUrlError".localize_);
+             }
+         }else{}
+         
+     }
+     
+     public func bs_open(_ stringUrl:String?){
+         if let tempStringUrl:String = stringUrl as? String {
+             if let url:URL = URL.init(string:tempStringUrl) {
+                 self.bs_open(url);
+             }else{
+                 
+             }
+         }
+
+         
+     }
+
+     public func bs_open(_ url:URL?){
+         if url != nil {
+             if UIApplication.shared.canOpenURL(url!) {
+                 if #available(iOS 10.0, *) {
+                     UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                 }
+             }
+         }
+     }
+
+ }
+
+
+ /*    **UITabBarController**   */
+
+  extension UITabBarController{
+     public func bs_setViewController(vc: UIViewController,_ image: UIImage,_ selectedImage:UIImage) {
+
+         vc.tabBarItem = UITabBarItem.init(title:nil, image: image, selectedImage: selectedImage);
+         vc.title="";
+         vc.tabBarItem.imageInsets=UIEdgeInsets.zero;
+         if   self.viewControllers != nil {
+         self.viewControllers!.append(vc)
+         }else{
+             self.viewControllers = [vc];
+         }
+     }
+     func bs_setViewController(index:Int,vc: UIViewController,_ image: UIImage,_ selectedImage:UIImage) {
+         
+         vc.tabBarItem = UITabBarItem.init(title:nil, image: image, selectedImage: selectedImage);
+         vc.title="";
+         vc.tabBarItem.imageInsets=UIEdgeInsets.zero;
+         if   self.viewControllers != nil {
+             self.viewControllers?.insert(vc, at: index);
+         }else{
+             self.viewControllers = [vc];
+         }
+     }
+     
+ }
+
+ /*    **UINavigationController**   */
+
+  extension  UINavigationController {
+     public func bs_popViewControllerTo(vc:UIViewController.Type){
+         for controller in self.viewControllers {
+             if controller.isKind(of: vc) {
+                 self.popToViewController(controller, animated: true)
+                 break
+             }
+         }
+     }
+ }
+
+ /*    **UIColor**   */
+
+  extension UIColor {
+     public class var bs_random: UIColor {
+         let red:CGFloat = CGFloat(drand48())
+         let green:CGFloat = CGFloat(drand48())
+         let blue:CGFloat = CGFloat(drand48())
+         
+         return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
+         
+     }
+     public var bs_isLight: Bool? {
+     return self.isLight();
+     }
+     public func isLight(threshold: Float = 0.5) -> Bool? {
+             let originalCGColor = self.cgColor
+
+             // Now we need to convert it to the RGB colorspace. UIColor.white / UIColor.black are greyscale and not RGB.
+             // If you don't do this then you will crash when accessing components index 2 below when evaluating greyscale colors.
+             let RGBCGColor = originalCGColor.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil)
+             guard let components = RGBCGColor?.components else {
+                 return nil
+             }
+             guard components.count >= 3 else {
+                 return nil
+             }
+
+             let brightness = Float(((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000)
+             return (brightness > threshold)
+         }
+ }
+
+ /*    **UITextView**   */
+
+  extension UITextView {
+      public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
+         var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float ?? 0, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text.last ?? " ")
+         if newFont != nil {
+             self.font = newFont!;
+         }
+     }
+ }
+ 
+ /*    **UICollectionView**   */
+ 
+ public extension UICollectionView{
+     func bs_reloadVisibleItems(){
+         self.bs_reloadItems(indexPaths: self.indexPathsForVisibleItems)
+     }
+      func bs_reloadItems(indexPaths:[IndexPath]){
+         self.performBatchUpdates({
+             self.reloadItems(at: indexPaths)
+         }, completion: nil);
+     }
+      func bs_reloadData(indexPath:IndexPath){
+         self.performBatchUpdates({
+             self.reloadItems(at:[indexPath])
+         }, completion: nil);
+     }
+      func bs_reloadItem(index:Int){
+         self.performBatchUpdates({
+             self.reloadItems(at:[IndexPath.init(row: index, section: 0)])
+         }, completion: nil);
+
+     }
+ }
+ /*    **UIAlertController**   */
+
+  extension UIAlertController {
+     public enum DisplayType{
+     case show
+     case build
+     }
+     public class func bs_showActionSheet(_ display:DisplayType = DisplayType.show,sender:UIView,viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void)->UIAlertController {
+         let alertViewController = UIAlertController(title: title, message: message, preferredStyle:preferredStyle)
+         for (index, (title, style)) in actions.enumerated() {
+             let alertAction = UIAlertAction(title: title, style: style) { (_) in
+                 completion(index)
+             }
+             alertViewController.addAction(alertAction)
+         }
+         alertViewController.popoverPresentationController?.delegate = (viewController as? UIPopoverPresentationControllerDelegate)
+         alertViewController.popoverPresentationController?.sourceView = sender
+         if display == .show{
+         viewController.present(alertViewController, animated: true, completion: nil)
+         }
+         return alertViewController
+     }
+    public class func bs_showActionSheet(_ display:DisplayType = DisplayType.show,sender:UIView,viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?)->UIAlertController{
+         var actions: [(String, UIAlertAction.Style)] = []
+         for object in objects ?? [] {
+             actions.append((converter(object), UIAlertAction.Style.default))
+         }
+         actions.append((cancel, UIAlertAction.Style.cancel))
+     var alertViewController = UIAlertController.bs_showActionSheet(display,sender:sender,viewController:viewController!,preferredStyle, title:title, message:message, actions: actions) { (index) in
+             if index == objects?.count ?? 0 {
+                 // click cancel button
+                 canceldHandler?()
+             }else{
+                 let selectedObject = objects?[index];
+                 selectHandler(index,selectedObject);
+             }
+         }
+     return alertViewController
+    }
+ }
+ extension UINavigationBar{
+     public func bs_removeBarLine(){
+         self.setBackgroundImage(UIImage(), for: .default)
+         self.shadowImage = UIImage()
+     }
+ }
+ extension UIScrollView{
+     public func bs_scrollToBottom(){
+         let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.height + self.contentInset.bottom)
+         self.setContentOffset(bottomOffset, animated: true)
+     }
+     public func bs_scrollToTop(){
+         let bottomOffset = CGPoint(x:0, y:0)
+         self.setContentOffset(bottomOffset, animated: true)
+     }
+     public func bs_isScrollable()->Bool{
+         let totalHeight = self.contentSize.height
+         if totalHeight > frame.size.height {
+             // can scroll more
+             return true;
+         } else {
+            // full content visible
+             return false;
+         }
+     }
+ }
+
+ public extension UIUserInterfaceStyle {
+     public var bs_title:String{
+         switch self {
+         case .unspecified:
+             return "UIUserInterfaceStyle.unspecified.bs_title".internalLocalize_;
+         case .light:
+             return "UIUserInterfaceStyle.light.bs_title".internalLocalize_;
+         case .dark:
+             return "UIUserInterfaceStyle.dark.bs_title".internalLocalize_;
+         }
+     }
+     public static var bs_all:[UIUserInterfaceStyle]{
+         return [.unspecified,.light,.dark]
+     }
+ }
+ 
+ /*    **UIApplication**   */
+ public extension UIApplication{
+     var bs_rootNavigationController:UINavigationController?{
+       return UIApplication.shared.windows.first?.rootViewController as? UINavigationController;
+     }
+     var bs_rootViewController:UIViewController?{
+       return UIApplication.shared.windows.first?.rootViewController as? UIViewController;
+     }
+ }
+ #endif
 /*    **NSLocale**   */
 
 public extension NSLocale{
@@ -1541,63 +2085,6 @@ public extension NSLocale{
             return defaultEnString;
         }
     }
-}
-
-/*    **UILabel**   */
-
- extension UILabel {
-// depend on language
-   public func bs_autoTextAliment(){
-        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") //add whatever characters you find English
-        var amountOfEnglishChars = 0
-        var amountOfNonEnglishChars = 0
-        if   self.text != nil && self.text!.count > 0 {
-        for char in self.text!.unicodeScalars {
-            if characterset.contains(char) {
-                amountOfEnglishChars += 1
-            }
-            else {
-                amountOfNonEnglishChars += 1
-            }
-        }
-        }
-        self.textAlignment = amountOfEnglishChars > amountOfNonEnglishChars ? .left : .right
-    }
-//    func bs_oppositeTextAlignment(){
-//
-//        if self.isRightToLeft {
-//            self.textAlignment = .left
-//        }else{
-//            self.textAlignment = .right
-//
-//        }
-//    }
-    public func bs_textHeight(withWidth width: CGFloat) -> CGFloat {
-        guard let text = text else {
-            return 0
-        }
-        return text.bs_height(withWidth: width, font: font)
-    }
-    public func bs_attributedTextHeight(withWidth width: CGFloat) -> CGFloat {
-        guard let attributedText = attributedText else {
-            return 0
-        }
-        return attributedText.bs_height(withWidth: width)
-    }
-    public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
-        var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text?.last ?? " ")
-        if newFont != nil {
-            self.font = newFont!;
-        }
-    }
-    public func bs_calculateMaxLines() -> Int {
-            let maxSize = CGSize(width: frame.size.width, height: CGFloat(Float.infinity))
-            let charSize = font.lineHeight
-            let text = (self.text ?? "") as NSString
-            let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-            let linesRoundedUp = Int(ceil(textSize.height/charSize))
-            return linesRoundedUp
-        }
 }
 
 /*    **SystemSoundID**   */
@@ -1775,321 +2262,6 @@ public extension NSLocale{
    
 }
 
-/*    **UIApplication**   */
-#if os(iOS)
- extension UIApplication {
-    public func bs_openFilesApp(){
-        var fileStringUrl = "shareddocuments://"
-        if let fileUrl:URL = try? URL(string:fileStringUrl){
-            UIApplication.shared.open(fileUrl)
-        }
-     }
-   public func bs_openSetting(){
-        let settingsUrl = URL(string: UIApplication.openSettingsURLString)
-        if settingsUrl != nil {
-        UIApplication.shared.open(settingsUrl!)
-        }
-    }
-
-   public func bs_openYoutubeLink(_ stringUrl:String?){
-        var schemaUrl = URL.init(string:"youtube://\(stringUrl ?? "")");
-        if schemaUrl != nil {
-            UIApplication.shared.open(schemaUrl!, options:[:]) { (value) in
-                if value == false {
-                    var httpsUrl = URL.init(string:"https://\(stringUrl ?? "")");
-                    if httpsUrl != nil {
-                        UIApplication.shared.open(httpsUrl!, options:[:]) { (value) in
-                        }
-                    }
-                    
-                }
-            }
-        }else{
-            var httpsUrl = URL.init(string:"https://\(stringUrl ?? "")");
-            if httpsUrl != nil {
-                UIApplication.shared.open(httpsUrl!, options:[:]) { (value) in
-                }
-            }
-        }
-    }
-//   public func bs_openSocialMediaAccounts(url:URL?){
-//        guard let urlSocialMedia = url else {
-//            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-//            return
-//        }
-//        if url?.absoluteString.lowercased().contains("whatsapp") ?? false {
-//        self.bs_openWhatsUp(phoneNumber: url!.lastPathComponent);
-//        }else
-//        if url?.absoluteString.lowercased().contains("facebook.com") ?? false {
-//            self.bs_openFacebook(id: url!.lastPathComponent);
-//        }else
-//        if url?.absoluteString.lowercased().contains("linkedin.com") ?? false {
-//            self.bs_openLinkedIn(id:url!.lastPathComponent);
-//        }else
-//        if url?.absoluteString.lowercased().contains("twitter.com") ?? false {
-//            self.bs_openTwitter(name: url!.lastPathComponent);
-//        }else
-//        if url?.absoluteString.lowercased().contains("instagram.com") ?? false {
-//            self.bs_openInstegram(path: url!.path + "?" + url!.query!);
-//        }else{
-//            self.bs_openHttpLink(url);
-//        }
-//
-//    }
-    public func bs_openSocialMediaAccounts(url:URL?){
-        if let url:URL=url{
-            if url.absoluteString.lowercased().contains("whatsapp") {
-                self.bs_openWhatsUp(phoneNumber: url.lastPathComponent);
-            }else
-                if url.absoluteString.lowercased().contains("facebook.com") {
-                    self.bs_openFacebook(id: url.paramater("id") ?? url.lastPathComponent);
-                }else
-                    if url.absoluteString.lowercased().contains("linkedin.com") {
-                        self.bs_openLinkedIn(id:url.lastPathComponent);
-                    }else
-                        if url.absoluteString.lowercased().contains("twitter.com") {
-                            self.bs_openTwitter(name: url.lastPathComponent);
-                        }else
-                            if url.absoluteString.lowercased().contains("instagram.com") {
-                                self.bs_openInstegram(path: url.path + "?" + (url.query ?? ""));
-                            }else{
-                                self.open(url, options: [:], completionHandler: nil)
-            }
-        }else{
-            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-        }
-    }
-    public func bs_openWhatsUp(phoneNumber:String?){
-        guard let phoneNumber = phoneNumber else {
-            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-            return
-        }
-        let fbURLWeb: URL = URL(string:"https://web.whatsapp.com/\(phoneNumber)")!
-        let fbURLID: URL = URL(string:"whatsapp://send?phone=\(phoneNumber)")!
-        
-        if(UIApplication.shared.canOpenURL(fbURLID)){
-            // FB installed
-            UIApplication.shared.open(fbURLID, options: [:], completionHandler: nil)
-        } else {
-            // FB is not installed, open in safari
-            UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
-        }
-    }
-   public func bs_openFacebook(id:String?){
-        guard let facebookUID = id else {
-            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-            return
-        }
-        let fbURLWeb: URL = URL(string: "https://www.facebook.com/\(facebookUID)")!
-        let fbURLID: URL = URL(string: "fb://profile/\(facebookUID)")!
-        
-        if(UIApplication.shared.canOpenURL(fbURLID)){
-            // FB installed
-            UIApplication.shared.open(fbURLID, options: [:], completionHandler: nil)
-        } else {
-            // FB is not installed, open in safari
-            UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
-        }
-    }
-    public func bs_openLinkedIn(id:String?){
-        //https://www.linkedin.com/in/sari-kamail-eljamal-a866b2121/
-        guard let linkedinUID = id else {
-            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-            return
-        }
-        let linkedInURLWeb: URL = URL(string: "https://www.linkedin.com/in/\(linkedinUID)")!
-        let linkedInURLID: URL = URL(string: "linkedin://profile/\(linkedinUID)")!
-        
-        if(UIApplication.shared.canOpenURL(linkedInURLID)){
-            // FB installed
-            UIApplication.shared.open(linkedInURLID, options: [:], completionHandler: nil)
-        } else {
-            // FB is not installed, open in safari
-            UIApplication.shared.open(linkedInURLWeb, options: [:], completionHandler: nil)
-        }
-    }
-   public func bs_openTwitter(name:String?){
-        //https://twitter.com/orta
-        guard let twitterName = name else {
-            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-            return
-        }
-        let twitterURLWeb: URL = URL(string: "https://twitter.com/\(twitterName)")!
-        let twitterURLID: URL = URL(string: "twitter://profile/\(twitterName)")!
-        
-        if(UIApplication.shared.canOpenURL(twitterURLID)){
-            // FB installed
-            UIApplication.shared.open(twitterURLID, options: [:], completionHandler: nil)
-        } else {
-            // FB is not installed, open in safari
-            UIApplication.shared.open(twitterURLWeb, options: [:], completionHandler: nil)
-        }
-    }
-    
-   public func bs_openGooglePlus(path:String?){
-        // https://plus.google.com/u/0/100711776131865357077
-        // gplus://plus.google.com/u/0/100711776131865357077
-        guard let pathString = path else {
-            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-            return
-        }
-        let googlePlusURLWeb: URL = URL(string: "https://plus.google.com/u/0/\(pathString)")!
-        let googlePlusURLID: URL = URL(string: "gplus:plus.google.com/u/0/\(pathString)")!
-        
-        if(UIApplication.shared.canOpenURL(googlePlusURLID)){
-            // FB installed
-            UIApplication.shared.open(googlePlusURLID, options: [:], completionHandler: nil)
-        } else {
-            // FB is not installed, open in safari
-            UIApplication.shared.open(googlePlusURLWeb, options: [:], completionHandler: nil)
-        }
-    }
-   public func bs_openInstegram(path:String?){
-        //https://www.instagram.com/shehabagency/?utm_source=ig_profile_share&igshid=3xmdz5ko8anq
-        guard let pathString = path else {
-            UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message: "Common.CantNotOpenLink".localize_)
-            return
-        }
-        let instagramURLWeb: URL = URL(string: "https://www.instagram.com/\(pathString)")!
-        let instagramURLID: URL = URL(string: "instagram://www.instagram.com/\(pathString)")!
-        
-        if(UIApplication.shared.canOpenURL(instagramURLID)){
-            // FB installed
-            UIApplication.shared.open(instagramURLID, options: [:], completionHandler: nil)
-        } else {
-            // FB is not installed, open in safari
-            UIApplication.shared.open(instagramURLWeb, options: [:], completionHandler: nil)
-        }
-    }
-
-   public func bs_openHttpLink(_ url:URL?){
-        if let tempUrl:URL = url as? URL{
-            self.bs_openHttpLink(url?.absoluteString) ;
-        }else{
-            
-        }
-    }
-    
-    public func bs_openHttpLink(_ stringUrl:String?){
-        if stringUrl != nil {
-            var tempStringURL:String = stringUrl!;
-            if stringUrl!.lowercased().hasPrefix("http") ||  stringUrl!.lowercased().hasPrefix("https") {
-                
-            }else{
-                tempStringURL = "http://\(tempStringURL)"
-            }
-            
-            guard let url = URL(string:tempStringURL) else {
-                return //be safe
-            }
-            if UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
-            }else{
-                UIApplication.shared.bs_rootViewController?.bs_showMessageWithTitle(title:"Common.Error".localize_, message:"Common.OpenUrlError".localize_);
-            }
-        }else{}
-        
-    }
-    
-    public func bs_open(_ stringUrl:String?){
-        if let tempStringUrl:String = stringUrl as? String {
-            if let url:URL = URL.init(string:tempStringUrl) {
-                self.bs_open(url);
-            }else{
-                
-            }
-        }
-
-        
-    }
-
-    public func bs_open(_ url:URL?){
-        if url != nil {
-            if UIApplication.shared.canOpenURL(url!) {
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-                }
-            }
-        }
-    }
-
-}
-#endif
-
-/*    **UITabBarController**   */
-
- extension UITabBarController{
-    public func bs_setViewController(vc: UIViewController,_ image: UIImage,_ selectedImage:UIImage) {
-
-        vc.tabBarItem = UITabBarItem.init(title:nil, image: image, selectedImage: selectedImage);
-        vc.title="";
-        vc.tabBarItem.imageInsets=UIEdgeInsets.zero;
-        if   self.viewControllers != nil {
-        self.viewControllers!.append(vc)
-        }else{
-            self.viewControllers = [vc];
-        }
-    }
-    func bs_setViewController(index:Int,vc: UIViewController,_ image: UIImage,_ selectedImage:UIImage) {
-        
-        vc.tabBarItem = UITabBarItem.init(title:nil, image: image, selectedImage: selectedImage);
-        vc.title="";
-        vc.tabBarItem.imageInsets=UIEdgeInsets.zero;
-        if   self.viewControllers != nil {
-            self.viewControllers?.insert(vc, at: index);
-        }else{
-            self.viewControllers = [vc];
-        }
-    }
-    
-}
-
-/*    **UINavigationController**   */
-
- extension  UINavigationController {
-    public func bs_popViewControllerTo(vc:UIViewController.Type){
-        for controller in self.viewControllers {
-            if controller.isKind(of: vc) {
-                self.popToViewController(controller, animated: true)
-                break
-            }
-        }
-    }
-}
-
-/*    **UIColor**   */
-
- extension UIColor {
-    public class var bs_random: UIColor {
-        let red:CGFloat = CGFloat(drand48())
-        let green:CGFloat = CGFloat(drand48())
-        let blue:CGFloat = CGFloat(drand48())
-        
-        return UIColor(red:red, green: green, blue: blue, alpha: 1.0)
-        
-    }
-    public var bs_isLight: Bool? {
-    return self.isLight();
-    }
-    public func isLight(threshold: Float = 0.5) -> Bool? {
-            let originalCGColor = self.cgColor
-
-            // Now we need to convert it to the RGB colorspace. UIColor.white / UIColor.black are greyscale and not RGB.
-            // If you don't do this then you will crash when accessing components index 2 below when evaluating greyscale colors.
-            let RGBCGColor = originalCGColor.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil)
-            guard let components = RGBCGColor?.components else {
-                return nil
-            }
-            guard components.count >= 3 else {
-                return nil
-            }
-
-            let brightness = Float(((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000)
-            return (brightness > threshold)
-        }
-}
 
 /*    **URLComponents**   */
 
@@ -2282,17 +2454,6 @@ extension URL {
     }
 }
 
-/*    **UITextView**   */
-
- extension UITextView {
-     public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float){
-        var newFont = UIFont.bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds: subtractFontValueEveryWorlds, numberOfWorlds: self.text!.bs_worldsCount.bs_float ?? 0, currentFont: self.font!, miniFontRange: miniFontRange, maxFontRange: maxFontRange, fontSubtractionValue: fontSubtractionValue, lastCharacter:self.text.last ?? " ")
-        if newFont != nil {
-            self.font = newFont!;
-        }
-    }
-}
-
 public extension DateFormatter {
     public enum Symbols: String, CustomStringConvertible {
     //example year=1995
@@ -2332,29 +2493,6 @@ public extension DateFormatter {
 }
 }
 
-/*    **UICollectionView**   */
-
-public extension UICollectionView{
-    func bs_reloadVisibleItems(){
-        self.bs_reloadItems(indexPaths: self.indexPathsForVisibleItems)
-    }
-     func bs_reloadItems(indexPaths:[IndexPath]){
-        self.performBatchUpdates({
-            self.reloadItems(at: indexPaths)
-        }, completion: nil);
-    }
-     func bs_reloadData(indexPath:IndexPath){
-        self.performBatchUpdates({
-            self.reloadItems(at:[indexPath])
-        }, completion: nil);
-    }
-     func bs_reloadItem(index:Int){
-        self.performBatchUpdates({
-            self.reloadItems(at:[IndexPath.init(row: index, section: 0)])
-        }, completion: nil);
-
-    }
-}
 
 /*    **FileManager**   */
 
@@ -2641,46 +2779,6 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
     
 }
 
-/*    **UIAlertController**   */
-
- extension UIAlertController {
-    public enum DisplayType{
-    case show
-    case build
-    }
-    public class func bs_showActionSheet(_ display:DisplayType = DisplayType.show,sender:UIView,viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void)->UIAlertController {
-        let alertViewController = UIAlertController(title: title, message: message, preferredStyle:preferredStyle)
-        for (index, (title, style)) in actions.enumerated() {
-            let alertAction = UIAlertAction(title: title, style: style) { (_) in
-                completion(index)
-            }
-            alertViewController.addAction(alertAction)
-        }
-        alertViewController.popoverPresentationController?.delegate = (viewController as? UIPopoverPresentationControllerDelegate)
-        alertViewController.popoverPresentationController?.sourceView = sender
-        if display == .show{
-        viewController.present(alertViewController, animated: true, completion: nil)
-        }
-        return alertViewController
-    }
-   public class func bs_showActionSheet(_ display:DisplayType = DisplayType.show,sender:UIView,viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?)->UIAlertController{
-        var actions: [(String, UIAlertAction.Style)] = []
-        for object in objects ?? [] {
-            actions.append((converter(object), UIAlertAction.Style.default))
-        }
-        actions.append((cancel, UIAlertAction.Style.cancel))
-    var alertViewController = UIAlertController.bs_showActionSheet(display,sender:sender,viewController:viewController!,preferredStyle, title:title, message:message, actions: actions) { (index) in
-            if index == objects?.count ?? 0 {
-                // click cancel button
-                canceldHandler?()
-            }else{
-                let selectedObject = objects?[index];
-                selectHandler(index,selectedObject);
-            }
-        }
-    return alertViewController
-   }
-}
 
 /*    **Date**   */
 
@@ -2840,67 +2938,6 @@ public extension UNNotificationSoundName{
     }
 }
 
-/*    **UIApplication**   */
-#if os(iOS)
-public extension UIApplication{
-    var bs_rootNavigationController:UINavigationController?{
-      return UIApplication.shared.windows.first?.rootViewController as? UINavigationController;
-    }
-    var bs_rootViewController:UIViewController?{
-      return UIApplication.shared.windows.first?.rootViewController as? UIViewController;
-    }
-}
-#endif
-/*    **UILabel**   */
-
-public extension UILabel {
-    var bs_numberOfVisibleLines: Int {
-        let textSize = CGSize(width: CGFloat(self.frame.size.width), height: CGFloat(MAXFLOAT))
-        let rHeight: Int = lroundf(Float(self.sizeThatFits(textSize).height))
-        let charSize: Int = lroundf(Float(self.font.pointSize))
-        return rHeight / charSize
-    }
-}
-
-/*    **UIResponder**   */
-
-public extension UIResponder {
-    func bs_getParentViewController() -> UIViewController? {
-        if self.next is UIViewController {
-            return self.next as? UIViewController
-        } else {
-            if self.next != nil {
-                return (self.next!).bs_getParentViewController()
-            }
-            else {return nil}
-        }
-    }
-}
-
-/*    **UIStoryboard**   */
-
-public extension UIStoryboard {
- static let bs_main : UIStoryboard? = UIStoryboard(name: "Main", bundle: nil);
-}
-
-
-
-/*    **UITabBar**   */
-
-public extension UITabBar {
-     func bs_setTitleTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, for state: UIControl.State){
-        if let items = self.items {
-               // Setting the title text color of all tab bar items:
-               for item in items {
-                item.setTitleTextAttributes(attributes, for: state)
-               }
-        }
-    }
-    public func bs_removeBarLine(){
-        self.shadowImage = UIImage()
-        self.backgroundImage = UIImage()
-    }
-}
 
 /*    **MPMediaItem**   */
 public extension MPMediaItem{
@@ -2925,12 +2962,7 @@ extension AVPlayer{
         return self.currentItem?.asset.duration.seconds == self.currentItem?.currentTime().seconds ?? 0
     }
 }
-extension UINavigationBar{
-    public func bs_removeBarLine(){
-        self.setBackgroundImage(UIImage(), for: .default)
-        self.shadowImage = UIImage()
-    }
-}
+
 extension Locale{
     public static var bs_currentLanguageName:String?{
         let langCode = Bundle.main.preferredLocalizations[0]
@@ -2940,43 +2972,6 @@ extension Locale{
           return languageName
         }
         return nil;
-    }
-}
-
-extension UIScrollView{
-    public func bs_scrollToBottom(){
-        let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.height + self.contentInset.bottom)
-        self.setContentOffset(bottomOffset, animated: true)
-    }
-    public func bs_scrollToTop(){
-        let bottomOffset = CGPoint(x:0, y:0)
-        self.setContentOffset(bottomOffset, animated: true)
-    }
-    public func bs_isScrollable()->Bool{
-        let totalHeight = self.contentSize.height
-        if totalHeight > frame.size.height {
-            // can scroll more
-            return true;
-        } else {
-           // full content visible
-            return false;
-        }
-    }
-}
-
-public extension UIUserInterfaceStyle {
-    public var bs_title:String{
-        switch self {
-        case .unspecified:
-            return "UIUserInterfaceStyle.unspecified.bs_title".internalLocalize_;
-        case .light:
-            return "UIUserInterfaceStyle.light.bs_title".internalLocalize_;
-        case .dark:
-            return "UIUserInterfaceStyle.dark.bs_title".internalLocalize_;
-        }
-    }
-    public static var bs_all:[UIUserInterfaceStyle]{
-        return [.unspecified,.light,.dark]
     }
 }
 

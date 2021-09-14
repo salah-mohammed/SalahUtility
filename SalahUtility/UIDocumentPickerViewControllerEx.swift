@@ -5,7 +5,7 @@
 //  Created by Salah on 9/1/18.
 //  Copyright © 2018 Newline Tech. All rights reserved.
 //
-
+#if os(iOS)
 import UIKit
 
 extension  UIDocumentPickerViewController:UIDocumentPickerDelegate{
@@ -73,3 +73,4 @@ extension  UIDocumentPickerViewController:UIDocumentPickerDelegate{
 
     
 }
+#endif

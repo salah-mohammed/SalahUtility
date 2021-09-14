@@ -7,7 +7,10 @@
 //
 
 import Foundation
+#if os(iOS)
 import UIKit
+#endif
+
 open class RoundedLabel: UILabel {
     override open func layoutSubviews() {
         super.layoutSubviews()

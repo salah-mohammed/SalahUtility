@@ -6,8 +6,6 @@
 //  Copyright © 2021 Salah. All rights reserved.
 //
 
-import UIKit
-
 open class Regex {
   private var internalExpression: NSRegularExpression?
   private var pattern: String?
