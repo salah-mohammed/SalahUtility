@@ -255,17 +255,17 @@ public var bs_hasTopNotch: Bool {
         let size = self.size(withAttributes: fontAttributes)
         return size.height
     }
+    public func bs_height(withWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil)
+        return actualSize.height
+    }
     #endif
     public var bs_html2AttributedString: NSAttributedString? {
         return Data(utf8).bs_html2AttributedString
     }
     public var bs_html2String: String {
         return bs_html2AttributedString?.string ?? ""
-    }
-    public func bs_height(withWidth width: CGFloat, font: UIFont) -> CGFloat {
-        let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let actualSize = self.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil)
-        return actualSize.height
     }
     public static func bs_numberClass(numberValue:Int,classNumber:Int)->String{
         var stringFormate="%0\(classNumber)d";
