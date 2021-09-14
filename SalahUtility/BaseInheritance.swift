@@ -6,10 +6,9 @@
 //  Copyright © 2018 Salah. All rights reserved.
 //
 
-import Foundation
 #if os(iOS)
+import Foundation
 import UIKit
-#endif
 
 open class RoundedLabel: UILabel {
     override open func layoutSubviews() {
@@ -38,3 +37,4 @@ open class RoundedUIButton: UIButton {
         self.layer.cornerRadius = self.frame.size.height / 2.0
     }
 }
+#endif
