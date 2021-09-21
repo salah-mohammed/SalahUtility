@@ -47,6 +47,15 @@ public var bs_hasTopNotch: Bool {
         return   (edge?.top ?? 0) > 20
     }
 }
+public var bs_safeArea: UIEdgeInsets? {
+    var edge:UIEdgeInsets?
+   if #available(iOS 13.0,  *) {
+    edge = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets
+   }else{
+    edge = UIApplication.shared.delegate?.window??.safeAreaInsets
+   }
+    return edge;
+}
 #endif
 
  extension Array{
