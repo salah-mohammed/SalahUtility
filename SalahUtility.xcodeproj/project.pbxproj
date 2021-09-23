@@ -19,6 +19,7 @@
 		4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */; };
 		4E4D4D1325BDD75C00E676FB /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E4D4D1225BDD75C00E676FB /* Property List.plist */; };
 		4E5B4C4525FF818500A58C70 /* GenericExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5B4C4425FF818500A58C70 /* GenericExampleViewController.swift */; };
+		4E6D71A826FC5CD800C9981D /* RetainCyclesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D71A726FC5CD800C9981D /* RetainCyclesExample.swift */; };
 		4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */; };
 		4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73424C24F25F3400969E79 /* LocalAuth.swift */; };
 		4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73E6D625AE38F60027C69B /* LocaleViewController.swift */; };
@@ -108,6 +109,7 @@
 		4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDocumentPickerViewControllerEx.swift; sourceTree = "<group>"; };
 		4E4D4D1225BDD75C00E676FB /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		4E5B4C4425FF818500A58C70 /* GenericExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericExampleViewController.swift; sourceTree = "<group>"; };
+		4E6D71A726FC5CD800C9981D /* RetainCyclesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetainCyclesExample.swift; sourceTree = "<group>"; };
 		4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeightExampleViewController.swift; sourceTree = "<group>"; };
 		4E73424C24F25F3400969E79 /* LocalAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuth.swift; sourceTree = "<group>"; };
 		4E73E6D625AE38F60027C69B /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				4E4D4D1225BDD75C00E676FB /* Property List.plist */,
 				4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */,
 				4EC9B21E26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift */,
+				4E6D71A726FC5CD800C9981D /* RetainCyclesExample.swift */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */,
 				4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
+				4E6D71A826FC5CD800C9981D /* RetainCyclesExample.swift in Sources */,
 				4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */,
 				4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */,
 				4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */,
