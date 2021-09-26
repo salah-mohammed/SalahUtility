@@ -2509,6 +2509,10 @@ extension URL {
         }
         return false
     }
+//    var bs_type:String{
+//    var a = type(of: self);
+//        return String.ini
+//    }
 }
  extension Hashable where Self: Any {
     public var bs_isDictionary:Bool {
@@ -2879,13 +2883,16 @@ public extension PHFetchResult where ObjectType == PHAssetCollection {
                 let fetchOptions = PHFetchOptions()
                 fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
                 // After uploading we fetch the PHAsset for most recent video and then get its current location url
-                let fetchResult = PHAsset.fetchAssets(with: .video, options: fetchOptions).lastObject
-                PHImageManager().requestAVAsset(forVideo: fetchResult!, options: nil, resultHandler: { (avurlAsset, audioMix, dict) in
+                if let fetchResult:PHAsset = PHAsset.fetchAssets(with: .video, options: fetchOptions).lastObject{
+                PHImageManager().requestAVAsset(forVideo: fetchResult, options: nil, resultHandler: { (avurlAsset, audioMix, dict) in
                     completionHandler(saved,avurlAsset as? AVURLAsset,nil)
                     // This is the URL we need now to access the video from gallery directly.
                 })
+                }else{
+                    completionHandler(saved,nil,nil)
+                }
             }else{
-                completionHandler(false,nil,nil)
+                completionHandler(false,nil,error)
             }
         }
     }
@@ -3165,3 +3172,5 @@ extension NSResponder {
     }
 }
 #endif
+
+
