@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SalahUtility
 class TestViewController: UIViewController {
     var items:[String]=[String]();
     override func viewDidLoad() {
@@ -30,5 +30,18 @@ class TestViewController: UIViewController {
 //        repeat {
 //            print("Test By Salah");
 //        }while self != nil
+//      var a1 = sender.bs_isSuperViewType(UITableView.self);
+//      var a2 = sender.bs_isSuperViewType(UIView.self);
+//        print(a1);
+//        print(a2);
+//
+//        var b1 = sender.bs_isSuperViewExist(UIView.init());
+//        var b2 = sender.bs_isSuperViewExist(self.view);
+//          print(b1);
+//          print(b2);
     }
+}
+
+extension UIView {
+
 }

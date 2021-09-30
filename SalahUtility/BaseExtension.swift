@@ -1615,20 +1615,20 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
    
     public func bs_roundCornersRespectLanauge(_ corners: UIRectCorner,_ radius: CGFloat) {
         var internalCorners=corners
-        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         }else{
             if internalCorners.contains(.topRight){
                 internalCorners.remove(.topRight)
                 internalCorners.insert(.topLeft)
-            }else
+            }
             if internalCorners.contains(.topLeft){
             internalCorners.remove(.topLeft)
             internalCorners.insert(.topRight)
-            }else
+            }
             if  internalCorners.contains(.bottomRight){
                 internalCorners.remove(.bottomRight)
                 internalCorners.insert(.bottomLeft)
-            }else
+            }
             if  internalCorners.contains(.bottomLeft){
                 internalCorners.remove(.bottomLeft)
                 internalCorners.insert(.bottomRight)
@@ -1636,7 +1636,20 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         }
         self.bs_roundCorners(internalCorners, radius);
      }
-
+    public func bs_isSuperViewExist(_ view:UIView)->Bool{
+      var tempSuperView:UIView?=self
+      repeat {
+        tempSuperView = tempSuperView?.superview
+      }while tempSuperView != view && tempSuperView != nil;
+      return !(tempSuperView == nil);
+    }
+    public func bs_isSuperViewType(_ viewType:UIView.Type)->Bool {
+      var tempSuperView:UIView?=self
+      repeat {
+        tempSuperView = tempSuperView?.superview
+      }while (!(tempSuperView?.isKind(of:viewType) ?? false) && tempSuperView != nil)
+      return !(tempSuperView == nil);
+    }
 }
  /*    **UILabel**   */
  public extension UILabel {
@@ -2713,6 +2726,23 @@ public extension FileManager {
 
         } catch {}
         return [];
+    }
+    public static func bs_removeAllItemsForFolder(_ folder:String,directory: FileManager.SearchPathDirectory = .documentDirectory){
+        var documentUrl =  FileManager.default.urls(for:directory, in: .userDomainMask).first
+        documentUrl = documentUrl?.appendingPathComponent(folder)
+
+        if let documentsUrl:URL = documentUrl{
+        let fileURLs = try? FileManager.default.contentsOfDirectory(at: documentsUrl,
+                                                                     includingPropertiesForKeys: nil,
+                                                                     options: .skipsHiddenFiles)
+        for url in fileURLs ?? []{
+            do {
+                try FileManager.default.removeItem(at: url);
+            }catch let error{
+                
+            }
+        }
+        }
     }
 }
 

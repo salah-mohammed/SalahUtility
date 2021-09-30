@@ -43,6 +43,7 @@
 		4ED03944265FCB3A00E173EA /* ImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */; };
 		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
 		4ED30C2325C023E100313983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C2225C023E100313983 /* Regex.swift */; };
+		4EDB527D2701CBCE009C00FF /* OperationQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB527B2701CBC0009C00FF /* OperationQueueViewController.swift */; };
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
 		4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17412562C55A0050BB01 /* SceneDelegate.swift */; };
 		4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17432562C55A0050BB01 /* TestViewController.swift */; };
@@ -135,6 +136,7 @@
 		4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizeViewController.swift; sourceTree = "<group>"; };
 		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
 		4ED30C2225C023E100313983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		4EDB527B2701CBC0009C00FF /* OperationQueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueViewController.swift; sourceTree = "<group>"; };
 		4EFC173D2562C55A0050BB01 /* SalahUtilityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahUtilityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFC173F2562C55A0050BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EFC17412562C55A0050BB01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				4EC27536268C93F10094C216 /* ImageSize */,
 				4EC27535268C93E80094C216 /* ScrollViewWithImage */,
 				4EFC17452562C55A0050BB01 /* Main.storyboard */,
+				4EDB527B2701CBC0009C00FF /* OperationQueueViewController.swift */,
 				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
 				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
 				4EFC174A2562C55E0050BB01 /* LaunchScreen.storyboard */,
@@ -633,6 +636,7 @@
 			files = (
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
+				4EDB527D2701CBCE009C00FF /* OperationQueueViewController.swift in Sources */,
 				4E5B4C4525FF818500A58C70 /* GenericExampleViewController.swift in Sources */,
 				4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */,
 				4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */,
