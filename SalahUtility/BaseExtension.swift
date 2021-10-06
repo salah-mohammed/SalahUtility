@@ -2146,7 +2146,45 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
      return alertViewController
     }
  }
- extension UINavigationBar{
+ public extension UINavigationBar{
+    public func bs_set(backgroundImage:UIImage?,backgroundColor:UIColor?,textAttributes:[NSAttributedString.Key : Any]?,tintColor:UIColor?){
+        if #available(iOS 13.0, *) {
+            let appearance = self.standardAppearance
+            appearance.configureWithDefaultBackground()
+            appearance.titleTextAttributes=textAttributes ?? [:]
+            appearance.largeTitleTextAttributes=textAttributes ?? [:]
+            appearance.backgroundColor = backgroundColor
+            appearance.backgroundImage = backgroundImage?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0 ,right: 0), resizingMode:.stretch) ?? UIImage()
+            self.standardAppearance = appearance
+            self.compactAppearance = appearance
+            self.scrollEdgeAppearance = appearance
+
+        } else {
+        }
+        self.titleTextAttributes = textAttributes ?? [:]
+        self.setBackgroundImage(backgroundImage?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0 ,right: 0), resizingMode:.stretch) ?? UIImage(), for: .default)
+        self.tintColor = tintColor
+        self.barTintColor = backgroundColor
+
+    }
+    public func bs_setTransparent(textAttributes:[NSAttributedString.Key : Any]?,tintColor:UIColor?){
+        if #available(iOS 13.0, *) {
+            let appearance = self.standardAppearance ?? UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
+            appearance.backgroundColor = .clear
+            appearance.backgroundEffect = .none
+            appearance.shadowColor = .clear
+            appearance.titleTextAttributes=textAttributes ?? [:]
+            appearance.largeTitleTextAttributes=textAttributes ?? [:]
+            self.standardAppearance = appearance
+            self.compactAppearance = appearance
+            self.scrollEdgeAppearance = appearance
+        } else {
+        }
+        self.titleTextAttributes = textAttributes ?? [:]
+        self.tintColor = tintColor
+    }
+    
      public func bs_removeBarLine(){
          self.setBackgroundImage(UIImage(), for: .default)
          self.shadowImage = UIImage()
