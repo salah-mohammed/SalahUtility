@@ -38,26 +38,32 @@ open class RoundedUIButton: UIButton {
     }
 }
 
-class RoundedStyleView:UIView{
+open class RoundedStyleView:UIView{
   private var cornerRadiusValue:CGFloat=0.0
   private var rectCorner:UIRectCorner?
-  func rounded(rectCorner:UIRectCorner,cornerRadius:CGFloat){
+  var respectLanguage:Bool=false;
+    
+    open func respectLanguage(_ respectLanguage:Bool)->Self{
+    self.respectLanguage=respectLanguage
+    return self
+  }
+    open func rounded(rectCorner:UIRectCorner,cornerRadius:CGFloat){
     self.rectCorner = rectCorner
     self.cornerRadiusValue = cornerRadius
     self.round()
   }
-  func rounded(cornerRadius:CGFloat){
+    open func rounded(cornerRadius:CGFloat){
     self.rectCorner=nil;
     self.cornerRadiusValue = cornerRadius;
     self.round()
   }
-  override func layoutSubviews() {
+    open override func layoutSubviews() {
     super.layoutSubviews();
     self.round()
   }
   private func round(){
     if let rect = self.rectCorner {
-    self.bs_roundCorners(rect, cornerRadiusValue)
+        self.respectLanguage ? self.bs_roundCornersRespectLanauge(rect, cornerRadiusValue):self.bs_roundCorners(rect, cornerRadiusValue)
     }else{
       self.layer.cornerRadius = cornerRadiusValue
     }
