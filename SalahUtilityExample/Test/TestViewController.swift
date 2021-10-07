@@ -24,7 +24,13 @@ class TestViewController: UIViewController {
         
     }
     @IBAction func btnTest(_ sender:UIButton){
-//        UIImagePickerController().bs_setup()
+        self.navigationController?.navigationBar.bs_setTransparent(textAttributes: [:], tintColor: UIColor.blue)
+        ;
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.navigationController?.navigationBar.defaultStyle();
+
+        }
+        //        UIImagePickerController().bs_setup()
 //        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
         
 //        repeat {
@@ -40,8 +46,4 @@ class TestViewController: UIViewController {
 //          print(b1);
 //          print(b2);
     }
-}
-
-extension UIView {
-
 }

@@ -2147,6 +2147,23 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
     }
  }
  public extension UINavigationBar{
+    func defaultStyle(){
+        if #available(iOS 13.0, *) {
+         let appearance = self.standardAppearance ?? UINavigationBarAppearance()
+          let navigationApperance = UINavigationBarAppearance()
+          appearance.backgroundEffect = navigationApperance.backgroundEffect
+          appearance.shadowColor = navigationApperance.shadowColor
+          appearance.backgroundColor = navigationApperance.backgroundColor
+          self.standardAppearance = appearance
+          self.compactAppearance = appearance
+          self.scrollEdgeAppearance = appearance
+        }
+        self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.shadowImage = UIImage()
+        self.isTranslucent = true
+        self.tintColor = UINavigationBar.appearance().tintColor
+      }
+    
     public func bs_set(backgroundImage:UIImage?,backgroundColor:UIColor?,textAttributes:[NSAttributedString.Key : Any]?,tintColor:UIColor?){
         if #available(iOS 13.0, *) {
             let appearance = self.standardAppearance
