@@ -841,7 +841,7 @@ public extension Double{
     public func bs_bigestValue() -> Int?{
         var bigestValue:Int?
         for item in self{
-            if let tempValue:Int = bigestValue,tempValue < item{
+            if let tempValue:Int = bigestValue,tempValue > item{
                 bigestValue = tempValue
             }else{
                 bigestValue = item;
@@ -852,7 +852,7 @@ public extension Double{
     public func bs_lowestValue() -> Int?{
         var bigestValue:Int?
         for item in self{
-            if let tempValue:Int = bigestValue,tempValue > item{
+            if let tempValue:Int = bigestValue,tempValue < item{
                 bigestValue = tempValue
             }else{
                 bigestValue = item;
