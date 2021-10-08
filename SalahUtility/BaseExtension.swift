@@ -839,9 +839,8 @@ public extension Double{
 
  extension Array where Element == Int {
     public func bs_bigestValue() -> Int?{
-        var array = self
         var bigestValue:Int?
-        for item in array{
+        for item in self{
             if let tempValue:Int = bigestValue,tempValue < item{
                 bigestValue = tempValue
             }else{
@@ -850,7 +849,17 @@ public extension Double{
         }
         return bigestValue;
     }
-    
+    public func bs_lowestValue() -> Int?{
+        var bigestValue:Int?
+        for item in self{
+            if let tempValue:Int = bigestValue,tempValue > item{
+                bigestValue = tempValue
+            }else{
+                bigestValue = item;
+            }
+        }
+        return bigestValue;
+    }
     public func bs_sum() -> Int{
         var total = 0;
         for object in self {

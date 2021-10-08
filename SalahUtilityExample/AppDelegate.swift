@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        
+        var a = [1,2,3].bs_bigestValue()
+        var a2 = [1,2,3].bs_lowestValue()
+
         BGTaskScheduler.shared.cancelAllTaskRequests()
 
         NotificationCenter.default.addObserver(forName:UIApplication.didEnterBackgroundNotification, object: nil, queue: nil) { (_) in
