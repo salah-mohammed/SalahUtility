@@ -838,6 +838,19 @@ public extension Double{
 }
 
  extension Array where Element == Int {
+    public func bs_bigestValue() -> Int?{
+        var array = self
+        var bigestValue:Int?
+        for item in array{
+            if let tempValue:Int = bigestValue,tempValue < item{
+                bigestValue = tempValue
+            }else{
+                bigestValue = item;
+            }
+        }
+        return bigestValue;
+    }
+    
     public func bs_sum() -> Int{
         var total = 0;
         for object in self {
