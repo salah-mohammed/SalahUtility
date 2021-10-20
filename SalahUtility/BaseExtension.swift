@@ -132,7 +132,36 @@ public var bs_safeArea: UIEdgeInsets? {
 
 /*    **String**   */
 
- extension String{
+public extension String{
+       public var bs_int32:Int32?{
+            return Int32.init(self)
+        }
+    public var bs_int16:Int16?{
+            return Int16.init(self);
+        }
+    public var bs_int8:Int8?
+        {
+      return Int8.init(self)
+        }
+    public var bs_int64:Int64?{
+        return Int64.init(self)
+        }
+    
+    public var bs_fullrange: NSRange {
+        return NSRange(location: 0, length: count)
+    }
+    public func bs_ranges<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...]
+                .range(of: string, options: options) {
+                result.append(range)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
     public static func bs_contentsOf(_ stringUrl:String)->String?{
          let url:URL = URL.init(fileURLWithPath:stringUrl)
         return try? String.init(contentsOf: url);
@@ -450,25 +479,13 @@ public var bs_safeArea: UIEdgeInsets? {
         }
         return indices
     }
-    private func ranges<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Range<Index>] {
-        var result: [Range<Index>] = []
-        var startIndex = self.startIndex
-        while startIndex < endIndex,
-            let range = self[startIndex...]
-                .range(of: string, options: options) {
-                result.append(range)
-                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
-                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
-        }
-        return result
-    }
     public mutating func bs_prefixClosed( around:String,searchedText:String)->Range<String.Index>?{
         var text = self
         var aroundRange = text.bs_search(searchedText:around);
         let arroundLowerBound = self.distance(from: text.startIndex, to: aroundRange!.lowerBound)
 
         
-        var itemRanges:[Range<String.Index>?]=text.ranges(of:searchedText)
+        var itemRanges:[Range<String.Index>?]=text.bs_ranges(of:searchedText)
         
         var lastClosedRange:(Range<String.Index>)?=itemRanges.first as! (Range<String.Index>);
         
@@ -494,7 +511,7 @@ public var bs_safeArea: UIEdgeInsets? {
         let arroundLowerBound = self.distance(from: text.startIndex, to: aroundRange!.lowerBound)
 
         
-        var itemRanges:[Range<String.Index>]=text.ranges(of:searchedText)
+        var itemRanges:[Range<String.Index>]=text.bs_ranges(of:searchedText)
         itemRanges.removeAll { (item) -> Bool in
         let itemLowerBound = self.distance(from: text.startIndex, to: item.lowerBound)
         return itemLowerBound < arroundLowerBound
@@ -2169,6 +2186,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
     }
  }
  public extension UINavigationBar{
+    // set line for navigation bar
     func defaultStyle(){
         if #available(iOS 13.0, *) {
          let appearance = self.standardAppearance ?? UINavigationBarAppearance()
@@ -2206,11 +2224,11 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         self.barTintColor = backgroundColor
 
     }
-    public func bs_setTransparent(textAttributes:[NSAttributedString.Key : Any]?,tintColor:UIColor?){
+    public func bs_setTransparent(backgroundColor:UIColor?,textAttributes:[NSAttributedString.Key : Any]?,tintColor:UIColor?){
         if #available(iOS 13.0, *) {
             let appearance = self.standardAppearance ?? UINavigationBarAppearance()
             appearance.configureWithDefaultBackground()
-            appearance.backgroundColor = .clear
+            appearance.backgroundColor = backgroundColor ?? .clear
             appearance.backgroundEffect = .none
             appearance.shadowColor = .clear
             appearance.titleTextAttributes=textAttributes ?? [:]
@@ -2222,6 +2240,10 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         }
         self.titleTextAttributes = textAttributes ?? [:]
         self.tintColor = tintColor
+        
+        self.setBackgroundImage(UIImage(), for: .default)
+        self.shadowImage = UIImage()
+        self.barTintColor = backgroundColor ?? .clear
     }
     
      public func bs_removeBarLine(){
@@ -2680,6 +2702,17 @@ extension URL {
         let maxSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let actualSize = boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
         return actualSize.height
+    }
+    func bs_targetStyle(_ stringValue:String,
+                _ stringAttributes:[NSAttributedString.Key:Any])->NSMutableAttributedString?{
+        let initialMutableAttributed = NSMutableAttributedString.init(attributedString: self)
+        for range in initialMutableAttributed.string.bs_ranges(of: stringValue){
+            let nsRange = NSRange(range, in: initialMutableAttributed.string)
+                // Replace content in range with the new content
+                let newAttributedString = NSMutableAttributedString(string: stringValue, attributes: stringAttributes)
+                initialMutableAttributed.replaceCharacters(in: nsRange, with: newAttributedString)
+        }
+    return initialMutableAttributed
     }
 }
 
@@ -3279,5 +3312,3 @@ extension NSResponder {
     }
 }
 #endif
-
-

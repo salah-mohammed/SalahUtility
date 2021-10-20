@@ -24,7 +24,7 @@ class TestViewController: UIViewController {
         
     }
     @IBAction func btnTest(_ sender:UIButton){
-        self.navigationController?.navigationBar.bs_setTransparent(textAttributes: [:], tintColor: UIColor.blue)
+        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
         ;
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             self.navigationController?.navigationBar.defaultStyle();
