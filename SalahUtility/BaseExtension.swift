@@ -133,6 +133,25 @@ public var bs_safeArea: UIEdgeInsets? {
 /*    **String**   */
 
 public extension String{
+    public func bs_index(from: Int) -> Index {
+        return self.index(startIndex, offsetBy: from)
+    }
+    
+    public func bs_substring(from: Int) -> String {
+        let fromIndex = bs_index(from: from)
+        return substring(from: fromIndex)
+    }
+    
+    public func bs_substring(to: Int) -> String {
+        let toIndex = bs_index(from: to)
+        return substring(to: toIndex)
+    }
+    
+    public func bs_substring(with r: Range<Int>) -> String {
+        let startIndex = bs_index(from: r.lowerBound)
+        let endIndex = bs_index(from: r.upperBound)
+        return substring(with: startIndex..<endIndex)
+    }
        public var bs_int32:Int32?{
             return Int32.init(self)
         }
@@ -3312,3 +3331,10 @@ extension NSResponder {
     }
 }
 #endif
+
+extension AVRoutePickerView {
+    public func bs_present() {
+        let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
+        routePickerButton?.sendActions(for: .touchUpInside)
+    }
+}

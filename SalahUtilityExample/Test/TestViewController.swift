@@ -8,28 +8,40 @@
 
 import UIKit
 import SalahUtility
+import AVKit
+import MediaPlayer
+
 class TestViewController: UIViewController {
     var items:[String]=[String]();
+//    @IBOutlet weak var airPlayView: UIView!
+    var routerPickerView:AVRoutePickerView!;
+    
+    @IBOutlet weak var airPlayView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        items.append("1");
-        items.append("2");
-
-        if let str2:String = items.bs_get(1) {
-            print(str2) // --> this still wouldn't run
-        } else {
-            print("No string found at that index") // --> this would be printed
-        }
-        // Do any additional setup after loading the view.
+        setupAirPlayButton();
         
+//        items.append("1");
+//        items.append("2");
+//
+//        if let str2:String = items.bs_get(1) {
+//            print(str2) // --> this still wouldn't run
+//        } else {
+//            print("No string found at that index") // --> this would be printed
+//        }
+//        // Do any additional setup after loading the view.
+//
     }
     @IBAction func btnTest(_ sender:UIButton){
-        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
-        ;
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            self.navigationController?.navigationBar.defaultStyle();
+        self.routerPickerView.present();
 
-        }
+//        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
+//        ;
+//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//            self.navigationController?.navigationBar.defaultStyle();
+//
+//        }
         //        UIImagePickerController().bs_setup()
 //        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
         
@@ -45,5 +57,30 @@ class TestViewController: UIViewController {
 //        var b2 = sender.bs_isSuperViewExist(self.view);
 //          print(b1);
 //          print(b2);
+    }
+    func setupAirPlayButton() {
+        var buttonView: UIView = UIView()
+        let buttonFrame = CGRect(x:0, y:0, width: 50, height: 50)
+                
+        if #available(iOS 11, *) {
+            self.routerPickerView = AVRoutePickerView(frame: buttonFrame)
+            buttonView.addSubview(routerPickerView)
+            
+            routerPickerView.tintColor = UIColor(named: "PrimaryColor")
+            routerPickerView.activeTintColor = .white
+            routerPickerView.prioritizesVideoDevices = true
+        }else{
+            let airplayButton = MPVolumeView(frame: buttonFrame)
+            airplayButton.showsVolumeSlider = false
+            buttonView = airplayButton
+        }
+        self.airPlayView.addSubview(buttonView)
+    }
+}
+
+fileprivate extension AVRoutePickerView {
+    func present() {
+        let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
+        routePickerButton?.sendActions(for: .touchUpInside)
     }
 }
