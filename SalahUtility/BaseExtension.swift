@@ -3332,7 +3332,7 @@ extension NSResponder {
 }
 #endif
 
-extension AVRoutePickerView {
+public extension AVRoutePickerView {
     public func bs_present() {
         let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
         routePickerButton?.sendActions(for: .touchUpInside)
