@@ -2509,6 +2509,9 @@ public extension NSLocale{
 /*    **AVPlayer**   */
 
  extension AVPlayer{
+    var bs_url:URL?{
+        return self.currentItem?.asset.bs_url
+    }
      public var bs_isPlaying: Bool {
         return rate != 0 && error == nil
     }
@@ -3336,5 +3339,10 @@ public extension AVRoutePickerView {
     public func bs_present() {
         let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
         routePickerButton?.sendActions(for: .touchUpInside)
+    }
+}
+public extension AVAsset{
+    public var bs_url:URL?{
+        return (self as? AVURLAsset)?.url
     }
 }
