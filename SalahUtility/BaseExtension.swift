@@ -2508,8 +2508,8 @@ public extension NSLocale{
 
 /*    **AVPlayer**   */
 
- extension AVPlayer{
-    var bs_url:URL?{
+public extension AVPlayer{
+    public var bs_url:URL?{
         return self.currentItem?.asset.bs_url
     }
      public var bs_isPlaying: Bool {
