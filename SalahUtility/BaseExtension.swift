@@ -822,6 +822,9 @@ public extension Double{
     public var bs_cgFloat:CGFloat?{
         return CGFloat(self);
     }
+    public var bs_float:Float?{
+        return Float.init(self);
+    }
 }
 
 /*    **Float**   */
