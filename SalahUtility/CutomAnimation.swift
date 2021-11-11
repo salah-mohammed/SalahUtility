@@ -81,7 +81,7 @@ public class AnimatableView: UIView, HighlightAnimatable {
     }
 
 }
-public class AnimatableButton: UIView, HighlightAnimatable {
+public class AnimatableButton: UIButton, HighlightAnimatable {
 
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -99,7 +99,7 @@ public class AnimatableButton: UIView, HighlightAnimatable {
     }
 
 }
-public class AnimatableImageView: UIView, HighlightAnimatable {
+public class AnimatableImageView: UIImageView, HighlightAnimatable {
 
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
