@@ -133,6 +133,12 @@ public var bs_safeArea: UIEdgeInsets? {
 /*    **String**   */
 
 public extension String{
+    public var  bs_containsLetters:Bool{
+        if self.rangeOfCharacter(from:CharacterSet.letters) != nil{
+         return true
+        }
+        return false;
+    }
     public func bs_index(from: Int) -> Index {
         return self.index(startIndex, offsetBy: from)
     }
@@ -1711,7 +1717,19 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
       }while (!(tempSuperView?.isKind(of:viewType) ?? false) && tempSuperView != nil)
       return !(tempSuperView == nil);
     }
-}
+    // Zoom Animation
+    public func bs_zoom(){
+        UIView.animate(withDuration: 0.3,
+                    animations: {
+                        self.transform = CGAffineTransform(scaleX: 0.93, y: 0.93)
+                    },
+                    completion: { _ in
+                        UIView.animate(withDuration: 0.3) {
+                            self.transform = CGAffineTransform.identity
+                        }
+        })
+    }
+ }
  /*    **UILabel**   */
  public extension UILabel {
      var bs_numberOfVisibleLines: Int {

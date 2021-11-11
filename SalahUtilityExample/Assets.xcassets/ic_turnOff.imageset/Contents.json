@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_turnOff.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

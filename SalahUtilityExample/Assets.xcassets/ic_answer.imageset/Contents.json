@@ -1,0 +1,26 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_answer.svg",
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "left" : 100,
+          "right" : 100
+        },
+        "center" : {
+          "mode" : "tile",
+          "width" : 0
+        },
+        "mode" : "3-part-horizontal"
+      }
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="466.25" height="61" viewBox="0 0 466.25 61">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#071b36"/>
+      <stop offset="0.138" stop-color="#144993"/>
+      <stop offset="0.887" stop-color="#144993"/>
+      <stop offset="1" stop-color="#071b36"/>
+    </linearGradient>
+  </defs>
+  <g id="_1" data-name="1" transform="translate(0.5 -789.487)">
+    <path id="Line_8" data-name="Line 8" d="M32.5,1.5H0A1.5,1.5,0,0,1-1.5,0,1.5,1.5,0,0,1,0-1.5H32.5A1.5,1.5,0,0,1,34,0,1.5,1.5,0,0,1,32.5,1.5Z" transform="translate(431.75 819.955)" fill="#fff"/>
+    <path id="Line_10" data-name="Line 10" d="M32.5,1.5H0A1.5,1.5,0,0,1-1.5,0,1.5,1.5,0,0,1,0-1.5H32.5A1.5,1.5,0,0,1,34,0,1.5,1.5,0,0,1,32.5,1.5Z" transform="translate(1 819.955)" fill="#fff"/>
+    <path id="Path_12" data-name="Path 12" d="M351.689,55H22.635L0,27.533,22.635,0H378.365L401,27.533,378.365,55Z" transform="translate(32 792.487)" fill="url(#linear-gradient)"/>
+    <path id="Path_12_-_Outline" data-name="Path 12 - Outline" d="M378.365,55,401,27.533,378.365,0H22.635L0,27.533,22.635,55H378.365m1.415,3H21.22L-3.886,27.535,21.218-3H379.782l25.1,30.535Z" transform="translate(32 792.487)" fill="#fff"/>
+  </g>
+</svg>
