@@ -16,6 +16,7 @@ public protocol HighlightAnimatable: class {
     func highlight(_ touched: Bool, completion: ((Bool) -> Void)?)
 }
 public struct HighlightAnimatableSettings {
+    static var Settings = HighlightAnimatableSettings.init()
     var duration: TimeInterval = 0.5
     var delay: TimeInterval = 0.0
     var springDamping: CGFloat = 1.0
@@ -37,7 +38,7 @@ public extension HighlightAnimatable where Self: UIView {
     }
     
     var settings: HighlightAnimatableSettings {
-        get { return (objc_getAssociatedObject(self, &AssociatedKeys.settingAnimation) as? HighlightAnimatableSettings) ?? HighlightAnimatableSettings() }
+        get { return (objc_getAssociatedObject(self, &AssociatedKeys.settingAnimation) as? HighlightAnimatableSettings) ?? HighlightAnimatableSettings.Settings }
         set { objc_setAssociatedObject(self, &AssociatedKeys.settingAnimation, newValue, .OBJC_ASSOCIATION_ASSIGN) }
     }
 
