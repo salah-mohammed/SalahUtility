@@ -1730,6 +1730,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         })
     }
     public func bs_rotate360Degrees(_ duration: CFTimeInterval = 10) {
+       self.bs_stopRotating();
        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
        rotateAnimation.fromValue = -CGFloat.pi
        rotateAnimation.toValue = CGFloat.pi * 1
