@@ -16,7 +16,7 @@ public protocol HighlightAnimatable: class {
     func highlight(_ touched: Bool, completion: ((Bool) -> Void)?)
 }
 public struct HighlightAnimatableSettings {
-    static var Settings = HighlightAnimatableSettings.init()
+    public static var Settings = HighlightAnimatableSettings.init()
     var duration: TimeInterval = 0.5
     var delay: TimeInterval = 0.0
     var springDamping: CGFloat = 1.0
