@@ -1534,6 +1534,9 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
              }
          }
      }
+    public func bs_register(_ identifier:String,_ bundle:Bundle?=nil){
+        self.register(UINib.init(nibName:identifier, bundle: bundle), forCellReuseIdentifier:identifier)
+    }
 }
 
 /*    **UIViewController**   */
@@ -2199,6 +2202,9 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          }, completion: nil);
 
      }
+    public func bs_register(_ identifier:String,_ bundle:Bundle?=nil){
+        self.register(UINib.init(nibName: identifier, bundle: bundle), forCellWithReuseIdentifier: identifier)
+    }
  }
  /*    **UIAlertController**   */
 
