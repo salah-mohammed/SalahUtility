@@ -25,6 +25,8 @@ public struct HighlightAnimatableSettings {
 }
 public struct AssociatedKeys {
     static var highlightAnimation = "VIV_highlightAnimation"
+    static var settingAnimation = "VIV_settingAnimation"
+
 }
 
 public extension HighlightAnimatable where Self: UIView {
@@ -33,8 +35,11 @@ public extension HighlightAnimatable where Self: UIView {
         get { return (objc_getAssociatedObject(self, &AssociatedKeys.highlightAnimation) as? Bool) ?? true }
         set { objc_setAssociatedObject(self, &AssociatedKeys.highlightAnimation, newValue, .OBJC_ASSOCIATION_ASSIGN) }
     }
-
-    var settings: HighlightAnimatableSettings { return HighlightAnimatableSettings() }
+    
+    var settings: HighlightAnimatableSettings {
+        get { return (objc_getAssociatedObject(self, &AssociatedKeys.settingAnimation) as? HighlightAnimatableSettings) ?? HighlightAnimatableSettings() }
+        set { objc_setAssociatedObject(self, &AssociatedKeys.settingAnimation, newValue, .OBJC_ASSOCIATION_ASSIGN) }
+    }
 
     func lockAnimation() {
         animationAvailable = false
