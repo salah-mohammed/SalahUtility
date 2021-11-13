@@ -1729,6 +1729,20 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
                         }
         })
     }
+    public func bs_rotate360Degrees(_ duration: CFTimeInterval = 10) {
+       let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+       rotateAnimation.fromValue = -CGFloat.pi
+       rotateAnimation.toValue = CGFloat.pi * 1
+       rotateAnimation.duration = duration
+       rotateAnimation.repeatCount = Float.infinity
+       self.layer.add(rotateAnimation, forKey: nil)
+   }
+
+    public func bs_stopRotating(){
+       self.layer.sublayers?.removeAll()
+       //or
+       self.layer.removeAllAnimations()
+   }
  }
  /*    **UILabel**   */
  public extension UILabel {
