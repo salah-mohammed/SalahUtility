@@ -29,20 +29,12 @@ public struct HighlightAnimatableSettings {
          _ springVelocity:CGFloat?=nil,
          _ options:UIView.AnimationOptions?=nil,
          _ transform:CGAffineTransform?=nil) {
-        if let duration:TimeInterval=duration,
-           let delay:TimeInterval=delay,
-           let springDamping:CGFloat=springDamping,
-           let springVelocity:CGFloat=springVelocity,
-           let options:UIView.AnimationOptions=options,
-           let transform:CGAffineTransform=transform{
-            self.duration=duration
-            self.delay=delay
-            self.springDamping=springDamping
-            self.springVelocity=springVelocity
-            self.options=options
-            self.transform=transform
-        }
-            
+            self.duration=duration ?? self.duration
+            self.delay=delay ?? self.delay
+            self.springDamping=springDamping ?? self.springDamping
+            self.springVelocity=springVelocity ?? self.springVelocity
+            self.options=options ?? self.options
+            self.transform=transform ?? self.transform            
         }
 }
 public struct AssociatedKeys {
