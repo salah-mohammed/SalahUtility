@@ -17,12 +17,26 @@ public protocol HighlightAnimatable: class {
 }
 public struct HighlightAnimatableSettings {
     public static var Settings = HighlightAnimatableSettings.init()
-    var duration: TimeInterval = 0.5
-    var delay: TimeInterval = 0.0
-    var springDamping: CGFloat = 1.0
-    var springVelocity: CGFloat = 0.0
-    var options: UIView.AnimationOptions = [.allowUserInteraction]
-    var transform: CGAffineTransform = .init(scaleX: 0.90, y: 0.90)
+    var duration: TimeInterval
+    var delay: TimeInterval
+    var springDamping: CGFloat 
+    var springVelocity: CGFloat
+    var options: UIView.AnimationOptions
+    var transform: CGAffineTransform
+    public init(duration:TimeInterval=0.5,
+         delay:TimeInterval=0.0,
+         springDamping:CGFloat=1.0,
+         springVelocity:CGFloat = 0.0,
+         options:UIView.AnimationOptions = [.allowUserInteraction],
+         transform:CGAffineTransform = .init(scaleX: 0.90, y: 0.90)) {
+        self.duration=duration
+        self.delay=delay
+        self.springDamping=springDamping
+        self.springVelocity=springVelocity
+        self.options=options
+        self.transform=transform
+
+    }
 }
 public struct AssociatedKeys {
     static var highlightAnimation = "VIV_highlightAnimation"
