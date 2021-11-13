@@ -23,12 +23,12 @@ public struct HighlightAnimatableSettings {
     var springVelocity: CGFloat
     var options: UIView.AnimationOptions
     var transform: CGAffineTransform
-    public init(_ duration:TimeInterval=0.5,
-         _ delay:TimeInterval=0.0,
-         _ springDamping:CGFloat=1.0,
-         _ springVelocity:CGFloat = 0.0,
-         _ options:UIView.AnimationOptions = [.allowUserInteraction],
-         _ transform:CGAffineTransform = .init(scaleX: 0.90, y: 0.90)) {
+    public init(_ duration:TimeInterval!=0.5,
+         _ delay:TimeInterval!=0.0,
+         _ springDamping:CGFloat!=1.0,
+         _ springVelocity:CGFloat! = 0.0,
+         _ options:UIView.AnimationOptions! = [.allowUserInteraction],
+         _ transform:CGAffineTransform! = .init(scaleX: 0.90, y: 0.90)) {
         self.duration=duration
         self.delay=delay
         self.springDamping=springDamping
