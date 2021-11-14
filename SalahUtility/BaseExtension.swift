@@ -948,11 +948,11 @@ public extension Array where Element: Equatable {
     }
 }
 public extension Bundle {
-    var bs_releaseVersionNumber: String? {
-        return infoDictionary?["CFBundleShortVersionString"] as? String
+    static var bs_releaseVersionNumber: String? {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
-    var bs_buildVersionNumber: String? {
-        return infoDictionary?["CFBundleVersion"] as? String
+    static var bs_buildVersionNumber: String? {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
 }
 
