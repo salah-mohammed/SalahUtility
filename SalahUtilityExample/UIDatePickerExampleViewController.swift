@@ -13,7 +13,6 @@ class UIDatePickerExampleViewController: UIViewController {
     @IBOutlet weak var datePicker:UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -29,3 +28,4 @@ class UIDatePickerExampleViewController: UIViewController {
     */
 
 }
+

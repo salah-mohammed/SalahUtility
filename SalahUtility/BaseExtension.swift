@@ -56,6 +56,24 @@ public var bs_safeArea: UIEdgeInsets? {
    }
     return edge;
 }
+public extension UIScreen{
+    public var screenHeightWithoutSafeArea:CGFloat{
+        let  safeArea = bs_safeArea
+        return UIScreen.main.bounds.height-(safeArea?.top ?? 0)-(bs_safeArea?.bottom ?? 0)
+    }
+    public var screenWidthWithoutSafeArea:CGFloat{
+        let  safeArea = bs_safeArea
+        return UIScreen.main.bounds.width-(safeArea?.left ?? 0)-(bs_safeArea?.right ?? 0)
+    }
+    public var screenHeightWithoutTopSafeArea:CGFloat{
+        let  safeArea = bs_safeArea
+        return UIScreen.main.bounds.height-(safeArea?.top ?? 0)
+    }
+    public var screenHeightWithoutBottomSafeArea:CGFloat{
+        let  safeArea = bs_safeArea
+        return UIScreen.main.bounds.height-(safeArea?.bottom ?? 0)
+    }
+}
 #endif
 
  extension Array{
@@ -1542,7 +1560,10 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIViewController**   */
 
  extension UIViewController {
-   
+    public var screenHeightWithoutSafeAreaWithoutNavigationHeight:CGFloat{
+        let  safeArea = bs_safeArea
+        return UIScreen.main.bounds.height-(safeArea?.top ?? 0)-(bs_safeArea?.bottom ?? 0)-self.bs_topbarHeight
+    }
     public var bs_topbarHeight: CGFloat {
         var heightOfStatusBar:CGFloat=0.0;
         if #available(iOS 13.0, *) {

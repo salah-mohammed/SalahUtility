@@ -34,6 +34,8 @@ class TestViewController: UIViewController {
 //
     }
     @IBAction func btnTest(_ sender:UIButton){
+        ABB.appearance().title = "asd";
+        print((self.view as? ABB)?.title ?? "");
         self.routerPickerView.present();
 
 //        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
@@ -83,4 +85,9 @@ fileprivate extension AVRoutePickerView {
         let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
         routePickerButton?.sendActions(for: .touchUpInside)
     }
+}
+
+
+class ABB:UIView{
+    var title:String="";
 }
