@@ -34,6 +34,8 @@
 		4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A3A8F269997DF009360F3 /* SalahUtilityEx.swift */; };
 		4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */; };
 		4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */; };
+		4EA31A512743B7C40065CD2F /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA31A502743B7C40065CD2F /* SheetViewController.swift */; };
+		4EA31A532743B80A0065CD2F /* SheetExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */; };
 		4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */; };
 		4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */; };
 		4EC27530268C89E60094C216 /* ScrollViewWithImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2752F268C89E60094C216 /* ScrollViewWithImageViewController.swift */; };
@@ -131,6 +133,8 @@
 		4E9A3A8F269997DF009360F3 /* SalahUtilityEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahUtilityEx.swift; sourceTree = "<group>"; };
 		4EA1C89625EB9F5B00857267 /* ShadowExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowExampleViewController.swift; sourceTree = "<group>"; };
 		4EA1C89825EB9F9000857267 /* ConstraintExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExampleViewController.swift; sourceTree = "<group>"; };
+		4EA31A502743B7C40065CD2F /* SheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
+		4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetExampleViewController.swift; sourceTree = "<group>"; };
 		4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionExampleViewController.swift; sourceTree = "<group>"; };
 		4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkBenchTimer.swift; sourceTree = "<group>"; };
 		4EC2752F268C89E60094C216 /* ScrollViewWithImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithImageViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				4E73424C24F25F3400969E79 /* LocalAuth.swift */,
 				4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */,
 				4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */,
+				4EA31A502743B7C40065CD2F /* SheetViewController.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 				4ED30C2225C023E100313983 /* Regex.swift */,
 				4E1EA39825F6B03D005D703E /* Debuger.swift */,
@@ -451,6 +456,7 @@
 				4E4D4D1225BDD75C00E676FB /* Property List.plist */,
 				4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */,
 				4E6D71A726FC5CD800C9981D /* RetainCyclesExample.swift */,
+				4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
 				4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */,
 				4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */,
+				4EA31A512743B7C40065CD2F /* SheetViewController.swift in Sources */,
 				4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */,
 				4E27B5F62608F96100497E98 /* UIImagePickerControllerEx.swift in Sources */,
 				4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */,
@@ -682,6 +689,7 @@
 			files = (
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
+				4EA31A532743B80A0065CD2F /* SheetExampleViewController.swift in Sources */,
 				4EDB527D2701CBCE009C00FF /* OperationQueueViewController.swift in Sources */,
 				4E5B4C4525FF818500A58C70 /* GenericExampleViewController.swift in Sources */,
 				4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */,
