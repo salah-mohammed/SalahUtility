@@ -32,7 +32,7 @@ class SheetExampleViewController: SheetViewController {
         vieww.delegate=self;
         vieww.backgroundColor=UIColor.red;
         vieww.translatesAutoresizingMaskIntoConstraints = false
-        self.stackViewScrollViewContent.addArrangedSubview(vieww);
+        self.stackViewScrollViewContent.insertArrangedSubview(vieww, at: 0);
         stackViewScrollViewContent.addConstraint(NSLayoutConstraint(item: vieww, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,multiplier: 1, constant:100))
     }
     @IBAction func btnCancel(_ sender:UIView){
