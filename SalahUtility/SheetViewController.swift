@@ -26,7 +26,9 @@ open class SheetViewController:UIViewController,UITextFieldDelegate{
                 self.stackViewScrollViewContent.addArrangedSubview(viewKeyboardHeight);
                 stackViewScrollViewContent.addConstraint(NSLayoutConstraint(item: viewKeyboardHeight, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,multiplier: 1, constant: keyboardSize.height))
                     DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
-                        self.scrollView.bs_scrollToView(self.activeField!, animated: true);
+                        if let activeField:UITextField = self.activeField{
+                        self.scrollView.bs_scrollToView(activeField, animated: true);
+                        }
                     }
                 }
             }
