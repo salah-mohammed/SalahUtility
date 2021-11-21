@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1A3D28274ADED500963CC3 /* VerticallyCenteredTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A3D27274ADED500963CC3 /* VerticallyCenteredTextView.swift */; };
 		4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EA39825F6B03D005D703E /* Debuger.swift */; };
 		4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */; };
 		4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20826D25C167E000F92E23 /* TestCollectionViewCell.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E1A3D27274ADED500963CC3 /* VerticallyCenteredTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextView.swift; sourceTree = "<group>"; };
 		4E1EA39825F6B03D005D703E /* Debuger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debuger.swift; sourceTree = "<group>"; };
 		4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewViewController.swift; sourceTree = "<group>"; };
 		4E20826D25C167E000F92E23 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				4E9A3A8F269997DF009360F3 /* SalahUtilityEx.swift */,
 				4EEE962427268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift */,
 				4EE3F413273D1F8D006FED8C /* CutomAnimation.swift */,
+				4E1A3D27274ADED500963CC3 /* VerticallyCenteredTextView.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
 				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
+				4E1A3D28274ADED500963CC3 /* VerticallyCenteredTextView.swift in Sources */,
 				4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */,
 				4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */,
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
