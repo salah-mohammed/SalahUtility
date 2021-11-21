@@ -2199,6 +2199,14 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
              self.font = newFont!;
          }
      }
+    public func bs_centerText() {
+              self.textAlignment = .center
+              let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+              let size = sizeThatFits(fittingSize)
+              let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+              let positiveTopOffset = max(1, topOffset)
+              contentOffset.y = -positiveTopOffset
+          }
  }
  
  /*    **UICollectionView**   */
