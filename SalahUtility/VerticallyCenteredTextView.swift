@@ -16,7 +16,6 @@ public class VerticallyCenteredTextView: UITextView {
     }
     public override func layoutSubviews() {
         super.layoutSubviews();
-        update();
     }
     func update(){
         DispatchQueue.main.asyncAfter(deadline: .now()+0.03) {
