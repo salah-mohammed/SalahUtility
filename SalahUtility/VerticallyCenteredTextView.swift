@@ -14,8 +14,17 @@ public class VerticallyCenteredTextView: UITextView {
             update();
         }
     }
+    public override var attributedText:NSAttributedString!{
+        didSet {
+            update();
+        }
+    }
     public override func layoutSubviews() {
         super.layoutSubviews();
+        // this for spaces between lines
+        self.textContainer.lineFragmentPadding = 0
+        // this for padding from top and bottom and left and right
+        self.textContainerInset = .zero
     }
     func update(){
         DispatchQueue.main.asyncAfter(deadline: .now()+0.03) {
