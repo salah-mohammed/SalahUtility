@@ -19,6 +19,8 @@
 "UIUserInterfaceStyle.unspecified.bs_title"="نظام";
 "UIUserInterfaceStyle.light.bs_title"="فاتح";
 "UIUserInterfaceStyle.dark.bs_title"="غامق";
+//Alerts
+"AlertMessageLogoutConfirmation"="هل تريد تسجيل الخروج؟";
 //Titles
 "ContactUs"="اتصل بنا";
 "TermsAndConditions"="الشروط و الأحكام";

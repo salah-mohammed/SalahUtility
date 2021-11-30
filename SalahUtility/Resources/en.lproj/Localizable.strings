@@ -19,7 +19,8 @@
 "UIUserInterfaceStyle.unspecified.bs_title"="system";
 "UIUserInterfaceStyle.light.bs_title"="light";
 "UIUserInterfaceStyle.dark.bs_title"="dark";
-
+// Alerts
+"AlertMessageLogoutConfirmation"="Do you want to log out";
 //Titles
 "ContactUs"="Contact Us";
 "TermsAndConditions"="Terms and Conditions";
