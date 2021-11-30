@@ -109,4 +109,8 @@ public class Localize: NSObject {
     public class var DateOfBirth:String{
         return "DateOfBirth".internalLocalize_
     }
+    public class var Version:String{
+        return "Version".internalLocalize_
+    }
+    
 }
