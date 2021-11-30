@@ -12,3 +12,13 @@
 "UIUserInterfaceStyle.unspecified.bs_title"="نظام";
 "UIUserInterfaceStyle.light.bs_title"="فاتح";
 "UIUserInterfaceStyle.dark.bs_title"="غامق";
+
+"FirstName"="الاسم الاول";
+"LastName"="الاسم الأخير";
+"FullName"="الاسم الكامل";
+"UserName"="اسم المستخدم";
+"Address"="العنوان";
+"AddressDetails"="تفاصيل العنوان";
+"City"="المدينة";
+"Region"="المنطقة";
+"PhoneNumber"="رقم المحمول";

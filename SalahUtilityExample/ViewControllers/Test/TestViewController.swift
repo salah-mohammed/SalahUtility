@@ -34,7 +34,11 @@ class TestViewController: UIViewController {
 //
     }
     @IBAction func btnTest(_ sender:UIButton){
-        ABB.appearance().title = "asd";
+        print((self.view as? ABB)?.title ?? "");
+//        ABB.appearance().title = "asd";
+//        ABB.appearance().customeBackground=UIColor.blue;
+        ABB.appearance().title="a";
+
         print((self.view as? ABB)?.title ?? "");
         self.routerPickerView.present();
 
@@ -88,6 +92,8 @@ fileprivate extension AVRoutePickerView {
 }
 
 
-class ABB:UIView{
-    var title:String="";
+class ABB:UIView
+{
+    @objc dynamic var title:String="a"
+    
 }

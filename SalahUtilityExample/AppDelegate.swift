@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+//        UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).standardAppearance = AppStyle.greenBarStyle
+//        UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).scrollEdgeAppearance = AppStyle.greenBarStyle
+//
+//        UINavigationBar.appearance(whenContainedInInstancesOf: [SecondViewController.self]).standardAppearance = AppStyle.defaultBarStyle
+//        UINavigationBar.appearance(whenContainedInInstancesOf: [SecondViewController.self]).scrollEdgeAppearance = AppStyle.defaultBarStyle
+//
+//        UINavigationBar.appearance().standardAppearance = AppStyle.defaultBarStyle
+//        UINavigationBar.appearance().scrollEdgeAppearance = AppStyle.defaultBarStyle
+        
+        
         BGTaskScheduler.shared.cancelAllTaskRequests()
 
         NotificationCenter.default.addObserver(forName:UIApplication.didEnterBackgroundNotification, object: nil, queue: nil) { (_) in
@@ -147,4 +158,21 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
 
     }
 
+}
+
+class AppStyle:NSObject{
+    static var defaultBarStyle:UINavigationBarAppearance = {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.red
+        appearance.titleTextAttributes = [.foregroundColor:UIColor.white];
+        return appearance;
+    }()
+    static var greenBarStyle:UINavigationBarAppearance = {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.green
+        appearance.titleTextAttributes = [.foregroundColor:UIColor.white];
+        return appearance;
+    }()
 }

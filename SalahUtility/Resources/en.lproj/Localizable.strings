@@ -12,3 +12,13 @@
 "UIUserInterfaceStyle.unspecified.bs_title"="system";
 "UIUserInterfaceStyle.light.bs_title"="light";
 "UIUserInterfaceStyle.dark.bs_title"="dark";
+
+"FirstName"="FirstName";
+"LastName"="LastName";
+"FullName"="FullName";
+"UserName"="FullName";
+"Address"="Address";
+"AddressDetails"="Address details";
+"City"="City";
+"Region"="Region";
+"PhoneNumber"="PhoneNumber";

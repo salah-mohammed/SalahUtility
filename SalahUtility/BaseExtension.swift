@@ -2161,6 +2161,9 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  /*    **UIColor**   */
 
   extension UIColor {
+      public static var placeholder: UIColor {
+            return UIColor.init(red: 0, green: 0, blue: 0.0980392, alpha: 0.22);
+    }
      public class var bs_random: UIColor {
          let red:CGFloat = CGFloat(drand48())
          let green:CGFloat = CGFloat(drand48())

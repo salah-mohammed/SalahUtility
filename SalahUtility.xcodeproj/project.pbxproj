@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E04A0CC2754B08C002FCDD0 /* JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */; };
+		4E04A0F82754E13C002FCDD0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A0F42754E13C002FCDD0 /* FirstViewController.swift */; };
+		4E04A0F92754E13C002FCDD0 /* ThiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A0F52754E13C002FCDD0 /* ThiredViewController.swift */; };
+		4E04A0FA2754E13C002FCDD0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A0F62754E13C002FCDD0 /* SecondViewController.swift */; };
+		4E04A0FB2754E13C002FCDD0 /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A0F72754E13C002FCDD0 /* ForthViewController.swift */; };
+		4E04A1012754E264002FCDD0 /* NavigationMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E04A1002754E264002FCDD0 /* NavigationMain.storyboard */; };
 		4E1A3D28274ADED500963CC3 /* VerticallyCenteredTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A3D27274ADED500963CC3 /* VerticallyCenteredTextView.swift */; };
 		4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EA39825F6B03D005D703E /* Debuger.swift */; };
 		4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */; };
@@ -29,6 +35,9 @@
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
 		4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */; };
 		4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */; };
+		4E86DADC27560D9100C471B5 /* ObserverExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DADB27560D9100C471B5 /* ObserverExampleViewController.swift */; };
+		4E86DADD2756121500C471B5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC17452562C55A0050BB01 /* MainStoryboard.storyboard */; };
+		4E86DAE727563EAA00C471B5 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DAE627563EAA00C471B5 /* Localize.swift */; };
 		4E89F3C0272D16750024C7DB /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E89F3BF272D16750024C7DB /* AnimationViewController.swift */; };
 		4E89F3C3272D22870024C7DB /* MaskImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E89F3C2272D22870024C7DB /* MaskImageViewController.swift */; };
 		4E9A3A8826999790009360F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E9A3A8A26999790009360F3 /* Localizable.strings */; };
@@ -55,7 +64,6 @@
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
 		4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17412562C55A0050BB01 /* SceneDelegate.swift */; };
 		4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17432562C55A0050BB01 /* TestViewController.swift */; };
-		4EFC17472562C55A0050BB01 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC17452562C55A0050BB01 /* MainStoryboard.storyboard */; };
 		4EFC17492562C55E0050BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC17482562C55E0050BB01 /* Assets.xcassets */; };
 		4EFC174C2562C55E0050BB01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC174A2562C55E0050BB01 /* LaunchScreen.storyboard */; };
 		4EFC17572562C55E0050BB01 /* SalahUtilityExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17562562C55E0050BB01 /* SalahUtilityExampleTests.swift */; };
@@ -105,6 +113,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAble.swift; sourceTree = "<group>"; };
+		4E04A0F42754E13C002FCDD0 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		4E04A0F52754E13C002FCDD0 /* ThiredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThiredViewController.swift; sourceTree = "<group>"; };
+		4E04A0F62754E13C002FCDD0 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		4E04A0F72754E13C002FCDD0 /* ForthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
+		4E04A1002754E264002FCDD0 /* NavigationMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NavigationMain.storyboard; sourceTree = "<group>"; };
 		4E1A3D27274ADED500963CC3 /* VerticallyCenteredTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextView.swift; sourceTree = "<group>"; };
 		4E1EA39825F6B03D005D703E /* Debuger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debuger.swift; sourceTree = "<group>"; };
 		4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +142,8 @@
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
 		4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaynamicScrollViewViewController.swift; sourceTree = "<group>"; };
+		4E86DADB27560D9100C471B5 /* ObserverExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverExampleViewController.swift; sourceTree = "<group>"; };
+		4E86DAE627563EAA00C471B5 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
 		4E89F3BF272D16750024C7DB /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		4E89F3C2272D22870024C7DB /* MaskImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskImageViewController.swift; sourceTree = "<group>"; };
 		4E910AE6245E2F95005C2976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,6 +222,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E04A0F32754E13C002FCDD0 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4E04A0F42754E13C002FCDD0 /* FirstViewController.swift */,
+				4E04A0F52754E13C002FCDD0 /* ThiredViewController.swift */,
+				4E04A0F62754E13C002FCDD0 /* SecondViewController.swift */,
+				4E04A0F72754E13C002FCDD0 /* ForthViewController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4E04A0FC2754E1AD002FCDD0 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		4E04A0FD2754E1D6002FCDD0 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		4E04A0FE2754E1F0002FCDD0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC17452562C55A0050BB01 /* MainStoryboard.storyboard */,
+				4EFC174A2562C55E0050BB01 /* LaunchScreen.storyboard */,
+				4EB6807E274A76CD00363E69 /* Secondary.storyboard */,
+				4E04A1002754E264002FCDD0 /* NavigationMain.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4E04A0FF2754E23A002FCDD0 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
+				4EFC174D2562C55E0050BB01 /* Info.plist */,
+				4EFC17832562C6780050BB01 /* Localizable.strings */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		4E04A1022754E272002FCDD0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
+				4E4D4D1225BDD75C00E676FB /* Property List.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4E04A1032754E2A8002FCDD0 /* RetainCycles */ = {
+			isa = PBXGroup;
+			children = (
+				4E6D71A726FC5CD800C9981D /* RetainCyclesExample.swift */,
+			);
+			path = RetainCycles;
+			sourceTree = "<group>";
+		};
+		4E04A1042754E2BE002FCDD0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E4FCFE525EBA5B2007926BD /* Test */,
+				4E4FCFCE25EBA528007926BD /* Date */,
+				4E4FCFD225EBA53B007926BD /* LocalNotification */,
+				4E4FCFD325EBA54D007926BD /* Locale */,
+				4E4FCFD725EBA55B007926BD /* RegularExpression */,
+				4E20827225C167E800F92E23 /* TestCollection */,
+				4E4FCFDB25EBA56F007926BD /* DaynamicScroll */,
+				4E4FCFDF25EBA581007926BD /* NavigationHeight */,
+				4E4FCFE025EBA595007926BD /* Constraint */,
+				4E4FCFE425EBA5A4007926BD /* Shadow */,
+				4E5B4C4C25FF819C00A58C70 /* GenericExample */,
+				4E7CFBFC2604EE07000DB1A9 /* Numbers */,
+				4EC8D9B326760BE1003D90D3 /* TabBarController */,
+				4EC2753A268C94FA0094C216 /* TableViewSection */,
+				4EC27536268C93F10094C216 /* ImageSize */,
+				4EC27535268C93E80094C216 /* ScrollViewWithImage */,
+				4EE3F412273D1860006FED8C /* OperationQueue */,
+				4EE3F411273D1841006FED8C /* AttributedString */,
+				4E89F3C1272D226B0024C7DB /* Animation */,
+				4EE3F410273D1810006FED8C /* MaskImage */,
+				4E04A0F32754E13C002FCDD0 /* Navigation */,
+				4E04A0FC2754E1AD002FCDD0 /* Sheet */,
+				4E04A0FD2754E1D6002FCDD0 /* DatePicker */,
+				4E04A1032754E2A8002FCDD0 /* RetainCycles */,
+				4E86DADA27560CC900C471B5 /* Observer */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4E20827225C167E800F92E23 /* TestCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,13 +366,15 @@
 				4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */,
 				4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */,
 				4EA31A502743B7C40065CD2F /* SheetViewController.swift */,
-				4E910AE5245E2F95005C2976 /* Resources */,
 				4ED30C2225C023E100313983 /* Regex.swift */,
 				4E1EA39825F6B03D005D703E /* Debuger.swift */,
 				4E9A3A8F269997DF009360F3 /* SalahUtilityEx.swift */,
 				4EEE962427268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift */,
 				4EE3F413273D1F8D006FED8C /* CutomAnimation.swift */,
 				4E1A3D27274ADED500963CC3 /* VerticallyCenteredTextView.swift */,
+				4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */,
+				4E86DAE627563EAA00C471B5 /* Localize.swift */,
+				4E910AE5245E2F95005C2976 /* Resources */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -352,6 +467,14 @@
 			path = Numbers;
 			sourceTree = "<group>";
 		};
+		4E86DADA27560CC900C471B5 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				4E86DADB27560D9100C471B5 /* ObserverExampleViewController.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
 		4E89F3C1272D226B0024C7DB /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,37 +555,10 @@
 			children = (
 				4EFC173F2562C55A0050BB01 /* AppDelegate.swift */,
 				4EFC17412562C55A0050BB01 /* SceneDelegate.swift */,
-				4E4FCFE525EBA5B2007926BD /* Test */,
-				4E4FCFCE25EBA528007926BD /* Date */,
-				4E4FCFD225EBA53B007926BD /* LocalNotification */,
-				4E4FCFD325EBA54D007926BD /* Locale */,
-				4E4FCFD725EBA55B007926BD /* RegularExpression */,
-				4E20827225C167E800F92E23 /* TestCollection */,
-				4E4FCFDB25EBA56F007926BD /* DaynamicScroll */,
-				4E4FCFDF25EBA581007926BD /* NavigationHeight */,
-				4E4FCFE025EBA595007926BD /* Constraint */,
-				4E4FCFE425EBA5A4007926BD /* Shadow */,
-				4E5B4C4C25FF819C00A58C70 /* GenericExample */,
-				4E7CFBFC2604EE07000DB1A9 /* Numbers */,
-				4EC8D9B326760BE1003D90D3 /* TabBarController */,
-				4EC2753A268C94FA0094C216 /* TableViewSection */,
-				4EC27536268C93F10094C216 /* ImageSize */,
-				4EC27535268C93E80094C216 /* ScrollViewWithImage */,
-				4EE3F412273D1860006FED8C /* OperationQueue */,
-				4EE3F411273D1841006FED8C /* AttributedString */,
-				4E89F3C1272D226B0024C7DB /* Animation */,
-				4EE3F410273D1810006FED8C /* MaskImage */,
-				4EFC17452562C55A0050BB01 /* MainStoryboard.storyboard */,
-				4EB6807E274A76CD00363E69 /* Secondary.storyboard */,
-				4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */,
-				4EFC17482562C55E0050BB01 /* Assets.xcassets */,
-				4EFC174A2562C55E0050BB01 /* LaunchScreen.storyboard */,
-				4EFC174D2562C55E0050BB01 /* Info.plist */,
-				4EFC17832562C6780050BB01 /* Localizable.strings */,
-				4E4D4D1225BDD75C00E676FB /* Property List.plist */,
-				4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */,
-				4E6D71A726FC5CD800C9981D /* RetainCyclesExample.swift */,
-				4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */,
+				4E04A0FE2754E1F0002FCDD0 /* Storyboards */,
+				4E04A1042754E2BE002FCDD0 /* ViewControllers */,
+				4E04A1022754E272002FCDD0 /* Resources */,
+				4E04A0FF2754E23A002FCDD0 /* SupportFiles */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -644,9 +740,10 @@
 				4EFC174C2562C55E0050BB01 /* LaunchScreen.storyboard in Resources */,
 				4EB6807F274A76CD00363E69 /* Secondary.storyboard in Resources */,
 				4EFC17812562C6780050BB01 /* Localizable.strings in Resources */,
+				4E86DADD2756121500C471B5 /* MainStoryboard.storyboard in Resources */,
 				4EFC17492562C55E0050BB01 /* Assets.xcassets in Resources */,
 				4E4D4D1325BDD75C00E676FB /* Property List.plist in Resources */,
-				4EFC17472562C55A0050BB01 /* MainStoryboard.storyboard in Resources */,
+				4E04A1012754E264002FCDD0 /* NavigationMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,8 +775,10 @@
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
 				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
+				4E86DAE727563EAA00C471B5 /* Localize.swift in Sources */,
 				4E1A3D28274ADED500963CC3 /* VerticallyCenteredTextView.swift in Sources */,
 				4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */,
+				4E04A0CC2754B08C002FCDD0 /* JSONAble.swift in Sources */,
 				4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */,
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
 				4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */,
@@ -697,6 +796,7 @@
 			files = (
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
+				4E86DADC27560D9100C471B5 /* ObserverExampleViewController.swift in Sources */,
 				4EA31A532743B80A0065CD2F /* SheetExampleViewController.swift in Sources */,
 				4EDB527D2701CBCE009C00FF /* OperationQueueViewController.swift in Sources */,
 				4E5B4C4525FF818500A58C70 /* GenericExampleViewController.swift in Sources */,
@@ -705,9 +805,11 @@
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
 				4E6D71A826FC5CD800C9981D /* RetainCyclesExample.swift in Sources */,
 				4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */,
+				4E04A0F82754E13C002FCDD0 /* FirstViewController.swift in Sources */,
 				4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */,
 				4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */,
 				4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */,
+				4E04A0F92754E13C002FCDD0 /* ThiredViewController.swift in Sources */,
 				4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */,
 				4EC8D9C826760C65003D90D3 /* FirstTabBarController.swift in Sources */,
 				4EA1C89725EB9F5B00857267 /* ShadowExampleViewController.swift in Sources */,
@@ -715,10 +817,12 @@
 				4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */,
 				4EC9B21F26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift in Sources */,
 				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
+				4E04A0FB2754E13C002FCDD0 /* ForthViewController.swift in Sources */,
 				4EC27530268C89E60094C216 /* ScrollViewWithImageViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
 				4E89F3C3272D22870024C7DB /* MaskImageViewController.swift in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
+				4E04A0FA2754E13C002FCDD0 /* SecondViewController.swift in Sources */,
 				4E77AB9D25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift in Sources */,
 				4E89F3C0272D16750024C7DB /* AnimationViewController.swift in Sources */,
 				4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */,
@@ -983,7 +1087,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
-				INFOPLIST_FILE = SalahUtilityExample/Info.plist;
+				INFOPLIST_FILE = SalahUtilityExample/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1004,7 +1108,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
-				INFOPLIST_FILE = SalahUtilityExample/Info.plist;
+				INFOPLIST_FILE = SalahUtilityExample/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
