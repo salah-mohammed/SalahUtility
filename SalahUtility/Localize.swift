@@ -9,6 +9,7 @@
 import UIKit
 
 public class Localize: NSObject {
+    // Constants
     public class var Cancel:String{
         return "Cancel".internalLocalize_
     }
@@ -21,6 +22,38 @@ public class Localize: NSObject {
     public class var No:String{
         return "No".internalLocalize_
     }
+    public class var Update:String{
+        return "Update".internalLocalize_
+    }
+    public class var Save:String{
+        return "Save".internalLocalize_
+    }
+    public class var Complete:String{
+        return "Complete".internalLocalize_
+    }
+    public class var Verify:String{
+        return "Verify".internalLocalize_
+    }
+    // Titles
+    public class var ContactUs:String{
+        return "ContactUs".internalLocalize_
+    }
+    public class var TermsAndConditions:String{
+        return "TermsAndConditions".internalLocalize_
+    }
+    public class var Notifications:String{
+        return "Notifications".internalLocalize_
+    }
+    public class var RateApp:String{
+        return "RateApp".internalLocalize_
+    }
+    public class var AboutApp:String{
+        return "AboutApp".internalLocalize_
+    }
+    public class var PrivacyPolicy:String{
+        return "PrivacyPolicy".internalLocalize_
+    }
+    // Fields
     public class var FirstName:String{
         return "FirstName".internalLocalize_
     }
@@ -32,6 +65,9 @@ public class Localize: NSObject {
     }
     public class var UserName:String{
         return "UserName".internalLocalize_
+    }
+    public class var Password:String{
+        return "Password".internalLocalize_
     }
     public class var Address:String{
         return "Address".internalLocalize_
@@ -48,5 +84,25 @@ public class Localize: NSObject {
     public class var PhoneNumber:String{
         return "PhoneNumber".internalLocalize_
     }
-    
+    public class var Title:String{
+        return "Title".internalLocalize_
+    }
+    public class var Description:String{
+        return "Description".internalLocalize_
+    }
+    public class var Details:String{
+        return "Details".internalLocalize_
+    }
+    public class var NoData:String{
+        return "NoData".internalLocalize_
+    }
+    public class var Email:String{
+        return "Email".internalLocalize_
+    }
+    public class var Gender:String{
+        return "Gender".internalLocalize_
+    }
+    public class var DateOfBirth:String{
+        return "DateOfBirth".internalLocalize_
+    }
 }
