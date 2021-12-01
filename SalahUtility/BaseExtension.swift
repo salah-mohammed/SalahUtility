@@ -35,11 +35,16 @@ import MediaPlayer
 
 #if os(iOS)
 public enum DeviceType:CGFloat{
-case iphone8
-case iphone8Plus
-case iphoneXr
-case iphoneXs
-case iphoneXsMax
+    case iphone8
+    case iphone8Plus
+    case iphoneXr
+    case iphoneXs
+    case iphoneXsMax
+    case iPadMini
+    case iPadAir
+    case iPadPro10_5inch
+    case iPadPro_11inch
+    case iPadPro_12_9inch
 public var height:CGFloat{
         switch self{
         case .iphone8:
@@ -52,6 +57,16 @@ public var height:CGFloat{
             return 812.0
         case .iphoneXsMax:
             return 896.0
+        case .iPadMini:
+            return 1024.0
+        case .iPadAir:
+            return 1024.0
+        case .iPadPro10_5inch:
+            return 1112.0
+        case .iPadPro_11inch:
+            return 1194.0
+        case .iPadPro_12_9inch:
+            return 1366.0
         }
     }
 }
