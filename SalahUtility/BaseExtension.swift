@@ -34,6 +34,27 @@ import MediaPlayer
 
 
 #if os(iOS)
+public enum DeviceType:CGFloat{
+case iphone8
+case iphone8Plus
+case iphoneXr
+case iphoneXs
+case iphoneXsMax
+public var height:CGFloat{
+        switch self{
+        case .iphone8:
+            return 667.0
+        case .iphone8Plus:
+            return 736.0
+        case .iphoneXr:
+            return 896.0
+        case .iphoneXs:
+            return 812.0
+        case .iphoneXsMax:
+            return 896.0
+        }
+    }
+}
 public var bs_hasTopNotch: Bool {
     var edge:UIEdgeInsets?
    if #available(iOS 13.0,  *) {
