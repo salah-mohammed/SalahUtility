@@ -45,6 +45,18 @@ public enum DeviceType:CGFloat{
     case iPadPro10_5inch
     case iPadPro_11inch
     case iPadPro_12_9inch
+    static public func lessThanAndEqual(_ deviceType:DeviceType)->Bool{
+        return UIScreen.main.bounds.height <= deviceType.height
+    }
+    static public func bigThanAndEqual(_ deviceType:DeviceType)->Bool{
+        return UIScreen.main.bounds.height >= deviceType.height
+    }
+    static public func lessThan(_ deviceType:DeviceType)->Bool{
+        return UIScreen.main.bounds.height < deviceType.height
+    }
+    static public func bigThan(_ deviceType:DeviceType)->Bool{
+        return UIScreen.main.bounds.height > deviceType.height
+    }
 public var height:CGFloat{
         switch self{
         case .iphone8:
