@@ -57,6 +57,9 @@ public enum DeviceType:CGFloat{
     static public func bigThan(_ deviceType:DeviceType)->Bool{
         return UIScreen.main.bounds.height > deviceType.height
     }
+    static public func equal(_ deviceType:DeviceType)->Bool{
+        return UIScreen.main.bounds.height == deviceType.height
+    }
 public var height:CGFloat{
         switch self{
         case .iphone8:
