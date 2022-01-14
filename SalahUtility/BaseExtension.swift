@@ -56,9 +56,15 @@ case ipad
         return []
     }
     static public func current()->DeviceSize?{
-       var height = UIScreen.main.bounds.height;
-        var a = DeviceSize.all.filter({$0.devices.map({$0.height}).contains(height)});
-        return a.first;
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return .ipad
+        }
+        let height = UIScreen.main.bounds.height;
+        var deviceSizes = DeviceSize.all.filter({$0.devices.map({$0.height}).contains(height)});
+        if UIDevice.current.userInterfaceIdiom == .phone && deviceSizes.first != .old{
+            return .new
+        }
+        return deviceSizes.first;
     }
     
 }
