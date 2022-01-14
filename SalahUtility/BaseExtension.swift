@@ -34,6 +34,34 @@ import MediaPlayer
 
 
 #if os(iOS)
+public enum DeviceSize{
+    // se,8,8+
+case old
+    // 12 pro max,13 pro
+case new
+    // ipad
+case ipad
+    static var all:[DeviceSize] {
+        return [.old,.new,.ipad]
+    }
+    var devices:[DeviceType]{
+        switch self{
+        case .old:
+            return [.iphone8,.iphone8Plus]
+        case .new:
+            return [.iphoneXr,.iphoneXs,.iphoneXsMax]
+        case .ipad:
+            return [.iPadMini,.iPadAir,.iPadPro10_5inch,.iPadPro_11inch,.iPadPro_12_9inch]
+        }
+        return []
+    }
+    static public func current()->DeviceSize?{
+       var height = UIScreen.main.bounds.height;
+        var a = DeviceSize.all.filter({$0.devices.map({$0.height}).contains(height)});
+        return a.first;
+    }
+    
+}
 public enum DeviceType:CGFloat{
     case iphone8
     case iphone8Plus
