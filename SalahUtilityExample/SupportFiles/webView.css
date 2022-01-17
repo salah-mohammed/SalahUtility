@@ -1,0 +1,45 @@
+@font-face
+{
+    font-family:'Cairo-Regular';
+    src:url('Cairo-Regular.ttf') format('truetype');
+}
+body{
+    font-family: 'Cairo-Regular';
+    font-size:medium !important;
+    text-align:justify;
+}
+p{
+    font-family: 'Cairo-Regular';
+    padding:0px 0px;
+    color: #000000;
+}
+iframe, embed{
+    width:80% !important;
+    height:auto !important;
+}
+img{
+    max-width:95% !important;
+    height:auto !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+/*body{*/
+/*    font:-apple-system-body;*/
+/*    font-size:medium !important;*/
+/*    text-align:justify;*/
+/*}*/
+/*p{*/
+/*    padding:0px 0px;*/
+/*    color: #000000;*/
+/*}*/
+/*iframe, embed{*/
+/*    width:80% !important;*/
+/*    height:auto !important;*/
+/*}*/
+/*img{*/
+/*    max-width:95% !important;*/
+/*    height:auto !important;*/
+/*    margin-right: auto !important;*/
+/*    margin-left: auto !important;*/
+/*}*/
