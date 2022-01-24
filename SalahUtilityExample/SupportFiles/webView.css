@@ -5,7 +5,8 @@
 }
 body{
     font-family: 'Cairo-Regular';
-    font-size:medium !important;
+/*    font-size:medium !important;*/
+    font-size: 40px;
     text-align:justify;
 }
 p{

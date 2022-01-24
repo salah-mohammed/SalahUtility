@@ -19,8 +19,13 @@ public class Debuger{
       #endif
         
     }
-    public func printItems()->String{
+    public func printApi()->String{
         let message = self.items.joined(separator:"       ->>>>>       ");
+        self.items.append(message);
+        return message;
+    }
+    public func printItems()->String{
+        let message = self.items.joined(separator:"\n");
         self.items.append(message);
         return message;
     }

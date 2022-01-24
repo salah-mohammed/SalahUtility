@@ -1853,6 +1853,13 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
        //or
        self.layer.removeAllAnimations()
    }
+     public class func instanceFromNib(_ nibFileName:String) -> UIView? {
+         return UINib(nibName: nibFileName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
+     }
+     public static func instanceFromNib() -> UIView?{
+         let name:String = String(describing: self)
+         return UINib(nibName: name, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
+     }
  }
  /*    **UILabel**   */
  public extension UILabel {
