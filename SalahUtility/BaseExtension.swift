@@ -1853,10 +1853,10 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
        //or
        self.layer.removeAllAnimations()
    }
-     public class func instanceFromNib(_ nibFileName:String) -> UIView? {
+     public class func bs_instanceFromNib(_ nibFileName:String) -> UIView? {
          return UINib(nibName: nibFileName, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
      }
-     public static func instanceFromNib() -> UIView?{
+     public static func bs_instanceFromNib() -> UIView?{
          let name:String = String(describing: self)
          return UINib(nibName: name, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
      }
