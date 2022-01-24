@@ -3374,7 +3374,9 @@ public extension Date {
     func bs_islamicFormatter(formate:String, _ locale:Locale=NSLocale.system)->String{
         return self.bs_formatter(formate, calendar: Calendar.init(identifier: Calendar.Identifier.islamicUmmAlQura),locale);
     }
-    
+    func bs_gregorianFormatter(formate:String, _ locale:Locale=NSLocale.system)->String{
+        return self.bs_formatter(formate, calendar: Calendar.init(identifier: Calendar.Identifier.gregorian),locale);
+    }
     static func bs_init(dateString: String, format: String, timeZone: TimeZone?, calendar:Calendar?,locale:Locale=NSLocale.system)->Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = locale;
