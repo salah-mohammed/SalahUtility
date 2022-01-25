@@ -12,6 +12,8 @@ class RegularExpressionViewController: UIViewController {
     static let chatEmailRegix = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}";
     var emailRegix = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}";
     var phoneNumberRegix = "[+]+[0-9 ]{1,}|[00]+[0-9 ]{1,}|[0-9 ]{9,}";
+    var emptyRegix = "^\\s*$";
+
     // explain '|' OR
     // explain '[0-9]{9,}' OR 9 or more digits
     // explain '[+]' string has prefix +
