@@ -32,11 +32,23 @@ import MediaPlayer
 //    #endif
 /*    **Array**   */
 
-
+public extension CLLocationCoordinate2D{
+    var stringValue:String{
+        let latitude = String.init(format:"%.6f", self.latitude)
+        let longitude = String.init(format:"%.6f", self.longitude)
+        return "(\(latitude),\(longitude))";
+    }
+}
 public enum RegularExpression:String{
     case email="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     case phone = "[+]+[0-9 ]{1,}|[00]+[0-9 ]{1,}|[0-9 ]{9,}"
-    case empty="^\\s*$"
+    case empty=".*[^ ].*"
+    var regex:Regex{
+        return Regex.init(self.rawValue);
+    }
+    func  matches(_ input:String)->Bool{
+    return self.regex.matches(input:input)
+    }
 }
 
 #if os(iOS)
@@ -1178,6 +1190,14 @@ public extension Copying {
     }
 }
 public extension Collection {
+//    func bs_replaceFirst(_ newElement:Self.Element?,whereIs:(Self.Element) throws -> Bool) -> [Self.Element]{
+//            var newArray = self
+//            let index = try? newArray.firstIndex(where:whereIs)
+//        if let newElement:Iterator.Element = newElement, let index:Self.Index = index{
+//                newArray[index] = newElement
+//            }
+//            return newArray;
+//        }
     func bs_get(_ index: Self.Index)->Iterator.Element?{
         return self.indices.contains(index) ? self[index] : nil;
     }
@@ -1763,6 +1783,17 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIView**   */
 
  extension UIView{
+         var bs_parent: UIViewController? {
+             // Starts from next (As we know self is not a UIViewController).
+             var parentResponder: UIResponder? = self.next
+             while parentResponder != nil {
+                 if let viewController = parentResponder as? UIViewController {
+                     return viewController
+                 }
+                 parentResponder = parentResponder?.next
+             }
+             return nil
+         }
      public var bs_cornnerRaduisAspectRatio: CGFloat {
         set{
             self.layer.cornerRadius = (self.frame.height/2)*newValue
@@ -3528,3 +3559,18 @@ public extension AVAsset{
         return (self as? AVURLAsset)?.url
     }
 }
+
+#if os(iOS)
+extension UIWindow {
+    func bs_screenShot() -> UIImage? {
+        let layer = self.layer
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+        return screenshot
+    }
+}
+#endif
