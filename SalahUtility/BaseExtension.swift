@@ -254,6 +254,9 @@ public extension UIScreen{
 /*    **String**   */
 
 public extension String{
+    var bs_remoteURL:URL?{
+        return URL.init(string:self)
+    }
     public var  bs_containsLetters:Bool{
         if self.rangeOfCharacter(from:CharacterSet.letters) != nil{
          return true
@@ -1476,6 +1479,14 @@ public extension Array{
 
 @IBDesignable
  extension UITextField {
+     public func bs_shouldChangeCharactersIn(_ charactersCount:Int,range:NSRange,replacementString:String)->Bool{
+         let currentCharacterCount = self.text?.count ?? 0
+         if range.length + range.location > currentCharacterCount {
+           return false
+         }
+         let newLength = currentCharacterCount + replacementString.count - range.length
+         return newLength <= charactersCount
+       }
     
 //    @IBInspectable var bs_paddingLeft: CGFloat {
 //        get {
@@ -1577,9 +1588,11 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  extension UIFont
 {
   public class func bs_printFontFamilyNames(){
+      debugPrint("---UIFont---\n")
         UIFont.familyNames.sorted().forEach({ (familyName) in
             debugPrint(UIFont.fontNames(forFamilyName: familyName))
         })
+      debugPrint("---UIFont---\n")
     }
 
    public static func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,numberOfWorlds:Float,currentFont:UIFont,miniFontRange:Float,maxFontRange:Float,fontSubtractionValue:Float,lastCharacter:Character)->UIFont?{
@@ -2727,8 +2740,20 @@ public extension AVPlayer{
         return rate != 0 && error == nil
     }
      public var bs_durationCMTime: CMTime? { return self.currentItem?.asset.duration}
-     public var bs_duration: TimeInterval { return TimeInterval(self.currentItem?.asset.duration.seconds ?? 0)}
-    
+//     public var bs_duration: TimeInterval { return TimeInterval(self.currentItem?.asset.duration.seconds ?? 0)}
+    public var bs_duration: TimeInterval? {
+        if let value:TimeInterval = self.currentItem?.asset.duration.seconds{
+            return TimeInterval(value);
+        }
+        return nil;
+    }
+    // value:current
+    func bs_remaining(_ value:Double)->Double?{
+        if let duration:TimeInterval=self.bs_duration{
+        return duration - value;
+        }
+        return nil;
+    }
      public var bs_itemTitle:String?{
         if let commonMetadata:[AVMetadataItem] = self.currentItem?.asset.commonMetadata{
         if let itemTitle = AVMetadataItem.metadataItems(from:commonMetadata, withKey: AVMetadataKey.commonKeyTitle, keySpace: AVMetadataKeySpace.common).first?.value as? String{
@@ -2738,7 +2763,6 @@ public extension AVPlayer{
         }
     return nil;
     }
-   
 }
 
 

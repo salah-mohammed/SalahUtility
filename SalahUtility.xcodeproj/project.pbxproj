@@ -23,6 +23,7 @@
 		4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E331C442460C25800E5562C /* BaseInheritance.swift */; };
 		4E34D74F2448F7F000FCCC1A /* SalahUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E34D74D2448F7F000FCCC1A /* SalahUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34D7552448F81700FCCC1A /* BaseExtension.swift */; };
+		4E37DFE727B5230800BA814E /* URLExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E37DFE527B522FE00BA814E /* URLExampleViewController.swift */; };
 		4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */; };
 		4E459A332757AA1300EE0D85 /* Base64ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E459A322757AA1300EE0D85 /* Base64ImageViewController.swift */; };
 		4E459A362757B71E00EE0D85 /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E459A342757AFAC00EE0D85 /* TestImage.png */; };
@@ -135,6 +136,7 @@
 		4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SalahUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E34D74D2448F7F000FCCC1A /* SalahUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalahUtility.h; sourceTree = "<group>"; };
 		4E34D7552448F81700FCCC1A /* BaseExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
+		4E37DFE527B522FE00BA814E /* URLExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLExampleViewController.swift; path = SalahUtilityExample/URLExampleViewController.swift; sourceTree = SOURCE_ROOT; };
 		4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDocumentPickerViewControllerEx.swift; sourceTree = "<group>"; };
 		4E459A322757AA1300EE0D85 /* Base64ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64ImageViewController.swift; sourceTree = "<group>"; };
 		4E459A342757AFAC00EE0D85 /* TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage.png; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				4EFC17412562C55A0050BB01 /* SceneDelegate.swift */,
 				4E04A0FE2754E1F0002FCDD0 /* Storyboards */,
 				4E04A1042754E2BE002FCDD0 /* ViewControllers */,
+				4E37DFE527B522FE00BA814E /* URLExampleViewController.swift */,
 				4E04A1022754E272002FCDD0 /* Resources */,
 				4E04A0FF2754E23A002FCDD0 /* SupportFiles */,
 			);
@@ -831,6 +834,7 @@
 				4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
 				4E6D71A826FC5CD800C9981D /* RetainCyclesExample.swift in Sources */,
+				4E37DFE727B5230800BA814E /* URLExampleViewController.swift in Sources */,
 				4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */,
 				4E04A0F82754E13C002FCDD0 /* FirstViewController.swift in Sources */,
 				4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */,
