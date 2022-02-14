@@ -960,6 +960,25 @@ public extension Double{
 /*    **Float**   */
 
  extension Float{
+     public static func bs_lessNumberAbleToDivideIt(upper:Float,lower:Float)->Float{
+             var value = upper;
+             var reminder:Float=0
+            if upper.remainder(dividingBy:lower) != 0{
+            repeat {
+                 reminder = upper.remainder(dividingBy:lower)
+                 if  reminder == 0 {
+                     break;
+                 }else{
+                     value = value-1
+                     //All non-integer values go here
+                 }
+                 
+             }while (value > 0) && (reminder == 0)
+             return value;
+            }else{
+             return upper;
+            }
+    }
      public var bs_locationDegree:CLLocationDegrees{
         return  CLLocationDegrees.init(self);
     }
@@ -1289,6 +1308,15 @@ public extension Array{
         let image = self.withHorizontallyFlippedOrientation();
         return image
     }
+     class public func bs_aspectFitSize(imageSize:CGSize,frameSize:CGSize)->CGSize{
+     var aspect = ((imageSize.width) / (imageSize.height))
+     if ((frameSize.width / aspect) <= frameSize.height)
+       {
+         return CGSize.init(width: frameSize.width, height: frameSize.width/aspect)
+       } else {
+         return CGSize.init(width: frameSize.height * aspect, height:frameSize.height)
+       }
+  }
     public func bs_resizeImageWith(newSize: CGSize) -> UIImage {
         
         let horizontalRatio = newSize.width / size.width
@@ -1378,21 +1406,12 @@ public extension Array{
 }
 
 /*    **UIImageView**   */
-
- extension UIImageView
-{
-
-    public func bs_calculateImageViewSizeInAspectFitSize()->CGSize{
-        var aspect = ((self.image?.size.width ?? 0) / (self.image?.size.height ?? 0))
-        if ((self.frame.size.width / aspect) <= self.frame.size.height)
-          {
-            return CGSize.init(width: self.frame.size.width, height: self.frame.size.width/aspect)
-          } else {
-            return CGSize.init(width: self.frame.size.height * aspect, height: self.frame.size.height)
-          }
+ extension UIImageView{
+public func bs_aspectFitSize()->CGSize{
+        return UIImage.bs_aspectFitSize(imageSize:self.image?.size ?? CGSize.zero, frameSize: self.frame.size)
      }
     public func bs_calculateImageViewRecInAspectFit()->CGRect{
-        let aspictRationSize = bs_calculateImageViewSizeInAspectFitSize();
+        let aspictRationSize = bs_aspectFitSize();
         // to get top space
         let x = ((self.frame.size.width-aspictRationSize.width)/2);
         let y = ((self.frame.size.height-aspictRationSize.height)/2);

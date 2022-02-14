@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
+import SalahUtility
 class URLExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         var url = "https://vschoolcontent2.blob.core.windows.net/vschoolblob/TeacherRoom/324b7f0a-f67a-4eff-8ee8-c0bdf21d6bc0.jpg?sv=2020-08-04&st=2022-02-10T10%3A33%3A22Z&se=2022-02-10T10%3A48%3A22Z&sr=b&sp=r&sig=%2FQMqc3%2FugUxjrL21NLSqXYS5RBcaT1EQaQpuy0sfPOY%3D";
+        
         var url1 = try? URL.init(string: url)?.absoluteString;
         var url2 = try? URL.init(string: url)?.path;
         var url3 = try? URL.init(string: url)?.pathExtension;
@@ -21,12 +22,24 @@ class URLExampleViewController: UIViewController {
         var url6 = try? URL.init(string: url)?.relativeString;
         var url7 = try? URL.init(string: url)?.absoluteURL;
         var url8 = try? URL.init(string: url)?.lastPathComponent;
-        var url19 = try? URL.init(string: url)?.query;
-        var url20 = try? URL.init(string: url)?.scheme;
-        var url21 = try? URL.init(string: url)?.host;
+        var url9 = try? URL.init(string: url)?.query;
+        var url10 = try? URL.init(string: url)?.scheme;
+        var url11 = try? URL.init(string: url)?.host;
 
-        print(url8);
-        print(url8);
+        Debuger.shared.debugObject("url1 = \(url1 ?? "")")
+        Debuger.shared.debugObject("url2 = \(url2 ?? "")")
+        Debuger.shared.debugObject("url3 = \(url3 ?? "")")
+        Debuger.shared.debugObject("url4 = \(url4 ?? [])")
+        Debuger.shared.debugObject("url5 = \(url5 ?? "")")
+        Debuger.shared.debugObject("url6 = \(url6 ?? "")")
+        Debuger.shared.debugObject("url7 = \(String(describing:url7))")
+        Debuger.shared.debugObject("url8 = \(url8 ?? "")")
+        Debuger.shared.debugObject("url9 = \(url9 ?? "")")
+        Debuger.shared.debugObject("url10 = \(url10 ?? "")")
+        Debuger.shared.debugObject("url11 = \(url11 ?? "")")
+
+
+        print(Debuger.shared.printItems())
 
         // Do any additional setup after loading the view.
     }
