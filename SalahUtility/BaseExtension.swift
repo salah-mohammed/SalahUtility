@@ -1212,14 +1212,15 @@ public extension Copying {
     }
 }
 public extension Collection {
-//    func bs_replaceFirst(_ newElement:Self.Element?,whereIs:(Self.Element) throws -> Bool) -> [Self.Element]{
-//            var newArray = self
-//            let index = try? newArray.firstIndex(where:whereIs)
-//        if let newElement:Iterator.Element = newElement, let index:Self.Index = index{
-//                newArray[index] = newElement
-//            }
-//            return newArray;
-//        }
+    func bs_replaceFirst(_ newElement:Self.Element?,whereIs:(Self.Element) throws -> Bool) -> [Self.Element]?{
+        if var newArray:[Self.Element] = self as? [Self.Element]{
+            let index = try? newArray.firstIndex(where:whereIs)
+        if let newElement:Iterator.Element = newElement, let index:Int = index{
+                newArray[index] = newElement
+            }
+        }
+        return nil;
+        }
     func bs_get(_ index: Self.Index)->Iterator.Element?{
         return self.indices.contains(index) ? self[index] : nil;
     }
