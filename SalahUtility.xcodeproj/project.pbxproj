@@ -54,6 +54,7 @@
 		4EA31A532743B80A0065CD2F /* SheetExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */; };
 		4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */; };
 		4EB6807F274A76CD00363E69 /* Secondary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB6807E274A76CD00363E69 /* Secondary.storyboard */; };
+		4EBAE67327BB9C26003265EA /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAE67227BB9C26003265EA /* DrawViewController.swift */; };
 		4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */; };
 		4EC27530268C89E60094C216 /* ScrollViewWithImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2752F268C89E60094C216 /* ScrollViewWithImageViewController.swift */; };
 		4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9BF26760C35003D90D3 /* TestTabBarController.swift */; };
@@ -168,6 +169,7 @@
 		4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetExampleViewController.swift; sourceTree = "<group>"; };
 		4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionExampleViewController.swift; sourceTree = "<group>"; };
 		4EB6807E274A76CD00363E69 /* Secondary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Secondary.storyboard; sourceTree = "<group>"; };
+		4EBAE67227BB9C26003265EA /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkBenchTimer.swift; sourceTree = "<group>"; };
 		4EC2752F268C89E60094C216 /* ScrollViewWithImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewWithImageViewController.swift; sourceTree = "<group>"; };
 		4EC8D9BF26760C35003D90D3 /* TestTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarController.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				4E86DADA27560CC900C471B5 /* Observer */,
 				4E459A322757AA1300EE0D85 /* Base64ImageViewController.swift */,
 				4E7CB514279564D0001DDD57 /* WebView */,
+				4EBAE67227BB9C26003265EA /* DrawViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
 				4E04A0FB2754E13C002FCDD0 /* ForthViewController.swift in Sources */,
 				4EC27530268C89E60094C216 /* ScrollViewWithImageViewController.swift in Sources */,
+				4EBAE67327BB9C26003265EA /* DrawViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
 				4E89F3C3272D22870024C7DB /* MaskImageViewController.swift in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,

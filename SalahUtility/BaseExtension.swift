@@ -254,7 +254,10 @@ public extension UIScreen{
 /*    **String**   */
 
 public extension String{
-    var bs_remoteURL:URL?{
+    public var isEmpty:Bool{
+        return (RegularExpression.empty.matches(self)==false)
+    }
+    public var bs_remoteURL:URL?{
         return URL.init(string:self)
     }
     public var  bs_containsLetters:Bool{
@@ -1274,6 +1277,22 @@ public extension Array{
 /*    **UIImage**   */
  #if os(iOS)
  public extension UIImage {
+        public func bs_pixelColor(atLocation point: CGPoint) -> UIColor? {
+             guard let cgImage = cgImage, let pixelData = cgImage.dataProvider?.data else { return nil }
+
+             let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+
+             let bytesPerPixel = cgImage.bitsPerPixel / 8
+
+             let pixelInfo: Int = ((cgImage.bytesPerRow * Int(point.y)) + (Int(point.x) * bytesPerPixel))
+
+             let b = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+             let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+             let r = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+             let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+
+             return UIColor(red: r, green: g, blue: b, alpha: a)
+         }
     public var bs_isLight: Bool {
         self.cgImage?.bs_isLight ?? false
     }
@@ -2323,7 +2342,12 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  /*    **UIColor**   */
 
   extension UIColor {
-      public static var placeholder: UIColor {
+    public var bs_red: CGFloat{ return CIColor(color: self).red }
+    public var bs_green: CGFloat{ return CIColor(color: self).green }
+    public var bs_blue: CGFloat{ return CIColor(color: self).blue }
+    public var bs_alpha: CGFloat{ return CIColor(color: self).alpha }
+
+    public static var placeholder: UIColor {
             return UIColor.init(red: 0, green: 0, blue: 0.0980392, alpha: 0.22);
     }
      public class var bs_random: UIColor {
