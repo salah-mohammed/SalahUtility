@@ -3687,7 +3687,7 @@ public extension UIWindow {
 #endif
 
 public extension Substring{
-    var string:String?{
+    var bs_string:String?{
         return String(self);
     }
 }
