@@ -98,35 +98,35 @@ public enum DeviceType:CGFloat{
  case iPadPro10_5inch
  case iPadPro_11inch
  case iPadPro_12_9inch
-  static public func lessThanAndEqual(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+  static public func lessThanAndEqual(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
     if heightCheck{
       return UIScreen.main.bounds.height <= deviceType.height
     }else{
       return UIScreen.main.bounds.width <= deviceType.width
     }
  }
- static public func bigThanAndEqual(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+ static public func bigThanAndEqual(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
   if heightCheck{
   return UIScreen.main.bounds.height >= deviceType.height
   }else{
     return UIScreen.main.bounds.width >= deviceType.width
   }
  }
- static public func lessThan(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+ static public func lessThan(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
   if heightCheck{
     return UIScreen.main.bounds.height < deviceType.height
   }else{
     return UIScreen.main.bounds.width < deviceType.width
   }
  }
- static public func bigThan(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+ static public func bigThan(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
   if heightCheck{
     return UIScreen.main.bounds.height > deviceType.height
   }else{
     return UIScreen.main.bounds.width > deviceType.width
   }
  }
- static public func equal(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+ static public func equal(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
   if heightCheck{
     return UIScreen.main.bounds.height == deviceType.height
   }else{
