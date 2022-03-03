@@ -87,55 +87,98 @@ case ipad
     
 }
 public enum DeviceType:CGFloat{
-    case iphone8
-    case iphone8Plus
-    case iphoneXr
-    case iphoneXs
-    case iphoneXsMax
-    case iPadMini
-    case iPadAir
-    case iPadPro10_5inch
-    case iPadPro_11inch
-    case iPadPro_12_9inch
-    static public func lessThanAndEqual(_ deviceType:DeviceType)->Bool{
-        return UIScreen.main.bounds.height <= deviceType.height
+ case iPhoneSE_1G
+ case iphone8
+ case iphone8Plus
+ case iphoneXr
+ case iphoneXs
+ case iphoneXsMax
+ case iPadMini
+ case iPadAir
+ case iPadPro10_5inch
+ case iPadPro_11inch
+ case iPadPro_12_9inch
+  static public func lessThanAndEqual(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+    if heightCheck{
+      return UIScreen.main.bounds.height <= deviceType.height
+    }else{
+      return UIScreen.main.bounds.width <= deviceType.width
     }
-    static public func bigThanAndEqual(_ deviceType:DeviceType)->Bool{
-        return UIScreen.main.bounds.height >= deviceType.height
-    }
-    static public func lessThan(_ deviceType:DeviceType)->Bool{
-        return UIScreen.main.bounds.height < deviceType.height
-    }
-    static public func bigThan(_ deviceType:DeviceType)->Bool{
-        return UIScreen.main.bounds.height > deviceType.height
-    }
-    static public func equal(_ deviceType:DeviceType)->Bool{
-        return UIScreen.main.bounds.height == deviceType.height
-    }
+ }
+ static public func bigThanAndEqual(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+  if heightCheck{
+  return UIScreen.main.bounds.height >= deviceType.height
+  }else{
+    return UIScreen.main.bounds.width >= deviceType.width
+  }
+ }
+ static public func lessThan(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+  if heightCheck{
+    return UIScreen.main.bounds.height < deviceType.height
+  }else{
+    return UIScreen.main.bounds.width < deviceType.width
+  }
+ }
+ static public func bigThan(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+  if heightCheck{
+    return UIScreen.main.bounds.height > deviceType.height
+  }else{
+    return UIScreen.main.bounds.width > deviceType.width
+  }
+ }
+ static public func equal(heightCheck:Bool,_ deviceType:DeviceType)->Bool{
+  if heightCheck{
+    return UIScreen.main.bounds.height == deviceType.height
+  }else{
+    return UIScreen.main.bounds.width == deviceType.width
+  }
+ }
 public var height:CGFloat{
-        switch self{
-        case .iphone8:
-            return 667.0
-        case .iphone8Plus:
-            return 736.0
-        case .iphoneXr:
-            return 896.0
-        case .iphoneXs:
-            return 812.0
-        case .iphoneXsMax:
-            return 896.0
-        case .iPadMini:
-            return 1024.0
-        case .iPadAir:
-            return 1024.0
-        case .iPadPro10_5inch:
-            return 1112.0
-        case .iPadPro_11inch:
-            return 1194.0
-        case .iPadPro_12_9inch:
-            return 1366.0
-        }
+  switch self{
+  case .iPhoneSE_1G:
+    return 568.0
+  case .iphone8:
+   return 667.0
+  case .iphone8Plus:
+   return 736.0
+  case .iphoneXr:
+   return 896.0
+  case .iphoneXs:
+   return 812.0
+  case .iphoneXsMax:
+   return 896.0
+  case .iPadMini:
+   return 1024.0
+  case .iPadAir:
+   return 1024.0
+  case .iPadPro10_5inch:
+   return 1112.0
+  case .iPadPro_11inch:
+   return 1194.0
+  case .iPadPro_12_9inch:
+   return 1366.0
+  }
+ }
+  public var width:CGFloat{
+    switch self{
+    case .iPhoneSE_1G:
+     return 320.0
+    case .iphone8:
+     return 375.0
+    case .iphone8Plus,.iphoneXr:
+     return 414.0
+    case .iphoneXs:
+     return 375.0
+    case .iphoneXsMax:
+     return 314.0
+    case .iPadMini,.iPadAir:
+     return 768.0
+    case .iPadPro10_5inch,.iPadPro_11inch:
+     return 834.0
+    case .iPadPro_12_9inch:
+     return 1024.0
     }
+   }
 }
 public var bs_hasTopNotch: Bool {
     var edge:UIEdgeInsets?
@@ -3629,7 +3672,7 @@ public extension AVAsset{
 }
 
 #if os(iOS)
-extension UIWindow {
+public extension UIWindow {
     func bs_screenShot() -> UIImage? {
         let layer = self.layer
         let scale = UIScreen.main.scale
@@ -3642,3 +3685,9 @@ extension UIWindow {
     }
 }
 #endif
+
+public extension Substring{
+    var string:String?{
+        return String(self);
+    }
+}

@@ -33,6 +33,7 @@
 		4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */; };
 		4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73424C24F25F3400969E79 /* LocalAuth.swift */; };
 		4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73E6D625AE38F60027C69B /* LocaleViewController.swift */; };
+		4E76184A27CE97FC00B66DE3 /* DrawShapesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76184927CE97FC00B66DE3 /* DrawShapesViewController.swift */; };
 		4E77AB9D25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */; };
 		4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */; };
 		4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */; };
@@ -147,6 +148,7 @@
 		4E71C64C25CBD7E100D95243 /* NavigationHeightExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeightExampleViewController.swift; sourceTree = "<group>"; };
 		4E73424C24F25F3400969E79 /* LocalAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuth.swift; sourceTree = "<group>"; };
 		4E73E6D625AE38F60027C69B /* LocaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleViewController.swift; sourceTree = "<group>"; };
+		4E76184927CE97FC00B66DE3 /* DrawShapesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapesViewController.swift; sourceTree = "<group>"; };
 		4E77AB9C25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDatePickerExampleViewController.swift; sourceTree = "<group>"; };
 		4E79BD1B2484EA80006FD36D /* InformationScreenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationScreenManager.swift; sourceTree = "<group>"; };
 		4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBuilder.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				4E459A322757AA1300EE0D85 /* Base64ImageViewController.swift */,
 				4E7CB514279564D0001DDD57 /* WebView */,
 				4EBAE67227BB9C26003265EA /* DrawViewController.swift */,
+				4E76184B27CE981000B66DE3 /* DrawShapes */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -477,6 +480,14 @@
 				4E5B4C4425FF818500A58C70 /* GenericExampleViewController.swift */,
 			);
 			path = GenericExample;
+			sourceTree = "<group>";
+		};
+		4E76184B27CE981000B66DE3 /* DrawShapes */ = {
+			isa = PBXGroup;
+			children = (
+				4E76184927CE97FC00B66DE3 /* DrawShapesViewController.swift */,
+			);
+			path = DrawShapes;
 			sourceTree = "<group>";
 		};
 		4E7CB514279564D0001DDD57 /* WebView */ = {
@@ -836,6 +847,7 @@
 				4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */,
 				4EA1C89925EB9F9000857267 /* ConstraintExampleViewController.swift in Sources */,
 				4E73E6D725AE38F60027C69B /* LocaleViewController.swift in Sources */,
+				4E76184A27CE97FC00B66DE3 /* DrawShapesViewController.swift in Sources */,
 				4E6D71A826FC5CD800C9981D /* RetainCyclesExample.swift in Sources */,
 				4E37DFE727B5230800BA814E /* URLExampleViewController.swift in Sources */,
 				4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */,
