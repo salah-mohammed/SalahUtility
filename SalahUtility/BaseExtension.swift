@@ -3093,6 +3093,8 @@ public extension DateFormatter {
     case weekdayName = "EEEE"
     case weekdayShortName = "E"
     case timezone = "Z"
+    case monthShorNumber = "M"
+
     public var description: String {
         return self.rawValue
     }
