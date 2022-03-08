@@ -13,6 +13,8 @@ import UIKit
 // Se 2G CR - portrait
 // Se 8  CR - portrait
 // 8+ CR - portrait
+// 11           CR - portrait
+// 12           CR - portrait
 // 12 mini  CR - portrait
 // 13   CR - portrait
 // 13 Pro   CR - portrait
@@ -23,7 +25,9 @@ import UIKit
 // Se 8 CC - landscape
 // 8+ RC - landscape
 // 12 mini  cc - landscape
-// 13   CC - landscape
+// 11       RC - landscape
+// 12       CC - landscape
+// 13       CC - landscape
 // 13 Pro   CC - landscape
 // 13 Pro Max   RC - landscape
 
