@@ -223,7 +223,17 @@ public extension UIScreen{
 #endif
 
  extension Array{
-    
+     //index will be removed for example if index = 5 from index 0 t0 5 will removed
+     @discardableResult public mutating func bs_removeTo(index:Int)->Bool{
+         return self.bs_removeFrom(0, toIndex: index);
+        }
+     mutating public func bs_removeFrom(_ index:Int,toIndex:Int)->Bool{
+         if self.indices.contains(index) && self.indices.contains(toIndex){
+         self.removeSubrange(index ... toIndex)
+             return true;
+         }
+         return false;
+     }
       public func bs_isContainObject(classType:AnyClass)->AnyObject?{
         for object in self {
             if  ((object as? AnyObject)?.isKind(of:classType))!
