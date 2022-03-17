@@ -307,6 +307,9 @@ public extension UIScreen{
 /*    **String**   */
 
 public extension String{
+    public var bs_fileURL:URL{
+        return URL.init(fileURLWithPath: self);
+    }
     public var isEmpty:Bool{
         return (RegularExpression.empty.matches(self)==false)
     }
