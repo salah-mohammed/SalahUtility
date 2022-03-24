@@ -43,10 +43,10 @@ public enum RegularExpression:String{
     case email="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     case phone = "[+]+[0-9 ]{1,}|[00]+[0-9 ]{1,}|[0-9 ]{9,}"
     case empty=".*[^ ].*"
-    var regex:Regex{
+    public var regex:Regex{
         return Regex.init(self.rawValue);
     }
-    func  matches(_ input:String)->Bool{
+    public func  matches(_ input:String)->Bool{
     return self.regex.matches(input:input)
     }
 }
