@@ -20,9 +20,17 @@ class SalahUtilityExampleTests: XCTestCase {
     }
 
     func testExample() throws {
-        regularExpressionEmptyFirstCase();
-        regularExpressionEmptySecondCase();
-        regularExpressionEmptyThiredCase();
+//        regularExpressionEmptyFirstCase();
+//        regularExpressionEmptySecondCase();
+//        regularExpressionEmptyThiredCase();
+//        regularExpressionEmptyForthCase();
+        //
+        regularExpressionPhoneFirstCase();
+        regularExpressionPhoneSecondCase();
+        regularExpressionPhoneThiredCase();
+        regularExpressionPhoneForthCase();
+        regularExpressionPhoneFifthCase();
+        regularExpressionPhoneSexthCase();
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
@@ -33,19 +41,47 @@ class SalahUtilityExampleTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
-    
+    func regularExpressionPhoneFirstCase(){
+        var resultValue = RegularExpression.phone.regex.matches(input:"0597105861");
+        XCTAssertEqual(resultValue,true);
+    }
+    func regularExpressionPhoneSecondCase(){
+        var resultValue = RegularExpression.phone.regex.matches(input:"00972597105861");
+        XCTAssertEqual(resultValue,true);
+    }
+    func regularExpressionPhoneThiredCase(){
+        var resultValue = RegularExpression.phone.regex.matches(input:"+972597105861");
+        XCTAssertEqual(resultValue,true);
+    }
+    func regularExpressionPhoneForthCase(){
+        var resultValue = RegularExpression.phone.regex.matches(input:"");
+        XCTAssertEqual(resultValue,false);
+    }
+    func regularExpressionPhoneFifthCase(){
+        var resultValue = RegularExpression.phone.regex.matches(input:"123");
+        XCTAssertEqual(resultValue,false);
+    }
+    func regularExpressionPhoneSexthCase(){
+        var resultValue = RegularExpression.phone.regex.matches(input:"a22");
+        XCTAssertEqual(resultValue,false);
+    }
     // MARK: -RegularExpression
     func regularExpressionEmptyFirstCase(){
-        var resultValue = Regex.init(".*[^ ].*").matches(input:"");
+        var resultValue = RegularExpression.empty.regex.matches(input:"");
         XCTAssertEqual(resultValue,true);
     }
     func regularExpressionEmptySecondCase(){
-        var resultValue = Regex.init(".*[^ ].*").matches(input:"a a a");
+        var resultValue = RegularExpression.empty.regex.matches(input:"a a a");
         XCTAssertEqual(resultValue, false);
     }
     func regularExpressionEmptyThiredCase(){
-        var resultValue = Regex.init(".*[^ ].*").matches(input:"  ");
+        var resultValue = RegularExpression.empty.regex.matches(input:"  ");
+        XCTAssertEqual(resultValue, true);
+    }
+    func regularExpressionEmptyForthCase(){
+        var  test = """
+"""
+        var resultValue = RegularExpression.empty.regex.matches(input:test);
         XCTAssertEqual(resultValue, true);
     }
         //..

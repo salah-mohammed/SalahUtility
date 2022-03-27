@@ -42,7 +42,7 @@ public extension CLLocationCoordinate2D{
 public enum RegularExpression:String{
     case email="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     case phone = "[+]+[0-9 ]{1,}|[00]+[0-9 ]{1,}|[0-9 ]{9,}"
-    case empty=".*[^ ].*"
+    case empty="^[. ]*$"
     public var regex:Regex{
         return Regex.init(self.rawValue);
     }
@@ -311,7 +311,7 @@ public extension String{
         return URL.init(fileURLWithPath: self);
     }
     public var isEmpty:Bool{
-        return (RegularExpression.empty.matches(self)==false)
+        return (RegularExpression.empty.matches(self))
     }
     public var bs_remoteURL:URL?{
         return URL.init(string:self)
