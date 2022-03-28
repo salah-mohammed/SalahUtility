@@ -20,17 +20,14 @@ class SalahUtilityExampleTests: XCTestCase {
     }
 
     func testExample() throws {
-//        regularExpressionEmptyFirstCase();
-//        regularExpressionEmptySecondCase();
-//        regularExpressionEmptyThiredCase();
-//        regularExpressionEmptyForthCase();
-        //
-        regularExpressionPhoneFirstCase();
-        regularExpressionPhoneSecondCase();
-        regularExpressionPhoneThiredCase();
-        regularExpressionPhoneForthCase();
-        regularExpressionPhoneFifthCase();
-        regularExpressionPhoneSexthCase();
+        regularExpressionPhone();
+        regularExpressionEmpty();
+        regularExpressionEmail();
+        bs_removeTo()
+        bs_removeFrom()
+        bs_second()
+        bs_thired()
+        bs_beforeLast()
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
@@ -41,61 +38,42 @@ class SalahUtilityExampleTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    func regularExpressionPhoneFirstCase(){
-        var resultValue = RegularExpression.phone.regex.matches(input:"0597105861");
-        XCTAssertEqual(resultValue,true);
+    func regularExpressionPhone(){
+        var value1 = RegularExpression.phone.regex.matches(input:"0597105861");
+        XCTAssertEqual(value1,true);
+        var value2 = RegularExpression.phone.regex.matches(input:"00972597105861");
+        XCTAssertEqual(value2,true);
+        var value3 = RegularExpression.phone.regex.matches(input:"+972597105861");
+        XCTAssertEqual(value3,true);
+        var value4 = RegularExpression.phone.regex.matches(input:"");
+        XCTAssertEqual(value4,false);
+        var value5 = RegularExpression.phone.regex.matches(input:"123");
+        XCTAssertEqual(value5,false);
+        var value6 = RegularExpression.phone.regex.matches(input:"a22");
+        XCTAssertEqual(value6,false);
     }
-    func regularExpressionPhoneSecondCase(){
-        var resultValue = RegularExpression.phone.regex.matches(input:"00972597105861");
-        XCTAssertEqual(resultValue,true);
-    }
-    func regularExpressionPhoneThiredCase(){
-        var resultValue = RegularExpression.phone.regex.matches(input:"+972597105861");
-        XCTAssertEqual(resultValue,true);
-    }
-    func regularExpressionPhoneForthCase(){
-        var resultValue = RegularExpression.phone.regex.matches(input:"");
-        XCTAssertEqual(resultValue,false);
-    }
-    func regularExpressionPhoneFifthCase(){
-        var resultValue = RegularExpression.phone.regex.matches(input:"123");
-        XCTAssertEqual(resultValue,false);
-    }
-    func regularExpressionPhoneSexthCase(){
-        var resultValue = RegularExpression.phone.regex.matches(input:"a22");
-        XCTAssertEqual(resultValue,false);
-    }
+
     // MARK: -RegularExpression
-    func regularExpressionEmptyFirstCase(){
-        var resultValue = RegularExpression.empty.regex.matches(input:"");
-        XCTAssertEqual(resultValue,true);
-    }
-    func regularExpressionEmptySecondCase(){
-        var resultValue = RegularExpression.empty.regex.matches(input:"a a a");
-        XCTAssertEqual(resultValue, false);
-    }
-    func regularExpressionEmptyThiredCase(){
-        var resultValue = RegularExpression.empty.regex.matches(input:"  ");
-        XCTAssertEqual(resultValue, true);
-    }
-    func regularExpressionEmptyForthCase(){
+    func regularExpressionEmpty(){
+        var value1 = RegularExpression.empty.regex.matches(input:"");
+        XCTAssertEqual(value1,true);
+        var value2 = RegularExpression.empty.regex.matches(input:"a a a");
+        XCTAssertEqual(value2, false);
+        var value3 = RegularExpression.empty.regex.matches(input:"  ");
+        XCTAssertEqual(value3, true);
         var  test = """
 """
-        var resultValue = RegularExpression.empty.regex.matches(input:test);
-        XCTAssertEqual(resultValue, true);
+        var value4 = RegularExpression.empty.regex.matches(input:test);
+        XCTAssertEqual(value4, true);
     }
         //..
-    func regularExpressionEmailFirstCase(){
-        var resultValue = RegularExpression.email.regex.matches(input:"salah.mohamed_1995@hotmail.com");
-        XCTAssertEqual(resultValue, true);
-    }
-    func regularExpressionEmailSecondCase(){
-        var resultValue = RegularExpression.email.regex.matches(input:"ads");
-        XCTAssertEqual(resultValue, false);
-    }
-    func regularExpressionEmailThiredCase(){
-        var resultValue = RegularExpression.email.regex.matches(input:"123456");
-        XCTAssertEqual(resultValue, false);
+    func regularExpressionEmail(){
+        let value1 = RegularExpression.email.regex.matches(input:"salah.mohamed_1995@hotmail.com");
+        XCTAssertEqual(value1, true);
+        let value2 = RegularExpression.email.regex.matches(input:"ads");
+        XCTAssertEqual(value2, false);
+        let value3 = RegularExpression.email.regex.matches(input:"123456");
+        XCTAssertEqual(value3, false);
     }
     
     
