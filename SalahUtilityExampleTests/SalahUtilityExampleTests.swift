@@ -28,6 +28,7 @@ class SalahUtilityExampleTests: XCTestCase {
         bs_second()
         bs_thired()
         bs_beforeLast()
+        bs_days()
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
@@ -106,6 +107,25 @@ class SalahUtilityExampleTests: XCTestCase {
         XCTAssertEqual(resultValue, true);
 
     }
-    
+    func bs_days(){
+        var date1 = Date.init()
+        var value1 = date1.bs_days(sinceDate: Date());
+        XCTAssertTrue(value1 == 0)
+        // add day
+        date1.addTimeInterval(1*24*60*60)
+        // add 1hour
+        date1.addTimeInterval(1*60*60)
+        var value2 = date1.bs_days(sinceDate: Date());
+        XCTAssertTrue(value2 == 1)
+        //---------
+        var date2 = Date.init()
+        // subtract day
+        date2.addTimeInterval(-1*24*60*60)
+        // subtract 1hour
+        date2.addTimeInterval(-1*60*60)
+        var value3 = date2.bs_days(sinceDate: Date());
+        XCTAssertTrue(value3 == -1)
+
+    }
 
 }

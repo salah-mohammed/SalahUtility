@@ -3460,6 +3460,29 @@ public extension Date {
 //            }while subtract > 0
 //            return dates;
 //        }
+    func bs_years(sinceDate: Date) -> Int? {
+        return Calendar.current.dateComponents([.year], from: sinceDate, to: self).year
+    }
+
+    func bs_months(sinceDate: Date) -> Int? {
+        return Calendar.current.dateComponents([.month], from: sinceDate, to: self).month
+    }
+
+    func bs_days(sinceDate: Date) -> Int? {
+        return Calendar.current.dateComponents([.day], from: sinceDate, to: self).day
+    }
+
+    func bs_hours(sinceDate: Date) -> Int? {
+        return Calendar.current.dateComponents([.hour], from: sinceDate, to: self).hour
+    }
+
+    func bs_minutes(sinceDate: Date) -> Int? {
+        return Calendar.current.dateComponents([.minute], from: sinceDate, to: self).minute
+    }
+
+    func bs_seconds(sinceDate: Date) -> Int? {
+        return Calendar.current.dateComponents([.second], from: sinceDate, to: self).second
+    }
     public static func - (lhs: Date, rhs: Date) -> TimeInterval {
            return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
        }
@@ -3567,7 +3590,7 @@ public extension Date {
     case friday=6
     case saturday=7
     }
-    func isDay(_ day:Day)->Bool{
+    func bs_isDay(_ day:Day)->Bool{
         let today = self
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents([.weekday], from: today)
