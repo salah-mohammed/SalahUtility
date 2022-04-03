@@ -1610,12 +1610,9 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
     }
 }
 }
-
 /*    **UIButton**   */
 
- extension UIButton
-{
-
+ extension UIButton{
    public func bs_renderModeForImage(_ renderingMode:UIImage.RenderingMode,_ controlState:UIControl.State){
         let image = self.image(for: controlState)
         let renderImage: UIImage? = image?.withRenderingMode(renderingMode)
@@ -2006,15 +2003,6 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          return UINib(nibName: name, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
      }
  }
- /*    **UILabel**   */
- public extension UILabel {
-     var bs_numberOfVisibleLines: Int {
-         let textSize = CGSize(width: CGFloat(self.frame.size.width), height: CGFloat(MAXFLOAT))
-         let rHeight: Int = lroundf(Float(self.sizeThatFits(textSize).height))
-         let charSize: Int = lroundf(Float(self.font.pointSize))
-         return rHeight / charSize
-     }
- }
 
  /*    **UIResponder**   */
 
@@ -2037,8 +2025,6 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
   static let bs_main : UIStoryboard? = UIStoryboard(name: "Main", bundle: nil);
  }
 
-
-
  /*    **UITabBar**   */
 
  public extension UITabBar {
@@ -2059,6 +2045,12 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  /*    **UILabel**   */
 
   extension UILabel {
+      var bs_numberOfVisibleLines: Int {
+          let textSize = CGSize(width: CGFloat(self.frame.size.width), height: CGFloat(MAXFLOAT))
+          let rHeight: Int = lroundf(Float(self.sizeThatFits(textSize).height))
+          let charSize: Int = lroundf(Float(self.font.pointSize))
+          return rHeight / charSize
+      }
  // depend on language
     public func bs_autoTextAliment(){
          let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") //add whatever characters you find English
@@ -2738,7 +2730,6 @@ public extension NSLocale{
 
 /*    **CAShapeLayer**   */
 
-
  extension CAShapeLayer {
        #if os(iOS)
        @discardableResult public func bs_path(_ path:UIBezierPath) -> Self{
@@ -3114,7 +3105,6 @@ public extension DateFormatter {
 }
 }
 
-
 /*    **FileManager**   */
 
 public extension FileManager {
@@ -3229,14 +3219,9 @@ public extension Array where Element == PHAsset {
         for asset in self
         {
             manager.requestImageData(for: asset, options: option, resultHandler: { (data:Data?, string:String?, orientation:UIImage.Orientation, info:[AnyHashable:Any]?) in
-                tempArray.append(data!)
-                
+            tempArray.append(data!)
             })
-            
-            
-            
         }
-        
         return tempArray;
     }
     
@@ -3254,11 +3239,7 @@ public extension Array where Element == PHAsset {
                 tempArray.append(img!)
 
             }
-            
-            
-            
         }
-        
         return tempArray;
     }
      #endif
