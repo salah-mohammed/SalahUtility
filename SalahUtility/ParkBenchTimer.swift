@@ -14,11 +14,11 @@ public class ParkBenchTimer {
     let startTime:CFAbsoluteTime
     var endTime:CFAbsoluteTime?
     
-    init() {
+    public init() {
         startTime = CFAbsoluteTimeGetCurrent()
     }
     
-    func stop() -> CFAbsoluteTime {
+    public func stop() -> CFAbsoluteTime {
         endTime = CFAbsoluteTimeGetCurrent()
         
         return duration!
@@ -31,13 +31,13 @@ public class ParkBenchTimer {
             return nil
         }
     }
-    func stopAndDurationInSeconds()->String{
+    public func stopAndDurationInSeconds()->String{
         let value = self.stop();
         let stringValue = "The task took \(value) seconds.";
         print(stringValue)
         return stringValue;
     }
-    func printDurationInSeconds()->String{
+    public func printDurationInSeconds()->String{
         let stringValue = "The task took \(duration) seconds.";
         return stringValue;
     }

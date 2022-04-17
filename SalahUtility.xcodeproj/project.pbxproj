@@ -18,6 +18,7 @@
 		4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1EA39825F6B03D005D703E /* Debuger.swift */; };
 		4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */; };
 		4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20826D25C167E000F92E23 /* TestCollectionViewCell.swift */; };
+		4E20E77D27FB1DEF00FD8802 /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E20E77C27FB1DEF00FD8802 /* AlertBuilder.swift */; };
 		4E27B5F62608F96100497E98 /* UIImagePickerControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27B5F52608F96100497E98 /* UIImagePickerControllerEx.swift */; };
 		4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E30D27225732FB4005B63EA /* DateViewController.swift */; };
 		4E331C432460C17700E5562C /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E331C422460C17700E5562C /* CounterModel.swift */; };
@@ -134,6 +135,7 @@
 		4E1EA39825F6B03D005D703E /* Debuger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debuger.swift; sourceTree = "<group>"; };
 		4E20826825C167C400F92E23 /* TestCollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewViewController.swift; sourceTree = "<group>"; };
 		4E20826D25C167E000F92E23 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E20E77C27FB1DEF00FD8802 /* AlertBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 		4E27B5F52608F96100497E98 /* UIImagePickerControllerEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePickerControllerEx.swift; sourceTree = "<group>"; };
 		4E30D27225732FB4005B63EA /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		4E331C422460C17700E5562C /* CounterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				4E34D74D2448F7F000FCCC1A /* SalahUtility.h */,
+				4E20E77C27FB1DEF00FD8802 /* AlertBuilder.swift */,
 				4E34D7552448F81700FCCC1A /* BaseExtension.swift */,
 				4E331C422460C17700E5562C /* CounterModel.swift */,
 				4E331C442460C25800E5562C /* BaseInheritance.swift */,
@@ -821,6 +824,7 @@
 				4EE3F414273D1F8D006FED8C /* CutomAnimation.swift in Sources */,
 				4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */,
 				4EEE962527268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift in Sources */,
+				4E20E77D27FB1DEF00FD8802 /* AlertBuilder.swift in Sources */,
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
 				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,

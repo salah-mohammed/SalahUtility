@@ -99,35 +99,35 @@ public enum DeviceType:CGFloat{
  case iPadPro_11inch
  case iPadPro_12_9inch
   static public func lessThanAndEqual(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-      if heightCheck{
+      if heightCheck && UIDevice.current.orientation.isPortrait{
       return UIScreen.main.bounds.height <= deviceType.height
     }else{
       return UIScreen.main.bounds.width <= deviceType.width
     }
  }
  static public func bigThanAndEqual(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-     if heightCheck{
+     if heightCheck && UIDevice.current.orientation.isPortrait{
   return UIScreen.main.bounds.height >= deviceType.height
   }else{
     return UIScreen.main.bounds.width >= deviceType.width
   }
  }
  static public func lessThan(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-     if heightCheck{
+     if heightCheck && UIDevice.current.orientation.isPortrait{
     return UIScreen.main.bounds.height < deviceType.height
   }else{
     return UIScreen.main.bounds.width < deviceType.width
   }
  }
  static public func bigThan(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-  if heightCheck{
+  if heightCheck && UIDevice.current.orientation.isPortrait{
     return UIScreen.main.bounds.height > deviceType.height
   }else{
     return UIScreen.main.bounds.width > deviceType.width
   }
  }
  static public func equal(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-  if heightCheck{
+  if heightCheck && UIDevice.current.orientation.isPortrait{
     return UIScreen.main.bounds.height == deviceType.height
   }else{
     return UIScreen.main.bounds.width == deviceType.width
@@ -307,6 +307,26 @@ public extension UIScreen{
 /*    **String**   */
 
 public extension String{
+//    enum Side{
+//        case first
+//        case last
+//    }
+//
+//    func bs_removeChar(itemNumber:Int,side : Side) -> String{
+//        var  item = self
+//        switch side{
+//        case .first:
+//            for i in 0..<itemNumber{
+//                item.removeFirst()
+//            }
+//            return item
+//        case .last:
+//            for i in 0..<itemNumber{
+//                item.removeLast()
+//            }
+//            return item
+//        }
+//    }
     public var bs_fileURL:URL{
         return URL.init(fileURLWithPath: self);
     }

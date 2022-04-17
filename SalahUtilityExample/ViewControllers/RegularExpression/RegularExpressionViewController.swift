@@ -9,10 +9,7 @@
 import UIKit
 import SalahUtility
 class RegularExpressionViewController: UIViewController {
-    static let chatEmailRegix = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}";
-    var emailRegix = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}";
-    var phoneNumberRegix = "[+]+[0-9 ]{1,}|[00]+[0-9 ]{1,}|[0-9 ]{9,}";
-    var emptyRegix = "^\\s*$";
+
 
     // explain '|' OR
     // explain '[0-9]{9,}' OR 9 or more digits
@@ -38,11 +35,11 @@ class RegularExpressionViewController: UIViewController {
 //            print("");
 //        }
         
-       var  a = Regex(emailRegix).replacement(input:"dsadsadasdsdasdsadsadsadsadsad  salah@hotmail.com sal@ail.com", replacement:"x")
+        var  a = RegularExpression.email.regex.replacement(input:"dsadsadasdsdasdsadsadsadsadsad  salah@hotmail.com sal@ail.com", replacement:"x")
         print(a);
         self.lblCotnent.text=a;
         
-        var  a2 = Regex(phoneNumberRegix).replacement(input:"dsadsadasdsdasdsadsadsadsadsad 12 22222222222323232323232323232 111111111 00972 +972597", replacement:"xxxxxxxxx")
+        var  a2 = RegularExpression.phone.regex.replacement(input:"dsadsadasdsdasdsadsadsadsadsad 12 22222222222323232323232323232 111111111 00972 +972597", replacement:"xxxxxxxxx")
          print(a2);
          self.lblCotnent.text=a2;
     }
