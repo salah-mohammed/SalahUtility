@@ -99,40 +99,52 @@ public enum DeviceType:CGFloat{
  case iPadPro_11inch
  case iPadPro_12_9inch
   static public func lessThanAndEqual(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-      if heightCheck && UIDevice.current.orientation.isPortrait{
-      return UIScreen.main.bounds.height <= deviceType.height
+      if heightCheck{
+      return UIScreen.main.bounds.height <= deviceType.orientationHeight
     }else{
-      return UIScreen.main.bounds.width <= deviceType.width
+      return UIScreen.main.bounds.width <= deviceType.orientationWidth
     }
  }
  static public func bigThanAndEqual(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-     if heightCheck && UIDevice.current.orientation.isPortrait{
-  return UIScreen.main.bounds.height >= deviceType.height
+     if heightCheck{
+  return UIScreen.main.bounds.height >= deviceType.orientationHeight
   }else{
-    return UIScreen.main.bounds.width >= deviceType.width
+    return UIScreen.main.bounds.width >= deviceType.orientationWidth
   }
  }
  static public func lessThan(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-     if heightCheck && UIDevice.current.orientation.isPortrait{
-    return UIScreen.main.bounds.height < deviceType.height
+     if heightCheck{
+    return UIScreen.main.bounds.height < deviceType.orientationHeight
   }else{
-    return UIScreen.main.bounds.width < deviceType.width
+    return UIScreen.main.bounds.width < deviceType.orientationWidth
   }
  }
  static public func bigThan(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-  if heightCheck && UIDevice.current.orientation.isPortrait{
-    return UIScreen.main.bounds.height > deviceType.height
+  if heightCheck {
+    return UIScreen.main.bounds.height > deviceType.orientationHeight
   }else{
-    return UIScreen.main.bounds.width > deviceType.width
+    return UIScreen.main.bounds.width > deviceType.orientationWidth
   }
  }
  static public func equal(_ heightCheck:Bool=true,_ deviceType:DeviceType)->Bool{
-  if heightCheck && UIDevice.current.orientation.isPortrait{
-    return UIScreen.main.bounds.height == deviceType.height
+  if heightCheck{
+    return UIScreen.main.bounds.height == deviceType.orientationHeight
   }else{
-    return UIScreen.main.bounds.width == deviceType.width
+    return UIScreen.main.bounds.width == deviceType.orientationWidth
   }
  }
+private var orientationHeight:CGFloat{
+    if UIDevice.current.orientation.isLandscape{
+        return self.width
+    }
+    return height
+}
+private var orientationWidth:CGFloat{
+    if UIDevice.current.orientation.isPortrait{
+        return self.height
+    }
+    return width
+}
 public var height:CGFloat{
   switch self{
   case .iPhoneSE_1G:

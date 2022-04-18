@@ -65,6 +65,7 @@
 		4EC8D9C826760C65003D90D3 /* FirstTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9C726760C65003D90D3 /* FirstTabBarController.swift */; };
 		4EC8D9CD26760CAD003D90D3 /* SecondTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC8D9CC26760CAD003D90D3 /* SecondTabBarController.swift */; };
 		4EC9B21F26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B21E26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift */; };
+		4ECB9362280CDBD70086DF92 /* OrientationExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB9361280CDBD70086DF92 /* OrientationExampleViewController.swift */; };
 		4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */; };
 		4ED03944265FCB3A00E173EA /* ImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */; };
 		4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */; };
@@ -184,6 +185,7 @@
 		4EC8D9C726760C65003D90D3 /* FirstTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabBarController.swift; sourceTree = "<group>"; };
 		4EC8D9CC26760CAD003D90D3 /* SecondTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabBarController.swift; sourceTree = "<group>"; };
 		4EC9B21E26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExampleViewController.swift; sourceTree = "<group>"; };
+		4ECB9361280CDBD70086DF92 /* OrientationExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationExampleViewController.swift; sourceTree = "<group>"; };
 		4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexingStorageManager.swift; sourceTree = "<group>"; };
 		4ED03943265FCB3A00E173EA /* ImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSizeViewController.swift; sourceTree = "<group>"; };
 		4ED30C1D25BFF3E900313983 /* RegularExpressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionViewController.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				4E76184B27CE981000B66DE3 /* DrawShapes */,
 				4E5F335E27D6432200C9B108 /* SizeClassViewController.swift */,
 				4E030C9F27D8A75A00C230FC /* LettersDrawViewController.swift */,
+				4ECB9361280CDBD70086DF92 /* OrientationExampleViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
 				4E89F3C3272D22870024C7DB /* MaskImageViewController.swift in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
+				4ECB9362280CDBD70086DF92 /* OrientationExampleViewController.swift in Sources */,
 				4E04A0FA2754E13C002FCDD0 /* SecondViewController.swift in Sources */,
 				4E459A332757AA1300EE0D85 /* Base64ImageViewController.swift in Sources */,
 				4E77AB9D25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift in Sources */,
