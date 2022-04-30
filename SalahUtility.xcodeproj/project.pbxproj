@@ -72,6 +72,7 @@
 		4ED30C2325C023E100313983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C2225C023E100313983 /* Regex.swift */; };
 		4EDB527D2701CBCE009C00FF /* OperationQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB527B2701CBC0009C00FF /* OperationQueueViewController.swift */; };
 		4EE3F414273D1F8D006FED8C /* CutomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE3F413273D1F8D006FED8C /* CutomAnimation.swift */; };
+		4EE8CD9F28196C10000777BE /* ModalPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8CD9E28196C10000777BE /* ModalPresentationViewController.swift */; };
 		4EEE962527268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEE962427268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift */; };
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
 		4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17412562C55A0050BB01 /* SceneDelegate.swift */; };
@@ -192,6 +193,7 @@
 		4ED30C2225C023E100313983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		4EDB527B2701CBC0009C00FF /* OperationQueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueViewController.swift; sourceTree = "<group>"; };
 		4EE3F413273D1F8D006FED8C /* CutomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutomAnimation.swift; sourceTree = "<group>"; };
+		4EE8CD9E28196C10000777BE /* ModalPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationViewController.swift; sourceTree = "<group>"; };
 		4EEE962427268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		4EFC173D2562C55A0050BB01 /* SalahUtilityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahUtilityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFC173F2562C55A0050BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				4E5F335E27D6432200C9B108 /* SizeClassViewController.swift */,
 				4E030C9F27D8A75A00C230FC /* LettersDrawViewController.swift */,
 				4ECB9361280CDBD70086DF92 /* OrientationExampleViewController.swift */,
+				4EE8CD9E28196C10000777BE /* ModalPresentationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				4E6D71A826FC5CD800C9981D /* RetainCyclesExample.swift in Sources */,
 				4E37DFE727B5230800BA814E /* URLExampleViewController.swift in Sources */,
 				4EC8D9C026760C35003D90D3 /* TestTabBarController.swift in Sources */,
+				4EE8CD9F28196C10000777BE /* ModalPresentationViewController.swift in Sources */,
 				4E04A0F82754E13C002FCDD0 /* FirstViewController.swift in Sources */,
 				4E71C64D25CBD7E100D95243 /* NavigationHeightExampleViewController.swift in Sources */,
 				4E20826E25C167E000F92E23 /* TestCollectionViewCell.swift in Sources */,

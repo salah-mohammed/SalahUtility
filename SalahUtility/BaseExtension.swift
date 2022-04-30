@@ -1395,7 +1395,7 @@ public extension Array{
     /// Returns the data for the specified image in JPEG format.
     /// If the image object’s underlying image data has been purged, calling this function forces that data to be reloaded into memory.
     /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
-    public func jpeg(_ jpegQuality: JPEGQuality) -> Data? {
+    public func bs_jpeg(_ jpegQuality: JPEGQuality) -> Data? {
         return jpegData(compressionQuality: jpegQuality.rawValue)
     }
     //
@@ -3054,6 +3054,9 @@ extension URL {
     public var bs_html2String: String {
         return bs_html2AttributedString?.string ?? ""
     }
+     public var bs_image:UIImage?{
+         return UIImage.init(data: self);
+     }
     // used to convert device token from data to base 64 string
     public var bs_64String:String{
         var token:String = "";

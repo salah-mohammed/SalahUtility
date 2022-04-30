@@ -12,8 +12,17 @@ class ImageSizeViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var originalImage = UIImage(named:"IMG_0257")! //UIImage.init(named:"paper")!
-         
+        var originalImage = UIImage(named:"before")! //UIImage.init(named:"paper")!
+        var oldSize = originalImage.bs_jpeg(.highest)?.bs_getSizeIn(.megabyte).0;
+       print(oldSize)
+        if let cgSource = originalImage.cgImage {
+            let my300dpiImage = UIImage(cgImage: cgSource, scale: 300.0 / 72.0, orientation: originalImage.imageOrientation)
+            self.img.image=my300dpiImage;
+            var new = my300dpiImage.bs_jpeg(.highest)?.bs_getSizeIn(.megabyte).0;
+           print(new)
+        }
+        
+        
 //        var originalImageInfo = originalImage.pngData()?.bs_getSizeIn(.megabyte)
 //         print((originalImageInfo?.1 ?? "")+"\n");
 //
@@ -37,14 +46,17 @@ class ImageSizeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        var oldSize = originalImage.jpeg(.highest)?.bs_getSizeIn(.kilobyte).0;
+//        var oldSize = originalImage.bs_jpeg(.highest)?.bs_getSizeIn(.megabyte).0;
+//        var newSize = originalImage.bs_jpeg(.lowest)?.bs_image?.bs_jpeg(.lowest)?.bs_image?.bs_jpeg(.lowest)?.bs_image?.bs_jpeg(.lowest)?.bs_getSizeIn(.megabyte).0;
+//        print(oldSize);
+//        print(newSize);
 //        var data = originalImage.compress(value: (20,.kilobyte));
-        var data = try? originalImage.compressImage(20) { image, item in
-            let newImage = image.jpegData(compressionQuality:item);
-            self.img.image = originalImage//UIImage.init(data: newImage!);
-         var value =  newImage?.bs_getSizeIn(.kilobyte);
-            print(value);
-        }
+//        var data = try? originalImage.compressImage(20) { image, item in
+//            let newImage = image.jpegData(compressionQuality:item);
+//            self.img.image = originalImage//UIImage.init(data: newImage!);
+//         var value =  newImage?.bs_getSizeIn(.kilobyte);
+//            print(value);
+//        }
 //        var newSize = data?.bs_getSizeIn(.kilobyte).0 ?? 0.0
 //        if let data:Data=data{
 //            img.image = UIImage.init(data: data, scale: 1.0);
