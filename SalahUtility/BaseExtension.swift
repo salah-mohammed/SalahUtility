@@ -21,7 +21,7 @@ import AVFoundation
 import Photos
 import UserNotifications
 import MediaPlayer
-
+import SwiftUI
 //import CommonCrypto
 //    #if os(iOS) || os(watchOS) || os(tvOS)
 //        let color = UIColor.red
@@ -2181,6 +2181,15 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  }
  /*    **UIApplication**   */
   extension UIApplication {
+      @available(iOS 13.0, *)
+      public var bs_window: UIWindow? {
+                guard let scene = UIApplication.shared.connectedScenes.first,
+                      let windowSceneDelegate = scene.delegate as? UIWindowSceneDelegate,
+                      let window = windowSceneDelegate.window else {
+                    return nil
+                }
+                return window
+     }
      public func bs_openFilesApp(){
          var fileStringUrl = "shareddocuments://"
          if let fileUrl:URL = try? URL(string:fileStringUrl){

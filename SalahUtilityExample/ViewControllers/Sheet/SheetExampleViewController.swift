@@ -25,8 +25,20 @@ class SheetExampleViewController: SheetViewController {
         self.view.backgroundColor=UIColor.clear;
     }
     @IBAction func tapGesture(_ sender:UITapGestureRecognizer){
-        self.view.endEditing(true)
+//        self.view.endEditing(true)
+        self.displayError(message: "asd");
     }
+    func displayError(message: String) {
+        let controller = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        
+        guard let alertWindow = UIApplication.shared.windows.last,
+              alertWindow.windowLevel == UIWindow.Level(rawValue: 10000001.0) else {
+            self.navigationController?.present(controller, animated: true, completion: nil)
+          return
+        }
+        alertWindow.rootViewController?.present(controller, animated: true, completion: nil)
+      }
     @IBAction func btnAddView(_ sender:UIView){
        var vieww = UITextField.init();
         vieww.delegate=self;
