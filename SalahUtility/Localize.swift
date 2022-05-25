@@ -34,6 +34,21 @@ public class Localize: NSObject {
     public class var Verify:String{
         return "Verify".internalLocalize_
     }
+    public class var Settings:String{
+        return "Settings".internalLocalize_
+    }
+    public class var Appearance:String{
+        return "Appearance".internalLocalize_
+    }
+    public class var DoneSuccessfully:String{
+        return "DoneSuccessfully".internalLocalize_
+    }
+    public class var Attention:String{
+        return "Attention".internalLocalize_
+    }
+    public class var Error:String{
+        return "Error".internalLocalize_
+    }
     // Alerts
     public class var LogoutConfirmation:String{
         return "AlertMessageLogoutConfirmation".internalLocalize_

@@ -16,9 +16,11 @@
 "Complete"="إكمال";
 "Verify"="تحقق";
 "Logout"="تسجيل خروج";
-"UIUserInterfaceStyle.unspecified.bs_title"="نظام";
-"UIUserInterfaceStyle.light.bs_title"="فاتح";
-"UIUserInterfaceStyle.dark.bs_title"="غامق";
+"Settings"="الإعدادات";
+"Appearance"="المظهر";
+"DoneSuccessfully"="تم بنجاح";
+"Attention"="تنبيه";
+"Error"="خطأ";
 //Alerts
 "AlertMessageLogoutConfirmation"="هل تريد تسجيل الخروج؟";
 //Titles
@@ -47,3 +49,7 @@
 "Gender"="الجنس";
 "DateOfBirth"="تاريخ الميلاد";
 "Version"="رقم النسخة";
+//dark mode
+"UIUserInterfaceStyle.unspecified.bs_title"="نظام";
+"UIUserInterfaceStyle.light.bs_title"="فاتح";
+"UIUserInterfaceStyle.dark.bs_title"="غامق";

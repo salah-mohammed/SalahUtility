@@ -16,9 +16,11 @@
 "Complete"="Complete";
 "Verify"="Verify";
 "Logout"="Logout";
-"UIUserInterfaceStyle.unspecified.bs_title"="system";
-"UIUserInterfaceStyle.light.bs_title"="light";
-"UIUserInterfaceStyle.dark.bs_title"="dark";
+"Settings"="Settings";
+"Appearance"="Appearance";
+"DoneSuccessfully"="Done successfully";
+"Attention"="Attention";
+"Error"="Error";
 // Alerts
 "AlertMessageLogoutConfirmation"="Do you want to log out";
 //Titles
@@ -47,3 +49,9 @@
 "Gender"="Gender";
 "DateOfBirth"="Date Of Birth";
 "Version"="Version";
+//dark mode
+"UIUserInterfaceStyle.unspecified.bs_title"="system";
+"UIUserInterfaceStyle.light.bs_title"="light";
+"UIUserInterfaceStyle.dark.bs_title"="dark";
+
+
