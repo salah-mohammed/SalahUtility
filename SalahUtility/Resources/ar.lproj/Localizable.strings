@@ -6,7 +6,7 @@
   Copyright © 2021 Salah. All rights reserved.
 */
 // Constants
-
+"Ok"="تم";
 "Cancel"="إلغاء";
 "Done"="تم";
 "Yes"="نعم";

@@ -10,6 +10,9 @@ import UIKit
 
 public class Localize: NSObject {
     // Constants
+    public class var Ok:String{
+        return "Ok".internalLocalize_
+    }
     public class var Cancel:String{
         return "Cancel".internalLocalize_
     }
