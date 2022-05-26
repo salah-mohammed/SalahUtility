@@ -21,6 +21,7 @@
 "DoneSuccessfully"="تم بنجاح";
 "Attention"="تنبيه";
 "Error"="خطأ";
+"AnErrorOccurred"="خطأ غير متوقع";
 //Alerts
 "AlertMessageLogoutConfirmation"="هل تريد تسجيل الخروج؟";
 //Titles

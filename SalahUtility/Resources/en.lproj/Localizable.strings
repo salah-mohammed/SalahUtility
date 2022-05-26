@@ -21,6 +21,7 @@
 "DoneSuccessfully"="Done successfully";
 "Attention"="Attention";
 "Error"="Error";
+"AnErrorOccurred"="An unexpected error occurred";
 // Alerts
 "AlertMessageLogoutConfirmation"="Do you want to log out";
 //Titles
