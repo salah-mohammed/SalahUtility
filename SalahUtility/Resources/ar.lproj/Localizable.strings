@@ -6,6 +6,7 @@
   Copyright © 2021 Salah. All rights reserved.
 */
 // Constants
+"FieldRequired"="%@ مطلوب";
 "Ok"="تم";
 "Cancel"="إلغاء";
 "Done"="تم";

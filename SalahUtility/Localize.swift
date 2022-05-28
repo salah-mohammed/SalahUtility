@@ -10,6 +10,9 @@ import UIKit
 
 public class Localize: NSObject {
     // Constants
+    public class func FieldRequired(_ value:String)->String{
+      return  String.init(format: "FieldRequired".internalLocalize_, arguments:[value])
+    }
     public class var Ok:String{
         return "Ok".internalLocalize_
     }

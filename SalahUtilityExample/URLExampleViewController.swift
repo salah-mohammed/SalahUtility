@@ -8,6 +8,7 @@
 
 import UIKit
 import SalahUtility
+import SwiftUI
 class URLExampleViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -40,7 +41,7 @@ class URLExampleViewController: UIViewController {
 
 
         print(Debuger.shared.printItems())
-
+//        Alert.show(self, .fieldRequired(<#T##String#>, <#T##((UIAlertAction) -> Void)?#>))
         // Do any additional setup after loading the view.
     }
     

@@ -2181,14 +2181,18 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  }
  /*    **UIApplication**   */
   extension UIApplication {
-      @available(iOS 13.0, *)
       public var bs_window: UIWindow? {
-                guard let scene = UIApplication.shared.connectedScenes.first,
-                      let windowSceneDelegate = scene.delegate as? UIWindowSceneDelegate,
-                      let window = windowSceneDelegate.window else {
-                    return nil
-                }
-                return window
+          if #available(iOS 13.0, *) {
+              guard let scene = UIApplication.shared.connectedScenes.first,
+                    let windowSceneDelegate = scene.delegate as? UIWindowSceneDelegate,
+                    let window = windowSceneDelegate.window else {
+                  return nil
+              }
+              return window
+          } else {
+              return UIApplication.shared.windows.first
+              // Fallback on earlier versions
+          }
      }
      public func bs_openFilesApp(){
          var fileStringUrl = "shareddocuments://"

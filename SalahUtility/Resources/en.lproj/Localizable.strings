@@ -6,6 +6,7 @@
   Copyright © 2021 Salah. All rights reserved.
 */
 // Constants
+"FieldRequired"="%@ required";
 "Ok"="Ok";
 "Cancel"="Cancel";
 "Done"="Done";
