@@ -72,6 +72,7 @@
 		4ED30C2325C023E100313983 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED30C2225C023E100313983 /* Regex.swift */; };
 		4EDB527D2701CBCE009C00FF /* OperationQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB527B2701CBC0009C00FF /* OperationQueueViewController.swift */; };
 		4EE3F414273D1F8D006FED8C /* CutomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE3F413273D1F8D006FED8C /* CutomAnimation.swift */; };
+		4EE54D032848AD7D00BFF787 /* SwiftUIControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */; };
 		4EE8CD9F28196C10000777BE /* ModalPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8CD9E28196C10000777BE /* ModalPresentationViewController.swift */; };
 		4EEE962527268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEE962427268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift */; };
 		4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC173F2562C55A0050BB01 /* AppDelegate.swift */; };
@@ -193,6 +194,7 @@
 		4ED30C2225C023E100313983 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		4EDB527B2701CBC0009C00FF /* OperationQueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueViewController.swift; sourceTree = "<group>"; };
 		4EE3F413273D1F8D006FED8C /* CutomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutomAnimation.swift; sourceTree = "<group>"; };
+		4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIControls.swift; sourceTree = "<group>"; };
 		4EE8CD9E28196C10000777BE /* ModalPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationViewController.swift; sourceTree = "<group>"; };
 		4EEE962427268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		4EFC173D2562C55A0050BB01 /* SalahUtilityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahUtilityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -413,6 +415,7 @@
 				4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */,
 				4E86DAE627563EAA00C471B5 /* Localize.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
+				4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 				4EEE962527268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift in Sources */,
 				4E20E77D27FB1DEF00FD8802 /* AlertBuilder.swift in Sources */,
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
+				4EE54D032848AD7D00BFF787 /* SwiftUIControls.swift in Sources */,
 				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
 				4E86DAE727563EAA00C471B5 /* Localize.swift in Sources */,

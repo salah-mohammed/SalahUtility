@@ -136,6 +136,7 @@ public enum DeviceType:CGFloat{
  case iphoneXr
  case iphoneXs
  case iphoneXsMax
+ case iphoneProMax
  case iPadMini
  case iPadAir
  case iPadPro10_5inch
@@ -183,7 +184,7 @@ private var orientationHeight:CGFloat{
     return height
 }
 private var orientationWidth:CGFloat{
-    if UIDevice.current.orientation.isPortrait{
+    if UIDevice.current.orientation.isLandscape{
         return self.height
     }
     return width
@@ -202,6 +203,8 @@ public var height:CGFloat{
    return 812.0
   case .iphoneXsMax:
    return 896.0
+  case .iphoneProMax:
+   return 926.0
   case .iPadMini:
    return 1024.0
   case .iPadAir:
@@ -226,6 +229,8 @@ public var height:CGFloat{
      return 375.0
     case .iphoneXsMax:
      return 314.0
+    case .iphoneProMax:
+     return 428
     case .iPadMini,.iPadAir:
      return 768.0
     case .iPadPro10_5inch,.iPadPro_11inch:
@@ -2183,15 +2188,13 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
   extension UIApplication {
       public var bs_window: UIWindow? {
           if #available(iOS 13.0, *) {
-              guard let scene = UIApplication.shared.connectedScenes.first,
-                    let windowSceneDelegate = scene.delegate as? UIWindowSceneDelegate,
-                    let window = windowSceneDelegate.window else {
-                  return nil
-              }
-              return window
+              return UIApplication
+                  .shared
+                  .connectedScenes
+                  .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                  .first { $0.isKeyWindow }
           } else {
-              return UIApplication.shared.windows.first
-              // Fallback on earlier versions
+              return UIApplication.shared.windows.filter {$0.isKeyWindow}.first
           }
      }
      public func bs_openFilesApp(){
