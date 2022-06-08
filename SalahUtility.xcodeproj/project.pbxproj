@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0232E62850847B005F48FB /* SwiftUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0232E52850847B005F48FB /* SwiftUIExtension.swift */; };
 		4E030CA027D8A75A00C230FC /* LettersDrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E030C9F27D8A75A00C230FC /* LettersDrawViewController.swift */; };
 		4E04A0CC2754B08C002FCDD0 /* JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */; };
 		4E04A0F82754E13C002FCDD0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A0F42754E13C002FCDD0 /* FirstViewController.swift */; };
@@ -127,6 +128,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E0232E52850847B005F48FB /* SwiftUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIExtension.swift; sourceTree = "<group>"; };
 		4E030C9F27D8A75A00C230FC /* LettersDrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersDrawViewController.swift; sourceTree = "<group>"; };
 		4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAble.swift; sourceTree = "<group>"; };
 		4E04A0F42754E13C002FCDD0 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				4E86DAE627563EAA00C471B5 /* Localize.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 				4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */,
+				4E0232E52850847B005F48FB /* SwiftUIExtension.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				4E04A0CC2754B08C002FCDD0 /* JSONAble.swift in Sources */,
 				4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */,
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
+				4E0232E62850847B005F48FB /* SwiftUIExtension.swift in Sources */,
 				4E79BD1C2484EA80006FD36D /* InformationScreenManager.swift in Sources */,
 				4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */,
 				4EA31A512743B7C40065CD2F /* SheetViewController.swift in Sources */,
