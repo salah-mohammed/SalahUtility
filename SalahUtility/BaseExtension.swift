@@ -2186,6 +2186,10 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  }
  /*    **UIApplication**   */
   extension UIApplication {
+      // swiftUI
+      var bs_swiftUINavigationController:UINavigationController{
+          return UIApplication.shared.bs_window!.rootViewController!.children.first!.children.first! as! UINavigationController
+      }
       public var bs_window: UIWindow? {
           if #available(iOS 13.0, *) {
               return UIApplication
