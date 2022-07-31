@@ -1378,6 +1378,18 @@ public extension Collection {
         }
         return items;
     }
+    func bs_replaceElement(_ item:Iterator.Element?,items:[Iterator.Element],whereIs:(Iterator.Element,Iterator.Element?)-> Bool)->[Iterator.Element]{
+        var newArray:[Iterator.Element] = self as? [Iterator.Element] ?? []
+        let index = newArray.firstIndex{ newItem in
+            return whereIs(newItem,item)}
+        
+        if let index:Int = index{
+            for tempITem in items.reversed().enumerated(){
+                newArray.insert(tempITem.1, at: index)
+        }
+        }
+        return newArray
+    }
 }
 public extension Array where Element: Copying {
     func clone() -> Array {

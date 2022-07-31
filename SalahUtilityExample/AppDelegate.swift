@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        let data: UnsafePointer<UInt8>? = UnsafePointer<UInt8>.init(bitPattern: 0)
+//        print(data)
+//        var a = data?[0]
+//        print(a);
+//        var b = data?[1]
+//        print(b);
 //        UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).standardAppearance = AppStyle.greenBarStyle
 //        UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).scrollEdgeAppearance = AppStyle.greenBarStyle
 //
