@@ -1378,17 +1378,14 @@ public extension Collection {
         }
         return items;
     }
-    func bs_replaceElement(_ item:Iterator.Element?,items:[Iterator.Element],whereIs:(Iterator.Element,Iterator.Element?)-> Bool)->[Iterator.Element]{
-        var newArray:[Iterator.Element] = self as? [Iterator.Element] ?? []
-        let index = newArray.firstIndex{ newItem in
-            return whereIs(newItem,item)}
-        
-        if let index:Int = index{
-            for tempITem in items.reversed().enumerated(){
-                newArray.insert(tempITem.1, at: index)
+    func bs_replaceElement(_ item:Iterator.Element?,items:[Iterator.Element],whereIsEqual:(Iterator.Element,Iterator.Element)-> Bool)->[Iterator.Element]{
+        let selfArray:[Iterator.Element] = self as? [Iterator.Element] ?? []
+        if let item:Iterator.Element = item{
+        let newItems = selfArray.flatMap({whereIsEqual($0,item) ? items:[$0]})
+        return newItems
+        }else{
+        return selfArray
         }
-        }
-        return newArray
     }
 }
 public extension Array where Element: Copying {
