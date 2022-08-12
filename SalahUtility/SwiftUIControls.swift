@@ -27,3 +27,24 @@ public struct ActivityIndicator: UIViewRepresentable {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
+
+public struct Anything<Wrapper : UIView>: UIViewRepresentable {
+    typealias Updater = (Wrapper, Context) -> Void
+
+    var makeView: () -> Wrapper
+    var update: (Wrapper, Context) -> Void
+
+    public init(_ makeView: @escaping @autoclosure () -> Wrapper,
+         updater update: @escaping (Wrapper) -> Void) {
+        self.makeView = makeView
+        self.update = { view, _ in update(view) }
+    }
+
+    public func makeUIView(context: Context) -> Wrapper {
+        makeView()
+    }
+
+    public func updateUIView(_ view: Wrapper, context: Context) {
+        update(view, context)
+    }
+}
