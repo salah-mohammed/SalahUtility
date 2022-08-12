@@ -27,7 +27,7 @@ public struct ActivityIndicator: UIViewRepresentable {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
-
+@available(iOS 13.0, *)
 public struct Anything<Wrapper : UIView>: UIViewRepresentable {
     typealias Updater = (Wrapper, Context) -> Void
 
