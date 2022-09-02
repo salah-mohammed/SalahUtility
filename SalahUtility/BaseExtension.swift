@@ -131,6 +131,7 @@ case ipad
 }
 public enum DeviceType:CGFloat{
  case iPhoneSE_1G
+ case iPhoneSE_2G
  case iphone8
  case iphone8Plus
  case iphoneXr
@@ -193,6 +194,8 @@ public var height:CGFloat{
   switch self{
   case .iPhoneSE_1G:
     return 568.0
+  case .iPhoneSE_2G:
+    return 667.0
   case .iphone8:
    return 667.0
   case .iphone8Plus:
@@ -221,6 +224,8 @@ public var height:CGFloat{
     switch self{
     case .iPhoneSE_1G:
      return 320.0
+    case .iPhoneSE_2G:
+    return 375.0
     case .iphone8:
      return 375.0
     case .iphone8Plus,.iphoneXr:
