@@ -6,6 +6,7 @@
   Copyright © 2021 Salah. All rights reserved.
 */
 // Constants
+"CantNotOpenLink"="Can't open this link";
 "Choose"="Choose";
 "FieldRequired"="%@ required";
 "Ok"="Ok";

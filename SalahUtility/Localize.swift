@@ -10,6 +10,9 @@ import UIKit
 
 public class Localize: NSObject {
     // Constants
+    public class var CantNotOpenLink:String{
+        return "CantNotOpenLink".internalLocalize_
+    }
     public class var Choose:String{
         return "Choose".internalLocalize_
     }
