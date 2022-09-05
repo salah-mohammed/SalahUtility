@@ -45,6 +45,7 @@
 		4E7CB516279566A6001DDD57 /* webView.css in Resources */ = {isa = PBXBuildFile; fileRef = 4E7CB515279566A6001DDD57 /* webView.css */; };
 		4E7CB51827956AC0001DDD57 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E7CB517279567C2001DDD57 /* Cairo-Regular.ttf */; };
 		4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */; };
+		4E7EF85D28C6026700002E88 /* AlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7EF85C28C6026700002E88 /* AlertExampleViewController.swift */; };
 		4E80CF8B25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */; };
 		4E86DADC27560D9100C471B5 /* ObserverExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DADB27560D9100C471B5 /* ObserverExampleViewController.swift */; };
 		4E86DADD2756121500C471B5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC17452562C55A0050BB01 /* MainStoryboard.storyboard */; };
@@ -167,6 +168,7 @@
 		4E7CB515279566A6001DDD57 /* webView.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = webView.css; sourceTree = "<group>"; };
 		4E7CB517279567C2001DDD57 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		4E7CFBF72604EDFE000DB1A9 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
+		4E7EF85C28C6026700002E88 /* AlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExampleViewController.swift; sourceTree = "<group>"; };
 		4E80CF8A25C7E31A0077F0DC /* DaynamicScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaynamicScrollViewViewController.swift; sourceTree = "<group>"; };
 		4E86DADB27560D9100C471B5 /* ObserverExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverExampleViewController.swift; sourceTree = "<group>"; };
 		4E86DAE627563EAA00C471B5 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				4E030C9F27D8A75A00C230FC /* LettersDrawViewController.swift */,
 				4ECB9361280CDBD70086DF92 /* OrientationExampleViewController.swift */,
 				4EE8CD9E28196C10000777BE /* ModalPresentationViewController.swift */,
+				4E7EF85C28C6026700002E88 /* AlertExampleViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				4EC27530268C89E60094C216 /* ScrollViewWithImageViewController.swift in Sources */,
 				4EBAE67327BB9C26003265EA /* DrawViewController.swift in Sources */,
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
+				4E7EF85D28C6026700002E88 /* AlertExampleViewController.swift in Sources */,
 				4E89F3C3272D22870024C7DB /* MaskImageViewController.swift in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
 				4ECB9362280CDBD70086DF92 /* OrientationExampleViewController.swift in Sources */,
