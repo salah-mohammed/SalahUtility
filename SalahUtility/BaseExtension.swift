@@ -2122,6 +2122,17 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  /*    **UILabel**   */
 
   extension UILabel {
+      public var bs_attributedString:[NSAttributedString.Key : Any]{
+          let attributes:[NSAttributedString.Key : Any] = [
+                  NSAttributedString.Key.font :self.font,
+                  NSAttributedString.Key.foregroundColor :self.textColor,
+                  NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue
+                  ]
+          return attributes
+      }
+      public func bs_underlineText(title:String?){
+          attributedText = NSAttributedString(string:title ?? "", attributes: bs_attributedString)
+      }
       var bs_numberOfVisibleLines: Int {
           let textSize = CGSize(width: CGFloat(self.frame.size.width), height: CGFloat(MAXFLOAT))
           let rHeight: Int = lroundf(Float(self.sizeThatFits(textSize).height))
