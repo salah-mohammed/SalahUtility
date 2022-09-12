@@ -22,6 +22,7 @@ import Photos
 import UserNotifications
 import MediaPlayer
 import SwiftUI
+import SafariServices
 //import CommonCrypto
 //    #if os(iOS) || os(watchOS) || os(tvOS)
 //        let color = UIColor.red
@@ -1870,6 +1871,12 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIViewController**   */
 
  extension UIViewController {
+     public func openBySafariViewController(_ url:URL?){
+          if let url:URL = url{
+          let vc = SFSafariViewController.init(url:url)
+          self.present(vc, animated: true);
+          }
+      }
     public var screenHeightWithoutSafeAreaWithoutNavigationHeight:CGFloat{
         let  safeArea = bs_safeArea
         return UIScreen.main.bounds.height-(safeArea?.top ?? 0)-(bs_safeArea?.bottom ?? 0)-self.bs_topbarHeight
