@@ -1871,7 +1871,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
 /*    **UIViewController**   */
 
  extension UIViewController {
-     public func openBySafariViewController(_ url:URL?){
+     public func bs_openBySafari(_ url:URL?){
           if let url:URL = url{
           let vc = SFSafariViewController.init(url:url)
           self.present(vc, animated: true);
