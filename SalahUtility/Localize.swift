@@ -64,7 +64,6 @@ public class Localize: NSObject {
     public class var AnErrorOccurred:String{
         return "AnErrorOccurred".internalLocalize_
     }
-    
     // Alerts
     public class var LogoutConfirmation:String{
         return "AlertMessageLogoutConfirmation".internalLocalize_

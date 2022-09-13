@@ -66,20 +66,26 @@ public class AlertBuilder{
     
 }
 public enum Alert{
+    // (message,okHandler)
     case error(String?,((UIAlertAction) -> Void)?)
+    // (title,fieldName,okHandler)
     case fieldRequired(String,String,((UIAlertAction) -> Void)?)
-//    case fieldRequiredTowButton(String,String,((UIAlertAction) -> Void)?)
+    case normal2Actions(String,String,(String?,((UIAlertAction) -> Void)?),(String?,((UIAlertAction) -> Void)?))
+    // (message,okHandler)
     case sucess(String,((UIAlertAction) -> Void)?)
+    // (message,okHandler)
     case attention(String?,((UIAlertAction) -> Void)?)
+    // (message,yesHandler,noHandler)
     case yesOrNo(String,
                  yes:(String?,((UIAlertAction) -> Void)?),
                  no:(String?,((UIAlertAction) -> Void)?))
+    // (title,message,okHandler)
     case normal(String,String,((UIAlertAction) -> Void)?)
     var title: String{
         switch self {
-//        case .fieldRequiredTowButton(let title , let message , let action):
-//            return title
         case  .fieldRequired(let title,let message,let action):
+            return title
+        case .normal2Actions(let title,_,_,_):
             return title
         case .error(_, _):
             return Localize.Error
@@ -101,12 +107,12 @@ public enum Alert{
         case .error(let message, let action):
             alert.message(message ?? Localize.AnErrorOccurred).element(Element.button(Localize.Ok, .default, action))
             break
-        case .fieldRequired(let title,let message, let action):
+        case .fieldRequired(_,let message, let action):
             alert.message(Localize.FieldRequired(message)).element(Element.button(Localize.Ok, .default, action))
             break
-//        case .fieldRequiredTowButton(let title,let message, let action):
-//            alert.message(Localize.FieldRequired(message)).element(Element.button(Localize.Ok, .default, action)).element(Element.button(Localize.Cancel, .default,nil))
-//            break
+        case .normal2Actions(_,let message, let yes,let no):
+            alert.message(message).element(Element.button(yes.0 ?? Localize.Yes, .default, yes.1)).element(Element.button(no.0 ?? Localize.No, .cancel, no.1))
+            break
         case .sucess(let message, let action):
             alert.message(message).element(Element.button(Localize.Ok, .default, action))
             break
