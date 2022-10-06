@@ -13,8 +13,6 @@ import SalahUtility
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        let data: UnsafePointer<UInt8>? = UnsafePointer<UInt8>.init(bitPattern: 0)
 //        print(data)

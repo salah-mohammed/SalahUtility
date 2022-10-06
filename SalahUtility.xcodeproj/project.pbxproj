@@ -59,6 +59,8 @@
 		4EA31A512743B7C40065CD2F /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA31A502743B7C40065CD2F /* SheetViewController.swift */; };
 		4EA31A532743B80A0065CD2F /* SheetExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */; };
 		4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */; };
+		4EB09E4628EEF29C00B075D1 /* HTMLTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB09E4528EEF29C00B075D1 /* HTMLTestViewController.swift */; };
+		4EB27C5C28E1CF960042CD28 /* ContainerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB27C5B28E1CF960042CD28 /* ContainerExampleViewController.swift */; };
 		4EB6807F274A76CD00363E69 /* Secondary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB6807E274A76CD00363E69 /* Secondary.storyboard */; };
 		4EBAE67327BB9C26003265EA /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBAE67227BB9C26003265EA /* DrawViewController.swift */; };
 		4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */; };
@@ -183,6 +185,8 @@
 		4EA31A502743B7C40065CD2F /* SheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
 		4EA31A522743B8090065CD2F /* SheetExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetExampleViewController.swift; sourceTree = "<group>"; };
 		4EA35B8725F647F100377C6D /* TableViewSectionExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionExampleViewController.swift; sourceTree = "<group>"; };
+		4EB09E4528EEF29C00B075D1 /* HTMLTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLTestViewController.swift; sourceTree = "<group>"; };
+		4EB27C5B28E1CF960042CD28 /* ContainerExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerExampleViewController.swift; sourceTree = "<group>"; };
 		4EB6807E274A76CD00363E69 /* Secondary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Secondary.storyboard; sourceTree = "<group>"; };
 		4EBAE67227BB9C26003265EA /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkBenchTimer.swift; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 				4ECB9361280CDBD70086DF92 /* OrientationExampleViewController.swift */,
 				4EE8CD9E28196C10000777BE /* ModalPresentationViewController.swift */,
 				4E7EF85C28C6026700002E88 /* AlertExampleViewController.swift */,
+				4EB27C5B28E1CF960042CD28 /* ContainerExampleViewController.swift */,
+				4EB09E4528EEF29C00B075D1 /* HTMLTestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -866,8 +872,10 @@
 			files = (
 				4E7CB513279564C6001DDD57 /* WebViewViewController.swift in Sources */,
 				4E30D27325732FB4005B63EA /* DateViewController.swift in Sources */,
+				4EB09E4628EEF29C00B075D1 /* HTMLTestViewController.swift in Sources */,
 				4E5F335F27D6432200C9B108 /* SizeClassViewController.swift in Sources */,
 				4EFC17442562C55A0050BB01 /* TestViewController.swift in Sources */,
+				4EB27C5C28E1CF960042CD28 /* ContainerExampleViewController.swift in Sources */,
 				4E86DADC27560D9100C471B5 /* ObserverExampleViewController.swift in Sources */,
 				4EA31A532743B80A0065CD2F /* SheetExampleViewController.swift in Sources */,
 				4EDB527D2701CBCE009C00FF /* OperationQueueViewController.swift in Sources */,
