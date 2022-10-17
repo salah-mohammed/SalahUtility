@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SalahUtility
 extension String{
     public func bs_stripHTML() -> String {
         var tempString = self;
@@ -120,11 +120,16 @@ Umami Opening in 2012: First Asian Fusion Experiences Concept in Jordan: <br><br
 <br>
 <img src="https://i.imgur.com/OaQLm6z.jpeg">
 """)
+    //0.0028879642486572266 seconds.
     override func viewDidLoad() {
         super.viewDidLoad()
-        var html = html4;
+        var html = html1;
         self.lblTitle.text="Sample \(html.0)"
-        self.lblDetails.text=html.1.bs_stripHTML();
+        var a = ParkBenchTimer();
+        var text = html.1.bs_stripHTML().trimmingCharacters(in: .whitespaces)
+        a.stopAndDurationInSeconds()
+        
+        self.lblDetails.text=text
 
         // Do any additional setup after loading the view.
     }

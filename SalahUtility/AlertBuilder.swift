@@ -59,9 +59,10 @@ public class AlertBuilder{
         }
         return alert
     }
-    public func execute(){
+    @discardableResult public func execute()->UIAlertController{
         let alert = self.build()
         viewController.present(alert, animated: true)
+        return alert
     }
     
 }
