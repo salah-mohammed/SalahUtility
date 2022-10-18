@@ -8,7 +8,6 @@
 // Constants
 "CantNotOpenLink"="Can't open this link";
 "Choose"="Choose";
-"FieldRequired"="%@ required";
 "Ok"="Ok";
 "Cancel"="Cancel";
 "Done"="Done";
@@ -40,6 +39,8 @@
 "FullName"="FullName";
 "UserName"="FullName";
 "Password"="Password";
+"ConfirmPassword"="Confirm Password";
+"NewPassword"="New Password";
 "Address"="Address";
 "AddressDetails"="Address details";
 "City"="City";
@@ -52,6 +53,8 @@
 "Email"="Email";
 "Gender"="Gender";
 "DateOfBirth"="Date Of Birth";
+"Location"="Location";
+"Requirements"="Requirements";
 "Version"="Version";
 //dark mode
 "UIUserInterfaceStyle.unspecified.bs_title"="system";
@@ -59,3 +62,10 @@
 "UIUserInterfaceStyle.dark.bs_title"="dark";
 
 
+
+
+// validation
+"NotValid"="Sorry, The %@ not valid";
+"FieldRequired"="%@ required";
+"PasswordNotMatch"="Password does not match";
+"PasswordMustHave6"="Password must be more than six characters";

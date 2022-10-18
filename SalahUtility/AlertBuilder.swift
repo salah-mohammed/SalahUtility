@@ -109,7 +109,7 @@ public enum Alert{
             alert.message(message ?? Localize.AnErrorOccurred).element(Element.button(Localize.Ok, .default, action))
             break
         case .fieldRequired(_,let message, let action):
-            alert.message(Localize.FieldRequired(message)).element(Element.button(Localize.Ok, .default, action))
+            alert.message(Validate.fieldRequired(message)).element(Element.button(Localize.Ok, .default, action))
             break
         case .normal2Actions(_,let message, let yes,let no):
             alert.message(message).element(Element.button(yes.0 ?? Localize.Yes, .default, yes.1)).element(Element.button(no.0 ?? Localize.No, .cancel, no.1))

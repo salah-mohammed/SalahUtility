@@ -10,14 +10,27 @@ import UIKit
 
 public class Localize: NSObject {
     // Constants
+    
+    public class var Requirements:String{
+        return "Requirements".internalLocalize_
+    }
+    public class var Location:String{
+        return "Location".internalLocalize_
+    }
+    public class var PasswordMustHave6:String{
+        return "PasswordMustHave6".internalLocalize_
+    }
+    public class var NewPassword:String{
+        return "NewPassword".internalLocalize_
+    }
+    public class var PasswordNotMatch:String{
+        return "PasswordNotMatch".internalLocalize_
+    }
     public class var CantNotOpenLink:String{
         return "CantNotOpenLink".internalLocalize_
     }
     public class var Choose:String{
         return "Choose".internalLocalize_
-    }
-    public class func FieldRequired(_ value:String)->String{
-      return  String.init(format: "FieldRequired".internalLocalize_, arguments:[value])
     }
     public class var Ok:String{
         return "Ok".internalLocalize_
@@ -102,6 +115,9 @@ public class Localize: NSObject {
     }
     public class var Password:String{
         return "Password".internalLocalize_
+    }
+    public class var ConfirmPassword:String{
+        return "ConfirmPassword".internalLocalize_
     }
     public class var Address:String{
         return "Address".internalLocalize_

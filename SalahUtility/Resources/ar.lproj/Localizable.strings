@@ -8,7 +8,6 @@
 // Constants
 "CantNotOpenLink"="لايمكن فتح هذا الرابط";
 "Choose"="اختر";
-"FieldRequired"="%@ مطلوب";
 "Ok"="تم";
 "Cancel"="إلغاء";
 "Done"="تم";
@@ -40,6 +39,8 @@
 "FullName"="الاسم الكامل";
 "UserName"="اسم المستخدم";
 "Password"="كلمة المرور";
+"ConfirmPassword"="تأكيد كلمة المرور";
+"NewPassword"="كلمة مرور جديدة";
 "Address"="العنوان";
 "AddressDetails"="تفاصيل العنوان";
 "City"="المدينة";
@@ -52,8 +53,16 @@
 "Email"="البريد الإلكتروني";
 "Gender"="الجنس";
 "DateOfBirth"="تاريخ الميلاد";
+"Location"="الموقع";
+"Requirements"="المتطلبات";
 "Version"="رقم النسخة";
 //dark mode
 "UIUserInterfaceStyle.unspecified.bs_title"="نظام";
 "UIUserInterfaceStyle.light.bs_title"="فاتح";
 "UIUserInterfaceStyle.dark.bs_title"="غامق";
+
+// validation
+"NotValid"="يبدو ان حقل %@ غير صحيح";
+"FieldRequired"="%@ مطلوب";
+"PasswordNotMatch"="كلمة المرور غير متطابقة";
+"PasswordMustHave6"="كلمة المرور يجب ان تكون اكثر من ستة حروف";

@@ -90,6 +90,7 @@
 		4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */; };
 		4EFC179C2562CA150050BB01 /* SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; };
 		4EFC179D2562CA150050BB01 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B2E531B28FF34B400FE7911 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E531A28FF34B400FE7911 /* Validate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,7 @@
 		4EFC17842562C67A0050BB01 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = localNotificationAudio.m4a; sourceTree = "<group>"; };
 		4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationViewController.swift; sourceTree = "<group>"; };
+		8B2E531A28FF34B400FE7911 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -425,6 +427,7 @@
 				4E1A3D27274ADED500963CC3 /* VerticallyCenteredTextView.swift */,
 				4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */,
 				4E86DAE627563EAA00C471B5 /* Localize.swift */,
+				8B2E531A28FF34B400FE7911 /* Validate.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 				4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */,
 				4E0232E52850847B005F48FB /* SwiftUIExtension.swift */,
@@ -853,6 +856,7 @@
 				4E86DAE727563EAA00C471B5 /* Localize.swift in Sources */,
 				4E1A3D28274ADED500963CC3 /* VerticallyCenteredTextView.swift in Sources */,
 				4E73424D24F25F3500969E79 /* LocalAuth.swift in Sources */,
+				8B2E531B28FF34B400FE7911 /* Validate.swift in Sources */,
 				4E04A0CC2754B08C002FCDD0 /* JSONAble.swift in Sources */,
 				4E1EA39925F6B03D005D703E /* Debuger.swift in Sources */,
 				4E331C432460C17700E5562C /* CounterModel.swift in Sources */,
