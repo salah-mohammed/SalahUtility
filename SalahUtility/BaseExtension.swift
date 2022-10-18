@@ -1898,7 +1898,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
         // set up activity view controller
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = sender // so that iPads won't crash
-        activityViewController.popoverPresentationController?.sourceRect = sender?.frame ?? CGRect.zero
+        activityViewController.popoverPresentationController?.sourceRect = CGRect(x: sender?.bounds.midX ?? 0, y:sender?.bounds.height ?? 0,width: 0,height: 0)
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
         
