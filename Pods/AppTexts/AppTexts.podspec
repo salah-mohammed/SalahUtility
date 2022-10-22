@@ -15,18 +15,18 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "SalahUtility"
-  s.version      = "0.0.10"
-  s.summary      = "SalahUtility"
+  s.name         = "AppTexts"
+  s.version      = "0.0.1"
+  s.summary      = "AppTexts"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "SalahUtility"
+  s.description  = "AppTexts"
 
-  s.homepage     = "https://github.com/salah-mohammed/SalahUtility"
+  s.homepage     = "https://github.com/salah-mohammed/AppTexts"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/salah-mohammed/SalahUtility.git", :tag => "#{s.version}",:branch => "master"}
+  s.source       = { :git => "https://github.com/salah-mohammed/AppTexts.git", :tag => "#{s.version}",:branch => "master"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "*", "SalahUtility/*"
+  s.source_files  = "*", "AppTexts/*"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -97,7 +97,7 @@ Pod::Spec.new do |s|
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
       s.resource_bundles = {
-    'SalahUtility' => ['SalahUtility/Resources/**/*.{xib,xcassets,json,imageset,bundle,strings,storyboard}','PhoneKit/View/*.{lproj,storybard}']
+    'AppTexts' => ['AppTexts/Resources/**/*.{xib,xcassets,json,imageset,bundle,strings,storyboard}','PhoneKit/View/*.{lproj,storybard}']
   }
   #
   #  A list of resources included with the Pod. These are copied into the
@@ -135,7 +135,6 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.dependency "AppTexts"
 
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
 s.resources = 'Pod/Resources/*'

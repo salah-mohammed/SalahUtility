@@ -8,12 +8,14 @@
 import UIKit
 import BackgroundTasks
 import SalahUtility
-
+import AppTexts
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        var a = AppTexts.ConfirmPassword;
+//        print(a);
 //        let data: UnsafePointer<UInt8>? = UnsafePointer<UInt8>.init(bitPattern: 0)
 //        print(data)
 //        var a = data?[0]
