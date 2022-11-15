@@ -89,6 +89,7 @@
 		4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */; };
 		4EFC179C2562CA150050BB01 /* SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; };
 		4EFC179D2562CA150050BB01 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B5D704C2909534600C654F7 /* NewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D704B2909534600C654F7 /* NewNew.m */; };
 		8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */; };
 		AEF3E3652FFA492EBC15A4CF /* Pods_SalahUtilityExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */; };
 		CCA59781A8BF91E3C70679BB /* Pods_SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF647D6B1A81082C9CC7ACBF /* Pods_SalahUtility.framework */; };
@@ -225,6 +226,9 @@
 		4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = localNotificationAudio.m4a; sourceTree = "<group>"; };
 		4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationViewController.swift; sourceTree = "<group>"; };
 		7A719EF342C9599C272B8BB2 /* Pods-SalahUtilityExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.debug.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.debug.xcconfig"; sourceTree = "<group>"; };
+		8B5D70492909534500C654F7 /* SalahUtilityExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalahUtilityExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B5D704A2909534600C654F7 /* NewNew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewNew.h; sourceTree = "<group>"; };
+		8B5D704B2909534600C654F7 /* NewNew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewNew.m; sourceTree = "<group>"; };
 		8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertViewController.swift; sourceTree = "<group>"; };
 		A3C839BAC6547A73126B7A0F /* Pods-SalahUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtility.release.xcconfig"; path = "Target Support Files/Pods-SalahUtility/Pods-SalahUtility.release.xcconfig"; sourceTree = "<group>"; };
 		B2E4F719AE25403EA52A7061 /* Pods-SalahUtilityExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.release.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -640,6 +644,9 @@
 				4E37DFE527B522FE00BA814E /* URLExampleViewController.swift */,
 				4E04A1022754E272002FCDD0 /* Resources */,
 				4E04A0FF2754E23A002FCDD0 /* SupportFiles */,
+				8B5D704A2909534600C654F7 /* NewNew.h */,
+				8B5D704B2909534600C654F7 /* NewNew.m */,
+				8B5D70492909534500C654F7 /* SalahUtilityExample-Bridging-Header.h */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -788,6 +795,7 @@
 					};
 					4EFC173C2562C55A0050BB01 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1400;
 					};
 					4EFC17512562C55E0050BB01 = {
 						CreatedOnToolsVersion = 12.2;
@@ -998,6 +1006,7 @@
 				4EFC17402562C55A0050BB01 /* AppDelegate.swift in Sources */,
 				4E7EF85D28C6026700002E88 /* AlertExampleViewController.swift in Sources */,
 				4E89F3C3272D22870024C7DB /* MaskImageViewController.swift in Sources */,
+				8B5D704C2909534600C654F7 /* NewNew.m in Sources */,
 				4EFC17422562C55A0050BB01 /* SceneDelegate.swift in Sources */,
 				4ECB9362280CDBD70086DF92 /* OrientationExampleViewController.swift in Sources */,
 				4E04A0FA2754E13C002FCDD0 /* SecondViewController.swift in Sources */,
@@ -1266,6 +1275,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
@@ -1277,6 +1287,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.salahmohamed.SalahUtilityExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SalahUtilityExample/SalahUtilityExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1288,6 +1300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
@@ -1299,6 +1312,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.salahmohamed.SalahUtilityExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SalahUtilityExample/SalahUtilityExample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

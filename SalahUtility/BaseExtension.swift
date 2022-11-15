@@ -33,7 +33,7 @@ import AppTexts
 //        println("OMG, it's that mythical new Apple product!!!")
 //    #endif
 /*    **Array**   */
-
+#if os(iOS)
 public enum Vibration {
         case error
         case success
@@ -77,6 +77,7 @@ public enum Vibration {
             }
         }
     }
+#endif
 public extension CLLocationCoordinate2D{
     var stringValue:String{
         let latitude = String.init(format:"%.6f", self.latitude)
@@ -394,6 +395,27 @@ public extension String{
 //            return item
 //        }
 //    }
+    // remove newline from start and end of text
+    var bs_removeNewline:String{
+        var item = String.init(self)
+        repeat {
+            if item.hasPrefix("\n"){
+                item.removeFirst()
+            }else{
+                break;
+            }
+        }while item.hasPrefix("\n")
+        
+        repeat {
+            if item.hasSuffix("\n"){
+                item.removeLast()
+            }else{
+                break;
+            }
+        } while item.hasSuffix("\n")
+
+        return item
+    }
     public var bs_fileURL:URL{
         return URL.init(fileURLWithPath: self);
     }
@@ -2965,7 +2987,7 @@ public extension AVPlayer{
 }
 /*    **URL**   */
 
-extension URL {
+public extension URL {
     func bs_fileName() -> String {
         return self.deletingPathExtension().lastPathComponent
     }
@@ -3121,9 +3143,11 @@ extension URL {
     public var bs_html2String: String {
         return bs_html2AttributedString?.string ?? ""
     }
+#if os(iOS)
      public var bs_image:UIImage?{
          return UIImage.init(data: self);
      }
+#endif
     // used to convert device token from data to base 64 string
     public var bs_64String:String{
         var token:String = "";
@@ -3714,7 +3738,7 @@ extension Locale{
         return nil;
     }
 }
-
+#if os(iOS)
 extension CGImage {
     private var bs_thresholdModifier: Double {
         0.45
@@ -3743,6 +3767,7 @@ extension CGImage {
         return true
     }
 }
+#endif
 extension Sequence {
  
     /// Return the sequence with all duplicates removed.
@@ -3779,13 +3804,14 @@ extension NSResponder {
     }
 }
 #endif
-
+#if os(iOS)
 public extension AVRoutePickerView {
     public func bs_present() {
         let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
         routePickerButton?.sendActions(for: .touchUpInside)
     }
 }
+#endif
 public extension AVAsset{
     public var bs_url:URL?{
         return (self as? AVURLAsset)?.url

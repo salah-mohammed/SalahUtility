@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FC6AE1C5BEB27EE47A54C21BC031BE7 /* AppTexts-AppTexts in Resources */ = {isa = PBXBuildFile; fileRef = E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts-AppTexts */; };
+		0FC6AE1C5BEB27EE47A54C21BC031BE7 /* AppTexts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts.bundle */; };
 		30A020C045C169FA78557C8DFFD974B6 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9482D246C0EB78CF70450ABB8C2331F /* Regex.swift */; };
 		36E8AB6046597E165E28CFAAE7233AE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		375B3812B59131F71132A5C652344CBF /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6BC219D13577FD0699116C775EC4B6 /* Validate.swift */; };
@@ -67,7 +67,7 @@
 		4A53506D03B33374CE186D559E0EE5F3 /* Pods-SalahUtility-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SalahUtility-acknowledgements.plist"; sourceTree = "<group>"; };
 		4BE50B74EFD9550A5A00013E6FD75597 /* AppTexts-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AppTexts-umbrella.h"; sourceTree = "<group>"; };
 		59ABDAE98747D437527005AC54A3363B /* Pods-SalahUtility-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SalahUtility-dummy.m"; sourceTree = "<group>"; };
-		69F7D964BF5C451523610F2F48ED30AA /* AppTexts.podspec */ = {isa = PBXFileReference; includeInIndex = 1; path = AppTexts.podspec; sourceTree = "<group>"; };
+		69F7D964BF5C451523610F2F48ED30AA /* AppTexts.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = AppTexts.podspec; sourceTree = "<group>"; };
 		72D2B8B6EF7DAD3E80976A6FB8CCF035 /* Pods-SalahUtilityExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SalahUtilityExample-Info.plist"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7DC152B8B3BFB603E7C91D6209C93B8A /* AppTexts */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AppTexts; path = AppTexts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,14 +78,14 @@
 		97D322F2C4C7FB2172CCEAB308283292 /* AppTexts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppTexts.release.xcconfig; sourceTree = "<group>"; };
 		9ABE05B190C0ECF081019C1CE15B926F /* Pods-SalahUtilityExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SalahUtilityExample-frameworks.sh"; sourceTree = "<group>"; };
 		9BB85970C6C988896B17FD0DF99D1947 /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AFE3D34EF56CA72DF599DF9A7A8B066C /* Pods-SalahUtilityExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SalahUtilityExample.debug.xcconfig"; sourceTree = "<group>"; };
 		BE39D71548575E097D494C667CC98324 /* Pods-SalahUtilityExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SalahUtilityExample-umbrella.h"; sourceTree = "<group>"; };
 		C304E64FDD0ECBF98BC2C5196AE1BE36 /* Pods-SalahUtility-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SalahUtility-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C89D77BE4217049C7EE4249C2C9A4494 /* Pods-SalahUtility-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SalahUtility-umbrella.h"; sourceTree = "<group>"; };
 		C9482D246C0EB78CF70450ABB8C2331F /* Regex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = AppTexts/Regex.swift; sourceTree = "<group>"; };
 		D5AE0429C32ED7B8D0069CB6903D904E /* AppTexts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AppTexts-dummy.m"; sourceTree = "<group>"; };
-		E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts-AppTexts */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AppTexts-AppTexts"; path = AppTexts.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTexts.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E897575311BCB714F3875C01CB606C5B /* AppTexts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppTexts.h; path = AppTexts/AppTexts.h; sourceTree = "<group>"; };
 		EC6BC219D13577FD0699116C775EC4B6 /* Validate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validate.swift; path = AppTexts/Validate.swift; sourceTree = "<group>"; };
 		EF495AB1F74C610259B17ABF37F0F991 /* Pods-SalahUtility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SalahUtility.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				7DC152B8B3BFB603E7C91D6209C93B8A /* AppTexts */,
-				E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts-AppTexts */,
+				E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts.bundle */,
 				420D74376F2E475393CA517D030824DC /* Pods-SalahUtility */,
 				853370007E590B7B302F39F57FBA0F5B /* Pods-SalahUtilityExample */,
 			);
@@ -184,7 +184,6 @@
 				E3EF98FFAA7ECF300883DA2D30F38AD0 /* Resources */,
 				E53E7882944DAE982B9CCDDF3AA01CE5 /* Support Files */,
 			);
-			name = AppTexts;
 			path = AppTexts;
 			sourceTree = "<group>";
 		};
@@ -338,7 +337,7 @@
 			);
 			name = "AppTexts-AppTexts";
 			productName = AppTexts;
-			productReference = E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts-AppTexts */;
+			productReference = E735B8FAFA6DD759F2FC80248636D4DC /* AppTexts.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		C902BE58A17104AC88FF40FB38AC5CF0 /* Pods-SalahUtility */ = {
@@ -411,7 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FC6AE1C5BEB27EE47A54C21BC031BE7 /* AppTexts-AppTexts in Resources */,
+				0FC6AE1C5BEB27EE47A54C21BC031BE7 /* AppTexts.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,6 +849,7 @@
 			baseConfigurationReference = 97D322F2C4C7FB2172CCEAB308283292 /* AppTexts.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AppTexts";
+				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
 				IBSC_MODULE = AppTexts;
 				INFOPLIST_FILE = "Target Support Files/AppTexts/ResourceBundle-AppTexts-AppTexts-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -866,6 +866,7 @@
 			baseConfigurationReference = 223E2595D849D7DC051D62D2D90216DF /* AppTexts.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AppTexts";
+				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
 				IBSC_MODULE = AppTexts;
 				INFOPLIST_FILE = "Target Support Files/AppTexts/ResourceBundle-AppTexts-AppTexts-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

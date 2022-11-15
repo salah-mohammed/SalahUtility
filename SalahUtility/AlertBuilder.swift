@@ -4,7 +4,7 @@
 //
 //  Created by mac book pro on 4/4/22.
 //
-
+#if os(iOS)
 import Foundation
 import UIKit
 import AppTexts
@@ -139,5 +139,4 @@ public enum Alert{
         return rootViewController;
     }
 }
-
-
+#endif

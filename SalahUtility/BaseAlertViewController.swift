@@ -5,7 +5,7 @@
 //  Created by SalahMohamed on 21/10/2022.
 //  Copyright © 2022 Salah. All rights reserved.
 //
-
+#if os(iOS)
 import Foundation
 import UIKit
 open class BaseAlertViewController:UIViewController{
@@ -28,3 +28,4 @@ open class BaseAlertViewController:UIViewController{
     }
     
 }
+#endif
