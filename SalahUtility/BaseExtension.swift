@@ -3270,6 +3270,14 @@ public extension FileManager {
             print("could not save data")
         }
     }
+     func bs_saveTextFile(conetnt:String,url:URL){
+          let conetnt:String=conetnt
+             do {
+                 try conetnt.write(to: url, atomically: true, encoding: String.Encoding.utf8)
+             }catch {
+                 print(error);
+             }
+    }
     func bs_urls(for directory: FileManager.SearchPathDirectory, skipsHiddenFiles: Bool = true ) -> [URL]? {
         let documentsURL = urls(for: directory, in: .userDomainMask)[0]
         let fileURLs = try? contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: skipsHiddenFiles ? .skipsHiddenFiles : [] )

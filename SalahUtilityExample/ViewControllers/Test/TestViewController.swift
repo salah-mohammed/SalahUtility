@@ -17,11 +17,24 @@ class TestViewController: UIViewController {
     var routerPickerView:AVRoutePickerView!;
     
     @IBOutlet weak var airPlayView: UIView!
+    @IBOutlet weak var btnTest: UIButton!
+    @IBOutlet weak var btnTest2: UIButton!
+    var a = Action{ a in
+        print("aa");
+        print("aa");
 
+    }
+    var aa = GestureAction{ a,b in
+        print("aa");
+        print("aa");
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAirPlayButton();
-        
+  
+//        btnTest2.bs_action(.touchUpInside,a)
+        btnTest2.bs_tap(aa)
 //        items.append("1");
 //        items.append("2");
 //
