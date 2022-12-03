@@ -11,56 +11,70 @@ import Foundation
 import UIKit
 
 final public class Action: BaseAction {
-    var control:UIControl?
     private let _action: (UIControl) -> ()
-    public init(_ action: @escaping (UIControl) -> ()) {
+    var _control:UIControl
+    public init(_ action: @escaping (UIControl) -> (),
+                control:UIControl) {
+        _control=control
         _action = action
         super.init()
     }
     @objc func action() {
-        _action(control!)
+        _action(_control)
     }
     deinit {
         print("deinit")
     }
 }
 public extension UIControl{
-    func bs_action(_ controlEvents: UIControl.Event, _ action:Action) {
-        action.control=self;
+    func bs_action(_ controlEvents: UIControl.Event,
+                   _ action:@escaping (UIControl) -> (),
+                   _ actions:inout [BaseAction]) {
+        let action = Action.init(action, control:self)
         self.addTarget(action, action:#selector(action.action), for:controlEvents)
+        actions.append(action);
 }
 }
 public class BaseAction: NSObject {
     
 }
 final public class GestureAction: BaseAction {
-    var senderView:UIView?
-    var gesture:UIGestureRecognizer?
-    private let _action: (UIView?,UIGestureRecognizer?) -> Void
-    public init(_ action: @escaping (UIView?,UIGestureRecognizer?) -> Void) {
+    var _senderView:UIView?
+    var _gesture:UIGestureRecognizer?
+    private let _action:(UIView?,UIGestureRecognizer?) -> Void
+    public init(_ action: @escaping (UIView?,UIGestureRecognizer?) -> Void,
+                gesture:UIGestureRecognizer?,senderView:UIView?) {
         _action = action
+        _gesture = gesture
+        _senderView = senderView
         super.init()
     }
     @objc func action() {
-        _action(senderView,gesture)
+        _action(_senderView,_gesture)
     }
     deinit {
         print("deinit")
     }
 }
 public extension UIView{
-    func bs_tap(_ action:GestureAction) {
-        action.senderView=self;
-        let tapGesture = UITapGestureRecognizer.init(target:action, action:#selector(action.action))
-        action.gesture=tapGesture
+    func bs_tap(_ action:@escaping ((UIView?,UIGestureRecognizer?) -> Void),
+                _ actions:inout [BaseAction]) {
+        let gestureAction = GestureAction.init(action, gesture: nil, senderView: self)
+        let tapGesture = UITapGestureRecognizer.init(target:gestureAction, action:#selector(gestureAction.action))
+        gestureAction._gesture=tapGesture
         self.addGestureRecognizer(tapGesture);
+        actions.append(gestureAction);
     }
-    func bs_longPress(_ config:((UILongPressGestureRecognizer)->Void)? = nil,_ action:GestureAction){
-        action.senderView=self;
-        let longPressGestureRecognizer = UILongPressGestureRecognizer.init(target: action, action:#selector(action.action))
-        action.gesture=longPressGestureRecognizer
-        self.addGestureRecognizer(longPressGestureRecognizer)
-        config?(longPressGestureRecognizer);
+    func bs_longPress(config:((UILongPressGestureRecognizer)->Void)? = nil,
+                      _ action:@escaping (UIView?,UIGestureRecognizer?) -> Void,
+                      _ actions:inout [BaseAction]){
+        let gestureAction = GestureAction.init(action, gesture: nil, senderView: self)
+        let longPressGesture = UILongPressGestureRecognizer.init(target:gestureAction, action:#selector(gestureAction.action))
+        gestureAction._gesture=longPressGesture
+        longPressGesture.addTarget(action, action:#selector(gestureAction.action))
+        self.addGestureRecognizer(longPressGesture)
+        actions.append(gestureAction);
+        config?(longPressGesture);
     }
 }
 #endif

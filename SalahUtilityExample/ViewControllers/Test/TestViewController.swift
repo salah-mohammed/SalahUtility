@@ -13,25 +13,32 @@ import MediaPlayer
 
 class TestViewController: UIViewController {
     var items:[String]=[String]();
+    
 //    @IBOutlet weak var airPlayView: UIView!
     var routerPickerView:AVRoutePickerView!;
     
     @IBOutlet weak var airPlayView: UIView!
     @IBOutlet weak var btnTest: UIButton!
     @IBOutlet weak var btnTest2: UIButton!
-    var a = Action{ a in
-        print("test1");
+    var actions = [BaseAction]();
 
-    }
-    var aa = GestureAction{ a,b in
-        print("test2");
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAirPlayButton();
   
 //        btnTest.bs_action(.touchUpInside,a)
-        btnTest2.bs_tap(aa)
+        self.view.bs_longPress(config: { gesture in
+            gesture.minimumPressDuration = 0.25
+        },{ _, _ in
+            print("a");
+        }, &actions);
+
+        self.view.bs_tap({_, _ in
+            print("tap")
+        },&actions)
+        btnTest.bs_action(.touchUpInside,{ a in
+            print("touchUpInside");
+        },&actions)
 //        items.append("1");
 //        items.append("2");
 //
@@ -44,35 +51,35 @@ class TestViewController: UIViewController {
 //
     }
     @IBAction func btnTest(_ sender:UIButton){
-        print((self.view as? ABB)?.title ?? "");
-//        ABB.appearance().title = "asd";
-//        ABB.appearance().customeBackground=UIColor.blue;
-        ABB.appearance().title="a";
-
-        print((self.view as? ABB)?.title ?? "");
-        self.routerPickerView.present();
-
-//        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
-//        ;
-//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-//            self.navigationController?.navigationBar.defaultStyle();
+//        print((self.view as? ABB)?.title ?? "");
+////        ABB.appearance().title = "asd";
+////        ABB.appearance().customeBackground=UIColor.blue;
+//        ABB.appearance().title="a";
 //
-//        }
-        //        UIImagePickerController().bs_setup()
-//        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
-        
-//        repeat {
-//            print("Test By Salah");
-//        }while self != nil
-//      var a1 = sender.bs_isSuperViewType(UITableView.self);
-//      var a2 = sender.bs_isSuperViewType(UIView.self);
-//        print(a1);
-//        print(a2);
+//        print((self.view as? ABB)?.title ?? "");
+//        self.routerPickerView.present();
 //
-//        var b1 = sender.bs_isSuperViewExist(UIView.init());
-//        var b2 = sender.bs_isSuperViewExist(self.view);
-//          print(b1);
-//          print(b2);
+////        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
+////        ;
+////        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+////            self.navigationController?.navigationBar.defaultStyle();
+////
+////        }
+//        //        UIImagePickerController().bs_setup()
+////        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
+//
+////        repeat {
+////            print("Test By Salah");
+////        }while self != nil
+////      var a1 = sender.bs_isSuperViewType(UITableView.self);
+////      var a2 = sender.bs_isSuperViewType(UIView.self);
+////        print(a1);
+////        print(a2);
+////
+////        var b1 = sender.bs_isSuperViewExist(UIView.init());
+////        var b2 = sender.bs_isSuperViewExist(self.view);
+////          print(b1);
+////          print(b2);
     }
     func setupAirPlayButton() {
         var buttonView: UIView = UIView()
