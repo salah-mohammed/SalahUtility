@@ -51,35 +51,35 @@ class TestViewController: UIViewController {
 //
     }
     @IBAction func btnTest(_ sender:UIButton){
-//        print((self.view as? ABB)?.title ?? "");
-////        ABB.appearance().title = "asd";
-////        ABB.appearance().customeBackground=UIColor.blue;
-//        ABB.appearance().title="a";
+        print((self.view as? ABB)?.title ?? "");
+//        ABB.appearance().title = "asd";
+//        ABB.appearance().customeBackground=UIColor.blue;
+        ABB.appearance().title="a";
+
+        print((self.view as? ABB)?.title ?? "");
+        self.routerPickerView.present();
+
+//        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
+//        ;
+//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//            self.navigationController?.navigationBar.defaultStyle();
 //
-//        print((self.view as? ABB)?.title ?? "");
-//        self.routerPickerView.present();
+//        }
+        //        UIImagePickerController().bs_setup()
+//        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
+
+//        repeat {
+//            print("Test By Salah");
+//        }while self != nil
+//      var a1 = sender.bs_isSuperViewType(UITableView.self);
+//      var a2 = sender.bs_isSuperViewType(UIView.self);
+//        print(a1);
+//        print(a2);
 //
-////        self.navigationController?.navigationBar.bs_setTransparent(backgroundColor: nil, textAttributes: [:], tintColor: UIColor.blue)
-////        ;
-////        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-////            self.navigationController?.navigationBar.defaultStyle();
-////
-////        }
-//        //        UIImagePickerController().bs_setup()
-////        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
-//
-////        repeat {
-////            print("Test By Salah");
-////        }while self != nil
-////      var a1 = sender.bs_isSuperViewType(UITableView.self);
-////      var a2 = sender.bs_isSuperViewType(UIView.self);
-////        print(a1);
-////        print(a2);
-////
-////        var b1 = sender.bs_isSuperViewExist(UIView.init());
-////        var b2 = sender.bs_isSuperViewExist(self.view);
-////          print(b1);
-////          print(b2);
+//        var b1 = sender.bs_isSuperViewExist(UIView.init());
+//        var b2 = sender.bs_isSuperViewExist(self.view);
+//          print(b1);
+//          print(b2);
     }
     func setupAirPlayButton() {
         var buttonView: UIView = UIView()
