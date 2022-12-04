@@ -26,19 +26,17 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         setupAirPlayButton();
   
-//        btnTest.bs_action(.touchUpInside,a)
-        self.view.bs_longPress(config: { gesture in
+        self.view.bs_longPress(&actions,config: { gesture in
             gesture.minimumPressDuration = 0.25
-        },{ _, _ in
+        }){ _, _ in
             print("a");
-        }, &actions);
-
-        self.view.bs_tap({_, _ in
+        }
+        self.view.bs_tap(&actions){_, _ in
             print("tap")
-        },&actions)
-        btnTest.bs_action(.touchUpInside,{ a in
+        }
+        btnTest.bs_action(.touchUpInside,&actions,{ a in
             print("touchUpInside");
-        },&actions)
+        })
 //        items.append("1");
 //        items.append("2");
 //

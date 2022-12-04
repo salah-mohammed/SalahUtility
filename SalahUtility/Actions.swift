@@ -28,8 +28,8 @@ final public class Action: BaseAction {
 }
 public extension UIControl{
     func bs_action(_ controlEvents: UIControl.Event,
-                   _ action:@escaping (UIControl) -> (),
-                   _ actions:inout [BaseAction]) {
+                   _ actions:inout [BaseAction],
+                   _ action:@escaping (UIControl) -> ()) {
         let action = Action.init(action, control:self)
         self.addTarget(action, action:#selector(action.action), for:controlEvents)
         actions.append(action);
@@ -57,17 +57,18 @@ final public class GestureAction: BaseAction {
     }
 }
 public extension UIView{
-    func bs_tap(_ action:@escaping ((UIView?,UIGestureRecognizer?) -> Void),
-                _ actions:inout [BaseAction]) {
+    func bs_tap(_ actions:inout [BaseAction],
+                _ action:@escaping ((UIView?,UIGestureRecognizer?) -> Void)) {
         let gestureAction = GestureAction.init(action, gesture: nil, senderView: self)
         let tapGesture = UITapGestureRecognizer.init(target:gestureAction, action:#selector(gestureAction.action))
         gestureAction._gesture=tapGesture
         self.addGestureRecognizer(tapGesture);
         actions.append(gestureAction);
     }
-    func bs_longPress(config:((UILongPressGestureRecognizer)->Void)? = nil,
-                      _ action:@escaping (UIView?,UIGestureRecognizer?) -> Void,
-                      _ actions:inout [BaseAction]){
+    func bs_longPress(
+        _ actions:inout [BaseAction],
+        config:((UILongPressGestureRecognizer)->Void)? = nil,
+        _ action:@escaping (UIView?,UIGestureRecognizer?) -> Void){
         let gestureAction = GestureAction.init(action, gesture: nil, senderView: self)
         let longPressGesture = UILongPressGestureRecognizer.init(target:gestureAction, action:#selector(gestureAction.action))
         gestureAction._gesture=longPressGesture
