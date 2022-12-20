@@ -1030,7 +1030,7 @@ public extension Int32{
 
  extension CGFloat
 {
-    public var bs_float:Float?{
+    public var bs_float:Float{
         return Float.init(self);
     }
     public func bs_int() ->Int{

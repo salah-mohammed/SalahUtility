@@ -12,11 +12,7 @@ open class BaseAlertViewController:UIViewController{
     open override func viewDidLoad() {
         super.viewDidLoad();
         self.view.backgroundColor=UIColor.clear
-        if #available(iOS 13.0, *) {
-            self.isModalInPresentation=false
-        }
-        self.modalPresentationStyle = .overCurrentContext
-        
+        setupAlert();
     }
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -26,6 +22,11 @@ open class BaseAlertViewController:UIViewController{
         super.viewWillDisappear(animated);
         self.view.backgroundColor=UIColor.clear
     }
-    
+    public func setupAlert(){
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation=false
+        }
+        self.modalPresentationStyle = .overCurrentContext
+    }
 }
 #endif
