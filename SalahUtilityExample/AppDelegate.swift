@@ -12,8 +12,10 @@ import AppTexts
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var newVariable=1
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
 //        var a = NewNew.externalIPAddress;
 //        var a = AppTexts.ConfirmPassword;
 //        print(a);

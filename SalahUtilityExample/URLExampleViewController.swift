@@ -13,6 +13,10 @@ class URLExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Alert.show(self, Alert.attention("message", { action in
+        }))
+        
         var url = "https://vschoolcontent2.blob.core.windows.net/vschoolblob/TeacherRoom/324b7f0a-f67a-4eff-8ee8-c0bdf21d6bc0.jpg?sv=2020-08-04&st=2022-02-10T10%3A33%3A22Z&se=2022-02-10T10%3A48%3A22Z&sr=b&sp=r&sig=%2FQMqc3%2FugUxjrL21NLSqXYS5RBcaT1EQaQpuy0sfPOY%3D";
         
         var url1 = try? URL.init(string: url)?.absoluteString;
@@ -43,6 +47,8 @@ class URLExampleViewController: UIViewController {
         print(Debuger.shared.printItems())
 //        Alert.show(self, .fieldRequired(<#T##String#>, <#T##((UIAlertAction) -> Void)?#>))
         // Do any additional setup after loading the view.
+        
+//        AScenarioManager<>.init().open1Screen(object1: aad);
     }
     
 
@@ -57,3 +63,34 @@ class URLExampleViewController: UIViewController {
     */
 
 }
+
+class AScenarioManager:ScenarioManager{
+    // MARK: - Start ViewController
+    // MARK: - End ViewController
+    var  object1:String?
+    var  object2:String?
+    func openScreen1(object1:String?){
+        self.object1=object1
+    }
+    func openScreen2(object2:String?){
+        self.object2=object2
+    }
+    func dismissScreen1(){
+        self.object1=nil
+    }
+    func dismissScreen2(){
+        self.object2=nil
+    }
+}
+
+
+class ViewController1:UIViewController,ScenarioManagerScreen{
+    var scenarioManager:AScenarioManager?
+            
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+}
+
+

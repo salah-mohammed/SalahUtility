@@ -78,6 +78,19 @@ public enum Vibration {
         }
     }
 #endif
+public var bs_letters:[String]{
+        let aScalars = "a".unicodeScalars
+        let aCode = aScalars[aScalars.startIndex].value
+        let letters: [String] = (0..<26).compactMap {
+            i in
+            if let unicode:Unicode.Scalar =  UnicodeScalar(aCode + UInt32(i)){
+                return String([Character(unicode)]);
+            }else{
+             return nil
+            }
+        }
+    return letters
+}
 public extension CLLocationCoordinate2D{
     var stringValue:String{
         let latitude = String.init(format:"%.6f", self.latitude)
@@ -89,6 +102,7 @@ public enum RegularExpression:String{
     case email="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     case phone = "[+]+[0-9 ]{1,}|[00]+[0-9 ]{1,}|[0-9 ]{9,}"
     case empty="^[. ]*$"
+    case isNumberOnly="^[0-9]"
     public var regex:Regex{
         return Regex.init(self.rawValue);
     }
@@ -556,7 +570,6 @@ public extension String{
     #endif
 
     public func bs_replace(target: String, withString: String) -> String {
-        
         return self.replacingOccurrences(of: target, with:withString, options: .literal, range: nil)
     }
     public func bs_subtract(_ start:Int,_ last:Int)->String{
@@ -658,7 +671,7 @@ public extension String{
         return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: "", comment: "")
         }else{return ""};
     }
-    public func bs_toDic()->[String:String]{
+     func bs_toDic()->[String:String]{
         var  dic:[String:String]=[String:String]();
         for object in self.components(separatedBy:",") {
             let components = object.components(separatedBy:"=")
@@ -670,7 +683,7 @@ public extension String{
         }
         return dic;
     }
-    public func bs_matches(pattern: String) -> Bool {
+     func bs_matches(pattern: String) -> Bool {
            let regex = try! NSRegularExpression(
                pattern: pattern,
                options: [.caseInsensitive])
@@ -680,7 +693,7 @@ public extension String{
                range: NSRange(location: 0, length: utf16.count)) != nil
     }
     #if os(iOS)
-    public func bs_isValidURL() -> Bool {
+     func bs_isValidURL() -> Bool {
         guard let url = URL(string: self) else { return false }
         if !UIApplication.shared.canOpenURL(url) {
             return false
@@ -690,20 +703,20 @@ public extension String{
         return self.bs_matches(pattern: urlPattern)
     }
     #endif
-    public func bs_isValidEmail() -> Bool {
+     func bs_isValidEmail() -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
-    public func bs_stripHTML() -> String {
+     func bs_stripHTML() -> String {
         var tempString = self;
         tempString = tempString.replacingOccurrences(of: "&ndash;", with: "-")
         tempString = tempString.replacingOccurrences(of: "&nbsp;", with: " ")
         return tempString.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
     }
-     public func bs_matchingStrings(regex: String) -> [[String]] {
+      func bs_matchingStrings(regex: String) -> [[String]] {
         guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }
         let nsString = self as NSString
         let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
@@ -723,20 +736,20 @@ public extension String{
 //            return true
 //        }
 //    }
-     public var bs_locationDegrees:CLLocationDegrees?{
+      var bs_locationDegrees:CLLocationDegrees?{
         let itemString:String = self;
         if let  item:CLLocationDegrees = CLLocationDegrees.init(itemString){
             return item;
         }
         return nil;
     }
-     public var bs_nsNumber:NSNumber?{
+      var bs_nsNumber:NSNumber?{
         if let doubleValue = Double.init(self) {
             return NSNumber(value:doubleValue);
         }
         return nil;
     }
-     public var bs_isRemoteFile:Bool{ if self.contains("http"){
+      var bs_isRemoteFile:Bool{ if self.contains("http"){
         return true
         }
         return false
@@ -758,12 +771,12 @@ public extension String{
             }
         }
     }
-    public var bs_isDigit:Bool{
+     var bs_isDigit:Bool{
         let formate = NumberFormatter.init();
         let isDecimal = formate.number(from: self) != nil;
         return isDecimal;
     }
-    public func bs_slice(from: String, to: String) -> String? {
+     func bs_slice(from: String, to: String) -> String? {
 
         return (range(of: from)?.upperBound).flatMap { substringFrom in
             (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
@@ -772,7 +785,7 @@ public extension String{
         }
     }
     ///*////
-    public func bs_search(searchedText:String)->Range<String.Index>?{
+     func bs_search(searchedText:String)->Range<String.Index>?{
         if let range = self.range(of:searchedText) {
             return range
         }
@@ -1257,6 +1270,13 @@ public extension Array where Element: Equatable {
 
             return results
     }
+    func getRandomWithRemove()->(Element?,[Element]){
+      var items = Array(self)
+      let randomIndex = Int.init(random:ClosedRange.init(uncheckedBounds: (lower:0, upper:items.count-1)))
+      let selectedVariable = items.bs_get(randomIndex)
+      items.remove(at:randomIndex)
+     return (selectedVariable,items)
+  }
 }
 public extension Bundle {
     static var bs_releaseVersionNumber: String? {
@@ -1438,6 +1458,21 @@ public extension Array{
         }
     }
 }
+public extension Sequence {
+    var count:Int{
+        return Array(self).count
+    }
+    var last:Iterator.Element?{
+        return Array(self).last
+    }
+    var first:Iterator.Element?{
+        return Array(self).first
+    }
+    func get(_ index:Int)->Iterator.Element?{
+        var items = Array(self)
+        return index < items.count ?  items[index]: nil;
+    }
+}
 /*    **MKMapItem**   */
 
  extension MKMapItem
@@ -1451,6 +1486,13 @@ public extension Array{
 /*    **UIImage**   */
  #if os(iOS)
  public extension UIImage {
+     var bs_mutableAttributedString:NSMutableAttributedString{
+             let image1Attachment = NSTextAttachment()
+             image1Attachment.image = self
+             let image1String = NSMutableAttributedString(attachment: image1Attachment)
+             return image1String;
+         }
+     
         public func bs_pixelColor(atLocation point: CGPoint) -> UIColor? {
              guard let cgImage = cgImage, let pixelData = cgImage.dataProvider?.data else { return nil }
 
@@ -2645,72 +2687,6 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
      return alertViewController
     }
  }
- public extension UINavigationBar{
-    // set line for navigation bar
-    func defaultStyle(){
-        if #available(iOS 13.0, *) {
-         let appearance = self.standardAppearance ?? UINavigationBarAppearance()
-          let navigationApperance = UINavigationBarAppearance()
-          appearance.backgroundEffect = navigationApperance.backgroundEffect
-          appearance.shadowColor = navigationApperance.shadowColor
-          appearance.backgroundColor = navigationApperance.backgroundColor
-          self.standardAppearance = appearance
-          self.compactAppearance = appearance
-          self.scrollEdgeAppearance = appearance
-        }
-        self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.shadowImage = UIImage()
-        self.isTranslucent = true
-        self.tintColor = UINavigationBar.appearance().tintColor
-      }
-    
-    public func bs_set(backgroundImage:UIImage?,backgroundColor:UIColor?,textAttributes:[NSAttributedString.Key : Any]?,tintColor:UIColor?){
-        if #available(iOS 13.0, *) {
-            let appearance = self.standardAppearance
-            appearance.configureWithDefaultBackground()
-            appearance.titleTextAttributes=textAttributes ?? [:]
-            appearance.largeTitleTextAttributes=textAttributes ?? [:]
-            appearance.backgroundColor = backgroundColor
-            appearance.backgroundImage = backgroundImage?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0 ,right: 0), resizingMode:.stretch) ?? UIImage()
-            self.standardAppearance = appearance
-            self.compactAppearance = appearance
-            self.scrollEdgeAppearance = appearance
-
-        } else {
-        }
-        self.titleTextAttributes = textAttributes ?? [:]
-        self.setBackgroundImage(backgroundImage?.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0 ,right: 0), resizingMode:.stretch) ?? UIImage(), for: .default)
-        self.tintColor = tintColor
-        self.barTintColor = backgroundColor
-
-    }
-    public func bs_setTransparent(backgroundColor:UIColor?,textAttributes:[NSAttributedString.Key : Any]?,tintColor:UIColor?){
-        if #available(iOS 13.0, *) {
-            let appearance = self.standardAppearance ?? UINavigationBarAppearance()
-            appearance.configureWithDefaultBackground()
-            appearance.backgroundColor = backgroundColor ?? .clear
-            appearance.backgroundEffect = .none
-            appearance.shadowColor = .clear
-            appearance.titleTextAttributes=textAttributes ?? [:]
-            appearance.largeTitleTextAttributes=textAttributes ?? [:]
-            self.standardAppearance = appearance
-            self.compactAppearance = appearance
-            self.scrollEdgeAppearance = appearance
-        } else {
-        }
-        self.titleTextAttributes = textAttributes ?? [:]
-        self.tintColor = tintColor
-        
-        self.setBackgroundImage(UIImage(), for: .default)
-        self.shadowImage = UIImage()
-        self.barTintColor = backgroundColor ?? .clear
-    }
-    
-     public func bs_removeBarLine(){
-         self.setBackgroundImage(UIImage(), for: .default)
-         self.shadowImage = UIImage()
-     }
- }
  extension UIScrollView{
      public func bs_scrollToBottom(){
          let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.height + self.contentInset.bottom)
@@ -2998,6 +2974,23 @@ public extension URL {
     func paramater(_ paramaterName: String) -> String? {
         guard let url = URLComponents(string: self.absoluteString) else { return nil }
         return url.queryItems?.first(where: { $0.name == paramaterName })?.value
+    }
+    func bs_equalRemoteUrl(_ url:URL?)->Bool{
+            var firstStringUrl = self.absoluteString
+            if var secondStringUrl:String = url?.absoluteString{
+                let firstUrlPrefix = String(firstStringUrl.prefix(5))
+                let secondUrlPrefix = String(secondStringUrl.prefix(5))
+                if firstUrlPrefix.lowercased() == "https"{
+                }else{
+                    firstStringUrl=firstStringUrl.bs_replace(target: String(firstStringUrl.prefix(4)), withString:"https")
+                }
+                if secondUrlPrefix.lowercased() == "https"{
+                }else{
+                    secondStringUrl=secondStringUrl.bs_replace(target: String(secondStringUrl.prefix(4)), withString:"https")
+                }
+               return firstStringUrl == secondStringUrl
+            }
+            return false;
     }
 }
 
@@ -3846,3 +3839,4 @@ public extension Substring{
         return String(self);
     }
 }
+

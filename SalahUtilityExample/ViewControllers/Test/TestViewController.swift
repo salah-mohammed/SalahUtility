@@ -11,6 +11,25 @@ import SalahUtility
 import AVKit
 import MediaPlayer
 
+enum TestEnum:Int{
+case enum1
+case enum2
+case enum3
+    var value:String{
+        switch self{
+        case .enum1:
+            return "enum1"
+        case let enum2 where ((enum2 == .enum2) && (UIApplication.shared.delegate as! AppDelegate).newVariable == 0):
+            return "enum2where0"
+        case let enum2 where ((enum2 == .enum2) && (UIApplication.shared.delegate as! AppDelegate).newVariable == 1):
+            return "enum2where1"
+        case .enum3:
+            return "enum3"
+        case .enum2:
+            return "enum2"
+        }
+    }
+}
 class TestViewController: UIViewController {
     var items:[String]=[String]();
     
@@ -24,6 +43,7 @@ class TestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(TestEnum.enum2.value)
         setupAirPlayButton();
   
         self.view.bs_longPress(&actions,config: { gesture in
@@ -112,3 +132,4 @@ class ABB:UIView
     @objc dynamic var title:String="a"
     
 }
+

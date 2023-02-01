@@ -23,6 +23,7 @@ class SalahUtilityExampleTests: XCTestCase {
         regularExpressionPhone();
         regularExpressionEmpty();
         regularExpressionEmail();
+        regularExpressionIsNumberOnly();
         bs_removeTo()
         bs_removeFrom()
         bs_second()
@@ -75,6 +76,19 @@ class SalahUtilityExampleTests: XCTestCase {
         XCTAssertEqual(value2, false);
         let value3 = RegularExpression.email.regex.matches(input:"123456");
         XCTAssertEqual(value3, false);
+    }
+    func regularExpressionIsNumberOnly(){
+        let value1 = RegularExpression.isNumberOnly.regex.matches(input:"+00123123");
+        XCTAssertEqual(value1, false);
+        let value2 = RegularExpression.isNumberOnly.regex.matches(input:"ad1123s");
+        XCTAssertEqual(value2, false);
+        let value3 = RegularExpression.isNumberOnly.regex.matches(input:"123456");
+        XCTAssertEqual(value3, true);
+        let value4 = RegularExpression.isNumberOnly.regex.matches(input:"597105861");
+        XCTAssertEqual(value4, true);
+        let value5 = RegularExpression.isNumberOnly.regex.matches(input:"");
+        XCTAssertEqual(value5, false);
+        
     }
     
     

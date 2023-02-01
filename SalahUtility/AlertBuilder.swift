@@ -83,6 +83,7 @@ public enum Alert{
                  no:(String?,((UIAlertAction) -> Void)?))
     // (title,message,okHandler)
     case normal(String,String,((UIAlertAction) -> Void)?)
+    
     var title: String{
         switch self {
         case  .fieldRequired(let title,let message,let action):
