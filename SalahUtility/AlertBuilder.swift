@@ -20,6 +20,10 @@ public class AlertBuilder{
     private var style : UIAlertController.Style
     private var senderView:UIView?
     var elements : [Element] = [Element]()
+    @discardableResult public func elements(_ elements : [Element])->Self{
+        self.elements.append(contentsOf:elements)
+        return self
+    }
     @discardableResult public func element(_ element : Element)->Self{
         self.elements.append(element)
         return self
@@ -67,6 +71,8 @@ public class AlertBuilder{
     }
     
 }
+//->Need array of elements
+
 public enum Alert{
     // (message,okHandler)
     case error(String?,((UIAlertAction) -> Void)?)
@@ -83,13 +89,12 @@ public enum Alert{
                  no:(String?,((UIAlertAction) -> Void)?))
     // (title,message,okHandler)
     case normal(String,String,((UIAlertAction) -> Void)?)
-    
+    case elements(String,String,[Element],((UIAlertAction) -> Void)?)
+
     var title: String{
         switch self {
         case  .fieldRequired(let title,let message,let action):
             return title
-//        case .normal2Actions(let title,_,_,_):
-//            return title
         case .error(_, _):
             return AppTexts.Error
         case .sucess(_, _):
@@ -100,6 +105,8 @@ public enum Alert{
             return title
         case .yesOrNo(let title, _, yes: _, no: _):
             return title ?? AppTexts.Attention
+        case .elements(let title, _, _, _):
+            return title
         }
  }
     static public func show(_ viewController:UIViewController? = nil,_ alertType : Alert){
@@ -113,9 +120,6 @@ public enum Alert{
         case .fieldRequired(_,let message, let action):
             alert.message(Validate.fieldRequired(message) ?? "").element(Element.button(AppTexts.Ok, .default, action))
             break
-//        case .normal2Actions(_,let message, let yes,let no):
-//            alert.message(message).element(Element.button(yes.0 ?? AppTexts.Yes, .default, yes.1)).element(Element.button(no.0 ?? AppTexts.No, .cancel, no.1))
-//            break
         case .sucess(let message, let action):
             alert.message(message).element(Element.button(AppTexts.Ok, .default, action))
             break
@@ -128,6 +132,8 @@ public enum Alert{
         case .yesOrNo(_,let message, yes: let yes, no: let no):
             alert.message(message).element(Element.button(yes.0 ?? AppTexts.Yes, .default, yes.1)).element(Element.button(no.0 ?? AppTexts.No, .cancel, no.1))
             break
+        case .elements(_,let message,let elements, let action):
+            alert.message(message).elements(elements).element(Element.button(AppTexts.Cancel, .cancel, action))
         }
         alert.execute()
     }
@@ -141,3 +147,7 @@ public enum Alert{
     }
 }
 #endif
+
+// connect app router
+// add alert prefix names
+// add
