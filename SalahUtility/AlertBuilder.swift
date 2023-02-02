@@ -89,6 +89,7 @@ public enum Alert{
                  no:(String?,((UIAlertAction) -> Void)?))
     // (title,message,okHandler)
     case normal(String,String,((UIAlertAction) -> Void)?)
+    // (title,message,elements,cancelAction)
     case elements(String,String,[Element],((UIAlertAction) -> Void)?)
 
     var title: String{
