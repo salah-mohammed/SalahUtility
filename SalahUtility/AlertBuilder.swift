@@ -77,7 +77,7 @@ public enum Alert{
     // (message,okHandler)
     case error(String?,((UIAlertAction) -> Void)?)
     // (title,fieldName,okHandler)
-    case fieldRequired(String,String,((UIAlertAction) -> Void)?)
+    case fieldRequired(title:String,fieldName:String,((UIAlertAction) -> Void)?)
 //    case normal2Actions(String,String,(String?,((UIAlertAction) -> Void)?),(String?,((UIAlertAction) -> Void)?))
     // (message,okHandler)
     case sucess(String,((UIAlertAction) -> Void)?)
@@ -90,7 +90,7 @@ public enum Alert{
     // (title,message,okHandler)
     case normal(String,String,((UIAlertAction) -> Void)?)
     // (title,message,elements,cancelAction)
-    case elements(String,String,[Element],((UIAlertAction) -> Void)?)
+    case elements(String,String,[Element])
 
     var title: String{
         switch self {
@@ -106,7 +106,7 @@ public enum Alert{
             return title
         case .yesOrNo(let title, _, yes: _, no: _):
             return title ?? AppTexts.Attention
-        case .elements(let title, _, _, _):
+        case .elements(let title, _, _):
             return title
         }
  }
@@ -133,8 +133,8 @@ public enum Alert{
         case .yesOrNo(_,let message, yes: let yes, no: let no):
             alert.message(message).element(Element.button(yes.0 ?? AppTexts.Yes, .default, yes.1)).element(Element.button(no.0 ?? AppTexts.No, .cancel, no.1))
             break
-        case .elements(_,let message,let elements, let action):
-            alert.message(message).elements(elements).element(Element.button(AppTexts.Cancel, .cancel, action))
+        case .elements(_,let message,let elements):
+            alert.message(message).elements(elements)
         }
         alert.execute()
     }
@@ -151,4 +151,3 @@ public enum Alert{
 
 // connect app router
 // add alert prefix names
-// add

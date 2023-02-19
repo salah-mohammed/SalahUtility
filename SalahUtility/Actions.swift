@@ -22,9 +22,7 @@ final public class Action: BaseAction {
     @objc func action() {
         _action(_control)
     }
-    deinit {
-        print("deinit")
-    }
+
 }
 public extension UIControl{
     func bs_action(_ controlEvents: UIControl.Event,
@@ -36,7 +34,9 @@ public extension UIControl{
 }
 }
 public class BaseAction: NSObject {
-    
+    deinit {
+        print("deinit")
+    }
 }
 final public class GestureAction: BaseAction {
     var _senderView:UIView?

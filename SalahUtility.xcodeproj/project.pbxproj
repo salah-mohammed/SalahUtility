@@ -89,8 +89,16 @@
 		4EFC17922562C80A0050BB01 /* LocalNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */; };
 		4EFC179C2562CA150050BB01 /* SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; };
 		4EFC179D2562CA150050BB01 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7684082BD725A010751D7967 /* Pods_SalahUtilitySwiftUIExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC2B276B6D607161D68F55 /* Pods_SalahUtilitySwiftUIExample.framework */; };
 		8B24339A2987E438001FBCB0 /* ScenarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2433992987E438001FBCB0 /* ScenarioManager.swift */; };
 		8B6E5C512934D02C00F1439C /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E5C502934D02C00F1439C /* Actions.swift */; };
+		8B8CEA5029A20D750017F875 /* NavBarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8CEA4F29A20D750017F875 /* NavBarAccessor.swift */; };
+		8B8CEA5829A20DF00017F875 /* SalahUtilitySwiftUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5729A20DF00017F875 /* SalahUtilitySwiftUIExampleApp.swift */; };
+		8B8CEA5A29A20DF00017F875 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5929A20DF00017F875 /* ContentView.swift */; };
+		8B8CEA5C29A20DF10017F875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5B29A20DF10017F875 /* Assets.xcassets */; };
+		8B8CEA5F29A20DF10017F875 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5E29A20DF10017F875 /* Preview Assets.xcassets */; };
+		8B8CEA6329A212840017F875 /* SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; };
+		8B8CEA6429A212840017F875 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */; };
 		AEF3E3652FFA492EBC15A4CF /* Pods_SalahUtilityExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */; };
 		CCA59781A8BF91E3C70679BB /* Pods_SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF647D6B1A81082C9CC7ACBF /* Pods_SalahUtility.framework */; };
@@ -118,6 +126,13 @@
 			remoteGlobalIDString = 4E34D7492448F7EF00FCCC1A;
 			remoteInfo = SalahUtility;
 		};
+		8B8CEA6529A212840017F875 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E34D7412448F7EF00FCCC1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E34D7492448F7EF00FCCC1A;
+			remoteInfo = SalahUtility;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,9 +147,21 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B8CEA6729A212840017F875 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B8CEA6429A212840017F875 /* SalahUtility.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		19CEF9661CBFCAA9A4BA9538 /* Pods-SalahUtilitySwiftUIExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilitySwiftUIExample.debug.xcconfig"; path = "Target Support Files/Pods-SalahUtilitySwiftUIExample/Pods-SalahUtilitySwiftUIExample.debug.xcconfig"; sourceTree = "<group>"; };
 		4E0232E52850847B005F48FB /* SwiftUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIExtension.swift; sourceTree = "<group>"; };
 		4E030C9F27D8A75A00C230FC /* LettersDrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettersDrawViewController.swift; sourceTree = "<group>"; };
 		4E04A0CB2754B08C002FCDD0 /* JSONAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAble.swift; sourceTree = "<group>"; };
@@ -226,13 +253,21 @@
 		4EFC17842562C67A0050BB01 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EFC17862562C70F0050BB01 /* localNotificationAudio.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = localNotificationAudio.m4a; sourceTree = "<group>"; };
 		4EFC17912562C80A0050BB01 /* LocalNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationViewController.swift; sourceTree = "<group>"; };
+		6B478B8F184113969A9DE72E /* Pods-SalahUtilitySwiftUIExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilitySwiftUIExample.release.xcconfig"; path = "Target Support Files/Pods-SalahUtilitySwiftUIExample/Pods-SalahUtilitySwiftUIExample.release.xcconfig"; sourceTree = "<group>"; };
 		7A719EF342C9599C272B8BB2 /* Pods-SalahUtilityExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.debug.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8B2433992987E438001FBCB0 /* ScenarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioManager.swift; sourceTree = "<group>"; };
 		8B5D70492909534500C654F7 /* SalahUtilityExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalahUtilityExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		8B6E5C502934D02C00F1439C /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
+		8B8CEA4F29A20D750017F875 /* NavBarAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarAccessor.swift; sourceTree = "<group>"; };
+		8B8CEA5529A20DF00017F875 /* SalahUtilitySwiftUIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahUtilitySwiftUIExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8CEA5729A20DF00017F875 /* SalahUtilitySwiftUIExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahUtilitySwiftUIExampleApp.swift; sourceTree = "<group>"; };
+		8B8CEA5929A20DF00017F875 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B8CEA5B29A20DF10017F875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B8CEA5E29A20DF10017F875 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertViewController.swift; sourceTree = "<group>"; };
 		A3C839BAC6547A73126B7A0F /* Pods-SalahUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtility.release.xcconfig"; path = "Target Support Files/Pods-SalahUtility/Pods-SalahUtility.release.xcconfig"; sourceTree = "<group>"; };
 		B2E4F719AE25403EA52A7061 /* Pods-SalahUtilityExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.release.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.release.xcconfig"; sourceTree = "<group>"; };
+		D9AC2B276B6D607161D68F55 /* Pods_SalahUtilitySwiftUIExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahUtilitySwiftUIExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahUtilityExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF647D6B1A81082C9CC7ACBF /* Pods_SalahUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE473EAF387F7F2808992A7 /* Pods-SalahUtility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtility.debug.xcconfig"; path = "Target Support Files/Pods-SalahUtility/Pods-SalahUtility.debug.xcconfig"; sourceTree = "<group>"; };
@@ -267,6 +302,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B8CEA5229A20DF00017F875 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B8CEA6329A212840017F875 /* SalahUtility.framework in Frameworks */,
+				7684082BD725A010751D7967 /* Pods_SalahUtilitySwiftUIExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +444,7 @@
 				4EFC173E2562C55A0050BB01 /* SalahUtilityExample */,
 				4EFC17552562C55E0050BB01 /* SalahUtilityExampleTests */,
 				4EFC17602562C55E0050BB01 /* SalahUtilityExampleUITests */,
+				8B8CEA5629A20DF00017F875 /* SalahUtilitySwiftUIExample */,
 				4E34D74B2448F7EF00FCCC1A /* Products */,
 				4EFC179B2562CA150050BB01 /* Frameworks */,
 				8D979021910EAF170413D5C3 /* Pods */,
@@ -413,6 +458,7 @@
 				4EFC173D2562C55A0050BB01 /* SalahUtilityExample.app */,
 				4EFC17522562C55E0050BB01 /* SalahUtilityExampleTests.xctest */,
 				4EFC175D2562C55E0050BB01 /* SalahUtilityExampleUITests.xctest */,
+				8B8CEA5529A20DF00017F875 /* SalahUtilitySwiftUIExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -445,6 +491,7 @@
 				4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */,
 				4E0232E52850847B005F48FB /* SwiftUIExtension.swift */,
 				8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */,
+				8B8CEA4F29A20D750017F875 /* NavBarAccessor.swift */,
 				8B2433992987E438001FBCB0 /* ScenarioManager.swift */,
 			);
 			path = SalahUtility;
@@ -675,8 +722,28 @@
 			children = (
 				DF647D6B1A81082C9CC7ACBF /* Pods_SalahUtility.framework */,
 				DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */,
+				D9AC2B276B6D607161D68F55 /* Pods_SalahUtilitySwiftUIExample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B8CEA5629A20DF00017F875 /* SalahUtilitySwiftUIExample */ = {
+			isa = PBXGroup;
+			children = (
+				8B8CEA5729A20DF00017F875 /* SalahUtilitySwiftUIExampleApp.swift */,
+				8B8CEA5929A20DF00017F875 /* ContentView.swift */,
+				8B8CEA5B29A20DF10017F875 /* Assets.xcassets */,
+				8B8CEA5D29A20DF10017F875 /* Preview Content */,
+			);
+			path = SalahUtilitySwiftUIExample;
+			sourceTree = "<group>";
+		};
+		8B8CEA5D29A20DF10017F875 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8B8CEA5E29A20DF10017F875 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		8D979021910EAF170413D5C3 /* Pods */ = {
@@ -686,6 +753,8 @@
 				A3C839BAC6547A73126B7A0F /* Pods-SalahUtility.release.xcconfig */,
 				7A719EF342C9599C272B8BB2 /* Pods-SalahUtilityExample.debug.xcconfig */,
 				B2E4F719AE25403EA52A7061 /* Pods-SalahUtilityExample.release.xcconfig */,
+				19CEF9661CBFCAA9A4BA9538 /* Pods-SalahUtilitySwiftUIExample.debug.xcconfig */,
+				6B478B8F184113969A9DE72E /* Pods-SalahUtilitySwiftUIExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -780,13 +849,34 @@
 			productReference = 4EFC175D2562C55E0050BB01 /* SalahUtilityExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		8B8CEA5429A20DF00017F875 /* SalahUtilitySwiftUIExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B8CEA6029A20DF10017F875 /* Build configuration list for PBXNativeTarget "SalahUtilitySwiftUIExample" */;
+			buildPhases = (
+				4D0B0471A7CFA6FE449F2E18 /* [CP] Check Pods Manifest.lock */,
+				8B8CEA5129A20DF00017F875 /* Sources */,
+				8B8CEA5229A20DF00017F875 /* Frameworks */,
+				8B8CEA5329A20DF00017F875 /* Resources */,
+				8B8CEA6729A212840017F875 /* Embed Frameworks */,
+				8430324F4C066C2A2ADEFD45 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B8CEA6629A212840017F875 /* PBXTargetDependency */,
+			);
+			name = SalahUtilitySwiftUIExample;
+			productName = SalahUtilitySwiftUIExample;
+			productReference = 8B8CEA5529A20DF00017F875 /* SalahUtilitySwiftUIExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4E34D7412448F7EF00FCCC1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Salah;
 				TargetAttributes = {
@@ -805,6 +895,9 @@
 					4EFC175C2562C55E0050BB01 = {
 						CreatedOnToolsVersion = 12.2;
 						TestTargetID = 4EFC173C2562C55A0050BB01;
+					};
+					8B8CEA5429A20DF00017F875 = {
+						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
@@ -826,6 +919,7 @@
 				4EFC173C2562C55A0050BB01 /* SalahUtilityExample */,
 				4EFC17512562C55E0050BB01 /* SalahUtilityExampleTests */,
 				4EFC175C2562C55E0050BB01 /* SalahUtilityExampleUITests */,
+				8B8CEA5429A20DF00017F875 /* SalahUtilitySwiftUIExample */,
 			);
 		};
 /* End PBXProject section */
@@ -870,6 +964,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B8CEA5329A20DF00017F875 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B8CEA5F29A20DF10017F875 /* Preview Assets.xcassets in Resources */,
+				8B8CEA5C29A20DF10017F875 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -910,6 +1013,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D0B0471A7CFA6FE449F2E18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SalahUtilitySwiftUIExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8430324F4C066C2A2ADEFD45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SalahUtilitySwiftUIExample/Pods-SalahUtilitySwiftUIExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SalahUtilitySwiftUIExample/Pods-SalahUtilitySwiftUIExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SalahUtilitySwiftUIExample/Pods-SalahUtilitySwiftUIExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FCCA7DAF30642B23B35A6F9A /* [CP] Check Pods Manifest.lock */ = {
@@ -962,6 +1104,7 @@
 				8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */,
 				4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */,
 				4EA31A512743B7C40065CD2F /* SheetViewController.swift in Sources */,
+				8B8CEA5029A20D750017F875 /* NavBarAccessor.swift in Sources */,
 				4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */,
 				4E27B5F62608F96100497E98 /* UIImagePickerControllerEx.swift in Sources */,
 				4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */,
@@ -1036,6 +1179,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B8CEA5129A20DF00017F875 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B8CEA5A29A20DF00017F875 /* ContentView.swift in Sources */,
+				8B8CEA5829A20DF00017F875 /* SalahUtilitySwiftUIExampleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1053,6 +1205,11 @@
 			isa = PBXTargetDependency;
 			target = 4E34D7492448F7EF00FCCC1A /* SalahUtility */;
 			targetProxy = 4EFC179E2562CA150050BB01 /* PBXContainerItemProxy */;
+		};
+		8B8CEA6629A212840017F875 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E34D7492448F7EF00FCCC1A /* SalahUtility */;
+			targetProxy = 8B8CEA6529A212840017F875 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1410,6 +1567,72 @@
 			};
 			name = Release;
 		};
+		8B8CEA6129A20DF10017F875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19CEF9661CBFCAA9A4BA9538 /* Pods-SalahUtilitySwiftUIExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SalahUtilitySwiftUIExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ad.SalahUtilitySwiftUIExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B8CEA6229A20DF10017F875 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B478B8F184113969A9DE72E /* Pods-SalahUtilitySwiftUIExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SalahUtilitySwiftUIExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 8C7RSZ7C3V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ad.SalahUtilitySwiftUIExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1454,6 +1677,15 @@
 			buildConfigurations = (
 				4EFC17682562C55E0050BB01 /* Debug */,
 				4EFC17692562C55E0050BB01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B8CEA6029A20DF10017F875 /* Build configuration list for PBXNativeTarget "SalahUtilitySwiftUIExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B8CEA6129A20DF10017F875 /* Debug */,
+				8B8CEA6229A20DF10017F875 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

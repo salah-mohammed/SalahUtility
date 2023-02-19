@@ -41,6 +41,9 @@ class TestViewController: UIViewController {
     @IBOutlet weak var btnTest2: UIButton!
     var actions = [BaseAction]();
 
+    deinit {
+        print("deinit");
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print(TestEnum.enum2.value)
