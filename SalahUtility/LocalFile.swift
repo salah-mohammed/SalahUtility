@@ -35,4 +35,23 @@ public enum LocalFile{
             return nil
         }
     }
+    public var stringUrl:String?{
+        switch self{
+        case .url(let url):
+            return url.path
+        case .file(searchPathDirectory:let searchPathDirectory,
+                        folderName: let folderName,
+                        localeFileName: let localeFileName,
+                        fileType: let fileType):
+            return URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
+                                        folderName,
+                                        fileType,
+                                           localeFileName)?.path;
+        case .bundle(forResource: let forResource, ofType: let ofType):
+            if let  path:String = Bundle.main.path(forResource:forResource, ofType:ofType){
+             return path
+            }
+            return nil
+        }
+    }
 }
