@@ -16,7 +16,7 @@ public enum LocalFile{
                 folderName:String,
                 localeFileName:String,
                 fileType:String)
-    var url:URL?{
+    public var url:URL?{
         switch self{
         case .url(let url):
             return url
