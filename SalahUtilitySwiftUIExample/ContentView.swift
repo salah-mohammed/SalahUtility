@@ -9,16 +9,12 @@
 import SwiftUI
 import SalahUtility
 struct ContentView: View {
-    @State var barHeight:CGFloat=0
 
     var body: some View {
         ZStack{
             Color.red
             VStack{
-                BlueNavBarView().frame(height:barHeight).background(.brown)
-                    .background(NavBarAccessor { navBar in
-                        self.barHeight = navBar.bounds.height
-                    })
+                BlueNavBarView()
                 VStack {
                     Image(systemName: "globe")
                         .imageScale(.large)
@@ -40,6 +36,7 @@ struct ContentView_Previews: PreviewProvider {
 private struct BlueNavBarView: View {
 //    @StateObject var viewModel:InputViewModel
 //    var inputInfo:ExternalInputInfo
+    @State var barHeight:CGFloat=0
 
     var body: some View {
         ZStack{
@@ -55,8 +52,9 @@ private struct BlueNavBarView: View {
                     Text("R")
                 }
             }
+        }.frame(height:barHeight).background(.brown)
+            .background(NavBarAccessor { navBar in
+                self.barHeight = navBar.bounds.height
+            })
         }
-    
-      
-    }
 }

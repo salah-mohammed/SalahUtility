@@ -2976,6 +2976,18 @@ public extension AVPlayer{
 /*    **URL**   */
 
 public extension URL {
+    static func bs_genrateLocalFile(_ searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory,
+                                 _ folderName:String,
+                                 _ fileType:String,
+                                 _ localeFileName:String)->URL?{
+         let tempLocalFolderUrl:URL? = FileManager.default.bs_createFolder(searchPathDirectory,folderName:"\(folderName)")
+        if let tempLocalFolderUrl:URL=tempLocalFolderUrl{
+             let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(localeFileName).appendingPathExtension("\(fileType)")
+             return fileURL;
+        }else{
+            return nil;
+        }
+    }
     func bs_fileName() -> String {
         return self.deletingPathExtension().lastPathComponent
     }
@@ -3241,6 +3253,21 @@ public extension DateFormatter {
 public extension FileManager {
     public static let bs_documentsPath: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 
+    public func bs_copyItem(deleteIfExist:Bool,at srcURL: URL, to dstURL: URL) -> Bool {
+        do {
+            let fileExists = self.fileExists(atPath: dstURL.path)
+            if deleteIfExist,fileExists{
+                try self.removeItem(at: dstURL)
+            }
+            if deleteIfExist || (fileExists == false){
+                try self.copyItem(at: srcURL, to: dstURL)
+            }
+        } catch (let error) {
+            print("Cannot copy item at \(srcURL) to \(dstURL): \(error)")
+            return false
+        }
+        return true
+    }
     public static let bs_documentsURL: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     func bs_saveToAppFiles(tempFileUrl:URL,remoteUrl:String?,success:()->(Void),fail:(Error)->(Void)){
         if  let urlString:String = remoteUrl, let fileURL:URL = URL(string:urlString){
