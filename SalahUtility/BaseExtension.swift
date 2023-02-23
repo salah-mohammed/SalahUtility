@@ -2977,10 +2977,16 @@ public extension AVPlayer{
 
 public extension URL {
     static func bs_genrateLocalFile(_ searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory,
-                                 _ folderName:String,
+                                 _ folderName:String?,
                                  _ fileType:String,
                                  _ localeFileName:String)->URL?{
-         let tempLocalFolderUrl:URL? = FileManager.default.bs_createFolder(searchPathDirectory,folderName:"\(folderName)")
+        var tempLocalFolderUrl:URL?
+        if let folderName:String = folderName{
+            tempLocalFolderUrl = FileManager.default.bs_createFolder(searchPathDirectory,folderName:"\(folderName)")
+        }else{
+            tempLocalFolderUrl=FileManager.default.urls(for:searchPathDirectory,in: .userDomainMask).first
+        }
+        
         if let tempLocalFolderUrl:URL=tempLocalFolderUrl{
              let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(localeFileName).appendingPathExtension("\(fileType)")
              return fileURL;

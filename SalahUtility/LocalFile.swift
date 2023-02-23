@@ -13,7 +13,7 @@ public enum LocalFile{
  case url(URL)
  case bundle(forResource:String,ofType:String)
     case file(searchPathDirectory:FileManager.SearchPathDirectory? = .documentDirectory,
-                folderName:String,
+                folderName:String?,
                 localeFileName:String,
                 fileType:String)
     public var url:URL?{
