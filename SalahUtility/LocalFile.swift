@@ -12,7 +12,7 @@ import UIKit
 public enum LocalFile{
  case url(URL)
  case bundle(forResource:String,ofType:String)
-    case file(searchPathDirectory:FileManager.SearchPathDirectory? = .documentDirectory,
+ case file(searchPathDirectory:FileManager.SearchPathDirectory? = .documentDirectory,
                 folderName:String?,
                 localeFileName:String,
                 fileType:String)
@@ -27,7 +27,7 @@ public enum LocalFile{
             return URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
                                         folderName,
                                         fileType,
-                                        localeFileName);
+                                        localeFileName,true);
         case .bundle(forResource: let forResource, ofType: let ofType):
             if let  path:String = Bundle.main.path(forResource:forResource, ofType:ofType){
              return URL.init(fileURLWithPath:path)
@@ -46,12 +46,123 @@ public enum LocalFile{
             return URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
                                         folderName,
                                         fileType,
-                                           localeFileName)?.path;
-        case .bundle(forResource: let forResource, ofType: let ofType):
+                                           localeFileName,true)?.path;
+        case .bundle(forResource: let forResource,ofType:let ofType):
             if let  path:String = Bundle.main.path(forResource:forResource, ofType:ofType){
              return path
             }
             return nil
+        }
+    }
+}
+open class FileBuilder{
+    public enum OperationType{
+    case write(deleteIfExist:Bool,writtenType:WrittenType)
+    case get
+    case copy(deleteIfExist:Bool,from:URL)
+    case remove
+    }
+    public enum WrittenType{
+    case data(Data)
+    case string(String)
+    }
+    var operationType:OperationType = .get
+    private var folders:[String]=[String]();
+    private var searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory
+    private var fileType:String?
+    private var fileName:String?
+    private var create:Bool=true;
+    private var genratedUrl:URL?
+    private var folderPath:String?{
+        if folders.count > 0{
+            return folders.joined(separator:"/")
+        }
+        return nil
+    }
+    public init(_ operationType: OperationType) {
+     self.operationType=operationType
+    }
+    private func build(){
+    self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory, self.folderPath,self.fileName,self.fileType, self.create)
+    }
+    open func operationType(_ operationType:OperationType)->Self{
+    self.operationType=operationType
+    return self
+    }
+    open func searchPathDirectory(_ searchPathDirectory:FileManager.SearchPathDirectory)->Self{
+    self.searchPathDirectory=searchPathDirectory
+    return self
+    }
+    open func folders(_ folders:[String])->Self{
+    self.folders.append(contentsOf:folders)
+    return self
+    }
+    open func folder(_ folder:String)->Self{
+    self.folders.append(folder)
+    return self
+    }
+    open func fileType(_ fileType:String)->Self{
+    self.fileType=fileType
+    return self
+    }
+    open func fileName(_ fileName:String)->Self{
+    self.fileName=fileName
+    return self
+    }
+    open func create(_ create:Bool)->Self{
+    self.create=create
+    return self
+    }
+    open func execute()->URL?{
+    self.build();
+    self.genrate();
+    return self.genratedUrl
+    }
+    private func genrate(){
+        switch self.operationType{
+        case .get:
+            break;
+        case .copy(let deleteIfExist,let fromUrl):
+            if let genratedUrl:URL = self.genratedUrl{
+               let _ = FileManager.default.bs_copyItem(deleteIfExist:deleteIfExist, at:fromUrl, to:genratedUrl)
+            }
+            break;
+        case .write(let deleteIfExist,let writtenType):
+          #if DEBUG
+            if self.fileName == nil || self.fileType == nil {
+                fatalError("you should enter file name and file type to write file")
+            }
+          #endif
+            if let localUrl:URL = self.genratedUrl,
+               let localPath:String=self.genratedUrl?.localPath{
+            switch writtenType{
+            case .data(let data):
+                if deleteIfExist,FileManager.default.fileExists(atPath:localPath) {
+                    try? FileManager.default.removeItem(at:localUrl)
+                }
+                try? data.write(to:localUrl)
+                break;
+            case .string(let string):
+                try? string.write(toFile: localPath, atomically:deleteIfExist, encoding: .utf8)
+                break;
+            }
+            }
+            break;
+        case .remove:
+            if let localUrl:URL = self.genratedUrl{
+            try? FileManager.default.removeItem(at:localUrl)
+            }
+            break;
+        }
+    }
+}
+
+extension URL{
+    var localPath:String?{
+        if #available(iOS 16.0, *) {
+            return self.path()
+        } else {
+            return self.path
         }
     }
 }

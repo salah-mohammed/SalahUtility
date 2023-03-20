@@ -2978,16 +2978,19 @@ public extension AVPlayer{
 public extension URL {
     static func bs_genrateLocalFile(_ searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory,
                                  _ folderName:String?,
-                                 _ fileType:String,
-                                 _ localeFileName:String)->URL?{
+                                    _ localeFileName:String?,
+                                    _ fileType:String?,
+                                    _ createPath:Bool)->URL?{
         var tempLocalFolderUrl:URL?
         if let folderName:String = folderName{
-            tempLocalFolderUrl = FileManager.default.bs_createFolder(searchPathDirectory,folderName:"\(folderName)")
+            tempLocalFolderUrl = FileManager.default.bs_createFolder(searchPathDirectory,folderName:"\(folderName)",createPath:createPath)
         }else{
             tempLocalFolderUrl=FileManager.default.urls(for:searchPathDirectory,in: .userDomainMask).first
         }
         
-        if let tempLocalFolderUrl:URL=tempLocalFolderUrl{
+        if let tempLocalFolderUrl:URL=tempLocalFolderUrl,
+           let localeFileName:String=localeFileName,
+           let fileType:String=fileType{
              let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(localeFileName).appendingPathExtension("\(fileType)")
              return fileURL;
         }else{
@@ -3322,7 +3325,7 @@ public extension FileManager {
         return fileURLs
     }
         // folder/subfolder/subfolder
-    func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirectory,folderName: String) -> URL? {
+    func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirectory,folderName: String,createPath:Bool=true) -> URL? {
             let fileManager = FileManager.default
             // Get document directory for device, this should succeed
             if let documentDirectory = fileManager.urls(for:documentDirectory,
@@ -3330,7 +3333,7 @@ public extension FileManager {
                 // Construct a URL with desired folder name
                 let folderURL = documentDirectory.appendingPathComponent(folderName)
                 // If folder URL does not exist, create it
-                if !fileManager.fileExists(atPath: folderURL.path) {
+                if createPath,!fileManager.fileExists(atPath: folderURL.path) {
                     do {
                         // Attempt to create folder
                         try fileManager.createDirectory(atPath: folderURL.path,
