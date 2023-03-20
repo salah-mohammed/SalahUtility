@@ -99,6 +99,7 @@
 		8B8CEA5F29A20DF10017F875 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5E29A20DF10017F875 /* Preview Assets.xcassets */; };
 		8B8CEA6329A212840017F875 /* SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; };
 		8B8CEA6429A212840017F875 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B90B6EC29C903CB00949107 /* NSMutableAttributedStringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90B6EB29C903CB00949107 /* NSMutableAttributedStringEx.swift */; };
 		8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */; };
 		8BCEEDE629A6261B00A9E9FD /* LocalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */; };
 		AEF3E3652FFA492EBC15A4CF /* Pods_SalahUtilityExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */; };
@@ -265,6 +266,7 @@
 		8B8CEA5929A20DF00017F875 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8B8CEA5B29A20DF10017F875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B8CEA5E29A20DF10017F875 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B90B6EB29C903CB00949107 /* NSMutableAttributedStringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringEx.swift; sourceTree = "<group>"; };
 		8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertViewController.swift; sourceTree = "<group>"; };
 		8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFile.swift; sourceTree = "<group>"; };
 		A3C839BAC6547A73126B7A0F /* Pods-SalahUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtility.release.xcconfig"; path = "Target Support Files/Pods-SalahUtility/Pods-SalahUtility.release.xcconfig"; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				8B8CEA4F29A20D750017F875 /* NavBarAccessor.swift */,
 				8B2433992987E438001FBCB0 /* ScenarioManager.swift */,
 				8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */,
+				8B90B6EB29C903CB00949107 /* NSMutableAttributedStringEx.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -1090,6 +1093,7 @@
 				4EE3F414273D1F8D006FED8C /* CutomAnimation.swift in Sources */,
 				4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */,
 				4EEE962527268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift in Sources */,
+				8B90B6EC29C903CB00949107 /* NSMutableAttributedStringEx.swift in Sources */,
 				4E20E77D27FB1DEF00FD8802 /* AlertBuilder.swift in Sources */,
 				8B6E5C512934D02C00F1439C /* Actions.swift in Sources */,
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
