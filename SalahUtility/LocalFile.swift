@@ -56,6 +56,16 @@ public enum LocalFile{
     }
 }
 open class FileBuilder{
+    open func copy()->FileBuilder{
+        let copyFileBuilder = FileBuilder.init(self.operationType);
+        copyFileBuilder.operationType=self.operationType
+        copyFileBuilder.folders=self.folders
+        copyFileBuilder.searchPathDirectory=self.searchPathDirectory
+        copyFileBuilder.fileType=self.fileType
+        copyFileBuilder.fileName=self.fileName
+        copyFileBuilder.create=self.create
+        return copyFileBuilder
+    }
     public enum OperationType{
     case write(deleteIfExist:Bool,writtenType:WrittenType)
     case get
@@ -71,8 +81,8 @@ open class FileBuilder{
     private var searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory
     private var fileType:String?
     private var fileName:String?
-    private var create:Bool=true;
-    private var genratedUrl:URL?
+    private var create:Bool=false;
+    var genratedUrl:URL?
     private var folderPath:String?{
         if folders.count > 0{
             return folders.joined(separator:"/")
@@ -80,10 +90,16 @@ open class FileBuilder{
         return nil
     }
     public init(_ operationType: OperationType) {
-     self.operationType=operationType
+        self.operationType=operationType
+        // open url
     }
-    private func build(){
+    public init(_ genratedUrl:URL?,_ operationType: OperationType) {
+     self.operationType=operationType
+     self.genratedUrl=genratedUrl;
+    }
+    open func build()->Self{
     self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory, self.folderPath,self.fileName,self.fileType, self.create)
+    return self;
     }
     open func operationType(_ operationType:OperationType)->Self{
     self.operationType=operationType
@@ -114,7 +130,6 @@ open class FileBuilder{
     return self
     }
     open func execute()->URL?{
-    self.build();
     self.genrate();
     return self.genratedUrl
     }
