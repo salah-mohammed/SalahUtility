@@ -225,3 +225,89 @@ class Newww{
         
     }
 }
+
+
+
+
+
+
+/*
+protocol ErrorProcess{
+    var check:Bool{get}
+    func message()->Bool
+    func checkWithMessage()->Bool
+}
+extension ErrorProcess{
+    func checkWithMessage()->Bool{
+    let check = self.check
+    if check{
+    return self.message()
+    }
+    return check
+    }
+}
+struct RemoteError:ErrorProcess{
+    var baseResponse:BaseResponse?
+    var check: Bool{
+        return baseResponse?.success ?? false
+    }
+    func message() -> Bool {
+        Alert.show(.error(baseResponse?.message ?? "", nil))
+        return false
+    }
+}
+struct AuthError:ErrorProcess{
+    var errorCode:Int?
+    var requestBuilder:RequestOperationBuilder?
+    var check: Bool{
+    return  ResponseHandler.checkUnAuth(errorCode ?? 0,requestBuilder)
+    }
+    func message() -> Bool {
+        Alert.show(.error("UnAuthize", {
+        AppDelegate.delegate.loginExpire()
+        }))
+        return false
+    }
+}
+struct MaintenanceError:ErrorProcess{
+    var errorCode:Int?
+    var check: Bool{
+    return  (errorCode == 404 || errorCode == 500)
+    }
+    func message() -> Bool {
+        if let topVc =  UIApplication.topViewController(){
+            if !(topVc is AlertViewController){
+               // self.showErrorMessage("UIAlert.ServerMaintenance.message".localize_, true)
+                Alert.show(.error("UIAlert.ServerMaintenance.message".localize_, {
+                    if let vc : CustomTabBarViewController = AppDelegate.delegate.customTabBarViewController{
+                        vc.tabbarItem = .home
+                    }
+                }))
+                return false
+            }
+        }
+        return true
+    }
+}
+struct NoInternetCheckError:ErrorProcess{
+    var errorCode:Int?
+    var check: Bool{
+    return (errorCode == -1009) || (errorCode == -1020)
+    }
+    func message() -> Bool {
+    Alert.show(.error("NoInternet".localize_, nil))
+    return false
+    }
+}
+extension Array where Element == ErrorProcess {
+   @discardableResult func check()->Bool{
+        for item in self{
+            let isChecked = item.checkWithMessage()
+            if isChecked == false{
+                return isChecked
+            }
+        }
+     return true
+    }
+}
+*/
