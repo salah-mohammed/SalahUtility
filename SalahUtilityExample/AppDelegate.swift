@@ -310,4 +310,20 @@ extension Array where Element == ErrorProcess {
      return true
     }
 }
+ static func checkResponse(showMessage:Bool,response : DataResponse<BaseResponse>, handel:((BaseResponse)->Swift.Void)? = nil, requestBuilder : RequestOperationBuilder? = nil){
+     print("thired date \(Date())")
+     let  statusCode = response.response?.statusCode
+     switch response.result {
+     case .success(let data):
+         if [AuthError.init(errorCode:statusCode,requestBuilder:requestBuilder),
+             RemoteError.init(baseResponse:data)].check() == true{
+             handel?(data)
+         }
+         break
+     case .failure(let err):
+         [MaintenanceError.init(errorCode:statusCode),
+          NoInternetCheckError.init(errorCode:err._code),
+          AuthError.init(errorCode:statusCode,requestBuilder:requestBuilder)].check()
+     }
+ }
 */
