@@ -11,3 +11,4 @@ open class BaseViewController:UIViewController {
 open var actions:[BaseAction]=[BaseAction]();
 
 }
+

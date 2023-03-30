@@ -225,7 +225,50 @@ class Newww{
         
     }
 }
-
+protocol RemoteErrorProtocol{
+    var error:Error?{set get}
+    var errorCode:Int?{set get}
+}
+class RemoteError:ConditionProtocol,RemoteErrorProtocol{
+    var error:Error?
+    var errorCode:Int?
+    var subConditions:[ConditionProtocol]{
+     return []
+    }
+    var check: Bool{
+      return false
+    }
+    func operation() -> Bool {
+        return false;
+    }
+}
+class MaintenanceError:RemoteError{
+    override var check:Bool{
+        return error?._code == 1002
+    }
+    override func operation() -> Bool {
+        Alert.show(nil,.error("", nil))
+        return false
+    }
+}
+class NoInternetCheckError:RemoteError{
+    override var check: Bool{
+        return  (error?._code == 404 || error?._code == 500)
+    }
+    override func operation() -> Bool {
+        Alert.show(nil,.error("", nil))
+        return false
+    }
+}
+class AuthError:RemoteError{
+    override var check: Bool{
+        return  errorCode == 401
+    }
+    override func operation() -> Bool {
+        Alert.show(nil,.error("", nil))
+        return false
+    }
+}
 
 
 
