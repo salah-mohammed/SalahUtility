@@ -68,7 +68,7 @@ open class FileBuilder{
     }
     public enum OperationType{
     case write(deleteIfExist:Bool,writtenType:WrittenType)
-    case get
+    case get(finish:((Data?)->Void)?=nil)
     case copy(deleteIfExist:Bool,from:URL)
     case remove
     }
@@ -76,7 +76,7 @@ open class FileBuilder{
     case data(Data)
     case string(String)
     }
-    var operationType:OperationType = .get
+    var operationType:OperationType = .get()
     private var folders:[String]=[String]();
     private var searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory
     private var fileType:String?
@@ -97,7 +97,7 @@ open class FileBuilder{
      self.operationType=operationType
      self.genratedUrl=genratedUrl;
     }
-    open func build()->Self{
+    @discardableResult open func build()->Self{
     self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory, self.folderPath,self.fileName,self.fileType, self.create)
     return self;
     }
@@ -129,13 +129,16 @@ open class FileBuilder{
     self.create=create
     return self
     }
-    open func execute()->URL?{
+    @discardableResult open func execute()->URL?{
     self.genrate();
     return self.genratedUrl
     }
     private func genrate(){
         switch self.operationType{
-        case .get:
+        case .get(let handler):
+            if let genratedUrl:URL = self.genratedUrl{
+                handler?(try? Data.init(contentsOf: genratedUrl));
+            }
             break;
         case .copy(let deleteIfExist,let fromUrl):
             if let genratedUrl:URL = self.genratedUrl{
