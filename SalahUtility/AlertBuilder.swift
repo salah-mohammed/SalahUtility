@@ -9,9 +9,8 @@ import Foundation
 import UIKit
 import AppTexts
 public enum Element{
-    case text(((UITextField) -> Void)?)
-    case button(String,UIAlertAction.Style,((UIAlertAction) -> Void)?)
-    
+    case text(((UITextField,UIAlertController) -> Void)?)
+    case button(String,UIAlertAction.Style,((UIAlertAction,UIAlertController) -> Void)?)
 }
 public class AlertBuilder{
     private let viewController: UIViewController
@@ -55,10 +54,10 @@ public class AlertBuilder{
         for item in self.elements{
             switch item {
             case .text(let configurationHandler):
-                alert.addTextField(configurationHandler: configurationHandler)
+                alert.addTextField(configurationHandler:{ field in configurationHandler?(field,alert)})
                 break
             case .button(let title, let style, let action):
-                alert.addAction(UIAlertAction.init(title: title, style: style, handler: action))
+                alert.addAction(UIAlertAction.init(title: title, style: style, handler:{ button in action?(button,alert)}))
                 break
             }
         }
@@ -75,20 +74,20 @@ public class AlertBuilder{
 
 public enum Alert{
     // (message,okHandler)
-    case error(String?,((UIAlertAction) -> Void)?)
+    case error(String?,((UIAlertAction,UIAlertController) -> Void)?)
     // (title,fieldName,okHandler)
-    case fieldRequired(title:String,fieldName:String,((UIAlertAction) -> Void)?)
+    case fieldRequired(title:String,fieldName:String,((UIAlertAction,UIAlertController) -> Void)?)
 //    case normal2Actions(String,String,(String?,((UIAlertAction) -> Void)?),(String?,((UIAlertAction) -> Void)?))
     // (message,okHandler)
-    case sucess(String,((UIAlertAction) -> Void)?)
+    case sucess(String,((UIAlertAction,UIAlertController) -> Void)?)
     // (message,okHandler)
-    case attention(String?,((UIAlertAction) -> Void)?)
+    case attention(String?,((UIAlertAction,UIAlertController) -> Void)?)
     // (message,yesHandler,noHandler)
     case yesOrNo(String?,String,
-                 yes:(String?,((UIAlertAction) -> Void)?),
-                 no:(String?,((UIAlertAction) -> Void)?))
+                 yes:(String?,((UIAlertAction,UIAlertController) -> Void)?),
+                 no:(String?,((UIAlertAction,UIAlertController) -> Void)?))
     // (title,message,okHandler)
-    case normal(String,String,((UIAlertAction) -> Void)?)
+    case normal(String,String,((UIAlertAction,UIAlertController) -> Void)?)
     // (title,message,elements,cancelAction)
     case elements(String,String,[Element])
 
