@@ -124,6 +124,11 @@ class TestViewController: UIViewController {
 
 fileprivate extension AVRoutePickerView {
     func present() {
+        let array = [1,2,3]
+        let sum = array.reduce(20) { (accumulator, nextValue) in accumulator + nextValue }
+        print(sum);
+//        let lowestSumIndex = array.indices.min({ array[$0].reduce(0, +) < array[$1].reduce(0, +) })
+        
         let routePickerButton = subviews.first(where: { $0 is UIButton }) as? UIButton
         routePickerButton?.sendActions(for: .touchUpInside)
     }
@@ -136,3 +141,57 @@ class ABB:UIView
     
 }
 
+
+//
+//protocol Presentable { }
+//struct Presenter<PresentableType:Presentable> { }
+//// some examples
+//class SomePresentable: Presentable {  }
+//class AnotherPresentable: Presentable {  }
+//
+//let somePresenter = Presenter<SomePresentable>()
+//let anotherPresenter = Presenter<AnotherPresentable>()
+
+
+//protocol Presentable { }
+//
+//struct PushPresenter<PresentableType: Presentable> {
+//    let presentable: PresentableType
+//    init(_ presentable: PresentableType) {
+//        self.presentable = presentable
+//    }
+//}
+//struct Presenter<PresentableType: Presentable> {
+//    let presentable: PresentableType
+//    init(_ presentable: PresentableType) {
+//        self.presentable = presentable
+//    }
+//}
+//class SomePresentable:Presentable {  }
+//class AnotherPresentable:Presentable {  }
+//
+//let somePresenter = PushPresenter(SomePresentable())
+//let anotherPresenter = Presenter(AnotherPresentable())
+
+protocol Presentable:Protocol {
+    func push();
+    func dismis();
+}
+class Presenter:NSObject{
+    
+    override init() {
+    
+    }
+    
+}
+
+//class PushPresenter:NSObject {
+//    override init() {
+//
+//    }
+//}
+//class Presenter:NSObject{
+//    override init() {
+//
+//    }
+//}

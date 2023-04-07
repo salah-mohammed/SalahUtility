@@ -12,6 +12,13 @@ class OperationQueueViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let myGroup = DispatchGroup()
+        myGroup.enter()
+        myGroup.leave()
+        myGroup.notify(queue: DispatchQueue.main) {
+        ////// do your remaining work
+        }
+        
         let op1 = MyOperation1()
         let op2 = MyOperation2()
 

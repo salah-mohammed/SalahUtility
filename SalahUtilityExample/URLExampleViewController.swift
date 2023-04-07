@@ -14,7 +14,7 @@ class URLExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alert.show(self, Alert.attention("message", { action in
+        Alert.show(self, Alert.attention("message", { _,_ in
         }))
         
         var url = "https://vschoolcontent2.blob.core.windows.net/vschoolblob/TeacherRoom/324b7f0a-f67a-4eff-8ee8-c0bdf21d6bc0.jpg?sv=2020-08-04&st=2022-02-10T10%3A33%3A22Z&se=2022-02-10T10%3A48%3A22Z&sr=b&sp=r&sig=%2FQMqc3%2FugUxjrL21NLSqXYS5RBcaT1EQaQpuy0sfPOY%3D";

@@ -50,3 +50,5 @@ public extension Array where Element == ConditionProtocol {
       return true
      }
 }
+
+

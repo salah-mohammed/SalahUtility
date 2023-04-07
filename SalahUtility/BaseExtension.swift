@@ -395,8 +395,20 @@ public extension UIScreen{
     public func bs_KeyForValue(_ val: Value) -> Key? {
         return first(where: { $1 == val })?.0
     }
-  
 }
+//public extension Dictionary where Key:Hashable, Value:Any {
+//    func bs_json()->String?{
+//        if let theJSONData = try? JSONSerialization.data(
+//            withJSONObject: self,
+//            options: []) {
+//            let theJSONText = String(data: theJSONData,
+//                                       encoding:.utf8)
+//            return theJSONText;
+//        }
+//        return nil;
+//    }
+//}
+
 
 /*    **String**   */
 
@@ -1218,6 +1230,21 @@ public extension Double{
     }
 }
 
+
+extension Array where Element == [Int] {
+    func bs_minSum()->(sum:Int?,index:Int?)?{
+        let minSumInt = self.enumerated()
+            .map { ($0.offset, $0.element.reduce(0,+)) }
+            .min { $0.1 < $1.1 }
+        return minSumInt
+    }
+    func bs_maxSum()->(sum:Int?,index:Int?)?{
+        let minSumInt = self.enumerated()
+            .map { ($0.offset, $0.element.reduce(0,+)) }
+            .max { $0.1 < $1.1 }
+        return minSumInt
+    }
+}
  extension Array where Element == Int {
     public func bs_bigestValue() -> Int?{
         var bigestValue:Int?
@@ -1241,12 +1268,8 @@ public extension Double{
         }
         return bigestValue;
     }
-    public func bs_sum() -> Int{
-        var total = 0;
-        for object in self {
-            total = total+object;
-        }
-  
+     public func bs_sum(add:Int?=0) -> Int{
+        let total = self.reduce(add ?? 0){ (accumulator, nextValue) in accumulator + nextValue }
         return total;
     }
 }

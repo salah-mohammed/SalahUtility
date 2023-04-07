@@ -21,21 +21,21 @@ class AlertExampleViewController: UIViewController {
     }
     @IBAction func btnAlerType(_ sender: Any) {
         
-        Alert.show(nil,Alert.attention("message", { _ in
+        Alert.show(nil,Alert.attention("message", { _,_ in
             print("ok")
         }))
-//        Alert.show(nil,Alert.error("message", { _ in
+//        Alert.show(nil,Alert.error("message", { _,_ in
 //            print("ok")
 //        }))
-//        Alert.show(nil,Alert.success("message", { _ in
+//        Alert.show(nil,Alert.success("message", { _,_ in
 //        print("ok")
 //        }))
-//        Alert.show(nil,Alert.fieldRequired("title","حقل الاسم", { _ in
+//        Alert.show(nil,Alert.fieldRequired("title","حقل الاسم", { _,_ in
 //            print("ok")
 //        }))
-//        Alert.show(nil,Alert.yesOrNo("YesOr no", yes: (nil,{ _ in
+//        Alert.show(nil,Alert.yesOrNo("YesOr no", yes: (nil,{ _,_ in
 //            print("YEs")
-//        }), no:  (nil,{ _ in
+//        }), no:  (nil,{ _,_ in
 //            print("No")
 //        })))
 //        Alert.show(nil,Alert.fieldRequiredTowButton("title","message", { _ in
@@ -46,9 +46,11 @@ class AlertExampleViewController: UIViewController {
     @IBAction func btnShow(_ sender: Any) {
         AlertBuilder.init(viewController:self, style: .alert)
         .title("title")
-        .element(.text({ item in item.placeholder="asd"}))
-        .element(.button("Cancel", .cancel, { _ in }))
-        .element(.button("ok", .default, { _ in }))
+        .element(.text({ field , alert in field.placeholder="asd"}))
+        .element(.button("Cancel", .cancel, { button,alert in }))
+        .element(.button("ok", .default, { alertAction,alert in
+            print(alert.textFields?[0].text)
+        }))
         .execute()
     }
 
