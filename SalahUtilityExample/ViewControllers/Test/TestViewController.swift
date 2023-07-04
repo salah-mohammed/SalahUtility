@@ -86,7 +86,7 @@ class TestViewController: UIViewController {
 //            self.navigationController?.navigationBar.defaultStyle();
 //
 //        }
-        //        UIImagePickerController().bs_setup()
+         UIImagePickerController().bs_setup().bs_present(self)
 //        self.bs_showMessageWithTitle(title: "", message:"", okHandler: nil, cancelHandler: nil, okTitle: nil, cancelTitle: nil);
 
 //        repeat {

@@ -2685,11 +2685,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  /*    **UIAlertController**   */
 
   extension UIAlertController {
-     public enum DisplayType{
-     case show
-     case build
-     }
-     public class func bs_showActionSheet(_ display:DisplayType = DisplayType.show,sender:UIView,viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void)->UIAlertController {
+     public class func bs_showActionSheet(sender:UIView,viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void)->UIAlertController {
          let alertViewController = UIAlertController(title: title, message: message, preferredStyle:preferredStyle)
          for (index, (title, style)) in actions.enumerated() {
              let alertAction = UIAlertAction(title: title, style: style) { (_) in
@@ -2699,18 +2695,16 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          }
          alertViewController.popoverPresentationController?.delegate = (viewController as? UIPopoverPresentationControllerDelegate)
          alertViewController.popoverPresentationController?.sourceView = sender
-         if display == .show{
          viewController.present(alertViewController, animated: true, completion: nil)
-         }
          return alertViewController
      }
-    public class func bs_showActionSheet(_ display:DisplayType = DisplayType.show,sender:UIView,viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?)->UIAlertController{
+    public class func bs_showActionSheet(sender:UIView,viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?)->UIAlertController{
          var actions: [(String, UIAlertAction.Style)] = []
          for object in objects ?? [] {
              actions.append((converter(object), UIAlertAction.Style.default))
          }
          actions.append((cancel, UIAlertAction.Style.cancel))
-     var alertViewController = UIAlertController.bs_showActionSheet(display,sender:sender,viewController:viewController!,preferredStyle, title:title, message:message, actions: actions) { (index) in
+     var alertViewController = UIAlertController.bs_showActionSheet(sender:sender,viewController:viewController!,preferredStyle, title:title, message:message, actions: actions) { (index) in
              if index == objects?.count ?? 0 {
                  // click cancel button
                  canceldHandler?()

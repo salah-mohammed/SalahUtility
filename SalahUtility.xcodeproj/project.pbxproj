@@ -91,6 +91,8 @@
 		4EFC179D2562CA150050BB01 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7684082BD725A010751D7967 /* Pods_SalahUtilitySwiftUIExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC2B276B6D607161D68F55 /* Pods_SalahUtilitySwiftUIExample.framework */; };
 		8B24339A2987E438001FBCB0 /* ScenarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2433992987E438001FBCB0 /* ScenarioManager.swift */; };
+		8B248B092A39E9D800416A97 /* AttributedStringAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B248B082A39E9D800416A97 /* AttributedStringAction.swift */; };
+		8B5D36152A5400A600DCEACD /* StoreProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D36142A5400A600DCEACD /* StoreProductViewController.swift */; };
 		8B6E5C512934D02C00F1439C /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E5C502934D02C00F1439C /* Actions.swift */; };
 		8B88C24929C9AA450042DC0B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88C24829C9AA450042DC0B /* BaseViewController.swift */; };
 		8B8CEA5029A20D750017F875 /* NavBarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8CEA4F29A20D750017F875 /* NavBarAccessor.swift */; };
@@ -104,6 +106,7 @@
 		8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */; };
 		8BCEEDE629A6261B00A9E9FD /* LocalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */; };
 		8BDA1B6D29D62DE800BBD237 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA1B6C29D62DE800BBD237 /* Condition.swift */; };
+		8BED349A29E589DB0047786A /* CodingExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED349929E589DB0047786A /* CodingExamples.swift */; };
 		AEF3E3652FFA492EBC15A4CF /* Pods_SalahUtilityExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */; };
 		CCA59781A8BF91E3C70679BB /* Pods_SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF647D6B1A81082C9CC7ACBF /* Pods_SalahUtility.framework */; };
 /* End PBXBuildFile section */
@@ -260,6 +263,8 @@
 		6B478B8F184113969A9DE72E /* Pods-SalahUtilitySwiftUIExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilitySwiftUIExample.release.xcconfig"; path = "Target Support Files/Pods-SalahUtilitySwiftUIExample/Pods-SalahUtilitySwiftUIExample.release.xcconfig"; sourceTree = "<group>"; };
 		7A719EF342C9599C272B8BB2 /* Pods-SalahUtilityExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.debug.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8B2433992987E438001FBCB0 /* ScenarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioManager.swift; sourceTree = "<group>"; };
+		8B248B082A39E9D800416A97 /* AttributedStringAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringAction.swift; sourceTree = "<group>"; };
+		8B5D36142A5400A600DCEACD /* StoreProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProductViewController.swift; sourceTree = "<group>"; };
 		8B5D70492909534500C654F7 /* SalahUtilityExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalahUtilityExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		8B6E5C502934D02C00F1439C /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		8B88C24829C9AA450042DC0B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +278,7 @@
 		8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertViewController.swift; sourceTree = "<group>"; };
 		8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFile.swift; sourceTree = "<group>"; };
 		8BDA1B6C29D62DE800BBD237 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		8BED349929E589DB0047786A /* CodingExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingExamples.swift; sourceTree = "<group>"; };
 		A3C839BAC6547A73126B7A0F /* Pods-SalahUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtility.release.xcconfig"; path = "Target Support Files/Pods-SalahUtility/Pods-SalahUtility.release.xcconfig"; sourceTree = "<group>"; };
 		B2E4F719AE25403EA52A7061 /* Pods-SalahUtilityExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.release.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.release.xcconfig"; sourceTree = "<group>"; };
 		D9AC2B276B6D607161D68F55 /* Pods_SalahUtilitySwiftUIExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahUtilitySwiftUIExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -484,6 +490,7 @@
 				4E79BD1D2484EB73006FD36D /* NotificationBuilder.swift */,
 				4E42C94724BF0CAB0095ED53 /* UIDocumentPickerViewControllerEx.swift */,
 				4E27B5F52608F96100497E98 /* UIImagePickerControllerEx.swift */,
+				8B5D36142A5400A600DCEACD /* StoreProductViewController.swift */,
 				4E73424C24F25F3400969E79 /* LocalAuth.swift */,
 				4EBFFDFD261362A200D2CB9E /* ParkBenchTimer.swift */,
 				4ECDD0F826872BBD005AB6D9 /* IndexingStorageManager.swift */,
@@ -505,6 +512,7 @@
 				8B90B6EB29C903CB00949107 /* NSMutableAttributedStringEx.swift */,
 				8B88C24829C9AA450042DC0B /* BaseViewController.swift */,
 				8BDA1B6C29D62DE800BBD237 /* Condition.swift */,
+				8B248B082A39E9D800416A97 /* AttributedStringAction.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -707,6 +715,7 @@
 				4E04A1022754E272002FCDD0 /* Resources */,
 				4E04A0FF2754E23A002FCDD0 /* SupportFiles */,
 				8B5D70492909534500C654F7 /* SalahUtilityExample-Bridging-Header.h */,
+				8BED349929E589DB0047786A /* CodingExamples.swift */,
 			);
 			path = SalahUtilityExample;
 			sourceTree = "<group>";
@@ -1095,6 +1104,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B248B092A39E9D800416A97 /* AttributedStringAction.swift in Sources */,
+				8B5D36152A5400A600DCEACD /* StoreProductViewController.swift in Sources */,
 				4E331C452460C25800E5562C /* BaseInheritance.swift in Sources */,
 				4EE3F414273D1F8D006FED8C /* CutomAnimation.swift in Sources */,
 				4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */,
@@ -1161,6 +1172,7 @@
 				4E7CFBF82604EDFE000DB1A9 /* NumbersViewController.swift in Sources */,
 				4EA35B8825F647F100377C6D /* TableViewSectionExampleViewController.swift in Sources */,
 				4EC9B21F26DCAC8B006CB4E5 /* AttributedStringExampleViewController.swift in Sources */,
+				8BED349A29E589DB0047786A /* CodingExamples.swift in Sources */,
 				4ED30C1E25BFF3E900313983 /* RegularExpressionViewController.swift in Sources */,
 				4E04A0FB2754E13C002FCDD0 /* ForthViewController.swift in Sources */,
 				4EC27530268C89E60094C216 /* ScrollViewWithImageViewController.swift in Sources */,

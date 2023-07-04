@@ -50,10 +50,7 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
 
        }
        get{
-        let  tempObject:bs_VideoFinishHandler = objc_getAssociatedObject(self, &PrivateProperties.ImageVideoHandler) as! bs_VideoFinishHandler
-
-
-           return tempObject;
+           return objc_getAssociatedObject(self, &PrivateProperties.ImageVideoHandler) as? bs_VideoFinishHandler;
        }
    }
     var bs_cancelHandler:bs_CancelHandler?
@@ -68,10 +65,7 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
 
        }
        get{
-           let  tempObject:bs_CancelHandler = objc_getAssociatedObject(self, &PrivateProperties.CancelHandler) as! bs_CancelHandler
-
-
-           return tempObject;
+           return objc_getAssociatedObject(self,&PrivateProperties.CancelHandler) as? bs_CancelHandler;
        }
    }
     @discardableResult public func bs_setup() -> UIImagePickerController {
@@ -124,3 +118,6 @@ extension UIImagePickerController:UIImagePickerControllerDelegate & UINavigation
     }
 }
 #endif
+
+
+

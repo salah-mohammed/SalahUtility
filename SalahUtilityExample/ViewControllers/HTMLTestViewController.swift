@@ -120,10 +120,17 @@ Umami Opening in 2012: First Asian Fusion Experiences Concept in Jordan: <br><br
 <br>
 <img src="https://i.imgur.com/OaQLm6z.jpeg">
 """)
+    var html5 = ("#4","""
+Hi انس<br /><br />The user you are following <a href='https://ap1.eureeca.com//user/profile/747'>g</a> has invested in <a href='https://ap1.eureeca.com/proposals/proposal-details/10853'>Turpal Technologies</a><br /><br />If you have any questions or issues please don’t hesitate to contact us at <a href='mailto:support@eureeca.com'>support@eureeca.com</a> <br /><br />If you no longer wish to receive notifications, please click <a href='https://ap1.eureeca.com/static/UnsubscribeEmail?GUID=27afa2ac-8b96-4611-a04e-bfff9b487daa'>here</a> to change your notifications options. <br /><br />The team at Eureeca
+""")
+    var html6 = ("#4","""
+
+• We are growing month by month as we have on boarded 10 new clients in November and December: ETI Global from India, Travel Designer from Qatar; and from UAE: Saadi Tourism, Travelex, Al Hind Travel, Hive Holidays, Dreamline Travel, Reliable Vacations, Empire Travel, and Abatera Tours.<br /> <br />• We have an agreement of integration with Sejour Software from <a href=\"https://www.santsq.com/en\" target=\"_blank\">https://www.santsq.com/en</a> with over 500 travel operators in more than 55 countries, and this is the 5th successful integration with other Reservation or GDS systems that turpal is connected with.<br /> <br />• Tim Heath, Founder of the Yolo Group and General Partner at Yolo Investments, has also joined turpal as an investor. Tim is a seasoned entrepreneur and an investor with over 2 decades of experience within the sectors of iGaming and emerging technologies. More about Tim: <a href=\"https://yolo.io/team/tim-heath/\" target=\"_blank\">https://yolo.io/team/tim-heath/</a>
+""")
     //0.0028879642486572266 seconds.
     override func viewDidLoad() {
         super.viewDidLoad()
-        var html = html1;
+        var html = html6;
         self.lblTitle.text="Sample \(html.0)"
         var a = ParkBenchTimer();
         var text = html.1.bs_stripHTML().trimmingCharacters(in: .whitespaces)
