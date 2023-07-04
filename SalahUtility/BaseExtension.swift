@@ -2689,7 +2689,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  /*    **UIAlertController**   */
 
   extension UIAlertController {
-     public class func bs_showActionSheet(sender:UIView,viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void)->UIAlertController {
+     @discardableResult public class func bs_showActionSheet(sender:UIView,viewController: UIViewController,_ preferredStyle: UIAlertController.Style = .actionSheet, title: String, message: String, actions: [(String, UIAlertAction.Style)], completion: @escaping (_ index: Int) -> Void)->UIAlertController {
          let alertViewController = UIAlertController(title: title, message: message, preferredStyle:preferredStyle)
          for (index, (title, style)) in actions.enumerated() {
              let alertAction = UIAlertAction(title: title, style: style) { (_) in
@@ -2702,7 +2702,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          viewController.present(alertViewController, animated: true, completion: nil)
          return alertViewController
      }
-    public class func bs_showActionSheet(sender:UIView,viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?)->UIAlertController{
+      @discardableResult public class func bs_showActionSheet(sender:UIView,viewController:UIViewController?=UIApplication.shared.bs_rootViewController,_ preferredStyle: UIAlertController.Style = .actionSheet,title:String,message:String,cancel:String,objects:[Any]?,converter:(Any)->String,selectHandler:@escaping (Int,Any)->Void,canceldHandler:(()->Void)?)->UIAlertController{
          var actions: [(String, UIAlertAction.Style)] = []
          for object in objects ?? [] {
              actions.append((converter(object), UIAlertAction.Style.default))
