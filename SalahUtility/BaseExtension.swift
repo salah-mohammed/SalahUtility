@@ -34,8 +34,9 @@ import AppTexts
 //    #endif
 /*    **Array**   */
 
-
-
+public func appStoreLink(_ appStoreId:String)->String{
+  return "https://itunes.apple.com/app/id\(appStoreId)"
+}
 #if os(iOS)
 public var statusBarHeight:CGFloat{
     var top:CGFloat=0
