@@ -26,7 +26,7 @@ public class StoreProductViewController: SKStoreProductViewController {
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
     }
-    public static func present(_ developerId:NSNumber,presenter:UIViewController?)->StoreProductViewController{
+    public static func present(_ developerId:NSNumber,_ presenter:UIViewController?)->StoreProductViewController{
         let vc = StoreProductViewController.init();
         vc.loadProduct(withParameters: [SKStoreProductParameterITunesItemIdentifier:developerId])
         presenter?.present(vc, animated:true);

@@ -37,7 +37,7 @@ import AppTexts
 public func appStoreLink(_ appStoreId:String)->String{
   return "https://itunes.apple.com/app/id\(appStoreId)"
 }
-public func developerLink(developerId:String)->String{
+public func developerLink(_ developerId:String)->String{
 return "https://itunes.apple.com/il/developer/salah-mohamed/id\(developerId)"
 }
 #if os(iOS)
