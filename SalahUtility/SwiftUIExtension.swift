@@ -39,11 +39,21 @@ extension Color {
     }
 }
 @available(iOS 13.0, *)
-extension View {
-    public func bs_addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
+public extension View {
+     func bs_addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
         let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
         return clipShape(roundedRect)
              .overlay(roundedRect.strokeBorder(content, lineWidth: width))
+    }
+     func bs_cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        ModifiedContent(content: self, modifier: CornerRadiusStyle(radius: radius, corners: corners))
+    }
+    func bs_cutomTint(_ color:Color?) -> some View{
+        if #available(iOS 16.0, *) {
+            return self.tint(color)
+        } else {
+            return self.foregroundColor(color)
+        }
     }
 }
 
@@ -66,12 +76,6 @@ public struct CornerRadiusStyle: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .clipShape(CornerRadiusShape(radius: radius, corners: corners))
-    }
-}
-@available(iOS 13.0, *)
-public extension View {
-    func bs_cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        ModifiedContent(content: self, modifier: CornerRadiusStyle(radius: radius, corners: corners))
     }
 }
 #endif
