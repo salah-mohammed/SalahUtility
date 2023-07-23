@@ -36,53 +36,5 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C9813349-30B0-41E4-9AB1-AEA8FA44A8C3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SalahUtilityExampleTests/SalahUtilityExampleTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "regularExpressionIsNumberOnly()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C9813349-30B0-41E4-9AB1-AEA8FA44A8C3 - f54579686906f195"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SalahUtilityExampleTests.SalahUtilityExampleTests.regularExpressionIsNumberOnly() -&gt; ()"
-                  moduleName = "SalahUtilityExampleTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/SalahUtility/SalahUtilityExampleTests/SalahUtilityExampleTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "1250">
-               </Location>
-               <Location
-                  uuid = "C9813349-30B0-41E4-9AB1-AEA8FA44A8C3 - f54579686906f1d7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SalahUtilityExampleTests.SalahUtilityExampleTests.regularExpressionIsNumberOnly() -&gt; ()"
-                  moduleName = "SalahUtilityExampleTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/assd/Salah_Mohammed/Projects/IOSProjects/Own/MyLibraries/SalahUtility/SalahUtilityExampleTests/SalahUtilityExampleTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "1633">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

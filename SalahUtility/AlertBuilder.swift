@@ -96,41 +96,42 @@ public enum Alert{
         case  .fieldRequired(let title,let message,let action):
             return title
         case .error(_, _):
-            return AppTexts.Error
+            return AppTexts.Constant.error.string
         case .sucess(_, _):
-            return AppTexts.DoneSuccessfully
+            return AppTexts.Constant.alertDoneSuccessfully.string
         case .attention(_, _):
-            return AppTexts.Attention
+            return AppTexts.Constant.attention.string
         case .normal(let title,_, _):
             return title
         case .yesOrNo(let title, _, yes: _, no: _):
-            return title ?? AppTexts.Attention
+            return title ?? AppTexts.Constant.attention.string
         case .elements(let title, _, _):
             return title
         }
  }
     static public func show(_ viewController:UIViewController? = nil,_ alertType : Alert){
+        
     if let vc = Alert.viewController ?? viewController{
         let alert = AlertBuilder.init(viewController: vc, style: .alert)
         alert.title(alertType.title)
         switch alertType{
         case .error(let message, let action):
-            alert.message(message ?? AppTexts.AnErrorOccurred).element(Element.button(AppTexts.Ok, .default, action))
+            alert.message(message ?? AppTexts.Constant.anErrorOccurred.string).element(Element.button(AppTexts.Constant.ok.string, .default, action))
             break
         case .fieldRequired(_,let message, let action):
-            alert.message(Validate.fieldRequired(message) ?? "").element(Element.button(AppTexts.Ok, .default, action))
+            alert.message(Validate.fieldRequired(message) ?? "").element(Element.button(AppTexts.Constant.ok.string, .default, action))
             break
         case .sucess(let message, let action):
-            alert.message(message).element(Element.button(AppTexts.Ok, .default, action))
+            alert.message(message).element(Element.button(AppTexts.Constant.ok.string, .default, action))
             break
         case .attention(let message, let action):
-            alert.message(message ?? AppTexts.AnErrorOccurred).element(Element.button(AppTexts.Ok, .default, action))
+            alert.message(message ?? AppTexts.Constant.anErrorOccurred.string).element(Element.button(AppTexts.Constant.ok.string, .default, action))
             break
         case .normal(_ ,let message, let action):
-            alert.message(message).element(Element.button(AppTexts.Ok, .default, action))
+            alert.message(message).element(Element.button(AppTexts.Constant.ok.string, .default, action))
             break
         case .yesOrNo(_,let message, yes: let yes, no: let no):
-            alert.message(message).element(Element.button(yes.0 ?? AppTexts.Yes, .default, yes.1)).element(Element.button(no.0 ?? AppTexts.No, .cancel, no.1))
+            alert.message(message).element(Element.button(yes.0 ?? AppTexts.Constant.yes.string, .default, yes.1)).element(Element.button(no.0 ?? AppTexts.Constant.no.string, .cancel, no.1))
             break
         case .elements(_,let message,let elements):
             alert.message(message).elements(elements)
