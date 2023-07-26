@@ -13,7 +13,7 @@ struct SalahUtilitySwiftUIExampleApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                ContentView()
+                ContentListView()
             }
         }
     }

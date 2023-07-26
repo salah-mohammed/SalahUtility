@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AppTexts:
-    :commit: c55e0feea4be268a92b3ac84f3d5a01ce13e8741
+    :commit: 03b2325e85829c395d50e31d2b178521d679191b
     :git: https://github.com/salah-mohammed/AppTexts.git
 
 SPEC CHECKSUMS:
@@ -18,4 +18,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f183d62ceaf5a74f8b2ac6330ba41289e116dc3b
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
