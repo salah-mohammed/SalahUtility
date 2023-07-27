@@ -55,8 +55,8 @@ public extension View {
             return self.foregroundColor(color)
         }
     }
-    @ViewBuilder func bs_isHidden(value: Binding<Bool>) -> some View {
-            value.wrappedValue ? self  :  self.hidden() as? Self
+    @ViewBuilder func bs_isHidden(_ value: Binding<Bool>) -> some View {
+        value.wrappedValue ? self.hidden() as? Self : self
     }
 }
 
