@@ -58,6 +58,9 @@ public extension View {
     @ViewBuilder func bs_isHidden(_ value: Binding<Bool>) -> some View {
         value.wrappedValue ? self.hidden() as? Self : self
     }
+    @ViewBuilder func bs_isHidden(_ value:Bool) -> some View {
+        value ? self.hidden() as? Self : self
+    }
 }
 
 @available(iOS 13.0, *)
