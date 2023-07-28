@@ -84,5 +84,25 @@ public struct CornerRadiusStyle: ViewModifier {
             .clipShape(CornerRadiusShape(radius: radius, corners: corners))
     }
 }
-
 #endif
+@available(iOS 13.0, *)
+public extension View {
+    func bs_dismissKeyboardOnTap() -> some View {
+        modifier(DismissKeyboardOnTap())
+    }
+}
+@available(iOS 13.0, *)
+public struct DismissKeyboardOnTap: ViewModifier {
+    public func body(content: Content) -> some View {
+        #if os(macOS)
+        return content
+        #else
+        return content.gesture(tapGesture)
+        #endif
+    }
+    private var tapGesture: some Gesture {
+        TapGesture().onEnded({
+            UIApplication.shared.bs_windowForegroundActive?.endEditing(true)
+        })
+    }
+}
