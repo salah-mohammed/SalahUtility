@@ -2305,12 +2305,27 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          }
  }
  /*    **UIApplication**   */
-  extension UIApplication {
-      // swiftUI
-      public var bs_swiftUINavigationController:UINavigationController?{
-          return UIApplication.shared.bs_window?.rootViewController?.children.first?.children.first as? UINavigationController
+public extension UIApplication {
+//      // swiftUI
+//      public var bs_swiftUINavigationController:UINavigationController?{
+//          return UIApplication.shared.bs_window?.rootViewController?.children.first?.children.first as? UINavigationController
+//      }
+       // used normally for keyboard
+       var bs_windowForegroundActive: UIWindow? {
+          if #available(iOS 13.0, *) {
+
+           return UIApplication.shared.connectedScenes
+              .filter {$0.activationState == .foregroundActive}
+              .map {$0 as? UIWindowScene}
+              .compactMap({$0})
+              .first?.windows
+              .filter {$0.isKeyWindow}
+              .first
+          } else {
+              return UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+          }
       }
-      public var bs_window: UIWindow? {
+       var bs_window: UIWindow? {
           if #available(iOS 13.0, *) {
               return UIApplication
                   .shared
@@ -2321,20 +2336,20 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
               return UIApplication.shared.windows.filter {$0.isKeyWindow}.first
           }
      }
-     public func bs_openFilesApp(){
+      func bs_openFilesApp(){
          var fileStringUrl = "shareddocuments://"
          if let fileUrl:URL = try? URL(string:fileStringUrl){
              UIApplication.shared.open(fileUrl)
          }
       }
-    public func bs_openSetting(){
+     func bs_openSetting(){
          let settingsUrl = URL(string: UIApplication.openSettingsURLString)
          if settingsUrl != nil {
          UIApplication.shared.open(settingsUrl!)
          }
      }
 
-    public func bs_openYoutubeLink(_ stringUrl:String?){
+     func bs_openYoutubeLink(_ stringUrl:String?){
          var schemaUrl = URL.init(string:"youtube://\(stringUrl ?? "")");
          if schemaUrl != nil {
              UIApplication.shared.open(schemaUrl!, options:[:]) { (value) in
@@ -2379,7 +2394,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
  //        }
  //
  //    }
-     public func bs_openSocialMediaAccounts(url:URL?){
+      func bs_openSocialMediaAccounts(url:URL?){
          if let url:URL=url{
              if url.absoluteString.lowercased().contains("whatsapp") {
                  self.bs_openWhatsUp(phoneNumber: url.lastPathComponent);
@@ -2402,7 +2417,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
              Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
          }
      }
-     public func bs_openWhatsUp(phoneNumber:String?){
+      func bs_openWhatsUp(phoneNumber:String?){
          guard let phoneNumber = phoneNumber else {
              Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
@@ -2418,7 +2433,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
              UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
          }
      }
-    public func bs_openFacebook(id:String?){
+     func bs_openFacebook(id:String?){
          guard let facebookUID = id else {
              Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
@@ -2434,7 +2449,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
              UIApplication.shared.open(fbURLWeb, options: [:], completionHandler: nil)
          }
      }
-     public func bs_openLinkedIn(id:String?){
+      func bs_openLinkedIn(id:String?){
          //https://www.linkedin.com/in/sari-kamail-eljamal-a866b2121/
          guard let linkedinUID = id else {
              Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
@@ -2451,7 +2466,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
              UIApplication.shared.open(linkedInURLWeb, options: [:], completionHandler: nil)
          }
      }
-    public func bs_openTwitter(name:String?){
+     func bs_openTwitter(name:String?){
          //https://twitter.com/orta
          guard let twitterName = name else {
              Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
@@ -2469,7 +2484,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          }
      }
      
-    public func bs_openGooglePlus(path:String?){
+     func bs_openGooglePlus(path:String?){
          // https://plus.google.com/u/0/100711776131865357077
          // gplus://plus.google.com/u/0/100711776131865357077
          guard let pathString = path else {
@@ -2487,7 +2502,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
              UIApplication.shared.open(googlePlusURLWeb, options: [:], completionHandler: nil)
          }
      }
-    public func bs_openInstegram(path:String?){
+     func bs_openInstegram(path:String?){
          //https://www.instagram.com/shehabagency/?utm_source=ig_profile_share&igshid=3xmdz5ko8anq
          guard let pathString = path else {
              Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
@@ -2505,7 +2520,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          }
      }
 
-    public func bs_openHttpLink(_ url:URL?){
+     func bs_openHttpLink(_ url:URL?){
          if let tempUrl:URL = url as? URL{
              self.bs_openHttpLink(url?.absoluteString) ;
          }else{
@@ -2513,7 +2528,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          }
      }
      
-     public func bs_openHttpLink(_ stringUrl:String?){
+      func bs_openHttpLink(_ stringUrl:String?){
          if stringUrl != nil {
              var tempStringURL:String = stringUrl!;
              if stringUrl!.lowercased().hasPrefix("http") ||  stringUrl!.lowercased().hasPrefix("https") {
@@ -2536,7 +2551,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          
      }
      
-     public func bs_open(_ stringUrl:String?){
+      func bs_open(_ stringUrl:String?){
          if let tempStringUrl:String = stringUrl as? String {
              if let url:URL = URL.init(string:tempStringUrl) {
                  self.bs_open(url);
@@ -2548,7 +2563,7 @@ public func bs_subtractLargeFontWithInRange(subtractFontValueEveryWorlds:Float,m
          
      }
 
-     public func bs_open(_ url:URL?){
+      func bs_open(_ url:URL?){
          if url != nil {
              if UIApplication.shared.canOpenURL(url!) {
                  if #available(iOS 10.0, *) {
