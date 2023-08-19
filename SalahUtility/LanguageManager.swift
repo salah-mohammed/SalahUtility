@@ -30,7 +30,7 @@ public class LanguageManager: NSObject {
         let items = languagesExecludeCurrent
         let selectHandler:(Int,Any)->Void = { index,object in
             let message = [AppTexts.Constant.alertTitleChangeLanguage.string,AppTexts.Constant.subTitleChangeLanguage.string]
-            Alert.show(viewController,.yesOrNo(AppTexts.Constant.attention.string,
+            Alert.show(viewController,.yesOrNo(AppTexts.Constant.appLanguage.string,
                                                message.joined(separator:", "),
                                                yes:(nil,{ _, _ in
                 if let languageCode:String = (object as? LanguageObject)?.languageCode{

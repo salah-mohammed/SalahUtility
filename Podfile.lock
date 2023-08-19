@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AppTexts:
-    :commit: b8b327eb4f8dc9ab25609aa4a7d7ad2bf7f298e9
+    :commit: 18a1b602ebd2e0c50c3ae7d49b93ddddcb889a99
     :git: https://github.com/salah-mohammed/AppTexts.git
 
 SPEC CHECKSUMS:

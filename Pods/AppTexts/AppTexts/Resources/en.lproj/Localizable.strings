@@ -140,7 +140,7 @@
 // MARK: Alerts
 "AlertMessageLogoutConfirmation" = "Do you want to log out";
 "Unauthorized" = "The session has expired, please log in again";
-"TitleChangeLanguage" = "Do you want Change Language?";
+"TitleChangeLanguage" = "Do you want to Change Language?";
 "SubTitleChangeLanguage" = "The app will close and you have to open it again";
 "SupportLater" = "This feature will be supported later";
 "LanguageChangedSuccessfully" = "Language changed successfully";
