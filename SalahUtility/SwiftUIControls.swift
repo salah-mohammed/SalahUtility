@@ -51,11 +51,18 @@ public struct Anything<Wrapper : UIView>: UIViewRepresentable {
 @available(iOS 13.0, *)
 public struct RotatingForeverView: View {
   @State private var isRotating = 0.0
+  @State private var duration = 3.5
+
    var subView:()->AnyView
+    
+   public init(duration:Double = 3.5, subView: @escaping () -> AnyView) {
+        self.duration = duration
+        self.subView = subView
+    }
     public var body: some View{
        subView().rotationEffect(.degrees(isRotating))
            .onAppear {
-               withAnimation(.linear(duration:3.5)
+               withAnimation(.linear(duration:duration)
                        .repeatForever(autoreverses: false)) {
                    isRotating = 360.0
                }
