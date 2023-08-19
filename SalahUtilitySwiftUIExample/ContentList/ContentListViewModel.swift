@@ -12,10 +12,14 @@ class ContentListViewModel:NSObject,ObservableObject{
     @Published  var adLoaded = false
     @Published  var list:[(String,Action)] = []
     @Published  var pushVibration:Bool=false;
+    @Published  var pushAppStorage:Bool=false;
     override init() {
         super.init();
         list.append(("Vibration",{
             self.pushVibration=true;
+        }))
+        list.append(("App Storage",{
+            self.pushAppStorage=true;
         }))
     }
 }

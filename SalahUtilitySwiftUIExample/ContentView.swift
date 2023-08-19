@@ -9,7 +9,6 @@
 import SwiftUI
 import SalahUtility
 struct ContentView: View {
-
     var body: some View {
         ZStack{
             Color.red
@@ -19,7 +18,7 @@ struct ContentView: View {
                     Image(systemName: "globe")
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
-                    Text("Hello, world!")
+                  
                 }.navigationTitle("a")
                     .padding()
                 Spacer()

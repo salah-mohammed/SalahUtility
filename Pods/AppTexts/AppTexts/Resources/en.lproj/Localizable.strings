@@ -131,6 +131,12 @@
 "Total" = "Total";
 "Category" = "Category";
 "ChooseCategory" = "Choose Category";
+"NoSubscription"="No purchases";
+"SubscriptionSucess"="Successfully subscribed";
+"PurchaseRestored"="Purchase has been restored";
+"Subscribe"="Subscribe now";
+"Premium"="Premium";
+
 // MARK: Alerts
 "AlertMessageLogoutConfirmation" = "Do you want to log out";
 "Unauthorized" = "The session has expired, please log in again";
@@ -238,3 +244,7 @@
 "MinimumLimit" = "The Minimum limit %@";
 "MaximumLimit" = "The Maximum limit %@";
 // MARK:------------------------------------AppTexts-----------------------------------
+//dark mode
+"UIUserInterfaceStyle.unspecified.bs_title"="system";
+"UIUserInterfaceStyle.light.bs_title"="light";
+"UIUserInterfaceStyle.dark.bs_title"="dark";

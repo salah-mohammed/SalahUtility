@@ -1,6 +1,6 @@
 {
   "name": "AppTexts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "AppTexts",
   "description": "AppTexts",
   "homepage": "https://github.com/salah-mohammed/AppTexts",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/salah-mohammed/AppTexts.git",
-    "tag": "0.0.1",
+    "tag": "0.0.2",
     "branch": "master"
   },
   "source_files": [

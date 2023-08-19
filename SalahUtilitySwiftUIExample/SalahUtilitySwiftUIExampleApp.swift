@@ -17,4 +17,10 @@ struct SalahUtilitySwiftUIExampleApp: App {
             }
         }
     }
+    init() {
+        DispatchQueue.main.asyncAfter(deadline:.now()+10){
+            UserDefaults.standard.set("9", forKey:"username")
+            UserDefaults.standard.synchronize();
+        }
+    }
 }

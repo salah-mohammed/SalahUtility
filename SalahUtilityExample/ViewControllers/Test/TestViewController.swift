@@ -44,6 +44,29 @@ class TestViewController: UIViewController {
     deinit {
         print("deinit");
     }
+    
+    func listenVolumeButton() {
+        var audioSession = AVAudioSession()
+       do {
+        try audioSession.setActive(true)
+       } catch {
+        print("some error")
+       }
+       audioSession.addObserver(self, forKeyPath: "outputVolume", options: NSKeyValueObservingOptions.new, context: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        listenVolumeButton();
+    }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        var a = change?[NSKeyValueChangeKey(rawValue: "new")] as? Float
+        var a2 = change?[NSKeyValueChangeKey(rawValue: "kind")]  as? Int64
+        print("new:\(a),kind:\(a2)");
+      if keyPath == "outputVolume" {
+        print("Hello")
+      }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print(TestEnum.enum2.value)

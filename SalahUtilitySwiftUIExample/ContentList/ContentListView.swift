@@ -20,6 +20,8 @@ struct ContentListView: View {
                 }
             }.navigationDestination(isPresented:$viewModel.pushVibration){
                 VibrationView()
+            }.navigationDestination(isPresented:$viewModel.pushAppStorage){
+                AppStorageView()
             }
         }.navigationBarTitle("Content List")
     }

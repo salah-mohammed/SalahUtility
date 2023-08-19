@@ -138,6 +138,10 @@ public class AppTexts: NSObject {
         // MARK:Alerts
         case alertMessageLogoutConfirmation="AlertMessageLogoutConfirmation"
         case alertUnauthorized="Unauthorized"
+        case alertTitleChangeLanguage="TitleChangeLanguage"
+        case subTitleChangeLanguage="SubTitleChangeLanguage"
+        case alertSupportLater="SupportLater"
+//        "LanguageChangedSuccessfully" = "تم تغير اللغة بنجاح";
         case alertResetPasswordSuccess="ResetPasswordSuccess"
         case alertResetCodeToResetPasswordSuccess="ResetCodeToResetPasswordSuccess"
         case alertLoginIsRequired="LoginIsRequired"
@@ -145,6 +149,7 @@ public class AppTexts: NSObject {
         case alertTakeAPhotoOrASelectionFromTheGallery="TakeAPhotoOrASelectionFromTheGallery"
         case alertDoneSuccessfully="DoneSuccessfully"
         case alertEnterAllFields="EnterAllFields"
+        case alertFeatureForLoginedUsers="FeatureForLoginedUsers"
         // MARK:Fields
         case firstName="FirstName"
         case lastName="LastName"
@@ -187,6 +192,12 @@ public class AppTexts: NSObject {
         case floorNo="FloorNo"
         case birthDay="BirthDay"
         case oldPassword="OldPassword"
+        case noSubscription="NoSubscription"
+        case subscriptionSucess="SubscriptionSucess"
+        case purchaseRestored="PurchaseRestored"
+        case subscribe="Subscribe"
+        case premium="Premium"
+        
         public var  string:String{
         return  self.rawValue.internalLocalize_
         }

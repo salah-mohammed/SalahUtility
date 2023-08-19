@@ -1,5 +1,5 @@
 PODS:
-  - AppTexts (0.0.1)
+  - AppTexts (0.0.2)
 
 DEPENDENCIES:
   - AppTexts (from `https://github.com/salah-mohammed/AppTexts.git`)
@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AppTexts:
-    :commit: 03b2325e85829c395d50e31d2b178521d679191b
+    :commit: b8b327eb4f8dc9ab25609aa4a7d7ad2bf7f298e9
     :git: https://github.com/salah-mohammed/AppTexts.git
 
 SPEC CHECKSUMS:
-  AppTexts: 44546f1c429ac7a166e0ed96dafd3bb65ca9a25c
+  AppTexts: ae36eecd6b9a41458ceb60229c49ea11a6ad0cc5
 
 PODFILE CHECKSUM: f183d62ceaf5a74f8b2ac6330ba41289e116dc3b
 

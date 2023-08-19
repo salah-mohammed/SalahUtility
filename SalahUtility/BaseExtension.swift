@@ -438,6 +438,9 @@ public extension String{
 //            return item
 //        }
 //    }
+     var bs_encodeStringUrlForArabicText:String?{
+        return self.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)
+     }
     // remove newline from start and end of text
     var bs_removeNewline:String{
         var item = String.init(self)
@@ -3925,3 +3928,21 @@ public extension Substring{
     }
 }
 
+
+
+//// Get current date
+//let dateA = Date()
+//
+//// Get a later date (after a couple of milliseconds)
+//let dateB = Date()
+//// Compare them using switch
+//switch dateA.compare(dateB) {
+//    case .orderedAscending     :   print("Date A is earlier than date B")
+//    case .orderedDescending    :   print("Date A is later than date B")
+//    case .orderedSame          :   print("The two dates are the same")
+//}
+//
+//// Compare them using if
+//if dateA.compare(dateB) == .orderedAscending {
+//    datePickerTo.date = datePicker.date
+//}

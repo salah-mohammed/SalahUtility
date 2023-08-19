@@ -130,6 +130,13 @@
 "Total" = "المجموع";
 "Category" = "التصنيف";
 "ChooseCategory" = "اختر تصنيف";
+///
+"NoSubscription"="لايوجد مشتريات";
+"SubscriptionSucess"="تم الإشتراك بنجاح";
+"PurchaseRestored"="تمت استعادة المشتريات بنجاح";
+"Subscribe"="اشترك الآن";
+"Premium"="استثنائي";
+//
 // MARK:Alerts
 "AlertMessageLogoutConfirmation" = "هل تريد تسجيل الخروج؟";
 "Unauthorized" = "تم إنتهاء الجلسة, الرجاء تسجيل الدخول مرة اخرى";
@@ -238,3 +245,7 @@
 "MinimumLimit" = "الحد الأدنى %@";
 "MaximumLimit" = "الحد الأقصى %@";
 // MARK:------------------------------------AppTexts-----------------------------------
+//dark mode
+"UIUserInterfaceStyle.unspecified.bs_title"="نظام";
+"UIUserInterfaceStyle.light.bs_title"="فاتح";
+"UIUserInterfaceStyle.dark.bs_title"="غامق";
