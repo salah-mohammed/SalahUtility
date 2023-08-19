@@ -57,8 +57,8 @@ public class LanguageManager: NSObject {
     }
 }
 public class LanguageObject:NSObject{
-    var languageCode:String?
-    var name:String?
+   public var languageCode:String?
+   public var name:String?
     public init(languageCode:String) {
         self.languageCode = languageCode
         self.name=LanguageManager.nameFor(languageCode)
