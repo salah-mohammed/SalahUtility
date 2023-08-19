@@ -9,7 +9,7 @@
 import UIKit
 import AppTexts
 public class LanguageManager: NSObject {
-    public var languageList:[LanguageObject]{
+    public var allLanguages:[LanguageObject]{
         var languageList:[LanguageObject]=[LanguageObject]();
         let languagesCodes = Bundle.main.localizations
         for languageCode in languagesCodes {
@@ -20,13 +20,15 @@ public class LanguageManager: NSObject {
         }
         return languageList
     }
+    public var languagesExecludeCurrent:[LanguageObject]{
+        return allLanguages.filter({$0.languageCode?.lowercased() != currentLanguage.languageCode?.lowercased()});
+    }
     public var currentLanguage:LanguageObject{
         return LanguageObject.init(languageCode:UserDefaults.standard.bs_appleLanguage)
     }
     public func showAlert(_ viewController:UIViewController){
-        let items = languageList;
+        let items = languagesExecludeCurrent
         let selectHandler:(Int,Any)->Void = { index,object in
-
             
             Alert.show(viewController,.yesOrNo(AppTexts.Constant.alertTitleChangeLanguage.string,
                                                AppTexts.Constant.subTitleChangeLanguage.string,
