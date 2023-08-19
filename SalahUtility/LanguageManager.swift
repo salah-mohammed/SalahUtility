@@ -21,7 +21,7 @@ public class LanguageManager: NSObject {
         return languageList
     }
     public var languagesExecludeCurrent:[LanguageObject]{
-        return allLanguages.filter({$0.languageCode?.lowercased() != currentLanguage.languageCode?.lowercased()});
+        return allLanguages.filter({!$0.isEqualLanguageOnly(currentLanguage)});
     }
     public var currentLanguage:LanguageObject{
         return LanguageObject.init(languageCode:UserDefaults.standard.bs_appleLanguage)
@@ -68,5 +68,13 @@ public class LanguageObject:NSObject{
      init(languageCode: String? = nil,name:String?) {
         self.languageCode = languageCode
         self.name=name;
+    }
+    public  func isEqualLanguageOnly(_ object:LanguageObject?) -> Bool {
+        return  Locale.init(identifier:self.languageCode ?? "").languageCode == Locale.init(identifier:object?.languageCode ?? "").languageCode
+    }
+    public  func isEqualLanguageAndRegionCode(_ object:LanguageObject?) -> Bool {
+        let firstLocale = Locale.init(identifier:self.languageCode ?? "")
+        let secondLocale = Locale.init(identifier:object?.languageCode ?? "")
+        return (firstLocale.languageCode == secondLocale.languageCode)&&(firstLocale.regionCode == secondLocale.regionCode)
     }
 }
