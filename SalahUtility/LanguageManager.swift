@@ -26,12 +26,12 @@ public class LanguageManager: NSObject {
     public var currentLanguage:LanguageObject{
         return LanguageObject.init(languageCode:UserDefaults.standard.bs_appleLanguage)
     }
-    public func showAlert(_ viewController:UIViewController){
+    public func showAlert(_ viewController:UIViewController?){
         let items = languagesExecludeCurrent
         let selectHandler:(Int,Any)->Void = { index,object in
-            
-            Alert.show(viewController,.yesOrNo(AppTexts.Constant.alertTitleChangeLanguage.string,
-                                               AppTexts.Constant.subTitleChangeLanguage.string,
+            let message = [AppTexts.Constant.alertTitleChangeLanguage.string,AppTexts.Constant.subTitleChangeLanguage.string]
+            Alert.show(viewController,.yesOrNo(AppTexts.Constant.attention.string,
+                                               message.joined(separator:", "),
                                                yes:(nil,{ _, _ in
                 if let languageCode:String = (object as? LanguageObject)?.languageCode{
                     UserDefaults.standard.bs_appleLanguage = languageCode
@@ -44,14 +44,16 @@ public class LanguageManager: NSObject {
         let converter:(Any)->String = { object in
             (object as? LanguageObject)?.name ?? ""
         }
-        UIAlertController.bs_showActionSheet(sender:viewController.view,
-                                             title:AppTexts.Constant.choose.string,
-                                             message:AppTexts.Constant.appLanguage.string,
-                                             cancel:AppTexts.Constant.cancel.string,
-                                             objects:items,
-                                             converter:converter,
-                                             selectHandler:selectHandler,
-                                             canceldHandler:nil)
+        if let vc = Alert.viewController ?? viewController{
+            UIAlertController.bs_showActionSheet(sender:vc.view,
+                                                 title:AppTexts.Constant.choose.string,
+                                                 message:AppTexts.Constant.appLanguage.string,
+                                                 cancel:AppTexts.Constant.cancel.string,
+                                                 objects:items,
+                                                 converter:converter,
+                                                 selectHandler:selectHandler,
+                                                 canceldHandler:nil)
+        }
     }
     public static func nameFor(_ languageCode:String)->String?{
          let loc = Locale(identifier: languageCode)
