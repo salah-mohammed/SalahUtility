@@ -2417,12 +2417,12 @@ public extension UIApplication {
                                  self.open(url, options: [:], completionHandler: nil)
              }
          }else{
-             Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+             AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
          }
      }
       func bs_openWhatsUp(phoneNumber:String?){
          guard let phoneNumber = phoneNumber else {
-             Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+             AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
          }
          let fbURLWeb: URL = URL(string:"https://web.whatsapp.com/\(phoneNumber)")!
@@ -2438,7 +2438,7 @@ public extension UIApplication {
      }
      func bs_openFacebook(id:String?){
          guard let facebookUID = id else {
-             Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+             AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
          }
          let fbURLWeb: URL = URL(string: "https://www.facebook.com/\(facebookUID)")!
@@ -2455,7 +2455,7 @@ public extension UIApplication {
       func bs_openLinkedIn(id:String?){
          //https://www.linkedin.com/in/sari-kamail-eljamal-a866b2121/
          guard let linkedinUID = id else {
-             Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+             AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
          }
          let linkedInURLWeb: URL = URL(string: "https://www.linkedin.com/in/\(linkedinUID)")!
@@ -2472,7 +2472,7 @@ public extension UIApplication {
      func bs_openTwitter(name:String?){
          //https://twitter.com/orta
          guard let twitterName = name else {
-             Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+             AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
          }
          let twitterURLWeb: URL = URL(string: "https://twitter.com/\(twitterName)")!
@@ -2491,7 +2491,7 @@ public extension UIApplication {
          // https://plus.google.com/u/0/100711776131865357077
          // gplus://plus.google.com/u/0/100711776131865357077
          guard let pathString = path else {
-             Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+             AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
          }
          let googlePlusURLWeb: URL = URL(string: "https://plus.google.com/u/0/\(pathString)")!
@@ -2508,7 +2508,7 @@ public extension UIApplication {
      func bs_openInstegram(path:String?){
          //https://www.instagram.com/shehabagency/?utm_source=ig_profile_share&igshid=3xmdz5ko8anq
          guard let pathString = path else {
-             Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+             AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              return
          }
          let instagramURLWeb: URL = URL(string: "https://www.instagram.com/\(pathString)")!
@@ -2548,7 +2548,7 @@ public extension UIApplication {
                      UIApplication.shared.open(url, options: [:], completionHandler: nil)
                  }
              }else{
-                 Alert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
+                 AppAlert.show(UIApplication.shared.bs_rootViewController,.error(AppTexts.Constant.cantNotOpenLink.string, nil))
              }
          }else{}
          

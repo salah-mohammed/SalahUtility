@@ -72,7 +72,7 @@ public class AlertBuilder{
 }
 //->Need array of elements
 
-public enum Alert{
+public enum AppAlert{
     // (message,okHandler)
     case error(String?,((UIAlertAction,UIAlertController) -> Void)?)
     // (title,fieldName,okHandler)
@@ -109,9 +109,9 @@ public enum Alert{
             return title
         }
  }
-    static public func show(_ viewController:UIViewController? = nil,_ alertType : Alert){
+    static public func show(_ viewController:UIViewController? = nil,_ alertType : AppAlert){
         
-    if let vc = Alert.viewController ?? viewController{
+    if let vc = AppAlert.viewController ?? viewController{
         let alert = AlertBuilder.init(viewController: vc, style: .alert)
         alert.title(alertType.title)
         switch alertType{
