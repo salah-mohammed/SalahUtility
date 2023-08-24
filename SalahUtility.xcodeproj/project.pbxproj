@@ -114,6 +114,7 @@
 		8BE1573D2A8020E700EDE618 /* AppStorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */; };
 		8BEBF1452A90AB9F00D2896F /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBF1442A90AB9F00D2896F /* LanguageManager.swift */; };
 		8BED349A29E589DB0047786A /* CodingExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED349929E589DB0047786A /* CodingExamples.swift */; };
+		8BFE9D402A97687300BFB0DB /* InteractionsDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE9D3F2A97687300BFB0DB /* InteractionsDebugger.swift */; };
 		AEF3E3652FFA492EBC15A4CF /* Pods_SalahUtilityExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */; };
 		CCA59781A8BF91E3C70679BB /* Pods_SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF647D6B1A81082C9CC7ACBF /* Pods_SalahUtility.framework */; };
 /* End PBXBuildFile section */
@@ -293,6 +294,7 @@
 		8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageViewModel.swift; sourceTree = "<group>"; };
 		8BEBF1442A90AB9F00D2896F /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		8BED349929E589DB0047786A /* CodingExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingExamples.swift; sourceTree = "<group>"; };
+		8BFE9D3F2A97687300BFB0DB /* InteractionsDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionsDebugger.swift; sourceTree = "<group>"; };
 		A3C839BAC6547A73126B7A0F /* Pods-SalahUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtility.release.xcconfig"; path = "Target Support Files/Pods-SalahUtility/Pods-SalahUtility.release.xcconfig"; sourceTree = "<group>"; };
 		B2E4F719AE25403EA52A7061 /* Pods-SalahUtilityExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.release.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.release.xcconfig"; sourceTree = "<group>"; };
 		D9AC2B276B6D607161D68F55 /* Pods_SalahUtilitySwiftUIExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahUtilitySwiftUIExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,6 +530,7 @@
 				8BDA1B6C29D62DE800BBD237 /* Condition.swift */,
 				8B248B082A39E9D800416A97 /* AttributedStringAction.swift */,
 				8BEBF1442A90AB9F00D2896F /* LanguageManager.swift */,
+				8BFE9D3F2A97687300BFB0DB /* InteractionsDebugger.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -1162,6 +1165,7 @@
 				8B6E5C512934D02C00F1439C /* Actions.swift in Sources */,
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
 				4EE54D032848AD7D00BFF787 /* SwiftUIControls.swift in Sources */,
+				8BFE9D402A97687300BFB0DB /* InteractionsDebugger.swift in Sources */,
 				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
 				8BEBF1452A90AB9F00D2896F /* LanguageManager.swift in Sources */,
