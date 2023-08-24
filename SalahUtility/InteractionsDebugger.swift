@@ -15,9 +15,9 @@ public class InteractionsDebugger{
     }
     
     public func debug(_ featureName:String){
-        var count = interactions(featureName:key(featureName))
+        var count = interactions(featureName:featureName)
         count = (count + 1)
-        save(count:count,featureName:key(featureName))
+        save(count:count,featureName:featureName)
     }
     public func interactions(featureName:String)->Int{
         return UserDefaults.standard.integer(forKey:key(featureName));
