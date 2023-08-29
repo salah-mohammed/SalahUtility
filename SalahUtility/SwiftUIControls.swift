@@ -120,7 +120,7 @@ public struct WebView: UIViewRepresentable {
 public struct WebViewScreen: View {
     var url:URL
     @Binding public var present:Bool
-    @State   public var barColor:Color?
+    public var barColor:Color?
 
     public init(url: URL,present:Binding<Bool>,barColor:Color?) {
         self.url = url
