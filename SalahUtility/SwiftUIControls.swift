@@ -142,8 +142,8 @@ public struct WebViewScreen: View {
                     } label: {
                         Image(systemName:"xmark").foregroundColor(Color.init(uiColor:.label))
                     }
-                }.background(barColor).padding([.leading,.trailing],16).frame(height:50)
-                linearProgressView
+                }.padding([.leading,.trailing],16).frame(height:50).background(barColor)
+                linearProgressView.background(barColor)
             }
             WebView(url:url,finished:$finished,progressValue:$progressValue)
         }
