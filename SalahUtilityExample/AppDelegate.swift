@@ -15,6 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var newVariable=1
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let date1 = Date()
+        UserDefaults.standard.set(date1, forKey:"Test1")
+        //read
+        let date2 = UserDefaults.standard.object(forKey:"Test1") as! Date
+        
+        var a1 = date1.timeIntervalSinceNow
+        var a2 = date2.timeIntervalSinceNow
+        print(a1);
+        print(a2);
+
         
 //        var a = NewNew.externalIPAddress;
 //        var a = AppTexts.ConfirmPassword;
@@ -247,7 +257,7 @@ class MaintenanceError:RemoteError{
         return error?._code == 1002
     }
     override func operation() -> Bool {
-        Alert.show(nil,.error("", nil))
+        AppAlert.show(nil,.error("", nil))
         return false
     }
 }
@@ -256,7 +266,7 @@ class NoInternetCheckError:RemoteError{
         return  (error?._code == 404 || error?._code == 500)
     }
     override func operation() -> Bool {
-        Alert.show(nil,.error("", nil))
+        AppAlert.show(nil,.error("", nil))
         return false
     }
 }
@@ -265,7 +275,7 @@ class AuthError:RemoteError{
         return  errorCode == 401
     }
     override func operation() -> Bool {
-        Alert.show(nil,.error("", nil))
+        AppAlert.show(nil,.error("", nil))
         return false
     }
 }

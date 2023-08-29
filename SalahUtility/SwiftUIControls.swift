@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 import UIKit
-
+import WebKit
 @available(iOS 13.0, *)
 public struct ActivityIndicator: UIViewRepresentable {
 
@@ -70,4 +70,53 @@ public struct RotatingForeverView: View {
    }
 }
 
+@available(iOS 13.0, *)
+public struct WebView: UIViewRepresentable {
+    var url: URL
+    @Binding public var finished:Bool?
+    @Binding public var progressValue:Float
+
+    public init(url: URL, finished:Binding<Bool?>, progressValue:Binding<Float>) {
+        self.url = url
+        _finished = finished
+        _progressValue = progressValue
+    }
+    public func makeUIView(context: UIViewRepresentableContext<WebView>) -> WKWebView{
+        let wkWebView = WKWebView();
+        wkWebView.navigationDelegate = context.coordinator
+        let request = URLRequest(url: url)
+        wkWebView.load(request)
+        return wkWebView
+    }
+    public func updateUIView(_ webView: WKWebView, context: Context) {
+
+    }
+    public func makeCoordinator() -> WebView.Coordinator {
+        let coordinator = Coordinator(self);
+       return coordinator
+    }
+    
+    public class Coordinator: NSObject, WKNavigationDelegate{
+        public var parent: WebView
+        var observer:Any?
+        init(_ parent: WebView){
+            self.parent = parent
+           
+        }
+        public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        self.parent.finished=false;
+            observer = webView.observe(\.estimatedProgress, options: [.new]) { webView,_ in
+                self.parent.progressValue = Float (webView.estimatedProgress)
+            }
+        }
+        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.parent.finished = true
+        self.observer=nil;
+        }
+    }
+}
+
 #endif
+
+
+

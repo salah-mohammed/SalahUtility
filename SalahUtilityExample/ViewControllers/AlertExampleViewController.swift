@@ -21,7 +21,7 @@ class AlertExampleViewController: UIViewController {
     }
     @IBAction func btnAlerType(_ sender: Any) {
         
-        Alert.show(nil,Alert.attention("message", { _,_ in
+        AppAlert.show(nil,AppAlert.attention("message", { _,_ in
             print("ok")
         }))
 //        Alert.show(nil,Alert.error("message", { _,_ in
