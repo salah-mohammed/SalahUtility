@@ -121,11 +121,13 @@ public struct WebViewScreen: View {
     var url:URL
     @Binding public var present:Bool
     public var barColor:Color?
+    public var title:String?
 
-    public init(url: URL,present:Binding<Bool>,barColor:Color?) {
+    public init(url: URL,present:Binding<Bool>,barColor:Color?,title:String?) {
         self.url = url
         _present=present
         self.barColor=barColor;
+        self.title=title
     }
     @State public var finished:Bool?
     @State public var progressValue:Float=0
@@ -133,14 +135,19 @@ public struct WebViewScreen: View {
         VStack(spacing:0){
             VStack(spacing:0){
                 HStack{
-                    if finished == false{
+                    ZStack{
+                    Spacer().frame(width:35)
+                     if finished == false{
                         ProgressView().controlSize(.regular)
+                        }
                     }
+                    Spacer()
+                    Text(self.title ?? "")
                     Spacer()
                     Button.init {
                         present=false;
                     } label: {
-                        Image(systemName:"xmark").foregroundColor(Color.init(uiColor:.label))
+                        Image(systemName:"xmark").foregroundColor(Color.init(uiColor:.label)).frame(width:35)
                     }
                 }.padding([.leading,.trailing],16).frame(height:50).background(barColor)
                 linearProgressView.background(barColor)
