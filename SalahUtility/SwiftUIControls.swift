@@ -116,6 +116,48 @@ public struct WebView: UIViewRepresentable {
     }
 }
 
+@available(iOS 15.0, *)
+public struct WebViewScreen: View {
+    var url:URL
+    @Binding public var present:Bool
+    @State   public var barColor:Color?
+
+    public init(url: URL,present:Binding<Bool>,barColor:Color?) {
+        self.url = url
+        _present=present
+        self.barColor=barColor;
+    }
+    @State public var finished:Bool?
+    @State public var progressValue:Float=0
+    public var body: some View {
+        VStack(spacing:0){
+            VStack(spacing:0){
+                HStack{
+                    if finished == false{
+                        ProgressView().controlSize(.regular)
+                    }
+                    Spacer()
+                    Button.init {
+                        present=false;
+                    } label: {
+                        Image(systemName:"xmark").foregroundColor(Color.init(uiColor:.label))
+                    }
+                }.background(barColor).padding([.leading,.trailing],16).frame(height:50)
+                linearProgressView
+            }
+            WebView(url:url,finished:$finished,progressValue:$progressValue)
+        }
+    }
+    var linearProgressView:some View {
+        let geo = GeometryReader { size in
+            HStack{
+                Rectangle().foregroundColor(progressValue < 1.0 ? Color.blue:Color.clear).frame(width:size.size.width*CGFloat(progressValue)).cornerRadius(1.3)
+                Spacer()
+            }
+        }.frame(height:3)
+        return geo
+    }
+}
 #endif
 
 
