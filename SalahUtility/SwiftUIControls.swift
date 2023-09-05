@@ -103,6 +103,13 @@ public struct WebView: UIViewRepresentable {
             self.parent = parent
            
         }
+        // this make WKWebView work when ssl certificate is lost (http)
+        public func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+            if let serverTrust:SecTrust = challenge.protectionSpace.serverTrust{
+                let cred = URLCredential(trust:serverTrust)
+                completionHandler(.useCredential, cred)
+            }
+        }
         public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         self.parent.finished=false;
             observer = webView.observe(\.estimatedProgress, options: [.new]) { webView,_ in
