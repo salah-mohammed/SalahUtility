@@ -176,9 +176,11 @@ public struct WebViewScreen: View {
 // this used when there is clear color
 @available(iOS 13.0, *)
 public struct InvisibleButton: View {
-
-    public let action: (() -> Void)?
-
+public typealias Action = () -> Void
+    public let action:Action?
+    public init(_ action:Action?) {
+        self.action = action
+    }
    public var body: some View {
         Color.clear
         .contentShape(Rectangle())
