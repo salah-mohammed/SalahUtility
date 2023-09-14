@@ -172,6 +172,22 @@ public struct WebViewScreen: View {
         return geo
     }
 }
+
+// this used when there is clear color
+@available(iOS 13.0, *)
+public struct InvisibleButton: View {
+
+    public let action: (() -> Void)?
+
+   public var body: some View {
+        Color.clear
+        .contentShape(Rectangle())
+        .onTapGesture {
+            action?()
+        }
+    }
+}
+
 #endif
 
 
