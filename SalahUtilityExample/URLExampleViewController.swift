@@ -13,7 +13,8 @@ class URLExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+
         AppAlert.show(self, AppAlert.attention("message", { _,_ in
         }))
         

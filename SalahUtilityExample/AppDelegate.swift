@@ -13,17 +13,33 @@ import AppTexts
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var newVariable=1
+    var array:[String]=["1","2"]
+    var array2:[String]?
+    
+    func someFoo(items : inout [String]) {
+        array2 = items
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let date1 = Date()
-        UserDefaults.standard.set(date1, forKey:"Test1")
-        //read
-        let date2 = UserDefaults.standard.object(forKey:"Test1") as! Date
+  
+
+        self.someFoo(items:&array)
+        print(array)
+        array.append("3")
+        print(array)
+        print(array2 ?? [])
+        print("Finish")
         
-        var a1 = date1.timeIntervalSinceNow
-        var a2 = date2.timeIntervalSinceNow
-        print(a1);
-        print(a2);
+        
+//        let date1 = Date()
+//        UserDefaults.standard.set(date1, forKey:"Test1")
+//        //read
+//        let date2 = UserDefaults.standard.object(forKey:"Test1") as! Date
+//
+//        var a1 = date1.timeIntervalSinceNow
+//        var a2 = date2.timeIntervalSinceNow
+//        print(a1);
+//        print(a2);
 
         
 //        var a = NewNew.externalIPAddress;

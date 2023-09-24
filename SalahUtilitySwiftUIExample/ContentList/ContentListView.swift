@@ -12,11 +12,22 @@ struct ContentListView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(viewModel.list, id: \.self.0) { item in
-                    Button.init(action: item.1, label:{
-                        Text(item.0)
-                    })
+            ZStack{
+              
+//                Text("World's Greatest Flag")
+//                   .font(.largeTitle)
+//                   .padding()
+//                   .blur(radius:3)
+//                   .shadow(color:Color.black.opacity(1), radius:10)
+//                   .cornerRadius(15.0)
+                
+                List {
+                    ForEach(viewModel.list, id: \.self.0) { item in
+                        Button.init(action: item.1, label:{
+                            Text(item.0)
+                        })
+                    }
+
                 }
             }.navigationDestination(isPresented:$viewModel.pushVibration){
                 VibrationView()
