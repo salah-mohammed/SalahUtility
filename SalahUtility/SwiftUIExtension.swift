@@ -84,10 +84,10 @@ public struct CornerRadiusStyle: ViewModifier {
             .clipShape(CornerRadiusShape(radius: radius, corners: corners))
     }
 }
-#endif
 @available(iOS 13.0, *)
 public extension View {
     func bs_dismissKeyboardOnTap() -> some View {
         modifier(DismissKeyboardOnTap())
     }
 }
+#endif

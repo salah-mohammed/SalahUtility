@@ -4,7 +4,7 @@
 //
 //  Created by SalahMohamed on 19/02/2023.
 //
-
+#if os(iOS)
 import Foundation
 import SwiftUI
 @available(iOS 13.0, *)
@@ -38,3 +38,4 @@ public struct NavBarAccessor: UIViewControllerRepresentable {
         }
     }
 }
+#endif
