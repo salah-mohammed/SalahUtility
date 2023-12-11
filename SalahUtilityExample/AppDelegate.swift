@@ -499,3 +499,38 @@ extension Array where Element == ErrorProcess {
 //        return NSLocationInRange(indexOfCharacter, targetRange)
 //    }
 //}
+protocol A:Codable{
+    var id:String{set get}
+    var toDoItem:String{set get}
+    var amount:Double{set get}
+
+}
+struct Task:A{
+    var id = ""
+    var toDoItem = ""
+    var amount = 0.0
+}
+
+class TaskStore : ObservableObject {
+    var tasks = [Task]()
+    
+    init() {
+        load()
+    }
+    
+    func load() {
+        guard let data = UserDefaults.standard.data(forKey: "tasks"),
+              let savedTasks = try? JSONDecoder().decode([Task].self, from: data) else { tasks = []; return }
+        tasks = savedTasks
+    }
+    
+    func save() {
+        do {
+//            let a = self.tasks as? Encodable
+            let data = try JSONEncoder().encode(tasks)
+            UserDefaults.standard.set(data, forKey: "tasks")
+        } catch {
+            print(error)
+        }
+    }
+}

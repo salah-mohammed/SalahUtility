@@ -6,7 +6,6 @@
 //  Copyright © 2023 Salah. All rights reserved.
 //
 
-import UIKit
 
 public class InteractionsDebugger{
     private var appKey:String

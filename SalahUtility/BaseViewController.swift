@@ -6,9 +6,11 @@
 //
 
 import Foundation
+#if os(iOS)
 import UIKit
 open class BaseViewController:UIViewController {
 open var actions:[BaseAction]=[BaseAction]();
 
 }
+#endif
 
