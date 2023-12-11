@@ -7,6 +7,7 @@
 //
 
 import Foundation
+#if os(iOS)
 import UIKit
 import StoreKit
 public class StoreProductViewController: SKStoreProductViewController {
@@ -54,3 +55,4 @@ extension StoreProductViewController:SKStoreProductViewControllerDelegate{
         self.dismiss(animated: true);
     }
 }
+#endif

@@ -6,7 +6,9 @@
 //  Copyright © 2023 Salah. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#endif
 import AppTexts
 public class LanguageManager: NSObject {
     public var allLanguages:[LanguageObject]{
@@ -26,6 +28,7 @@ public class LanguageManager: NSObject {
     public var currentLanguage:LanguageObject{
         return LanguageObject.init(languageCode:UserDefaults.standard.bs_appleLanguage)
     }
+#if os(iOS)
     public func showAlert(_ viewController:UIViewController?){
         let items = languagesExecludeCurrent
         let selectHandler:(Int,Any)->Void = { index,object in
@@ -55,6 +58,7 @@ public class LanguageManager: NSObject {
                                                  canceldHandler:nil)
         }
     }
+#endif
     public static func nameFor(_ languageCode:String)->String?{
          let loc = Locale(identifier: languageCode)
          return loc.localizedString(forLanguageCode:languageCode)

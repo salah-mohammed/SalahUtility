@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -104,8 +104,8 @@
 		8B8CEA5A29A20DF00017F875 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5929A20DF00017F875 /* ContentView.swift */; };
 		8B8CEA5C29A20DF10017F875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5B29A20DF10017F875 /* Assets.xcassets */; };
 		8B8CEA5F29A20DF10017F875 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8CEA5E29A20DF10017F875 /* Preview Assets.xcassets */; };
-		8B8CEA6329A212840017F875 /* SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; };
-		8B8CEA6429A212840017F875 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B8CEA6329A212840017F875 /* SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; platformFilter = ios; };
+		8B8CEA6429A212840017F875 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B90B6EC29C903CB00949107 /* NSMutableAttributedStringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90B6EB29C903CB00949107 /* NSMutableAttributedStringEx.swift */; };
 		8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */; };
 		8BCEEDE629A6261B00A9E9FD /* LocalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */; };
@@ -1292,6 +1292,7 @@
 		};
 		8B8CEA6629A212840017F875 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 4E34D7492448F7EF00FCCC1A /* SalahUtility */;
 			targetProxy = 8B8CEA6529A212840017F875 /* PBXContainerItemProxy */;
 		};
@@ -1675,9 +1676,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ad.SalahUtilitySwiftUIExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1708,9 +1713,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ad.SalahUtilitySwiftUIExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
