@@ -8,9 +8,9 @@
 
 import Foundation
 
-private protocol JSONAble {}
+public protocol JSONAble {}
 
-private extension JSONAble {
+public extension JSONAble {
     func bs_dict() -> [String:Any] {
         var dict = [String:Any]()
         let otherSelf = Mirror(reflecting: self)
