@@ -174,18 +174,13 @@ open class FileBuilder{
 
 extension URL{
     var localPath:String?{
-         #if os(iOS)
         if #available(iOS 16.0, *) {
             return self.path()
         } else {
-            return self.path
+            return nil;
+            // Fallback on earlier versions
         }
-        #endif
-        if #available(macOS 13.0, *) {
-            return self.path()
-        } else {
-            return self.path
-        }
+       
     }
 }
 
