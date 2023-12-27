@@ -735,13 +735,7 @@ public extension String{
         return self.bs_matches(pattern: urlPattern)
     }
     #endif
-     func bs_isValidEmail() -> Bool {
-        // print("validate calendar: \(testStr)")
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: self)
-    }
+
      func bs_stripHTML() -> String {
         var tempString = self;
         tempString = tempString.replacingOccurrences(of: "&ndash;", with: "-")

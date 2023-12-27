@@ -23,8 +23,8 @@ public enum LocalFile{
                         fileType: let fileType):
             return URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
                                         folderName,
-                                        fileType,
-                                        localeFileName,true);
+                                        localeFileName,
+                                        fileType,true);
         case .bundle(forResource: let forResource, ofType: let ofType):
             if let  path:String = Bundle.main.path(forResource:forResource, ofType:ofType){
              return URL.init(fileURLWithPath:path)
