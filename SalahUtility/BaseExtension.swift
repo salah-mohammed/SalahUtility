@@ -1443,6 +1443,7 @@ public extension Collection {
         if let newElement:Iterator.Element = newElement, let index:Int = index{
                 newArray[index] = newElement
             }
+            return newArray
         }
         return nil;
         }
