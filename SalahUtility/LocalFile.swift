@@ -95,7 +95,11 @@ open class FileBuilder{
      self.genratedUrl=genratedUrl;
     }
     @discardableResult open func build()->Self{
-    self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory, self.folderPath,self.fileName,self.fileType, self.create)
+        if self.folderPath != nil ||
+           self.fileName != nil ||
+           self.fileType != nil{
+        self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory, self.folderPath,self.fileName,self.fileType, self.create)
+    }
     return self;
     }
     open func operationType(_ operationType:OperationType)->Self{
