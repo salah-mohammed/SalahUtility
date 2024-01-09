@@ -75,7 +75,8 @@ open class FileBuilder{
     }
     var operationType:OperationType = .get()
     private var folders:[String]=[String]();
-    private var searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory
+    private var searchPathDirectory:FileManager.SearchPathDirectory?
+    let defaultSearchPath:FileManager.SearchPathDirectory = .documentDirectory
     private var fileType:String?
     private var fileName:String?
     private var create:Bool=false;
@@ -95,10 +96,11 @@ open class FileBuilder{
      self.genratedUrl=genratedUrl;
     }
     @discardableResult open func build()->Self{
-        if self.folderPath != nil ||
+        if self.searchPathDirectory != nil ||
+           self.folderPath != nil ||
            self.fileName != nil ||
            self.fileType != nil{
-        self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory, self.folderPath,self.fileName,self.fileType, self.create)
+            self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory ?? self.defaultSearchPath, self.folderPath,self.fileName,self.fileType, self.create)
     }
     return self;
     }
