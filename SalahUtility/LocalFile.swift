@@ -11,8 +11,8 @@ public enum LocalFile{
  case bundle(forResource:String,ofType:String)
  case file(searchPathDirectory:FileManager.SearchPathDirectory? = .documentDirectory,
                 folderName:String?,
-                localeFileName:String,
-                fileType:String)
+                localeFileName:String?,
+                fileType:String?)
     public var url:URL?{
         switch self{
         case .url(let url):
