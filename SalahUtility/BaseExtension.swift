@@ -3028,6 +3028,9 @@ public extension URL {
            let fileType:String=fileType{
              let fileURL:URL = tempLocalFolderUrl.appendingPathComponent(localeFileName).appendingPathExtension("\(fileType)")
              return fileURL;
+        }else
+        if let tempLocalFolderUrl:URL=tempLocalFolderUrl{
+            return tempLocalFolderUrl;
         }else{
             return nil;
         }
