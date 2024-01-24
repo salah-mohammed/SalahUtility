@@ -72,6 +72,8 @@ open class FileBuilder{
     public enum WrittenType{
     case data(Data)
     case string(String)
+    case dic(NSDictionary)
+    case array(NSArray)
     }
     var operationType:OperationType = .get()
     private var folders:[String]=[String]();
@@ -150,23 +152,29 @@ open class FileBuilder{
             break;
         case .write(let deleteIfExist,let writtenType):
           #if DEBUG
-            if self.fileName == nil || self.fileType == nil {
+            if (self.fileName == nil || self.fileType == nil) && self.genratedUrl == nil{
                 fatalError("you should enter file name and file type to write file")
             }
           #endif
             if let localUrl:URL = self.genratedUrl,
                let localPath:String=self.genratedUrl?.localPath{
-            switch writtenType{
-            case .data(let data):
-                if deleteIfExist,FileManager.default.fileExists(atPath:localPath) {
-                    try? FileManager.default.removeItem(at:localUrl)
+                switch writtenType{
+                case .data(let data):
+                    if deleteIfExist,FileManager.default.fileExists(atPath:localPath) {
+                        try? FileManager.default.removeItem(at:localUrl)
+                    }
+                    try? data.write(to:localUrl)
+                    break;
+                case .string(let string):
+                    try? string.write(toFile: localPath, atomically:deleteIfExist, encoding: .utf8)
+                    break;
+                case .dic(let dic):
+                    dic.write(toFile:localPath, atomically:deleteIfExist)
+                    break;
+                case .array(let array):
+                    array.write(toFile: localPath, atomically:deleteIfExist)
+                    break;
                 }
-                try? data.write(to:localUrl)
-                break;
-            case .string(let string):
-                try? string.write(toFile: localPath, atomically:deleteIfExist, encoding: .utf8)
-                break;
-            }
             }
             break;
         case .remove:
