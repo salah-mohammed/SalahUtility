@@ -3385,7 +3385,7 @@ func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirector
         if tempURL?.lastPathComponent.components(separatedBy:".").count ?? 0 >= 2{
             tempURL?.deleteLastPathComponent()
         }
-        if let url:URL = url{
+        if let url:URL = tempURL{
             let fileManager = FileManager.default
             if !fileManager.fileExists(atPath: url.path) {
                 do {
