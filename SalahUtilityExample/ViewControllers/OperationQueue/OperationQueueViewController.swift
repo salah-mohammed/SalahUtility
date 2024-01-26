@@ -17,6 +17,7 @@ class OperationQueueViewController: UIViewController {
         myGroup.leave()
         myGroup.notify(queue: DispatchQueue.main) {
         ////// do your remaining work
+       print("a")
         }
         
         let op1 = MyOperation1()
@@ -32,9 +33,9 @@ class OperationQueueViewController: UIViewController {
 
         op2.addDependency(op1)
 
-        var a = DispatchQueue.global(qos: .background)
+        var queue = DispatchQueue.global(qos: .background)
         let opsQue = OperationQueue()
-        opsQue.underlyingQueue=a;
+        opsQue.underlyingQueue=queue;
         // setting maxConcurrentOperationCount to 1
         opsQue.maxConcurrentOperationCount = 1
         opsQue.addOperation(op1)

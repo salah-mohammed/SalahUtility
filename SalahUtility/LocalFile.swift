@@ -142,7 +142,11 @@ open class FileBuilder{
         switch self.operationType{
         case .get(let handler):
             if let genratedUrl:URL = self.genratedUrl{
-                handler?(try? Data.init(contentsOf: genratedUrl));
+                do{
+                    handler?(try Data.init(contentsOf: genratedUrl));
+                }catch{ 
+                    
+                }
             }
             break;
         case .copy(let deleteIfExist,let fromUrl):
@@ -160,10 +164,14 @@ open class FileBuilder{
                let localPath:String=self.genratedUrl?.localPath{
                 switch writtenType{
                 case .data(let data):
-                    if deleteIfExist,FileManager.default.fileExists(atPath:localPath) {
-                        try? FileManager.default.removeItem(at:localUrl)
+                    do{
+                        if deleteIfExist,FileManager.default.fileExists(atPath:localPath) {
+                            try FileManager.default.removeItem(at:localUrl)
+                        }
+                        try data.write(to:localUrl)
+                    }catch{ 
+                        
                     }
-                    try? data.write(to:localUrl)
                     break;
                 case .string(let string):
                     try? string.write(toFile: localPath, atomically:deleteIfExist, encoding: .utf8)

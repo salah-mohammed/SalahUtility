@@ -114,6 +114,8 @@
 		8BE1573D2A8020E700EDE618 /* AppStorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */; };
 		8BEBF1452A90AB9F00D2896F /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBF1442A90AB9F00D2896F /* LanguageManager.swift */; };
 		8BED349A29E589DB0047786A /* CodingExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED349929E589DB0047786A /* CodingExamples.swift */; };
+		8BFDDCEE2B62A53C0029F60C /* keychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDDCED2B62A53C0029F60C /* keychainHelper.swift */; };
+		8BFDDCF22B62A5C60029F60C /* KeychainExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDDCF12B62A5C60029F60C /* KeychainExampleViewController.swift */; };
 		8BFE9D402A97687300BFB0DB /* InteractionsDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE9D3F2A97687300BFB0DB /* InteractionsDebugger.swift */; };
 		AEF3E3652FFA492EBC15A4CF /* Pods_SalahUtilityExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5CC671927D7C9442ED6861 /* Pods_SalahUtilityExample.framework */; };
 		CCA59781A8BF91E3C70679BB /* Pods_SalahUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF647D6B1A81082C9CC7ACBF /* Pods_SalahUtility.framework */; };
@@ -294,6 +296,8 @@
 		8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageViewModel.swift; sourceTree = "<group>"; };
 		8BEBF1442A90AB9F00D2896F /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		8BED349929E589DB0047786A /* CodingExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingExamples.swift; sourceTree = "<group>"; };
+		8BFDDCED2B62A53C0029F60C /* keychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keychainHelper.swift; sourceTree = "<group>"; };
+		8BFDDCF12B62A5C60029F60C /* KeychainExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainExampleViewController.swift; sourceTree = "<group>"; };
 		8BFE9D3F2A97687300BFB0DB /* InteractionsDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionsDebugger.swift; sourceTree = "<group>"; };
 		A3C839BAC6547A73126B7A0F /* Pods-SalahUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtility.release.xcconfig"; path = "Target Support Files/Pods-SalahUtility/Pods-SalahUtility.release.xcconfig"; sourceTree = "<group>"; };
 		B2E4F719AE25403EA52A7061 /* Pods-SalahUtilityExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.release.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -454,6 +458,7 @@
 				4E7EF85C28C6026700002E88 /* AlertExampleViewController.swift */,
 				4EB27C5B28E1CF960042CD28 /* ContainerExampleViewController.swift */,
 				4EB09E4528EEF29C00B075D1 /* HTMLTestViewController.swift */,
+				8BFDDCF12B62A5C60029F60C /* KeychainExampleViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */,
 				4E0232E52850847B005F48FB /* SwiftUIExtension.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
+				8BFDDCED2B62A53C0029F60C /* keychainHelper.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -1167,6 +1173,7 @@
 				4EE54D032848AD7D00BFF787 /* SwiftUIControls.swift in Sources */,
 				8BFE9D402A97687300BFB0DB /* InteractionsDebugger.swift in Sources */,
 				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
+				8BFDDCEE2B62A53C0029F60C /* keychainHelper.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
 				8BEBF1452A90AB9F00D2896F /* LanguageManager.swift in Sources */,
 				4E1A3D28274ADED500963CC3 /* VerticallyCenteredTextView.swift in Sources */,
@@ -1236,6 +1243,7 @@
 				4E459A332757AA1300EE0D85 /* Base64ImageViewController.swift in Sources */,
 				4E77AB9D25F8E9B2006DF25F /* UIDatePickerExampleViewController.swift in Sources */,
 				4E89F3C0272D16750024C7DB /* AnimationViewController.swift in Sources */,
+				8BFDDCF22B62A5C60029F60C /* KeychainExampleViewController.swift in Sources */,
 				4E20826925C167C400F92E23 /* TestCollectionViewViewController.swift in Sources */,
 				4ED03944265FCB3A00E173EA /* ImageSizeViewController.swift in Sources */,
 			);

@@ -3362,33 +3362,43 @@ public extension FileManager {
         let fileURLs = try? contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: skipsHiddenFiles ? .skipsHiddenFiles : [] )
         return fileURLs
     }
-        // folder/subfolder/subfolder
-    func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirectory,folderName: String,createPath:Bool=true) -> URL? {
-            let fileManager = FileManager.default
-            // Get document directory for device, this should succeed
-            if let documentDirectory = fileManager.urls(for:documentDirectory,
-                                                        in: .userDomainMask).first {
-                // Construct a URL with desired folder name
-                let folderURL = documentDirectory.appendingPathComponent(folderName)
-                // If folder URL does not exist, create it
-                if createPath,!fileManager.fileExists(atPath: folderURL.path) {
-                    do {
-                        // Attempt to create folder
-                        try fileManager.createDirectory(atPath: folderURL.path,
-                                                        withIntermediateDirectories: true,
-                                                        attributes: nil)
-                    } catch {
-                        // Creation failed. Print error & return nil
-                        print(error.localizedDescription)
-                        return nil
-                    }
-                }
-                // Folder either exists, or was created. Return URL
-                return folderURL
+    // folder/subfolder/subfolder
+func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirectory,folderName: String,createPath:Bool=true) -> URL? {
+        let fileManager = FileManager.default
+        // Get document directory for device, this should succeed
+        if let documentDirectory = fileManager.urls(for:documentDirectory,
+                                                    in: .userDomainMask).first {
+            // Construct a URL with desired folder name
+            let folderURL = documentDirectory.appendingPathComponent(folderName)
+            // If folder URL does not exist, create it
+            if createPath{
+              let temp = self.bs_createFolderIfNotExist(url:folderURL)
             }
-            // Will only be called if document directory not found
-            return nil
+            // Folder either exists, or was created. Return URL
+            return folderURL
         }
+        // Will only be called if document directory not found
+        return nil
+    }
+func bs_createFolderIfNotExist(url:URL?) -> URL? {
+    if let url:URL = url{
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: url.path) {
+            do {
+                // Attempt to create folder
+                try fileManager.createDirectory(atPath: url.path,
+                                                withIntermediateDirectories: true,
+                                                attributes: nil)
+            } catch {
+                // Creation failed. Print error & return nil
+                print(error.localizedDescription)
+                return nil
+            }
+        }
+        return url;
+    }
+    return nil;
+}
     func bs_contentsOfDirectory(path:String) ->[String] {
         let docPath = Bundle.main.resourcePath! + "/" + path
         let fileManager = FileManager.default

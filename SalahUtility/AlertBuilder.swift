@@ -148,6 +148,3 @@ public enum AppAlert{
     }
 }
 #endif
-
-// connect app router
-// add alert prefix names
