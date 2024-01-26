@@ -3380,25 +3380,29 @@ func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirector
         // Will only be called if document directory not found
         return nil
     }
-func bs_createFolderIfNotExist(url:URL?) -> URL? {
-    if let url:URL = url{
-        let fileManager = FileManager.default
-        if !fileManager.fileExists(atPath: url.path) {
-            do {
-                // Attempt to create folder
-                try fileManager.createDirectory(atPath: url.path,
-                                                withIntermediateDirectories: true,
-                                                attributes: nil)
-            } catch {
-                // Creation failed. Print error & return nil
-                print(error.localizedDescription)
-                return nil
-            }
+    func bs_createFolderIfNotExist(url:URL?) -> URL? {
+        var tempURL = url;
+        if tempURL?.lastPathComponent.components(separatedBy:".").count ?? 0 >= 2{
+            tempURL?.deleteLastPathComponent()
         }
-        return url;
+        if let url:URL = url{
+            let fileManager = FileManager.default
+            if !fileManager.fileExists(atPath: url.path) {
+                do {
+                    // Attempt to create folder
+                    try fileManager.createDirectory(atPath: url.path,
+                                                    withIntermediateDirectories: true,
+                                                    attributes: nil)
+                } catch {
+                    // Creation failed. Print error & return nil
+                    print(error.localizedDescription)
+                    return nil
+                }
+            }
+            return url;
+        }
+        return nil;
     }
-    return nil;
-}
     func bs_contentsOfDirectory(path:String) ->[String] {
         let docPath = Bundle.main.resourcePath! + "/" + path
         let fileManager = FileManager.default
