@@ -9,7 +9,7 @@
 import Security
 
 public class keychainHelper: NSObject {
-    public static func saveNumberToKeychain(_ number: NSNumber, forKey key: String) -> OSStatus {
+    @discardableResult public static func saveNumberToKeychain(_ number: NSNumber, forKey key: String) -> OSStatus {
         let data = NSKeyedArchiver.archivedData(withRootObject: number)
 
         let query: [String: Any] = [
@@ -50,7 +50,7 @@ public class keychainHelper: NSObject {
             return nil
         }
     }
-    public static func saveStringToKeychain(_ value: String, forKey key: String) -> OSStatus {
+    @discardableResult public static func saveStringToKeychain(_ value: String, forKey key: String) -> OSStatus {
         if let data = value.data(using: .utf8) {
             let query: [String: Any] = [
                 kSecClass as String: kSecClassGenericPassword,
@@ -71,7 +71,7 @@ public class keychainHelper: NSObject {
         }
     }
 
-   public static func getStringFromKeychain(forKey key: String) -> String? {
+     public static func getStringFromKeychain(forKey key: String) -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key,
@@ -94,4 +94,23 @@ public class keychainHelper: NSObject {
             return nil
         }
     }
+    @discardableResult public static func deleteKeyFromKeychain(key: String)->OSStatus{
+        // Define the search query dictionary
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: "YourServiceName", // Replace with your service name
+            kSecAttrAccount as String: key
+        ]
+
+        // Delete the key from the Keychain
+        let status = SecItemDelete(query as CFDictionary)
+
+        if status == errSecSuccess {
+            print("Key successfully deleted from the Keychain.")
+        } else {
+            print("Error deleting key from the Keychain. Status code: \(status)")
+        }
+        return status;
+    }
+
 }
