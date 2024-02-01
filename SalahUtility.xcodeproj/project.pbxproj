@@ -112,6 +112,7 @@
 		8BDA1B6D29D62DE800BBD237 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA1B6C29D62DE800BBD237 /* Condition.swift */; };
 		8BE1573A2A801FFC00EDE618 /* AppStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE157392A801FFC00EDE618 /* AppStorageView.swift */; };
 		8BE1573D2A8020E700EDE618 /* AppStorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */; };
+		8BEB17BC2B6C019A008ED3A0 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB17BB2B6C019A008ED3A0 /* AppleLoginManager.swift */; };
 		8BEBF1452A90AB9F00D2896F /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEBF1442A90AB9F00D2896F /* LanguageManager.swift */; };
 		8BED349A29E589DB0047786A /* CodingExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED349929E589DB0047786A /* CodingExamples.swift */; };
 		8BFDDCEE2B62A53C0029F60C /* keychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDDCED2B62A53C0029F60C /* keychainHelper.swift */; };
@@ -294,6 +295,7 @@
 		8BDA1B6C29D62DE800BBD237 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		8BE157392A801FFC00EDE618 /* AppStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageView.swift; sourceTree = "<group>"; };
 		8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageViewModel.swift; sourceTree = "<group>"; };
+		8BEB17BB2B6C019A008ED3A0 /* AppleLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		8BEBF1442A90AB9F00D2896F /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		8BED349929E589DB0047786A /* CodingExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingExamples.swift; sourceTree = "<group>"; };
 		8BFDDCED2B62A53C0029F60C /* keychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keychainHelper.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				4E34D74D2448F7F000FCCC1A /* SalahUtility.h */,
+				8BEB17BB2B6C019A008ED3A0 /* AppleLoginManager.swift */,
 				4E20E77C27FB1DEF00FD8802 /* AlertBuilder.swift */,
 				4E34D7552448F81700FCCC1A /* BaseExtension.swift */,
 				8B6E5C502934D02C00F1439C /* Actions.swift */,
@@ -1164,6 +1167,7 @@
 				4EE3F414273D1F8D006FED8C /* CutomAnimation.swift in Sources */,
 				4ECDD0F926872BBD005AB6D9 /* IndexingStorageManager.swift in Sources */,
 				4EEE962527268E6D00199B7F /* LanguageCollectionViewFlowLayout.swift in Sources */,
+				8BEB17BC2B6C019A008ED3A0 /* AppleLoginManager.swift in Sources */,
 				8BDA1B6D29D62DE800BBD237 /* Condition.swift in Sources */,
 				8B90B6EC29C903CB00949107 /* NSMutableAttributedStringEx.swift in Sources */,
 				8B88C24929C9AA450042DC0B /* BaseViewController.swift in Sources */,
