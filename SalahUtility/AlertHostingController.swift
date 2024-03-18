@@ -1,14 +1,16 @@
 //
-//  BaseAlertViewController.swift
-//  SalahUtility
+//  AlertHostingController.swift
+//  LMS
 //
-//  Created by SalahMohamed on 21/10/2022.
-//  Copyright © 2022 Salah. All rights reserved.
+//  Created by SalahMohamed on 14/03/2024.
+//  Copyright © 2024 t4edu. All rights reserved.
 //
 #if os(iOS)
 import Foundation
-import UIKit
-open class BaseAlertViewController:UIViewController{
+import SwiftUI
+@available(iOS 13.0, *)
+open class AlertHostingController<Content> : UIHostingController<Content> where Content : View {
+      
     open override func viewDidLoad() {
         super.viewDidLoad();
         self.view.backgroundColor=UIColor.clear
@@ -16,6 +18,10 @@ open class BaseAlertViewController:UIViewController{
     open override func awakeFromNib() {
         super.awakeFromNib();
         setupAlert();
+    }
+    public override init(rootView: Content) {
+        super.init(rootView: rootView)
+        self.modalPresentationStyle = .overFullScreen
     }
     func setupAlert(){
         if #available(iOS 13.0, *) {
@@ -25,18 +31,15 @@ open class BaseAlertViewController:UIViewController{
     }
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.backgroundColor=UIColor.black.withAlphaComponent(0.65)
+        self.view.backgroundColor=UIColor.black.withAlphaComponent(0.6)
     }
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
         self.view.backgroundColor=UIColor.clear
     }
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        self.modalPresentationStyle = .overFullScreen
-    }
     required public init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
     }
 }
+
 #endif

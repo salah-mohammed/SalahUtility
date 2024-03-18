@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -108,6 +108,7 @@
 		8B8CEA6429A212840017F875 /* SalahUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E34D74A2448F7EF00FCCC1A /* SalahUtility.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B90B6EC29C903CB00949107 /* NSMutableAttributedStringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B90B6EB29C903CB00949107 /* NSMutableAttributedStringEx.swift */; };
 		8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */; };
+		8BA0F5BC2BA260CB00A49E2D /* AlertHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA0F5BB2BA260CB00A49E2D /* AlertHostingController.swift */; };
 		8BCEEDE629A6261B00A9E9FD /* LocalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */; };
 		8BDA1B6D29D62DE800BBD237 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA1B6C29D62DE800BBD237 /* Condition.swift */; };
 		8BE1573A2A801FFC00EDE618 /* AppStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE157392A801FFC00EDE618 /* AppStorageView.swift */; };
@@ -291,6 +292,7 @@
 		8B8CEA5E29A20DF10017F875 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B90B6EB29C903CB00949107 /* NSMutableAttributedStringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringEx.swift; sourceTree = "<group>"; };
 		8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertViewController.swift; sourceTree = "<group>"; };
+		8BA0F5BB2BA260CB00A49E2D /* AlertHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHostingController.swift; path = SalahUtility/AlertHostingController.swift; sourceTree = SOURCE_ROOT; };
 		8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFile.swift; sourceTree = "<group>"; };
 		8BDA1B6C29D62DE800BBD237 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		8BE157392A801FFC00EDE618 /* AppStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageView.swift; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 		4E910AE5245E2F95005C2976 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8BA0F5BB2BA260CB00A49E2D /* AlertHostingController.swift */,
 				4E910AE6245E2F95005C2976 /* Info.plist */,
 				4E9A3A8A26999790009360F3 /* Localizable.strings */,
 			);
@@ -1176,6 +1179,7 @@
 				4ED30C2325C023E100313983 /* Regex.swift in Sources */,
 				4EE54D032848AD7D00BFF787 /* SwiftUIControls.swift in Sources */,
 				8BFE9D402A97687300BFB0DB /* InteractionsDebugger.swift in Sources */,
+				8BA0F5BC2BA260CB00A49E2D /* AlertHostingController.swift in Sources */,
 				4E9A3A90269997DF009360F3 /* SalahUtilityEx.swift in Sources */,
 				8BFDDCEE2B62A53C0029F60C /* keychainHelper.swift in Sources */,
 				4E42C94924BF0CAC0095ED53 /* UIDocumentPickerViewControllerEx.swift in Sources */,
