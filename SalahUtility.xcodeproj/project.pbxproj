@@ -92,6 +92,7 @@
 		7684082BD725A010751D7967 /* Pods_SalahUtilitySwiftUIExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC2B276B6D607161D68F55 /* Pods_SalahUtilitySwiftUIExample.framework */; };
 		8B24339A2987E438001FBCB0 /* ScenarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2433992987E438001FBCB0 /* ScenarioManager.swift */; };
 		8B248B092A39E9D800416A97 /* AttributedStringAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B248B082A39E9D800416A97 /* AttributedStringAction.swift */; };
+		8B4EE9612BAA55FB0094410B /* DiskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4EE9602BAA55FB0094410B /* DiskStatus.swift */; };
 		8B5D36152A5400A600DCEACD /* StoreProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D36142A5400A600DCEACD /* StoreProductViewController.swift */; };
 		8B6E5C512934D02C00F1439C /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E5C502934D02C00F1439C /* Actions.swift */; };
 		8B84A50F2A71060A0093E94A /* ContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B84A50D2A71060A0093E94A /* ContentListViewModel.swift */; };
@@ -110,6 +111,7 @@
 		8B91145829029BBE002AD1FA /* BaseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */; };
 		8BA0F5BC2BA260CB00A49E2D /* AlertHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA0F5BB2BA260CB00A49E2D /* AlertHostingController.swift */; };
 		8BCEEDE629A6261B00A9E9FD /* LocalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */; };
+		8BD5A6002BC6CFA600EEFB7A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD5A5FF2BC6CFA600EEFB7A /* BaseViewModel.swift */; };
 		8BDA1B6D29D62DE800BBD237 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA1B6C29D62DE800BBD237 /* Condition.swift */; };
 		8BE1573A2A801FFC00EDE618 /* AppStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE157392A801FFC00EDE618 /* AppStorageView.swift */; };
 		8BE1573D2A8020E700EDE618 /* AppStorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */; };
@@ -276,6 +278,7 @@
 		7A719EF342C9599C272B8BB2 /* Pods-SalahUtilityExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahUtilityExample.debug.xcconfig"; path = "Target Support Files/Pods-SalahUtilityExample/Pods-SalahUtilityExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8B2433992987E438001FBCB0 /* ScenarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioManager.swift; sourceTree = "<group>"; };
 		8B248B082A39E9D800416A97 /* AttributedStringAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringAction.swift; sourceTree = "<group>"; };
+		8B4EE9602BAA55FB0094410B /* DiskStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskStatus.swift; sourceTree = "<group>"; };
 		8B5D36142A5400A600DCEACD /* StoreProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProductViewController.swift; sourceTree = "<group>"; };
 		8B5D70492909534500C654F7 /* SalahUtilityExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SalahUtilityExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		8B6E5C502934D02C00F1439C /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
@@ -294,6 +297,7 @@
 		8B91145729029BBE002AD1FA /* BaseAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertViewController.swift; sourceTree = "<group>"; };
 		8BA0F5BB2BA260CB00A49E2D /* AlertHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHostingController.swift; path = SalahUtility/AlertHostingController.swift; sourceTree = SOURCE_ROOT; };
 		8BCEEDE529A6261B00A9E9FD /* LocalFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFile.swift; sourceTree = "<group>"; };
+		8BD5A5FF2BC6CFA600EEFB7A /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		8BDA1B6C29D62DE800BBD237 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		8BE157392A801FFC00EDE618 /* AppStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageView.swift; sourceTree = "<group>"; };
 		8BE1573C2A8020E700EDE618 /* AppStorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageViewModel.swift; sourceTree = "<group>"; };
@@ -540,8 +544,10 @@
 				8BDA1B6C29D62DE800BBD237 /* Condition.swift */,
 				4EE54D022848AD7D00BFF787 /* SwiftUIControls.swift */,
 				4E0232E52850847B005F48FB /* SwiftUIExtension.swift */,
+				8B4EE9602BAA55FB0094410B /* DiskStatus.swift */,
 				4E910AE5245E2F95005C2976 /* Resources */,
 				8BFDDCED2B62A53C0029F60C /* keychainHelper.swift */,
+				8BD5A5FF2BC6CFA600EEFB7A /* BaseViewModel.swift */,
 			);
 			path = SalahUtility;
 			sourceTree = "<group>";
@@ -1197,6 +1203,8 @@
 				4E79BD1E2484EB74006FD36D /* NotificationBuilder.swift in Sources */,
 				4EA31A512743B7C40065CD2F /* SheetViewController.swift in Sources */,
 				8B8CEA5029A20D750017F875 /* NavBarAccessor.swift in Sources */,
+				8BD5A6002BC6CFA600EEFB7A /* BaseViewModel.swift in Sources */,
+				8B4EE9612BAA55FB0094410B /* DiskStatus.swift in Sources */,
 				4EBFFDFE261362A200D2CB9E /* ParkBenchTimer.swift in Sources */,
 				4E27B5F62608F96100497E98 /* UIImagePickerControllerEx.swift in Sources */,
 				4E34D7562448F81700FCCC1A /* BaseExtension.swift in Sources */,

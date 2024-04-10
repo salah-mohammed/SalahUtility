@@ -90,4 +90,20 @@ public extension View {
         modifier(DismissKeyboardOnTap())
     }
 }
+@available(iOS 13.0, *)
+extension View {
+     func reverseMask<Mask: View>(
+        alignment: Alignment = .center,
+        @ViewBuilder _ mask: () -> Mask
+    ) -> some View {
+            self.mask(
+                ZStack {
+                    Rectangle()
+
+                    mask()
+                        .blendMode(.destinationOut)
+                }
+            )
+        }
+}
 #endif
