@@ -15,7 +15,7 @@ public class BaseViewModel:NSObject,ObservableObject{
     public override init() {
         super.init();
     }
-    func appendNested(_ element:some ObservableObject){
+    public func appendNested(_ element:some ObservableObject){
         let value = element.objectWillChange.sink { [weak self] (_) in
             self?.objectWillChange.send()
         }
