@@ -10,12 +10,12 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *)
-public class BaseViewModel:NSObject,ObservableObject{
+open class BaseViewModel:NSObject,ObservableObject{
     private var nestedObservableObjects:[Any]=[Any]()
     public override init() {
         super.init();
     }
-    public func appendNested(_ element:some ObservableObject){
+    open func appendNested(_ element:some ObservableObject){
         let value = element.objectWillChange.sink { [weak self] (_) in
             self?.objectWillChange.send()
         }
