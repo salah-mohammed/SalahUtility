@@ -15,8 +15,8 @@ import AppKit
 import AuthenticationServices
 @available(iOS 13.0, *)
 public class AppleLoginManager: NSObject,ASAuthorizationControllerDelegate,ASAuthorizationControllerPresentationContextProviding {
-    public typealias FinishHandler = (ASAuthorization)->Void
-    public typealias ErrorHandler = (Error)->Void
+    public typealias FinishHandler = (ASAuthorizationController,ASAuthorization)->Void
+    public typealias ErrorHandler = (ASAuthorizationController,Error)->Void
 
     private var finishHandler:FinishHandler?
     private var errorHandler:ErrorHandler?
@@ -47,10 +47,10 @@ public class AppleLoginManager: NSObject,ASAuthorizationControllerDelegate,ASAut
           authorizationController.performRequests()
     }
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization){
-         finishHandler?(authorization);
+         finishHandler?(controller,authorization);
     }
 
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error){
-         self.errorHandler?(error);
+         self.errorHandler?(controller,error);
     }
 }

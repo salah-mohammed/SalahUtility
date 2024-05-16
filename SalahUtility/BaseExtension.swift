@@ -438,6 +438,9 @@ public extension String{
 //            return item
 //        }
 //    }
+    func last(count:Int) -> String{
+    return String(self.suffix(count))
+    }
      var bs_encodeStringUrlForArabicText:String?{
         return self.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)
      }
