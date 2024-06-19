@@ -103,7 +103,10 @@ open class FileBuilder{
            self.fileName != nil ||
            self.fileType != nil{
             self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory ?? self.defaultSearchPath, self.folderPath,self.fileName,self.fileType, self.create)
-    }
+    }else
+     if let genratedUrl:URL=self.genratedUrl{
+         let a = FileManager.default.bs_createFolderIfNotExist(url:genratedUrl)
+     }
     return self;
     }
     open func operationType(_ operationType:OperationType)->Self{
