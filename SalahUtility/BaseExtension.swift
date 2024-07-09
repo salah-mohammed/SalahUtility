@@ -465,8 +465,12 @@ public extension String{
 
         return item
     }
-    public var bs_fileURL:URL{
-        return URL.init(fileURLWithPath: self);
+    var bs_fileURL:URL?{
+        if #available(iOS 16.0, *) {
+            return URL.init(filePath: self)
+        } else {
+            return URL.init(fileURLWithPath: self)
+        }
     }
     public var isEmpty:Bool{
         return (RegularExpression.empty.matches(self))
@@ -1511,7 +1515,7 @@ public extension Sequence {
     }
     func get(_ index:Int)->Iterator.Element?{
         var items = Array(self)
-        return index < items.count ?  items[index]: nil;
+        return (index < items.count) && (index > 0)  ?  items[index]: nil;
     }
 }
 /*    **MKMapItem**   */
