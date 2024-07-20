@@ -1515,7 +1515,7 @@ public extension Sequence {
     }
     func get(_ index:Int)->Iterator.Element?{
         var items = Array(self)
-        return (index < items.count) && (index > 0)  ?  items[index]: nil;
+        return (index < items.count) && (index >= 0)  ?  items[index]: nil;
     }
 }
 /*    **MKMapItem**   */
