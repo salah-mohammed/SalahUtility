@@ -18,7 +18,7 @@ class URLExampleViewController: UIViewController {
         AppAlert.show(self, AppAlert.attention("message", { _,_ in
         }))
         
-        var url = "https://vschoolcontent2.blob.core.windows.net/vschoolblob/TeacherRoom/324b7f0a-f67a-4eff-8ee8-c0bdf21d6bc0.jpg?sv=2020-08-04&st=2022-02-10T10%3A33%3A22Z&se=2022-02-10T10%3A48%3A22Z&sr=b&sp=r&sig=%2FQMqc3%2FugUxjrL21NLSqXYS5RBcaT1EQaQpuy0sfPOY%3D";
+        var url = "";
         
         var url1 = try? URL.init(string: url)?.absoluteString;
         var url2 = try? URL.init(string: url)?.path;

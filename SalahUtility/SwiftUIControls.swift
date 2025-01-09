@@ -10,6 +10,8 @@ import Foundation
 import SwiftUI
 import UIKit
 import WebKit
+import PDFKit
+
 @available(iOS 13.0, *)
 public struct ActivityIndicator: UIViewRepresentable {
 
@@ -206,5 +208,76 @@ public struct DismissKeyboardOnTap: ViewModifier {
     }
 }
 
+@available(iOS 13.0, *)
+class PDFViewCutom:PDFView{
+    var curentPageIndex:Int?{
+        guard let pdfCurrentPage = currentPage else {return nil}
+        guard let pdfCurrentPageNumber = document?.index(for: pdfCurrentPage)  else {return nil}
+        return pdfCurrentPageNumber
+    }
+    typealias HandlePageChange = (Int?)->Void
+    private var handlePageChange: HandlePageChange?
+    func handlePageChange(handlePageChange:@escaping HandlePageChange){
+        self.handlePageChange = handlePageChange
+    }
+    func setupObservers(){
+        NotificationCenter.default.addObserver(
+              self,
+              selector: #selector(handlePageChange(notification:)),
+              name: Notification.Name.PDFViewPageChanged,
+              object: self)
+    }
+    @objc private func handlePageChange(notification: Notification){
+        DispatchQueue.main.async {
+            self.handlePageChange?(self.curentPageIndex)
+        }
+    }
+}
+@available(iOS 13.0, *)
+public struct PDFKitRepresentedView: UIViewRepresentable {
+        let url: URL
+        @Binding var currentPageIndex: Int
+        @Binding var total: Int
+
+    public init(_ url: URL, _ currentPageIndex: Binding<Int>, _ total: Binding<Int>) {
+            self.url = url
+            self._currentPageIndex = currentPageIndex
+            self._total = total
+            
+        }
+
+    public func makeUIView(context: Context) -> UIView {
+            guard let document = PDFKit.PDFDocument(url: self.url) else { return UIView() }
+
+            let pdfView = PDFViewCutom()
+            print("PDFVIEW IS CREATED")
+            pdfView.document = document
+            pdfView.displayMode = .singlePage
+            pdfView.displayDirection = .horizontal
+            pdfView.autoScales = true
+            pdfView.usePageViewController(true)
+            pdfView.setupObservers();
+            pdfView.handlePageChange(handlePageChange:{ index in
+                if self.currentPageIndex != index{
+                    self.currentPageIndex = index ?? 0
+                }
+            })
+            DispatchQueue.main.async {
+                self.total = document.pageCount
+                print("Total pages: \(total)")
+            }
+            return pdfView
+        }
+
+    public func updateUIView(_ uiView: UIView, context: Context) {
+            guard let pdfView = uiView as? PDFViewCutom else { return }
+
+            if currentPageIndex < total,
+               currentPageIndex != pdfView.curentPageIndex,
+               let toPage:PDFPage = pdfView.document?.page(at:currentPageIndex){
+                    pdfView.go(to:toPage)
+            }
+        }
+    }
 #endif
 
