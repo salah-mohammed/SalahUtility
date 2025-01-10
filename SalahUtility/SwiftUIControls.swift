@@ -238,12 +238,19 @@ public struct PDFKitRepresentedView: UIViewRepresentable {
         let url: URL
         @Binding var currentPageIndex: Int
         @Binding var total: Int
-
-    public init(_ url: URL, _ currentPageIndex: Binding<Int>, _ total: Binding<Int>) {
+        var displayDirection: PDFDisplayDirection
+        var displayMode: PDFDisplayMode
+    
+    public init(_ url: URL,
+                _ currentPageIndex: Binding<Int>,
+                _ total: Binding<Int>,
+                displayDirection: PDFDisplayDirection = .horizontal,
+                displayMode:PDFDisplayMode = .singlePage) {
             self.url = url
             self._currentPageIndex = currentPageIndex
             self._total = total
-            
+            self.displayDirection = displayDirection
+            self.displayMode = displayMode
         }
 
     public func makeUIView(context: Context) -> UIView {
@@ -252,8 +259,8 @@ public struct PDFKitRepresentedView: UIViewRepresentable {
             let pdfView = PDFViewCutom()
             print("PDFVIEW IS CREATED")
             pdfView.document = document
-            pdfView.displayMode = .singlePage
-            pdfView.displayDirection = .horizontal
+            pdfView.displayMode = displayMode
+            pdfView.displayDirection = self.displayDirection
             pdfView.autoScales = true
             pdfView.usePageViewController(true)
             pdfView.setupObservers();
