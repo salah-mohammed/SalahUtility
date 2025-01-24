@@ -240,17 +240,22 @@ public struct PDFKitRepresentedView: UIViewRepresentable {
         @Binding var total: Int
         var displayDirection: PDFDisplayDirection
         var displayMode: PDFDisplayMode
-    
+        var usePageViewController: Bool
+        var displaysAsBook:Bool
     public init(_ url: URL,
                 _ currentPageIndex: Binding<Int>,
                 _ total: Binding<Int>,
                 displayDirection: PDFDisplayDirection = .horizontal,
-                displayMode:PDFDisplayMode = .singlePage) {
+                displayMode:PDFDisplayMode = .singlePage,
+                usePageViewController:Bool = true,
+                displaysAsBook:Bool = false) {
             self.url = url
             self._currentPageIndex = currentPageIndex
             self._total = total
             self.displayDirection = displayDirection
             self.displayMode = displayMode
+            self.usePageViewController =  usePageViewController
+            self.displaysAsBook = displaysAsBook;
         }
 
     public func makeUIView(context: Context) -> UIView {
@@ -262,7 +267,8 @@ public struct PDFKitRepresentedView: UIViewRepresentable {
             pdfView.displayMode = displayMode
             pdfView.displayDirection = self.displayDirection
             pdfView.autoScales = true
-            pdfView.usePageViewController(true)
+            pdfView.usePageViewController(self.usePageViewController)
+            pdfView.displaysAsBook = displaysAsBook;
             pdfView.setupObservers();
             pdfView.handlePageChange(handlePageChange:{ index in
                 if self.currentPageIndex != index{
