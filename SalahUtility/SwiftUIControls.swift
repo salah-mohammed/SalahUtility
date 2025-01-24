@@ -269,6 +269,7 @@ public struct PDFKitRepresentedView: UIViewRepresentable {
             pdfView.autoScales = true
             pdfView.usePageViewController(self.usePageViewController)
             pdfView.displaysAsBook = displaysAsBook;
+            pdfView.backgroundColor = UIColor.clear;
             pdfView.setupObservers();
             pdfView.handlePageChange(handlePageChange:{ index in
                 if self.currentPageIndex != index{
