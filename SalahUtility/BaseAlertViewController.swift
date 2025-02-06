@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 open class BaseAlertViewController:UIViewController{
+    open var defaultAlphaValue:CGFloat{
+     return 0.65
+    }
     open override func viewDidLoad() {
         super.viewDidLoad();
         self.view.backgroundColor=UIColor.clear
