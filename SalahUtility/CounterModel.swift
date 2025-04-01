@@ -9,55 +9,59 @@
 open class CounterModel: NSObject {
     public enum InitialValue{
      case random
-     case cutom(Int)
+     case custom(Int)
     }
-    public typealias CounterHandler = (Int) -> Swift.Void
+    public typealias CounterHandler = (Int?) -> Swift.Void
     public typealias CompletionHandler = ()->Void
     
-    open var value:Int!
-    open var stepValue:Int!;
+    open var value:Int?
+    open var stepValue:Int=1;
     open var initialValue:Int?;
-    open var maximumValue:Int!;
-    open var minimumValue:Int!;
+    open var maximumValue:Int?;
+    open var minimumValue:Int?;
     open var counterHandlerMax:CounterHandler?
     open var counterHandlerMin:CounterHandler?
     open var counterHandlerChangeValue:CounterHandler?
     open var counterHandlerDownValue:CounterHandler?
     open var counterHandlerUpValue:CounterHandler?
     
-    open var valuekeyName:String!
+    open var valuekeyName:String?
     open var enableRepeat:Bool=false;
     open var initialType:InitialValue?
     var timer:Timer?;
-    open var isValueEqualsMin:Bool{
-        if (self.value==self.minimumValue){
-            return true;}
-        return false;
-    }
-    open var isValueGreaterThanMaxAndEquals:Bool{
-        if (self.value>=self.maximumValue){
-            return true;}
-        return false;
+
+    open var isValueGreaterThanMinAndEquals:Bool{
+        if let tempMinimumValue:Int = minimumValue,let tempValue:Int = value{
+            if (tempValue>=tempMinimumValue) && (tempValue-stepValue)>=tempMinimumValue{
+                return true;
+            }else{
+                return false
+            }
+        }else{
+            return true;
+        }
     }
     open var isLessThanMaxAndEquals:Bool{
-        if (self.value<=self.maximumValue){
-            return true;}
-        return false;
-    }
-    open var isValueLessThanMax:Bool{
-        if (self.value<self.maximumValue){
-            return true;}
-        return false;
-    }
-    open var isValueGreaterThanMax:Bool{
-        if (self.value>self.maximumValue){
-            return true;}
-        return false;
+        if let tempMaximumValue:Int = maximumValue,let tempValue:Int = value{
+            if (tempValue<=tempMaximumValue) && (tempValue+stepValue)<=tempMaximumValue{
+                return true
+            }else{
+             return false
+            }
+        }else{
+            return true;
+        }
     }
     open var isValueEqualsMax:Bool{
-        if (self.value==self.maximumValue){
-            return true;}
-        return false;
+        if let tempMaximumValue:Int = maximumValue{
+            if (self.value==tempMaximumValue){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
     }
     public init(initialType:InitialValue?,stepValue:Int , maximumValue:Int , minimumValue:Int,counterHandlerMin:CounterHandler?,
          counterHandlerMax:CounterHandler?,
@@ -82,9 +86,10 @@ open class CounterModel: NSObject {
         self.counterHandlerDownValue = counterHandlerDownValue;
         self.enableRepeat=enableRepeat;
     }
-    open func  increment(_ completionHandler:CompletionHandler? = nil )->Int{
-        if (value<=maximumValue&&(value+stepValue)<=maximumValue) {
-            value=value+stepValue;
+
+    open func  increment(_ completionHandler:CompletionHandler? = nil )->Int?{
+        if isLessThanMaxAndEquals,let tempValue:Int = self.value{
+            self.value=tempValue+stepValue;
             self.counterHandlerUpValue?(value);
             self.counterHandlerChangeValue?(self.value)
             completionHandler?();
@@ -99,9 +104,9 @@ open class CounterModel: NSObject {
             }
         return value;
     }
-    open func  decrement(_ completionHandler:CompletionHandler? = nil )->Int {
-        if (value>=minimumValue&&(value-stepValue)>=minimumValue) {
-            value=value-stepValue;
+    open func  decrement(_ completionHandler:CompletionHandler? = nil )->Int? {
+        if isValueGreaterThanMinAndEquals,let tempValue:Int = self.value{
+            self.value=tempValue-stepValue;
             self.counterHandlerDownValue?(value);
             self.counterHandlerChangeValue?(self.value)
             completionHandler?();
@@ -110,22 +115,27 @@ open class CounterModel: NSObject {
         }
         return value;
     }
-    open func  reSet()
-    {
+    open func  reSet(){
         self.value=initialValue;
     }
     
     func genrateInitialValue(){
+        var tempInitialValue:Int?
         switch initialType{
         case .random:
-            self.initialValue=Int.init(random:minimumValue...maximumValue);
+            if let minimumValue:Int,let maximumValue:Int {
+            tempInitialValue=Int.init(random:minimumValue...maximumValue);
+            }else{
+            tempInitialValue = 0
+            }
             break;
-        case .cutom(let initialValue):
-            self.initialValue=initialValue;
+        case .custom(let initialValue):
+            tempInitialValue = initialValue
             break;
         case .none:
-            break;
+            break
         }
+        self.initialValue=tempInitialValue;
         self.value=initialValue;
     }
     open func autoIncrement(every timeInterval:TimeInterval){
