@@ -77,14 +77,25 @@ public struct WebView: UIViewRepresentable {
     var url: URL
     @Binding public var finished:Bool?
     @Binding public var progressValue:Float
+    public var overrideUserInterfaceStyle: UIUserInterfaceStyle?
 
-    public init(url: URL, finished:Binding<Bool?>, progressValue:Binding<Float>) {
+    public init(url: URL,
+                finished:Binding<Bool?>,
+                progressValue:Binding<Float>,
+                overrideUserInterfaceStyle: UIUserInterfaceStyle?=nil) {
         self.url = url
         _finished = finished
         _progressValue = progressValue
+        self.overrideUserInterfaceStyle = overrideUserInterfaceStyle
     }
     public func makeUIView(context: UIViewRepresentableContext<WebView>) -> WKWebView{
         let wkWebView = WKWebView();
+        if let overrideUserInterfaceStyle:UIUserInterfaceStyle = overrideUserInterfaceStyle{
+            wkWebView.overrideUserInterfaceStyle = overrideUserInterfaceStyle
+        }
+        wkWebView.isOpaque = false
+        wkWebView.backgroundColor = .clear
+        wkWebView.scrollView.backgroundColor = .clear
         wkWebView.navigationDelegate = context.coordinator
         let request = URLRequest(url: url)
         wkWebView.load(request)
@@ -126,7 +137,7 @@ public struct WebView: UIViewRepresentable {
 }
 
 @available(iOS 15.0, *)
-public struct WebViewScreen: View {
+public struct ScreenWebView: View {
     var url:URL
     @Binding public var present:Bool
     public var barColor:Color?
