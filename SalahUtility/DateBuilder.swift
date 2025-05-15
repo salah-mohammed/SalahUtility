@@ -20,24 +20,24 @@ public class DateBuilder{
     var dateFormatter:DateFormatter?
     var dateRequest:DateRequest?
     var date:Date?
-    func date(date:Date)->Self{
+    public func date(date:Date)->Self{
         self.date=date
         return self
     }
-    func dateReuest(dateRequest:DateRequest)->Self{
+    public func dateReuest(dateRequest:DateRequest)->Self{
         self.dateRequest=dateRequest
         return self
     }
-    func execute()->String?{
-        if let date:Date = self.date{
-            return self.dateFormatter?.string(from:date)
-        }else{return nil}
-    }
-    func build()->Self{
+    public func build()->Self{
         if let dateReuest:DateRequest = dateRequest{
             self.dateFormatter = self.construct(request:dateReuest)
         }
       return self
+    }
+    public func execute()->String?{
+        if let date:Date = self.date{
+            return self.dateFormatter?.string(from:date)
+        }else{return nil}
     }
     fileprivate func construct(request:DateRequest)->DateFormatter{
      let dateFormatter = DateFormatter.init()
