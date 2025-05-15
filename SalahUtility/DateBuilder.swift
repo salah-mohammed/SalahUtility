@@ -20,6 +20,9 @@ public class DateBuilder{
     var dateFormatter:DateFormatter?
     var dateRequest:DateRequest?
     var date:Date?
+    public init() {
+        
+    }
     public func date(date:Date)->Self{
         self.date=date
         return self
