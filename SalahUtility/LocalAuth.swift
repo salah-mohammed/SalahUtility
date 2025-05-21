@@ -35,4 +35,24 @@ public class LocalAuth: NSObject {
         }
         return false
     }
+    public func auth(
+           localizedReason: String,
+           completion: @escaping (_ success: Bool, _ error: Error?) -> Void
+       ) {
+           DispatchQueue.main.async {
+               var authError: NSError?
+
+               if  self.laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+                   self.laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: localizedReason) { success, error in
+                       DispatchQueue.main.async {
+                           completion(success, error)
+                       }
+                   }
+               } else {
+                   DispatchQueue.main.async {
+                       completion(false, authError)
+                   }
+               }
+           }
+    }
 }
