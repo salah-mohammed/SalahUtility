@@ -35,6 +35,9 @@ public class LocalAuth: NSObject {
         }
         return false
     }
+    public func hasFaceIdOrTouchId()->Bool{
+        return self.hasFaceId() || self.hasTouchId()
+    }
     public func auth(
            localizedReason: String,
            completion: @escaping (_ success: Bool, _ error: Error?) -> Void
