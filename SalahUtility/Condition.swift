@@ -12,43 +12,26 @@ public protocol ConditionProtocol{
     /* if result of check == false check fail if check == true the check is success  */
     var check:Bool{get}
     /* The goal of operation function when failure action accure will implemented or this depend on your condition*/
-    func operation()->Bool
+    func operation()
     var subConditions:[ConditionProtocol]{get}
 }
 public extension ConditionProtocol{
-    func checkWithOperation()->Bool{
+    func checkWithOperation(){
     let check = self.check
     if check{
-    return self.operation()
+        self.operation()
     }
-    return check
     }
 }
 public extension Array where Element == ConditionProtocol {
-   @discardableResult func checkWithOperation()->Bool{
+   @discardableResult func checkWithOperation(){
         for item in self{
-            var isChecked = item.checkWithOperation()
-            if let first:ConditionProtocol = item.subConditions.first(where:{$0.check == false}){
-                isChecked = first.operation();
-            }
-            if isChecked == false{
-                return isChecked
+           item.checkWithOperation()
+            for subcondition in item.subConditions{
+            subcondition.checkWithOperation()
             }
         }
-     return true
     }
-    @discardableResult func check()->Bool{
-         for item in self{
-             var isChecked = item.check
-             if let first:ConditionProtocol = item.subConditions.first(where:{$0.check == false}){
-                 isChecked = first.check
-             }
-             if isChecked == false{
-                 return isChecked
-             }
-         }
-      return true
-     }
 }
 
 
