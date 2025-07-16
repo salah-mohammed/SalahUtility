@@ -3683,10 +3683,14 @@ public extension Date {
         return Calendar.current.dateComponents([.month], from: sinceDate, to: self).month
     }
 
-    func bs_days(sinceDate: Date) -> Int? {
-        return Calendar.current.dateComponents([.day], from: sinceDate, to: self).day
+    func bs_days(sinceDate: Date,includeStartDate:Bool=false) -> Int? {
+        let newSinceDate = includeStartDate ? Calendar.current.date(byAdding:.day, value: -1, to: sinceDate):sinceDate
+        if let newSinceDate:Date = newSinceDate{
+            return Calendar.current.dateComponents([.day], from: newSinceDate, to: self).day
+        }else{
+            return  nil
+        }
     }
-
     func bs_hours(sinceDate: Date) -> Int? {
         return Calendar.current.dateComponents([.hour], from: sinceDate, to: self).hour
     }
