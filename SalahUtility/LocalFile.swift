@@ -53,6 +53,10 @@ public enum LocalFile{
     }
 }
 open class FileBuilder{
+    public enum WriteCopyBehavior{
+      case stopIfExist
+      case deleteIfExistThenWriteOrCopy
+    }
     open func copy()->FileBuilder{
         let copyFileBuilder = FileBuilder.init(self.operationType);
         copyFileBuilder.operationType=self.operationType
@@ -64,9 +68,9 @@ open class FileBuilder{
         return copyFileBuilder
     }
     public enum OperationType{
-    case write(deleteIfExist:Bool,writtenType:WrittenType)
+    case write(writeCopyBehavior:WriteCopyBehavior,writtenType:WrittenType)
     case get(finish:((Data?)->Void)?=nil)
-    case copy(deleteIfExist:Bool,from:URL)
+    case copy(writeCopyBehavior:WriteCopyBehavior,from:URL)
     case remove
     }
     public enum WrittenType{
@@ -147,17 +151,17 @@ open class FileBuilder{
             if let genratedUrl:URL = self.genratedUrl{
                 do{
                     handler?(try Data.init(contentsOf: genratedUrl));
-                }catch{ 
+                }catch{
                     
                 }
             }
             break;
-        case .copy(let deleteIfExist,let fromUrl):
+        case .copy(let writeCopyBehavior,let fromUrl):
             if let genratedUrl:URL = self.genratedUrl{
-               let _ = FileManager.default.bs_copyItem(deleteIfExist:deleteIfExist, at:fromUrl, to:genratedUrl)
+                let _ = FileManager.default.bs_copyItem(deleteIfExist:writeCopyBehavior == .deleteIfExistThenWriteOrCopy, at:fromUrl, to:genratedUrl)
             }
             break;
-        case .write(let deleteIfExist,let writtenType):
+        case .write(let writeCopyBehavior,let writtenType):
           #if DEBUG
             if (self.fileName == nil || self.fileType == nil) && self.genratedUrl == nil{
                 fatalError("you should enter file name and file type to write file")
@@ -165,25 +169,33 @@ open class FileBuilder{
           #endif
             if let localUrl:URL = self.genratedUrl,
                let localPath:String=self.genratedUrl?.localPath{
+                
+                if writeCopyBehavior == .deleteIfExistThenWriteOrCopy,FileManager.default.fileExists(atPath:localPath) {
+                    do{
+                    try FileManager.default.removeItem(at:localUrl)
+                    }catch{
+                        
+                    }
+                }else
+                if writeCopyBehavior == .stopIfExist,FileManager.default.fileExists(atPath:localPath) {
+                    return ;
+                }
                 switch writtenType{
                 case .data(let data):
                     do{
-                        if deleteIfExist,FileManager.default.fileExists(atPath:localPath) {
-                            try FileManager.default.removeItem(at:localUrl)
-                        }
                         try data.write(to:localUrl)
-                    }catch{ 
+                    }catch{
                         
                     }
                     break;
                 case .string(let string):
-                    try? string.write(toFile: localPath, atomically:deleteIfExist, encoding: .utf8)
+                    try? string.write(toFile: localPath, atomically:true, encoding: .utf8)
                     break;
                 case .dic(let dic):
-                    dic.write(toFile:localPath, atomically:deleteIfExist)
+                    dic.write(toFile:localPath, atomically:true)
                     break;
                 case .array(let array):
-                    array.write(toFile: localPath, atomically:deleteIfExist)
+                    array.write(toFile: localPath, atomically:true)
                     break;
                 }
             }
