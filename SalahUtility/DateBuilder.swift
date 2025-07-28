@@ -7,7 +7,8 @@
 //
 
 
-public typealias DateFormatType = String
+public typealias DisplayDateFormatType = String
+public typealias FixedDateFormatType = (format: String, regix: String)
 
 public protocol DateRequest{
     var calendar:Calendar{get}
