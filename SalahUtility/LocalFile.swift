@@ -40,10 +40,16 @@ public enum LocalFile{
                         folderName: let folderName,
                         localeFileName: let localeFileName,
                         fileType: let fileType):
-            return URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
-                                        folderName,
-                                        fileType,
-                                           localeFileName,true)?.path;
+            var a = URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
+                                            folderName,
+                                            fileType,
+                                            localeFileName,true)
+            if #available(iOS 16.0, *) {
+                return a?.path()
+            } else {
+                return a?.path
+                // Fallback on earlier versions
+            };
         case .bundle(forResource: let forResource,ofType:let ofType):
             if let  path:String = Bundle.main.path(forResource:forResource, ofType:ofType){
              return path
