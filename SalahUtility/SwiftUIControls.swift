@@ -155,12 +155,19 @@ public struct ScreenWebView: View {
         VStack(spacing:0){
             VStack(spacing:0){
                 HStack{
+                    if #available(iOS 16.0, *) {
+                            ShareLink(item: url) {
+                                Image(systemName: "square.and.arrow.up").foregroundColor(Color.init(uiColor:.label))
+                                    .padding(8)
+                            }
+                    }
                     ZStack{
                     Spacer().frame(width:35)
                      if finished == false{
                         ProgressView().controlSize(.regular)
                         }
                     }
+
                     Spacer()
                     Text(self.title ?? "")
                     Spacer()
