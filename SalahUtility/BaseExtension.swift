@@ -1531,6 +1531,9 @@ public extension Sequence {
 /*    **UIImage**   */
  #if os(iOS)
  public extension UIImage {
+    func bs_ratioSize(newWidth:CGFloat)->CGSize{
+             return  UIImage.bs_ratioSize(viewWidth:newWidth, imageWidth:self.size.width, imageHeight:self.size.height)
+    }
      var bs_mutableAttributedString:NSMutableAttributedString{
              let image1Attachment = NSTextAttachment()
              image1Attachment.image = self
