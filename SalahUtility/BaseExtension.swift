@@ -1534,6 +1534,10 @@ public extension Sequence {
     func bs_ratioSize(newWidth:CGFloat)->CGSize{
              return  UIImage.bs_ratioSize(viewWidth:newWidth, imageWidth:self.size.width, imageHeight:self.size.height)
     }
+     func bs_ratioSize(newHeight:CGFloat)->CGSize{
+        return  UIImage.bs_ratioSize(viewHeight:newHeight, imageWidth:self.size.width, imageHeight:self.size.height)
+     }
+
      var bs_mutableAttributedString:NSMutableAttributedString{
              let image1Attachment = NSTextAttachment()
              image1Attachment.image = self
@@ -1639,6 +1643,11 @@ public extension Sequence {
         return CGSize(width: myViewWidth, height: scaledHeight)
         
     }
+     public class func bs_ratioSize(viewHeight: CGFloat, imageWidth: CGFloat, imageHeight: CGFloat) -> CGSize {
+         let ratio = viewHeight / imageHeight
+         let scaledWidth = imageWidth * ratio
+         return CGSize(width: scaledWidth, height: viewHeight)
+     }
      static let iphone8:CGFloat=375/667;
      static let iphone8plus:CGFloat=414/736;
      static let iphoneXR:CGFloat=414/896;
