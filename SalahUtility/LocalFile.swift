@@ -24,7 +24,7 @@ public enum LocalFile{
             return URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
                                         folderName,
                                         localeFileName,
-                                        fileType,true);
+                                        fileType);
         case .bundle(forResource: let forResource, ofType: let ofType):
             if let  path:String = Bundle.main.path(forResource:forResource, ofType:ofType){
              return URL.init(fileURLWithPath:path)
@@ -40,10 +40,10 @@ public enum LocalFile{
                         folderName: let folderName,
                         localeFileName: let localeFileName,
                         fileType: let fileType):
-            var a = URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
+            let a = URL.bs_genrateLocalFile(searchPathDirectory ?? .documentDirectory,
                                             folderName,
                                             fileType,
-                                            localeFileName,true)
+                                            localeFileName)
             if #available(iOS 16.0, *) {
                 return a?.path()
             } else {
@@ -70,7 +70,6 @@ open class FileBuilder{
         copyFileBuilder.searchPathDirectory=self.searchPathDirectory
         copyFileBuilder.fileType=self.fileType
         copyFileBuilder.fileName=self.fileName
-        copyFileBuilder.create=self.create
         return copyFileBuilder
     }
     public enum OperationType{
@@ -91,7 +90,6 @@ open class FileBuilder{
     let defaultSearchPath:FileManager.SearchPathDirectory = .documentDirectory
     private var fileType:String?
     private var fileName:String?
-    private var create:Bool=false;
     var genratedUrl:URL?
     private var folderPath:String?{
         if folders.count > 0{
@@ -112,7 +110,7 @@ open class FileBuilder{
            self.folderPath != nil ||
            self.fileName != nil ||
            self.fileType != nil{
-            self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory ?? self.defaultSearchPath, self.folderPath,self.fileName,self.fileType, self.create)
+            self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory ?? self.defaultSearchPath, self.folderPath,self.fileName,self.fileType)
     }else
      if let genratedUrl:URL=self.genratedUrl{
          let a = FileManager.default.bs_createFolderIfNotExist(url:genratedUrl)
@@ -141,10 +139,6 @@ open class FileBuilder{
     }
     open func fileName(_ fileName:String)->Self{
     self.fileName=fileName
-    return self
-    }
-    open func create(_ create:Bool)->Self{
-    self.create=create
     return self
     }
     @discardableResult open func execute()->URL?{

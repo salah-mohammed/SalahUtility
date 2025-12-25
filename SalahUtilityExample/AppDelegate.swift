@@ -264,35 +264,32 @@ class RemoteError:ConditionProtocol,RemoteErrorProtocol{
     var check: Bool{
       return false
     }
-    func operation() -> Bool {
-        return false;
+    func operation(){
+
     }
 }
 class MaintenanceError:RemoteError{
     override var check:Bool{
         return error?._code == 1002
     }
-    override func operation() -> Bool {
+    override func operation() {
         AppAlert.show(nil,.error("", nil))
-        return false
     }
 }
 class NoInternetCheckError:RemoteError{
     override var check: Bool{
         return  (error?._code == 404 || error?._code == 500)
     }
-    override func operation() -> Bool {
+    override func operation() {
         AppAlert.show(nil,.error("", nil))
-        return false
     }
 }
 class AuthError:RemoteError{
     override var check: Bool{
         return  errorCode == 401
     }
-    override func operation() -> Bool {
+    override func operation() {
         AppAlert.show(nil,.error("", nil))
-        return false
     }
 }
 
@@ -574,28 +571,28 @@ class ViewModel: ObservableObject {
                 .store(in: &cancellables)
         }
     }
-struct NetworkImage: View {
-    @StateObject private var viewModel = ViewModel()
-
-    let url: URL?
-
-    var body: some View {
-        Group {
-            if let data = viewModel.imageData, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else if viewModel.isLoading {
-                ProgressView()
-            } else {
-                Image(systemName: "photo")
-            }
-        }
-        .onAppear {
-            viewModel.loadImage(from: url)
-        }
-    }
-}
-NetworkImage(url: URL(string: "https://stackoverflow.design/assets/img/logos/so/logo-stackoverflow.png"))
-              .frame(maxHeight: 150)
-              .padding()
+//struct NetworkImage: View {
+//    @StateObject private var viewModel = ViewModel()
+//
+//    let url: URL?
+//
+//    var body: some View {
+//        Group {
+//            if let data = viewModel.imageData, let uiImage = UIImage(data: data) {
+//                Image(uiImage: uiImage)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//            } else if viewModel.isLoading {
+//                ProgressView()
+//            } else {
+//                Image(systemName: "photo")
+//            }
+//        }
+//        .onAppear {
+//            viewModel.loadImage(from: url)
+//        }
+//    }
+//}
+//NetworkImage(url: URL(string: "https://stackoverflow.design/assets/img/logos/so/logo-stackoverflow.png"))
+//              .frame(maxHeight: 150)
+//              .padding()

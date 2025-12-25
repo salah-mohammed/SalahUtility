@@ -3033,11 +3033,10 @@ public extension URL {
     static func bs_genrateLocalFile(_ searchPathDirectory:FileManager.SearchPathDirectory = .documentDirectory,
                                  _ folderName:String?,
                                     _ localeFileName:String?,
-                                    _ fileType:String?,
-                                    _ createPath:Bool)->URL?{
+                                    _ fileType:String?)->URL?{
         var tempLocalFolderUrl:URL?
         if let folderName:String = folderName{
-            tempLocalFolderUrl = FileManager.default.bs_createFolder(searchPathDirectory,folderName:"\(folderName)",createPath:createPath)
+            tempLocalFolderUrl = FileManager.default.bs_createFolder(searchPathDirectory,folderName:"\(folderName)")
         }else{
             tempLocalFolderUrl=FileManager.default.urls(for:searchPathDirectory,in: .userDomainMask).first
         }
@@ -3382,7 +3381,7 @@ public extension FileManager {
         return fileURLs
     }
     // folder/subfolder/subfolder
-func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirectory,folderName: String,createPath:Bool=true) -> URL? {
+func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirectory,folderName: String) -> URL? {
         let fileManager = FileManager.default
         // Get document directory for device, this should succeed
         if let documentDirectory = fileManager.urls(for:documentDirectory,
@@ -3390,9 +3389,9 @@ func bs_createFolder(_ documentDirectory:SearchPathDirectory = .documentDirector
             // Construct a URL with desired folder name
             let folderURL = documentDirectory.appendingPathComponent(folderName)
             // If folder URL does not exist, create it
-            if createPath{
+//            if createPath{
               let temp = self.bs_createFolderIfNotExist(url:folderURL)
-            }
+//            }
             // Folder either exists, or was created. Return URL
             return folderURL
         }
