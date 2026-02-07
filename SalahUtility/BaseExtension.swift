@@ -438,6 +438,19 @@ public extension String{
 //            return item
 //        }
 //    }
+
+    var url:URL?{
+        if self.isRemoteFile{
+             return URL.init(string:self)
+        }else{
+             return self.bs_fileURL
+        }
+    }
+    var isRemoteFile:Bool{ if self.contains("http"){
+        return true
+        }
+        return false
+    }
     func last(count:Int) -> String{
     return String(self.suffix(count))
     }
