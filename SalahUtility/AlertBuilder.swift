@@ -111,7 +111,7 @@ public enum AppAlert{
  }
     static public func show(_ viewController:UIViewController? = nil,_ alertType : AppAlert){
         
-    if let vc = AppAlert.viewController ?? viewController{
+    if let vc = viewController ?? AppAlert.viewController{
         let alert = AlertBuilder.init(viewController: vc, style: .alert)
         alert.title(alertType.title)
         switch alertType{

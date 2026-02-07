@@ -47,7 +47,7 @@ public class LanguageManager: NSObject {
         let converter:(Any)->String = { object in
             (object as? LanguageObject)?.name ?? ""
         }
-        if let vc = AppAlert.viewController ?? viewController{
+        if let vc = viewController ?? AppAlert.viewController{
             UIAlertController.bs_showActionSheet(sender:vc.view,
                                                  title:AppTexts.Constant.choose.string,
                                                  message:AppTexts.Constant.appLanguage.string,
