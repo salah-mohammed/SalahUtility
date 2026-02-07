@@ -90,7 +90,7 @@ open class FileBuilder{
     let defaultSearchPath:FileManager.SearchPathDirectory = .documentDirectory
     private var fileType:String?
     private var fileName:String?
-    var genratedUrl:URL?
+    public var genratedUrl:URL?
     private var folderPath:String?{
         if folders.count > 0{
             return folders.joined(separator:"/")
@@ -113,7 +113,7 @@ open class FileBuilder{
             self.genratedUrl=URL.bs_genrateLocalFile(searchPathDirectory ?? self.defaultSearchPath, self.folderPath,self.fileName,self.fileType)
     }else
      if let genratedUrl:URL=self.genratedUrl{
-         let a = FileManager.default.bs_createFolderIfNotExist(url:genratedUrl)
+         let temp = FileManager.default.bs_createFolderIfNotExist(url:genratedUrl)
      }
     return self;
     }
