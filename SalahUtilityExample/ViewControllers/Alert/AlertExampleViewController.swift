@@ -24,21 +24,21 @@ class AlertExampleViewController: UIViewController {
         AppAlert.show(nil,AppAlert.attention("message", { _,_ in
             print("ok")
         }))
-//        Alert.show(nil,Alert.error("message", { _,_ in
+//        AppAlert.show(nil,AppAlert.error("message", { _,_ in
 //            print("ok")
 //        }))
-//        Alert.show(nil,Alert.success("message", { _,_ in
+//        AppAlert.show(nil,AppAlert.success("message", { _,_ in
 //        print("ok")
 //        }))
-//        Alert.show(nil,Alert.fieldRequired("title","حقل الاسم", { _,_ in
+//        AppAlert.show(nil,AppAlert.fieldRequired("title","حقل الاسم", { _,_ in
 //            print("ok")
 //        }))
-//        Alert.show(nil,Alert.yesOrNo("YesOr no", yes: (nil,{ _,_ in
+//        AppAlert.show(nil,AppAlert.yesOrNo("YesOr no", yes: (nil,{ _,_ in
 //            print("YEs")
 //        }), no:  (nil,{ _,_ in
 //            print("No")
 //        })))
-//        Alert.show(nil,Alert.fieldRequiredTowButton("title","message", { _ in
+//        AppAlert.show(nil,AppAlert.fieldRequiredTowButton("title","message", { _ in
 //            print("");
 //        }))
         

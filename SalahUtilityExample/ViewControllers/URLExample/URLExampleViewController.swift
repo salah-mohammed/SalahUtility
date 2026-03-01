@@ -13,11 +13,7 @@ class URLExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-
-        AppAlert.show(self, AppAlert.attention("message", { _,_ in
-        }))
-        
+             
         var url = "";
         
         var url1 = try? URL.init(string: url)?.absoluteString;

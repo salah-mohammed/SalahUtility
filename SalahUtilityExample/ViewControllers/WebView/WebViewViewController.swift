@@ -13,7 +13,7 @@ class WebViewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.webView.loadHTMLWithLocalCSS("salah ali abel hameed shaker mohamed <br> صلاح علي عبد الحميد شاكر محمد شيشسيس");
+//        self.webView.loadHTMLWithLocalCSS("salah ali abel hameed shaker mohamed <br> صلاح علي محمد");
         
 //        let htmlString = """
 //        <!doctype html>
@@ -40,7 +40,7 @@ class WebViewViewController: UIViewController {
 //            <body>
 //                <div class="container">
 //                    <div class="element">
-//                        Hello, <span class="custom">WKWebView!<br>salah ali abel hameed shaker mohamed <br> صلاح علي عبد الحميد شاكر محمد شيشسيس</span>
+//                        Hello, <span class="custom">WKWebView!<br>salah ali abel hameed shaker mohamed <br> صلاح علي محمد </span>
 //                    </div>
 //                </div>
 //            </body>
