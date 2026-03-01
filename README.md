@@ -10,6 +10,7 @@
 
 ```ruby
 pod 'SalahUtility',:git => "https://github.com/salah-mohammed/SalahUtility.git"
+pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 ```
 
 
