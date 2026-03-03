@@ -12,6 +12,9 @@ open class BaseAlertViewController:UIViewController{
     open var defaultAlphaValue:CGFloat{
      return 0.65
     }
+    open var defaultColorValue:UIColor{
+     return UIColor.black
+    }
     open override func viewDidLoad() {
         super.viewDidLoad();
         self.view.backgroundColor=UIColor.clear
@@ -28,7 +31,7 @@ open class BaseAlertViewController:UIViewController{
     }
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.backgroundColor=UIColor.black.withAlphaComponent(0.65)
+        self.view.backgroundColor=defaultColorValue.withAlphaComponent(defaultAlphaValue)
     }
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);

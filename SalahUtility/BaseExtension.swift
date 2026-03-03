@@ -1543,6 +1543,21 @@ public extension Sequence {
 
 /*    **UIImage**   */
  #if os(iOS)
+public extension NSMutableAttributedString{
+    func bs_target(_ stringValue:String,
+                _ stringAttributes:[NSAttributedString.Key:Any])->NSMutableAttributedString?{
+        let initialMutableAttributed = self
+        
+        for range in initialMutableAttributed.string.bs_ranges(of: stringValue){
+            let nsRange = NSRange(range, in: initialMutableAttributed.string)
+                // Replace content in range with the new content
+                let newAttributedString = NSMutableAttributedString(string: stringValue, attributes: stringAttributes)
+                initialMutableAttributed.replaceCharacters(in: nsRange, with: newAttributedString)
+        }
+        
+    return initialMutableAttributed
+    }
+}
  public extension UIImage {
     func bs_ratioSize(newWidth:CGFloat)->CGSize{
              return  UIImage.bs_ratioSize(viewWidth:newWidth, imageWidth:self.size.width, imageHeight:self.size.height)

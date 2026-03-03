@@ -7,18 +7,21 @@
 
 import Foundation
 import UIKit
-
-class AppAlertViewController: UIViewController {
+import SalahUtility
+class AppAlertViewController: BaseAlertViewController {
+    open override var defaultAlphaValue:CGFloat{
+     return 0.65
+    }
+    open override var defaultColorValue:UIColor{
+     return UIColor.black
+    }
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblMessage:UILabel!
     @IBOutlet weak var stackView:UIStackView!
 //    var actions:[UIButton]=[UIButton]();
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView();
-        localized();
-        setupData();
-        fetchData();
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
@@ -35,11 +38,9 @@ class AppAlertViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-        self.view.backgroundColor=UIColor.black.withAlphaComponent(0.3);
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
-        self.view.backgroundColor=UIColor.clear
 
     }
     override func viewDidLayoutSubviews() {
@@ -47,6 +48,9 @@ class AppAlertViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+    }
+    @IBAction func btnDismis(_ sender: Any) {
+        self.dismiss(animated: true);
     }
     func addAction(_ title:String,_ titleColor:UIColor,action:()->Void){
         var action =  UIButton.init();
@@ -62,22 +66,5 @@ class AppAlertViewController: UIViewController {
         stackView.addArrangedSubview(action)
 
     }
-    
-}
-extension AppAlertViewController{
-    func setupView(){
-        self.view.backgroundColor=UIColor.clear
-    }
-    func localized(){
-        
-    }
-    func setupData(){
-        
-    }
-    func fetchData(){
-        
-    }
-}
-extension AppAlertViewController{
     
 }
