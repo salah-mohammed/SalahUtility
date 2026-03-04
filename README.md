@@ -26,7 +26,7 @@ pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 * Network response Management.
 * Apple Login Manager.
 * File Management System.
-
+* Vibration.
 # Requirements
 * IOS 13+ 
 * Swift 5+
