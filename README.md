@@ -13,7 +13,20 @@ pod 'SalahUtility',:git => "https://github.com/salah-mohammed/SalahUtility.git"
 pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 ```
 
+# Features
 
+* Regular expression.
+* Date Management.
+* keychainHelpers.
+* Local Notification.
+* Extensions.
+* Debuger.
+* Document And Image Picker.
+* Device Auth.
+* Network response Management.
+* Apple Login Manager.
+* File Management System.
+* Vibration.
 # Requirements
 * IOS 13+ 
 * Swift 5+
