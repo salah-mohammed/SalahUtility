@@ -19,7 +19,6 @@ pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 * Date Managemnt.
 * keychainHelpers.
 * Local Notification.
-* Local Notification.
 * Extensions.
 * Debuger.
 * Document And Image Picker.
