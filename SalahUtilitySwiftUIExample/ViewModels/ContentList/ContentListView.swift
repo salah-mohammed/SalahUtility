@@ -34,6 +34,12 @@ struct ContentListView: View {
             }.navigationDestination(isPresented:$viewModel.pushAppStorage){
                 AppStorageView()
             }
+            .navigationDestination(isPresented:$viewModel.fileManagementSystem){
+                FileManagementExampleView()
+            }
+            .navigationDestination(isPresented:$viewModel.dateManagementSystem){
+                DateManagementView()
+            }
         }.navigationBarTitle("Content List")
     }
 }

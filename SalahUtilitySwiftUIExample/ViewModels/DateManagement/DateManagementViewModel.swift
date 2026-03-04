@@ -1,5 +1,5 @@
 //
-//  VibrationViewModel.swift
+//  DateManagementViewModel.swift
 //  SalahUtilitySwiftUIExample
 //
 //  Created by SalahMohamed on 26/07/2023.
@@ -7,8 +7,7 @@
 //
 import Foundation
 import SalahUtility
-class VibrationViewModel:NSObject,ObservableObject{
-    @Published  var adLoaded = false
+class DateManagementViewModel:NSObject,ObservableObject{
     @Published  var list:[(String,Action)] = []
     override init() {
         super.init();
