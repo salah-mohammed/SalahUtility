@@ -16,7 +16,7 @@ pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 # Features
 
 * Regular expression.
-* Date Managemnt.
+* Date Management.
 * keychainHelpers.
 * Local Notification.
 * Extensions.
