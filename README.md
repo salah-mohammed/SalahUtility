@@ -26,6 +26,7 @@ pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 * Device Auth.
 * Network response Management.
 * Apple Login Manager.
+* File Managment System.
 
 # Requirements
 * IOS 13+ 
