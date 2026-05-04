@@ -29,27 +29,23 @@ open class Regex {
         output=internalExpression?.stringByReplacingMatches(in: output, options:.reportProgress, range:NSMakeRange(0,input.count), withTemplate: replacement) ?? "";
         return output;
     }
+    open func getMatches(input: String) -> [String] {
+        guard let regex = self.internalExpression else { return [] }
+        let matches = regex.matches(in: input, range: NSMakeRange(0, input.count))
+        return matches.map { match in
+            if let range = Range(match.range, in: input) {
+                return String(input[range])
+            }
+            return ""
+        }.filter { !$0.isEmpty }
+    }
     
-//    func replacement(input:String,replacementCharacter:String) -> String {
-//        var output=input;
-//        let matches = self.internalExpression.matches(in:output, range:NSMakeRange(0,input.count)).first!
-//        for matche in [matches] {
-//            var  subString = String(input[Range(matche.range, in: input)!])
-//            print(subString)
-//            print("\n");
-//            print(matche.range.length);
-//            print("\n");
-//
-////            var template = "";
-////            for index in 0...(matche.range.length-1){
-////                template.append(replacementCharacter)
-////            }
-//            print(output)
-//            print("\n");
-//            output = self.internalExpression.replacementString(for: matche, in: input, offset:0, template:replacementCharacter)
-//            print(output);
-//            print("\n");
-//        }
-//        return output;
-//    }
+    open func getFirstMatch(input: String) -> String? {
+        guard let regex = self.internalExpression else { return nil }
+        guard let match = regex.firstMatch(in: input, range: NSMakeRange(0, input.count)) else { return nil }
+        if let range = Range(match.range, in: input) {
+            return String(input[range])
+        }
+        return nil
+    }
 }
