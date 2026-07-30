@@ -1,12 +1,12 @@
 //
 //  VibrationViewModel.swift
-//  SalahUtilitySwiftUIExample
+//  SwiftUtilitySwiftUIExample
 //
 //  Created by SalahMohamed on 26/07/2023.
 //  Copyright © 2023 Salah. All rights reserved.
 //
 import Foundation
-import SalahUtility
+import SwiftUtility
 class VibrationViewModel:NSObject,ObservableObject{
     @Published  var list:[(String,Action)] = []
     override init() {

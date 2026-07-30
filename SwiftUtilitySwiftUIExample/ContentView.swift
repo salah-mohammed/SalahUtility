@@ -1,13 +1,13 @@
 //
 //  ContentView.swift
-//  SalahUtilitySwiftUIExample
+//  SwiftUtilitySwiftUIExample
 //
 //  Created by SalahMohamed on 19/02/2023.
 //  Copyright © 2023 Salah. All rights reserved.
 //
 
 import SwiftUI
-import SalahUtility
+import SwiftUtility
 struct ContentView: View {
     var body: some View {
         ZStack{

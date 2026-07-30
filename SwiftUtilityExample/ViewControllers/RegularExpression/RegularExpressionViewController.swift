@@ -1,13 +1,13 @@
 //
 //  RegularExpressionViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 1/26/21.
 //  Copyright © 2021 Salah. All rights reserved.
 //
 
 import UIKit
-import SalahUtility
+import SwiftUtility
 class RegularExpressionViewController: UIViewController {
 
     // explain '|' OR

@@ -1,6 +1,6 @@
 //
 //  AnimationViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 10/30/21.
 //  Copyright © 2021 Salah. All rights reserved.

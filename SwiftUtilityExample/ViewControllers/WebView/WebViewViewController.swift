@@ -1,6 +1,6 @@
 //
 //  WebViewViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 1/17/22.
 //  Copyright © 2022 Salah. All rights reserved.

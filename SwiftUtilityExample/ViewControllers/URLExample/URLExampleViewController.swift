@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SalahUtility
+import SwiftUtility
 import SwiftUI
 class URLExampleViewController: UIViewController {
 

@@ -1,13 +1,13 @@
 //
 //  KeychainExampleViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by SalahMohamed on 25/01/2024.
 //  Copyright © 2024 Salah. All rights reserved.
 //
 
 import UIKit
-import SalahUtility
+import SwiftUtility
 class KeychainExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

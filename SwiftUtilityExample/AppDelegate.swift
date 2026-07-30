@@ -1,13 +1,13 @@
 //
 //  AppDelegate.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 11/16/20.
 //  Copyright © 2020 Salah. All rights reserved.
 //
 import UIKit
 import BackgroundTasks
-import SalahUtility
+import SwiftUtility
 import AppTexts
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //            var finished = false
 //            var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0);
-//            bgTask = application.beginBackgroundTask(withName:"com.salahmohamed.SalahUtilityExample.don", expirationHandler: {() -> Void in
+//            bgTask = application.beginBackgroundTask(withName:"com.salahmohamed.SwiftUtilityExample.don", expirationHandler: {() -> Void in
 //                // Time is up.
 //                if bgTask != UIBackgroundTaskIdentifier.invalid {
 //                    // Do something to stop our background task or the app will be killed

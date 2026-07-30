@@ -1,6 +1,6 @@
 //
 //  VibrationView.swift
-//  SalahUtilitySwiftUIExample
+//  SwiftUtilitySwiftUIExample
 //
 //  Created by SalahMohamed on 26/07/2023.
 //  Copyright © 2023 Salah. All rights reserved.

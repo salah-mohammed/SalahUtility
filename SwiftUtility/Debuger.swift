@@ -1,6 +1,6 @@
 //
 //  Debuger.swift
-//  SalahUtility
+//  SwiftUtility
 //
 //  Created by Salah on 3/8/21.
 //  Copyright © 2021 Salah. All rights reserved.

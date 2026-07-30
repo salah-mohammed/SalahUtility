@@ -1,13 +1,13 @@
 //
 //  AlertExampleViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 9/5/22.
 //  Copyright © 2022 Salah. All rights reserved.
 //
 
 import UIKit
-import SalahUtility
+import SwiftUtility
 
 class AlertExampleViewController: UIViewController {
    

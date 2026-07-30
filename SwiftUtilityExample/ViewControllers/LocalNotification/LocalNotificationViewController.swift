@@ -1,13 +1,13 @@
 //
 //  LocalNotificationViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 11/16/20.
 //  Copyright © 2020 Salah. All rights reserved.
 //
 
 import UIKit
-import SalahUtility
+import SwiftUtility
 class LocalNotificationViewController: UIViewController {
 
     @IBOutlet weak var btnTest: UIButton!

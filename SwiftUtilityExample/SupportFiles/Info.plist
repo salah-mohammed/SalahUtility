@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>com.salahmohamed.SalahUtilityExample.don</string>
+		<string>com.salahmohamed.SwiftUtilityExample.don</string>
 		<string>com.a.1</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
@@ -52,7 +52,7 @@
 		<string>fetch</string>
 		<string>processing</string>
 		<string>remote-notification</string>
-		<string>com.salahmohamed.SalahUtilityExample.don</string>
+		<string>com.salahmohamed.SwiftUtilityExample.don</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

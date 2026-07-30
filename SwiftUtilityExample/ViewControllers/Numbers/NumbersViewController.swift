@@ -1,6 +1,6 @@
 //
 //  NumbersViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 3/19/21.
 //  Copyright © 2021 Salah. All rights reserved.

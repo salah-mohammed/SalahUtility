@@ -1,6 +1,6 @@
 //
 //  ShadowExampleViewController.swift
-//  SalahUtilityExample
+//  SwiftUtilityExample
 //
 //  Created by Salah on 2/28/21.
 //  Copyright © 2021 Salah. All rights reserved.
