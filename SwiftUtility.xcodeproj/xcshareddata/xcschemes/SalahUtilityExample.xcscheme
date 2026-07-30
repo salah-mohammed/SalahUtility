@@ -20,34 +20,6 @@
                ReferencedContainer = "container:SwiftUtility.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4EFC17512562C55E0050BB01"
-               BuildableName = "SwiftUtilityExampleTests.xctest"
-               BlueprintName = "SwiftUtilityExampleTests"
-               ReferencedContainer = "container:SwiftUtility.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B8CEA5429A20DF00017F875"
-               BuildableName = "SwiftUtilitySwiftUIExample.app"
-               BlueprintName = "SwiftUtilitySwiftUIExample"
-               ReferencedContainer = "container:SwiftUtility.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
