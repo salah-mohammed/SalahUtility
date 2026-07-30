@@ -31,15 +31,6 @@ pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 * IOS 13+ 
 * Swift 5+
 
-# Developer's information to communicate
-
-- salahalimohamed1995@gmail.com
-- https://www.facebook.com/salah.shaker.7
-- +201096710204 (WhatsApp And PhoneNumber)
-- https://www.linkedin.com/in/salah-mohamed-676b6a17a (Linkedin)
-- https://www.upwork.com/freelancers/~01d5d99dadac372b6d (Upwork)
-> 💼 **Premium Support Available**  
-> Need help integrating **SwiftUtility** or customizing features? I offer one-on-one Swift consulting.
 
 
 ## ❤️ Support & Commercial Services
