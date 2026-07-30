@@ -36,36 +36,5 @@ pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 ## ❤️ Support & Commercial Services
 
 This project is built to help you move faster and write less code.
-If it saves your time, please consider:
+If it saves your time, please Starring Repo.
 
-* Even $5 support project growing.
-
-<table>
-  <tr>
-    <td valign="middle">
-      <a href="https://buymeacoffee.com/salahalimou">
-        <img width="120" alt="Buy Me a Coffee" src="https://user-images.githubusercontent.com/1888355/146226808-eb2e9ee0-c6bd-44a2-a330-3bbc8a6244cf.png">
-      </a>
-    </td>
-    <td valign="middle" style="padding-left:10px;">
-      <a href="https://buymeacoffee.com/salahalimou">
-        <b>Buy Me a Coffee</b>
-      </a>
-    </td>
-  </tr>
-
-  <tr>
-    <td valign="middle" style="padding-top:10px;">
-      <a href="https://github.com/sponsors/salah-mohammed">
-        <img width="160" alt="GitHub Sponsors" src="https://img.shields.io/badge/Sponsor%20on%20GitHub-💖-brightgreen?style=for-the-badge">
-      </a>
-    </td>
-    <td valign="middle" style="padding-left:10px; padding-top:10px;">
-      <a href="https://github.com/sponsors/salah-mohammed">
-        <b>GitHub Sponsor</b>
-      </a>
-    </td>
-  </tr>
-</table>
-
-* ⭐ Starring Repo.
