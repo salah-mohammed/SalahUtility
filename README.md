@@ -1,4 +1,4 @@
-# SalahUtility
+# SwiftUtility
 
 [![Swift](https://img.shields.io/badge/Swift-5.0+-orange.svg)](#)
 [![iOS](https://img.shields.io/badge/iOS-13+-blue.svg)](#)
@@ -9,7 +9,7 @@
 # Pod install
 
 ```ruby
-pod 'SalahUtility',:git => "https://github.com/salah-mohammed/SalahUtility.git"
+pod 'SwiftUtility',:git => "https://github.com/salah-mohammed/SwiftUtility.git"
 pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 ```
 
@@ -39,7 +39,7 @@ pod 'AppTexts',:git => "https://github.com/salah-mohammed/AppTexts.git"
 - https://www.linkedin.com/in/salah-mohamed-676b6a17a (Linkedin)
 - https://www.upwork.com/freelancers/~01d5d99dadac372b6d (Upwork)
 > 💼 **Premium Support Available**  
-> Need help integrating **SalahUtility** or customizing features? I offer one-on-one Swift consulting.
+> Need help integrating **SwiftUtility** or customizing features? I offer one-on-one Swift consulting.
 
 
 ## ❤️ Support & Commercial Services

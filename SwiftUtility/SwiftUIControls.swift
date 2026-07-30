@@ -1,0 +1,314 @@
+//
+//  SwiftUIControls.swift
+//  SwiftUtility
+//
+//  Created by Salah on 6/2/22.
+//  Copyright © 2022 Salah. All rights reserved.
+//
+#if os(iOS)
+import Foundation
+import SwiftUI
+import UIKit
+import WebKit
+import PDFKit
+
+@available(iOS 13.0, *)
+public struct ActivityIndicator: UIViewRepresentable {
+
+    @Binding public var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+    public init(style:UIActivityIndicatorView.Style,isAnimating:Binding<Bool>) {
+        _isAnimating = isAnimating
+        self.style = style
+     }
+    public func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: style)
+    }
+
+    public func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
+@available(iOS 13.0, *)
+public struct Anything<Wrapper : UIView>: UIViewRepresentable {
+    typealias Updater = (Wrapper, Context) -> Void
+
+    var makeView: () -> Wrapper
+    var update: (Wrapper, Context) -> Void
+
+    public init(_ makeView: @escaping @autoclosure () -> Wrapper,
+         updater update: @escaping (Wrapper) -> Void) {
+        self.makeView = makeView
+        self.update = { view, _ in update(view) }
+    }
+
+    public func makeUIView(context: Context) -> Wrapper {
+        makeView()
+    }
+
+    public func updateUIView(_ view: Wrapper, context: Context) {
+        update(view, context)
+    }
+}
+@available(iOS 13.0, *)
+public struct RotatingForeverView: View {
+  @State private var isRotating = 0.0
+  @State private var duration = 3.5
+
+   var subView:()->AnyView
+    
+   public init(duration:Double = 3.5, subView: @escaping () -> AnyView) {
+        self.duration = duration
+        self.subView = subView
+    }
+    public var body: some View{
+       subView().rotationEffect(.degrees(isRotating))
+           .onAppear {
+               withAnimation(.linear(duration:duration)
+                       .repeatForever(autoreverses: false)) {
+                   isRotating = 360.0
+               }
+           }
+   }
+}
+
+@available(iOS 13.0, *)
+public struct WebView: UIViewRepresentable {
+    var url: URL
+    @Binding public var finished:Bool?
+    @Binding public var progressValue:Float
+    public var overrideUserInterfaceStyle: UIUserInterfaceStyle?
+
+    public init(url: URL,
+                finished:Binding<Bool?>,
+                progressValue:Binding<Float>,
+                overrideUserInterfaceStyle: UIUserInterfaceStyle?=nil) {
+        self.url = url
+        _finished = finished
+        _progressValue = progressValue
+        self.overrideUserInterfaceStyle = overrideUserInterfaceStyle
+    }
+    public func makeUIView(context: UIViewRepresentableContext<WebView>) -> WKWebView{
+        let wkWebView = WKWebView();
+        if let overrideUserInterfaceStyle:UIUserInterfaceStyle = overrideUserInterfaceStyle{
+            wkWebView.overrideUserInterfaceStyle = overrideUserInterfaceStyle
+        }
+        wkWebView.isOpaque = false
+        wkWebView.backgroundColor = .clear
+        wkWebView.scrollView.backgroundColor = .clear
+        wkWebView.navigationDelegate = context.coordinator
+        let request = URLRequest(url: url)
+        wkWebView.load(request)
+        return wkWebView
+    }
+    public func updateUIView(_ webView: WKWebView, context: Context) {
+
+    }
+    public func makeCoordinator() -> WebView.Coordinator {
+        let coordinator = Coordinator(self);
+       return coordinator
+    }
+    
+    public class Coordinator: NSObject, WKNavigationDelegate{
+        public var parent: WebView
+        var observer:Any?
+        init(_ parent: WebView){
+            self.parent = parent
+           
+        }
+        // this make WKWebView work when ssl certificate is lost (http)
+        public func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+            if let serverTrust:SecTrust = challenge.protectionSpace.serverTrust{
+                let cred = URLCredential(trust:serverTrust)
+                completionHandler(.useCredential, cred)
+            }
+        }
+        public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        self.parent.finished=false;
+            observer = webView.observe(\.estimatedProgress, options: [.new]) { webView,_ in
+                self.parent.progressValue = Float (webView.estimatedProgress)
+            }
+        }
+        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.parent.finished = true
+        self.observer=nil;
+        }
+    }
+}
+
+@available(iOS 15.0, *)
+public struct ScreenWebView: View {
+    var url:URL
+    @Binding public var present:Bool
+    public var barColor:Color?
+    public var title:String?
+
+    public init(url: URL,present:Binding<Bool>,barColor:Color?,title:String?) {
+        self.url = url
+        _present=present
+        self.barColor=barColor;
+        self.title=title
+    }
+    @State public var finished:Bool?
+    @State public var progressValue:Float=0
+    public var body: some View {
+        VStack(spacing:0){
+            VStack(spacing:0){
+                HStack{
+                    if #available(iOS 16.0, *) {
+                            ShareLink(item: url) {
+                                Image(systemName: "square.and.arrow.up").foregroundColor(Color.init(uiColor:.label))
+                                    .padding(8)
+                            }
+                    }
+                    ZStack{
+                    Spacer().frame(width:35)
+                     if finished == false{
+                        ProgressView().controlSize(.regular)
+                        }
+                    }
+
+                    Spacer()
+                    Text(self.title ?? "")
+                    Spacer()
+                    Button.init {
+                        present=false;
+                    } label: {
+                        Image(systemName:"xmark").foregroundColor(Color.init(uiColor:.label)).frame(width:35)
+                    }
+                }.padding([.leading,.trailing],16).frame(height:50).background(barColor)
+                linearProgressView.background(barColor)
+            }
+            WebView(url:url,finished:$finished,progressValue:$progressValue)
+        }
+    }
+    var linearProgressView:some View {
+        let geo = GeometryReader { size in
+            HStack{
+                Rectangle().foregroundColor(progressValue < 1.0 ? Color.blue:Color.clear).frame(width:size.size.width*CGFloat(progressValue)).cornerRadius(1.3)
+                Spacer()
+            }
+        }.frame(height:3)
+        return geo
+    }
+}
+
+// this used when there is clear color
+@available(iOS 13.0, *)
+public struct InvisibleButton: View {
+public typealias Action = () -> Void
+    public let action:Action?
+    public init(_ action:Action?) {
+        self.action = action
+    }
+   public var body: some View {
+        Color.clear
+        .contentShape(Rectangle())
+        .onTapGesture {
+            action?()
+        }
+    }
+}
+
+@available(iOS 13.0, *)
+public struct DismissKeyboardOnTap: ViewModifier {
+    public func body(content: Content) -> some View {
+        #if os(macOS)
+        return content
+        #else
+        return content.gesture(tapGesture)
+        #endif
+    }
+    private var tapGesture: some Gesture {
+        TapGesture().onEnded({
+            UIApplication.shared.bs_windowForegroundActive?.endEditing(true)
+        })
+    }
+}
+
+@available(iOS 13.0, *)
+class PDFViewCutom:PDFView{
+    var curentPageIndex:Int?{
+        guard let pdfCurrentPage = currentPage else {return nil}
+        guard let pdfCurrentPageNumber = document?.index(for: pdfCurrentPage)  else {return nil}
+        return pdfCurrentPageNumber
+    }
+    typealias HandlePageChange = (Int?)->Void
+    private var handlePageChange: HandlePageChange?
+    func handlePageChange(handlePageChange:@escaping HandlePageChange){
+        self.handlePageChange = handlePageChange
+    }
+    func setupObservers(){
+        NotificationCenter.default.addObserver(
+              self,
+              selector: #selector(handlePageChange(notification:)),
+              name: Notification.Name.PDFViewPageChanged,
+              object: self)
+    }
+    @objc private func handlePageChange(notification: Notification){
+        DispatchQueue.main.async {
+            self.handlePageChange?(self.curentPageIndex)
+        }
+    }
+}
+@available(iOS 13.0, *)
+public struct PDFKitRepresentedView: UIViewRepresentable {
+        let url: URL
+        @Binding var currentPageIndex: Int
+        @Binding var total: Int
+        var displayDirection: PDFDisplayDirection
+        var displayMode: PDFDisplayMode
+        var usePageViewController: Bool
+        var displaysAsBook:Bool
+    public init(_ url: URL,
+                _ currentPageIndex: Binding<Int>,
+                _ total: Binding<Int>,
+                displayDirection: PDFDisplayDirection = .horizontal,
+                displayMode:PDFDisplayMode = .singlePage,
+                usePageViewController:Bool = true,
+                displaysAsBook:Bool = false) {
+            self.url = url
+            self._currentPageIndex = currentPageIndex
+            self._total = total
+            self.displayDirection = displayDirection
+            self.displayMode = displayMode
+            self.usePageViewController =  usePageViewController
+            self.displaysAsBook = displaysAsBook;
+        }
+
+    public func makeUIView(context: Context) -> UIView {
+            guard let document = PDFKit.PDFDocument(url: self.url) else { return UIView() }
+
+            let pdfView = PDFViewCutom()
+            print("PDFVIEW IS CREATED")
+            pdfView.document = document
+            pdfView.displayMode = displayMode
+            pdfView.displayDirection = self.displayDirection
+            pdfView.autoScales = true
+            pdfView.usePageViewController(self.usePageViewController)
+            pdfView.displaysAsBook = displaysAsBook;
+            pdfView.backgroundColor = UIColor.clear;
+            pdfView.setupObservers();
+            pdfView.handlePageChange(handlePageChange:{ index in
+                if self.currentPageIndex != index{
+                    self.currentPageIndex = index ?? 0
+                }
+            })
+            DispatchQueue.main.async {
+                self.total = document.pageCount
+                print("Total pages: \(total)")
+            }
+            return pdfView
+        }
+
+    public func updateUIView(_ uiView: UIView, context: Context) {
+            guard let pdfView = uiView as? PDFViewCutom else { return }
+
+            if currentPageIndex < total,
+               currentPageIndex != pdfView.curentPageIndex,
+               let toPage:PDFPage = pdfView.document?.page(at:currentPageIndex){
+                    pdfView.go(to:toPage)
+            }
+        }
+    }
+#endif
