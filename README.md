@@ -1,10 +1,5 @@
 # SwiftUtility
 
-[![Swift](https://img.shields.io/badge/Swift-5.0+-orange.svg)](#)
-[![iOS](https://img.shields.io/badge/iOS-13+-blue.svg)](#)
-[![GitHub stars](https://img.shields.io/github/stars/salah-mohammed/VideoAudioPlayerKit?style=social)](#)
-[![Sponsor](https://img.shields.io/badge/Sponsor-💖-ff69b4)](https://github.com/sponsors/salah-mohammed)
-[![Buy Me A Coffee](https://img.shields.io/badge/☕️-Buy%20Me%20a%20Coffee-yellow)](https://buymeacoffee.com/salahalimou)
 
 # Pod install
 
